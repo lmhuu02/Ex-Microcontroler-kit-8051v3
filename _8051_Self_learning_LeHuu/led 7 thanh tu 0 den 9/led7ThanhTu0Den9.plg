@@ -1,0 +1,15 @@
+<html>
+<body>
+<pre>
+<h1>µVision Build Log</h1>
+<h2>Project:</h2>
+D:\TU HOC code project LeHuu\Project_vdk_8051_LeHuu\led 7 thanh tu 0 den 9\led7ThanhTu0Den9.uvproj
+Project File Date:  02/04/2022
+
+<h2>Output:</h2>
+Rebuild target 'Target 1'
+compiling led7ThanhTu0Den9.c...
+linking...
+Program Size: data=27.0 xdata=0 code=229
+creating hex file from "led7ThanhTu0Den9"...
+"led7ThanhTu0Den9" - 0 Error(s), 0 Warning(s).

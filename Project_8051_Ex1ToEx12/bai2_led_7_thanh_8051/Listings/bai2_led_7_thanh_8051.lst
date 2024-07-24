@@ -1,0 +1,93 @@
+C51 COMPILER V9.52.0.0   BAI2_LED_7_THANH_8051                                             02/20/2023 17:32:47 PAGE 1   
+
+
+C51 COMPILER V9.52.0.0, COMPILATION OF MODULE BAI2_LED_7_THANH_8051
+OBJECT MODULE PLACED IN .\Objects\bai2_led_7_thanh_8051.obj
+COMPILER INVOKED BY: C:\Keil_v5\C51\BIN\C51.EXE bai2_led_7_thanh_8051.c OPTIMIZE(8,SPEED) BROWSE DEBUG OBJECTEXTEND PRIN
+                    -T(.\Listings\bai2_led_7_thanh_8051.lst) TABS(2) OBJECT(.\Objects\bai2_led_7_thanh_8051.obj)
+
+line level    source
+
+   1          
+   2          /*
+   3          ******************************************************
+   4          *time: 2023 
+   5          *embedded 8051 by langauge c.
+   6          *ex2: control led 7 seg 0 to 9999
+   7          *******************************************************
+   8          */
+   9          #include <REGX52.H>
+  10          
+  11          #define sang 0
+  12          #define tat 1
+  13          
+  14          int demSo;
+  15          char soHienThi[] = {0x60,0xf9,0x24,0x30,0x19,0x12,0x02,0xf8,0x00,0x10}; //led 7 thanh hien thi so tu 0 den
+             - 9
+  16          unsigned char quetSoThu[] = {0xef,0xdf,0xbf,0x7f,0xfe,0xfd,0xfb,0xf7};  //cho biet so led sang, dieu khien 
+             -chan annot cua moi chu so 
+  17          unsigned char chuSoThu[8];  // toi da la 8 7seg mpx 
+  18            
+  19          void delay1(int time){
+  20   1        while(time--);
+  21   1      }
+  22          
+  23          void tachChuSo(unsigned long temp, int soLed){
+  24   1        int i;
+  25   1        for(i = 0; i < soLed; i++){ //bien i duoc chay tu o den soLed duoc truyen vao 
+  26   2          chuSoThu[i] = temp % 10;  //chuSoThu[i] la mot mang luu cac gia tri tach (chia lay du) lan luot tu hang d
+             -on vi, chuc, tram, nghin,... tuy thuoc vao gia tri soLed 
+  27   2          temp = temp/10; 
+  28   2        }
+  29   1      }
+  30          
+  31          //soLed duoc nhap vao tu ham main.
+  32          void quetLed(int soLed ){
+  33   1        int i, j;
+  34   1        for(i = 0; i < 15; i++){  //lap lai i lan tren cung mot so hien thi
+  35   2            for(j = 0; j < soLed; j++){
+  36   3              P0 = soHienThi[chuSoThu[j]];  //cong P0 de hien thi so tu 0 den 9 cho moi led 7 doan co gia tri la chuS
+             -oThu[], mang chuSoThu[] duoc luu  
+  37   3              P2 = quetSoThu[soLed - j];  //cong P2 de kieu khien led 7 thanh nao dang hoat dong. mang quetSoThu tu 0
+             - den 6, tuc la dieu kien led 7 thanh tu phai sang trai
+  38   3              delay1(500);  // delay 1000 de hien thi chu so lau hon
+  39   3              P2 = 0xff;  //tat tat ca cac led vua hien thi
+  40   3            }
+  41   2        }
+  42   1      }
+  43          int i;
+  44          void main(){
+  45   1        P0 = 0xff;
+  46   1        while(1){
+  47   2        
+  48   2          //demSo tu 0 den 1 gia tri toi da (max) ma ta nhap vao
+  49   2          for(demSo = 0; demSo < 999; demSo++){
+C51 COMPILER V9.52.0.0   BAI2_LED_7_THANH_8051                                             02/20/2023 17:32:47 PAGE 2   
+
+  50   3            tachChuSo(demSo, 6);  //moi lan tang bien demSo va truyen gia tri vao ham tachChuSo thi mang chuSoThu la
+             -i thay doi 
+  51   3            quetLed(6); //goi ham hien thi, quyet led 7 thanh
+  52   3          }
+  53   2          //for(i = 0; i < 10; i++){
+  54   2            //P2 = 0x00;
+  55   2            //P0 = soHienThi[i];
+  56   2            //delay1(30000000);
+  57   2          //}
+  58   2        }
+  59   1      }
+  60          
+  61          
+
+
+MODULE INFORMATION:   STATIC OVERLAYABLE
+   CODE SIZE        =    235    ----
+   CONSTANT SIZE    =   ----    ----
+   XDATA SIZE       =   ----    ----
+   PDATA SIZE       =   ----    ----
+   DATA SIZE        =     30      10
+   IDATA SIZE       =   ----    ----
+   BIT SIZE         =   ----    ----
+END OF MODULE INFORMATION.
+
+
+C51 COMPILATION COMPLETE.  0 WARNING(S),  0 ERROR(S)

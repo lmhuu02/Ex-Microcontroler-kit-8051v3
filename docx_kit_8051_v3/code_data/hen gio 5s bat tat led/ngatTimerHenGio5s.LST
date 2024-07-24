@@ -1,0 +1,53 @@
+C51 COMPILER V9.52.0.0   NGATTIMERHENGIO5S                                                 03/18/2022 10:49:28 PAGE 1   
+
+
+C51 COMPILER V9.52.0.0, COMPILATION OF MODULE NGATTIMERHENGIO5S
+OBJECT MODULE PLACED IN ngatTimerHenGio5s.OBJ
+COMPILER INVOKED BY: C:\Keil\C51\BIN\C51.EXE ngatTimerHenGio5s.c BROWSE DEBUG OBJECTEXTEND TABS(2)
+
+line level    source
+
+   1          //ngat timer hen gio 5s bat led P1.0 MO PHONG CHUA CHAY DUOC
+   2          //power by le minh huu 18/3/2022
+   3          #include <REGX52.H>
+   4          
+   5          //==================================
+   6          //ngat timer 0 txal = 12mhz. tg tre 1s --> fc18
+   7          void ngatTimer5s() interrupt 1{ //thu tu 0: ngoai 0 EX0 --> 1 TIMER 0 ET0 --> NGOAI 1 EX1 -->  TIMER 1 ET1
+             - --> UART
+   8   1        unsigned int a = 10000, count = 0;
+   9   1        count++;
+  10   1        TH0 = 0xfc; //nap gia tri trong 1ms
+  11   1        TL0 = 0x18;
+  12   1        TR0 = 1;
+  13   1        while(count > 500){
+  14   2          P1_0 = 0;   //bat led
+  15   2          while(a--){}  //tao tre cho led
+  16   2            P1_0 = 1;
+  17   2          count = 0;  //gan lai count = 0
+  18   2        }
+  19   1      }
+  20          
+  21          void main(){
+  22   1        P1_0 = 1;   // tat led
+  23   1        TMOD = 0x01;  //timer 0 che do 1
+  24   1        IE = 0x80;    // EA _ _ ES EX1 ET1 EX0 ET0  //LENH NAY  BANG 2 LENH DUOI
+  25   1        ET0 = 1;
+  26   1        EA = 1;
+  27   1        TR0 = 1;    //bat bo dinh thoi
+  28   1        while(1){}
+  29   1      }
+
+
+MODULE INFORMATION:   STATIC OVERLAYABLE
+   CODE SIZE        =     97    ----
+   CONSTANT SIZE    =   ----    ----
+   XDATA SIZE       =   ----    ----
+   PDATA SIZE       =   ----    ----
+   DATA SIZE        =   ----    ----
+   IDATA SIZE       =   ----    ----
+   BIT SIZE         =   ----    ----
+END OF MODULE INFORMATION.
+
+
+C51 COMPILATION COMPLETE.  0 WARNING(S),  0 ERROR(S)

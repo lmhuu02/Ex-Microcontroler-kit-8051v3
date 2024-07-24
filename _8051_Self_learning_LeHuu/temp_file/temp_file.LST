@@ -1,0 +1,86 @@
+C51 COMPILER V9.52.0.0   TEMP_FILE                                                         03/10/2022 12:20:44 PAGE 1   
+
+
+C51 COMPILER V9.52.0.0, COMPILATION OF MODULE TEMP_FILE
+OBJECT MODULE PLACED IN temp_file.OBJ
+COMPILER INVOKED BY: C:\Keil\C51\BIN\C51.EXE temp_file.c BROWSE DEBUG OBJECTEXTEND TABS(2)
+
+line level    source
+
+   1          //POWER BY LE MINH HUU - 11/2/2022 @Copyright
+   2          /*
+   3          l?p tr?nh di?u khi?n LED 7 thanh y?u c?u:
+   4          
+   5          dem ti?n t? 00 d?n 99
+   6          demm l?i t? 99 v? 00
+   7          demm c?c s? ch?n
+   8          dem c?c s? l?
+   9          dem s? nguy?n t?
+  10          dem c?c s? chia h?t cho 3
+  11          dem c?c s? chia h?t cho 3 ho?c 5
+  12          */
+  13          #include <REGX52.H>
+  14          
+  15          #define sang 0
+  16          #define tat 1
+  17          
+  18          #define led1 P3_0
+  19          #define led2 P3_1
+  20          
+  21          int i, j, chuc, donVi;
+  22          char so[] = {0x40, 0x79, 0x24, 0x30, 0x19, 0x12, 0x02, 0x78, 0x00, 0x10};
+  23          
+  24          void delay(int time){
+  25   1        while(time--);
+  26   1      }
+  27          
+  28          //thuc hien dem lan luot tu 00 den 99
+  29          void dem00Toi99(){
+  30   1        for(i = 0; i <= 99; i++){
+  31   2          //xac dinh so hang chuc va hang don vi
+  32   2              chuc = i /10;
+  33   2              donVi = i % 10;
+  34   2              //thuc hien lap lai 1 so 10 lan
+  35   2              for(j = 0; j < 10; j++){
+  36   3                //bat led 1
+  37   3                led2 = sang;
+  38   3                P2 = so[donVi];
+  39   3                delay(10000);
+  40   3                led2 = tat;
+  41   3                
+  42   3                //bat led 2       
+  43   3                led1 = sang;
+  44   3                P2 = so[ chuc];
+  45   3                delay(10000);
+  46   3                led1 = tat;
+  47   3              }
+  48   2            }
+  49   1      }
+  50          
+  51          //POWER BY LE MINH HUU - 11/2/2022 @Copyright
+  52          void main(){
+  53   1        led1 = led2 = tat;  //thuc hien tat ca 2 led
+  54   1        while(1){
+  55   2          //thuc hien dem lan luot tu 00 den 99
+C51 COMPILER V9.52.0.0   TEMP_FILE                                                         03/10/2022 12:20:44 PAGE 2   
+
+  56   2          dem00Toi99(); delay(10000);
+  57   2        
+  58   2      
+  59   2        }
+  60   1      }
+  61          //POWER BY LE MINH HUU - 11/2/2022 @Copyright
+
+
+MODULE INFORMATION:   STATIC OVERLAYABLE
+   CODE SIZE        =    132    ----
+   CONSTANT SIZE    =   ----    ----
+   XDATA SIZE       =   ----    ----
+   PDATA SIZE       =   ----    ----
+   DATA SIZE        =     18    ----
+   IDATA SIZE       =   ----    ----
+   BIT SIZE         =   ----    ----
+END OF MODULE INFORMATION.
+
+
+C51 COMPILATION COMPLETE.  0 WARNING(S),  0 ERROR(S)

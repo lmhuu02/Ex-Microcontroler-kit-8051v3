@@ -1,0 +1,622 @@
+BL51 BANKED LINKER/LOCATER V6.22                                                        03/01/2023  20:27:40  PAGE 1
+
+
+BL51 BANKED LINKER/LOCATER V6.22, INVOKED BY:
+C:\KEIL_V5\C51\BIN\BL51.EXE .\Objects\bai8_eeprom_at24c04_8051.obj TO .\Objects\bai8_eeprom_at24c04_8051 PRINT (.\Listin
+>> gs\bai8_eeprom_at24c04_8051.m51) RAMSIZE (256)
+
+
+MEMORY MODEL: SMALL
+
+
+INPUT MODULES INCLUDED:
+  .\Objects\bai8_eeprom_at24c04_8051.obj (BAI8_EEPROM_AT24C04_8051)
+  C:\KEIL_V5\C51\LIB\C51S.LIB (?C_STARTUP)
+  C:\KEIL_V5\C51\LIB\C51S.LIB (?C?CLDPTR)
+  C:\KEIL_V5\C51\LIB\C51S.LIB (?C?CSTOPTR)
+  C:\KEIL_V5\C51\LIB\C51S.LIB (PRINTF)
+  C:\KEIL_V5\C51\LIB\C51S.LIB (?C?CLDOPTR)
+  C:\KEIL_V5\C51\LIB\C51S.LIB (?C?CSTPTR)
+  C:\KEIL_V5\C51\LIB\C51S.LIB (?C?PLDIIDATA)
+  C:\KEIL_V5\C51\LIB\C51S.LIB (?C?CCASE)
+  C:\KEIL_V5\C51\LIB\C51S.LIB (PUTCHAR)
+
+
+LINK MAP OF MODULE:  .\Objects\bai8_eeprom_at24c04_8051 (BAI8_EEPROM_AT24C04_8051)
+
+
+            TYPE    BASE      LENGTH    RELOCATION   SEGMENT NAME
+            -----------------------------------------------------
+
+            * * * * * * *   D A T A   M E M O R Y   * * * * * * *
+            REG     0000H     0008H     ABSOLUTE     "REG BANK 0"
+            DATA    0008H     0014H     UNIT         ?DT?BAI8_EEPROM_AT24C04_8051
+                    001CH     0004H                  *** GAP ***
+            BIT     0020H.0   0001H.1   UNIT         _BIT_GROUP_
+                    0021H.1   0000H.7                *** GAP ***
+            DATA    0022H     0014H     UNIT         _DATA_GROUP_
+            IDATA   0036H     0001H     UNIT         ?STACK
+
+            * * * * * * *   C O D E   M E M O R Y   * * * * * * *
+            CODE    0000H     0003H     ABSOLUTE     
+                    0003H     07FDH                  *** GAP ***
+            CODE    0800H     035CH     UNIT         ?PR?PRINTF?PRINTF
+            CODE    0B5CH     00B0H     UNIT         ?C?LIB_CODE
+            CODE    0C0CH     007FH     UNIT         ?PR?MAIN?BAI8_EEPROM_AT24C04_8051
+            CODE    0C8BH     0041H     UNIT         ?PR?_EEPROM_24CXX_READS?BAI8_EEPROM_AT24C04_8051
+            CODE    0CCCH     003EH     UNIT         ?PR?LCD1602_INIT?BAI8_EEPROM_AT24C04_8051
+            CODE    0D0AH     003CH     UNIT         ?PR?_EEP_24CXX_READ?BAI8_EEPROM_AT24C04_8051
+            CODE    0D46H     0032H     UNIT         ?PR?AT24CXX_I2C_READ?BAI8_EEPROM_AT24C04_8051
+            CODE    0D78H     0031H     UNIT         ?CO?BAI8_EEPROM_AT24C04_8051
+            CODE    0DA9H     002CH     UNIT         ?PR?AT24CXX_I2C_CHECKACK?BAI8_EEPROM_AT24C04_8051
+            CODE    0DD5H     002BH     UNIT         ?PR?_EEP_24CXX_WRITE?BAI8_EEPROM_AT24C04_8051
+            CODE    0E00H     0029H     UNIT         ?PR?_EEP_24CXX_WRITES?BAI8_EEPROM_AT24C04_8051
+            CODE    0E29H     0028H     UNIT         ?PR?_LCD1602_GOTOXY?BAI8_EEPROM_AT24C04_8051
+            CODE    0E51H     0027H     UNIT         ?PR?_LCD1602_PUTS?BAI8_EEPROM_AT24C04_8051
+            CODE    0E78H     0027H     UNIT         ?PR?PUTCHAR?PUTCHAR
+            CODE    0E9FH     0020H     UNIT         ?PR?_DELAY_MS?BAI8_EEPROM_AT24C04_8051
+            CODE    0EBFH     0020H     UNIT         ?PR?_DELAY_US?BAI8_EEPROM_AT24C04_8051
+            CODE    0EDFH     001EH     UNIT         ?PR?_AT24CXX_I2C_WRITE?BAI8_EEPROM_AT24C04_8051
+            CODE    0EFDH     001CH     UNIT         ?PR?_LCD1602_SEND_4BIT_DATA?BAI8_EEPROM_AT24C04_8051
+            CODE    0F19H     0013H     UNIT         ?PR?LCD1602_ENABLE?BAI8_EEPROM_AT24C04_8051
+BL51 BANKED LINKER/LOCATER V6.22                                                      03/01/2023  20:27:40  PAGE 2
+
+
+            CODE    0F2CH     0013H     UNIT         ?PR?AT24CXX_I2C_START?BAI8_EEPROM_AT24C04_8051
+            CODE    0F3FH     0013H     UNIT         ?PR?AT24CXX_I2C_STOP?BAI8_EEPROM_AT24C04_8051
+            CODE    0F52H     0012H     UNIT         ?PR?_LCD1602_SEND_COMMAND?BAI8_EEPROM_AT24C04_8051
+            CODE    0F64H     0012H     UNIT         ?PR?_AT24CXX_I2C_DELAY?BAI8_EEPROM_AT24C04_8051
+            CODE    0F76H     0012H     UNIT         ?PR?AT24CXX_I2C_INIT?BAI8_EEPROM_AT24C04_8051
+            CODE    0F88H     000CH     UNIT         ?C_C51STARTUP
+            CODE    0F94H     000BH     UNIT         ?PR?_I2C_DELAY?BAI8_EEPROM_AT24C04_8051
+            CODE    0F9FH     0008H     UNIT         ?PR?_LCD1602_PUTCHAR?BAI8_EEPROM_AT24C04_8051
+            CODE    0FA7H     0005H     UNIT         ?PR?LCD1602_CLEAR?BAI8_EEPROM_AT24C04_8051
+            CODE    0FACH     0003H     UNIT         ?PR?EEP_24CXX_INIT?BAI8_EEPROM_AT24C04_8051
+
+
+
+OVERLAY MAP OF MODULE:   .\Objects\bai8_eeprom_at24c04_8051 (BAI8_EEPROM_AT24C04_8051)
+
+
+SEGMENT                                             BIT_GROUP          DATA_GROUP 
+  +--> CALLED SEGMENT                            START    LENGTH     START    LENGTH
+------------------------------------------------------------------------------------
+?C_C51STARTUP                                    -----    -----      -----    -----
+  +--> ?PR?MAIN?BAI8_EEPROM_AT24C04_8051
+
+?PR?MAIN?BAI8_EEPROM_AT24C04_8051                -----    -----      -----    -----
+  +--> ?PR?EEP_24CXX_INIT?BAI8_EEPROM_AT24C0...
+  +--> ?PR?LCD1602_INIT?BAI8_EEPROM_AT24C04_...
+  +--> ?PR?_LCD1602_GOTOXY?BAI8_EEPROM_AT24C...
+  +--> ?CO?BAI8_EEPROM_AT24C04_8051
+  +--> ?PR?_LCD1602_PUTS?BAI8_EEPROM_AT24C04...
+  +--> ?PR?_DELAY_MS?BAI8_EEPROM_AT24C04_8051
+  +--> ?PR?PRINTF?PRINTF
+  +--> ?PR?_EEP_24CXX_WRITES?BAI8_EEPROM_AT2...
+  +--> ?PR?_EEPROM_24CXX_READS?BAI8_EEPROM_A...
+
+?PR?EEP_24CXX_INIT?BAI8_EEPROM_AT24C0...         -----    -----      -----    -----
+  +--> ?PR?AT24CXX_I2C_INIT?BAI8_EEPROM_AT24...
+
+?PR?AT24CXX_I2C_INIT?BAI8_EEPROM_AT24...         -----    -----      -----    -----
+  +--> ?PR?_I2C_DELAY?BAI8_EEPROM_AT24C04_8051
+
+?PR?LCD1602_INIT?BAI8_EEPROM_AT24C04_...         -----    -----      -----    -----
+  +--> ?PR?_LCD1602_SEND_4BIT_DATA?BAI8_EEPR...
+  +--> ?PR?_DELAY_MS?BAI8_EEPROM_AT24C04_8051
+  +--> ?PR?LCD1602_ENABLE?BAI8_EEPROM_AT24C0...
+  +--> ?PR?_LCD1602_SEND_COMMAND?BAI8_EEPROM...
+
+?PR?LCD1602_ENABLE?BAI8_EEPROM_AT24C0...         -----    -----      -----    -----
+  +--> ?PR?_LCD1602_SEND_4BIT_DATA?BAI8_EEPR...
+  +--> ?PR?_DELAY_US?BAI8_EEPROM_AT24C04_8051
+
+?PR?_LCD1602_SEND_COMMAND?BAI8_EEPROM...         -----    -----      -----    -----
+  +--> ?PR?LCD1602_ENABLE?BAI8_EEPROM_AT24C0...
+  +--> ?PR?_LCD1602_SEND_4BIT_DATA?BAI8_EEPR...
+
+?PR?_LCD1602_GOTOXY?BAI8_EEPROM_AT24C...         -----    -----      0022H    0001H
+  +--> ?PR?LCD1602_CLEAR?BAI8_EEPROM_AT24C04...
+  +--> ?PR?_DELAY_MS?BAI8_EEPROM_AT24C04_8051
+  +--> ?PR?_LCD1602_SEND_COMMAND?BAI8_EEPROM...
+BL51 BANKED LINKER/LOCATER V6.22                                                      03/01/2023  20:27:40  PAGE 3
+
+
+
+?PR?LCD1602_CLEAR?BAI8_EEPROM_AT24C04...         -----    -----      -----    -----
+  +--> ?PR?_LCD1602_SEND_COMMAND?BAI8_EEPROM...
+
+?PR?_LCD1602_PUTS?BAI8_EEPROM_AT24C04...         -----    -----      0022H    0003H
+  +--> ?PR?_LCD1602_PUTCHAR?BAI8_EEPROM_AT24...
+
+?PR?_LCD1602_PUTCHAR?BAI8_EEPROM_AT24...         -----    -----      -----    -----
+  +--> ?PR?_LCD1602_SEND_COMMAND?BAI8_EEPROM...
+
+?PR?PRINTF?PRINTF                                0020H.0  0001H.1    0022H    0014H
+  +--> ?PR?PUTCHAR?PUTCHAR
+
+?PR?_EEP_24CXX_WRITES?BAI8_EEPROM_AT2...         -----    -----      0022H    0004H
+  +--> ?PR?_EEP_24CXX_WRITE?BAI8_EEPROM_AT24...
+
+?PR?_EEP_24CXX_WRITE?BAI8_EEPROM_AT24...         0020H.0  0000H.1    -----    -----
+  +--> ?PR?AT24CXX_I2C_CHECKACK?BAI8_EEPROM_...
+  +--> ?PR?_AT24CXX_I2C_WRITE?BAI8_EEPROM_AT...
+  +--> ?PR?AT24CXX_I2C_STOP?BAI8_EEPROM_AT24...
+
+?PR?AT24CXX_I2C_CHECKACK?BAI8_EEPROM_...         -----    -----      -----    -----
+  +--> ?PR?AT24CXX_I2C_START?BAI8_EEPROM_AT2...
+  +--> ?PR?_AT24CXX_I2C_WRITE?BAI8_EEPROM_AT...
+  +--> ?PR?_I2C_DELAY?BAI8_EEPROM_AT24C04_8051
+  +--> ?PR?_AT24CXX_I2C_DELAY?BAI8_EEPROM_AT...
+
+?PR?AT24CXX_I2C_START?BAI8_EEPROM_AT2...         -----    -----      -----    -----
+  +--> ?PR?_AT24CXX_I2C_DELAY?BAI8_EEPROM_AT...
+
+?PR?_AT24CXX_I2C_WRITE?BAI8_EEPROM_AT...         -----    -----      -----    -----
+  +--> ?PR?_AT24CXX_I2C_DELAY?BAI8_EEPROM_AT...
+
+?PR?AT24CXX_I2C_STOP?BAI8_EEPROM_AT24...         -----    -----      -----    -----
+  +--> ?PR?_AT24CXX_I2C_DELAY?BAI8_EEPROM_AT...
+
+?PR?_EEPROM_24CXX_READS?BAI8_EEPROM_A...         -----    -----      0022H    0006H
+  +--> ?PR?_EEP_24CXX_READ?BAI8_EEPROM_AT24C...
+
+?PR?_EEP_24CXX_READ?BAI8_EEPROM_AT24C...         0020H.0  0000H.1    -----    -----
+  +--> ?PR?AT24CXX_I2C_CHECKACK?BAI8_EEPROM_...
+  +--> ?PR?_AT24CXX_I2C_WRITE?BAI8_EEPROM_AT...
+  +--> ?PR?AT24CXX_I2C_START?BAI8_EEPROM_AT2...
+  +--> ?PR?AT24CXX_I2C_READ?BAI8_EEPROM_AT24...
+  +--> ?PR?AT24CXX_I2C_STOP?BAI8_EEPROM_AT24...
+
+?PR?AT24CXX_I2C_READ?BAI8_EEPROM_AT24...         -----    -----      -----    -----
+  +--> ?PR?_AT24CXX_I2C_DELAY?BAI8_EEPROM_AT...
+
+
+
+SYMBOL TABLE OF MODULE:  .\Objects\bai8_eeprom_at24c04_8051 (BAI8_EEPROM_AT24C04_8051)
+
+  VALUE           TYPE          NAME
+  ----------------------------------
+
+  -------         MODULE        BAI8_EEPROM_AT24C04_8051
+BL51 BANKED LINKER/LOCATER V6.22                                                      03/01/2023  20:27:40  PAGE 4
+
+
+  C:0000H         SYMBOL        _ICE_DUMMY_
+  C:0F2CH         PUBLIC        AT24CXX_I2C_Start
+  C:0DD5H         PUBLIC        _EEP_24CXX_Write
+  C:0FACH         PUBLIC        EEP_24CXX_Init
+  C:0E2FH         PUBLIC        _lcd1602_gotoxy
+  D:0008H         PUBLIC        Nhiet_Do
+  C:0F94H         PUBLIC        _I2C_Delay
+  B:00A0H.2       PUBLIC        P2_2
+  B:0080H.4       PUBLIC        P0_4
+  B:00A0H.3       PUBLIC        P2_3
+  B:0080H.5       PUBLIC        P0_5
+  C:0CCCH         PUBLIC        lcd1602_init
+  B:00A0H.4       PUBLIC        P2_4
+  B:0080H.6       PUBLIC        P0_6
+  B:0080H.7       PUBLIC        P0_7
+  C:0F3FH         PUBLIC        AT24CXX_I2C_Stop
+  B:00B0H.6       PUBLIC        P3_6
+  B:00B0H.7       PUBLIC        P3_7
+  C:0C0CH         PUBLIC        main
+  C:0E51H         PUBLIC        _lcd1602_puts
+  C:0C8BH         PUBLIC        _EEPROM_24CXX_ReadS
+  C:0F1CH         PUBLIC        lcd1602_enable
+  C:0D46H         PUBLIC        AT24CXX_i2c_read
+  C:0F52H         PUBLIC        _lcd1602_send_command
+  C:0E9FH         PUBLIC        _delay_ms
+  C:0E00H         PUBLIC        _EEP_24CXX_WriteS
+  C:0EBFH         PUBLIC        _delay_us
+  C:0F9FH         PUBLIC        _lcd1602_putchar
+  C:0EFDH         PUBLIC        _lcd1602_send_4bit_data
+  C:0EDFH         PUBLIC        _AT24CXX_i2c_write
+  C:0F6AH         PUBLIC        _AT24CXX_I2C_Delay
+  C:0DB1H         PUBLIC        AT24CXX_i2c_checkack
+  C:0F76H         PUBLIC        AT24CXX_i2c_init
+  C:0FA7H         PUBLIC        lcd1602_clear
+  C:0D0AH         PUBLIC        _EEP_24CXX_Read
+  D:000CH         PUBLIC        Lcd_Buff
+  -------         PROC          _DELAY_MS
+  D:0006H         SYMBOL        Time
+  -------         DO            
+  D:0004H         SYMBOL        i
+  D:0002H         SYMBOL        j
+  D:0006H         SYMBOL        t
+  -------         ENDDO         
+  C:0E9FH         LINE#         33
+  C:0E9FH         LINE#         34
+  C:0E9FH         LINE#         36
+  C:0E9FH         LINE#         37
+  C:0EA9H         LINE#         38
+  C:0EA9H         LINE#         39
+  C:0EB7H         LINE#         40
+  C:0EBEH         LINE#         41
+  -------         ENDPROC       _DELAY_MS
+  -------         PROC          _DELAY_US
+  D:0006H         SYMBOL        Time
+  -------         DO            
+  D:0004H         SYMBOL        i
+  D:0002H         SYMBOL        j
+BL51 BANKED LINKER/LOCATER V6.22                                                      03/01/2023  20:27:40  PAGE 5
+
+
+  -------         ENDDO         
+  C:0EBFH         LINE#         42
+  C:0EBFH         LINE#         43
+  C:0EBFH         LINE#         45
+  C:0EC9H         LINE#         46
+  C:0EC9H         LINE#         47
+  C:0ED7H         LINE#         48
+  C:0EDEH         LINE#         49
+  -------         ENDPROC       _DELAY_US
+  -------         PROC          L?0072
+  -------         ENDPROC       L?0072
+  -------         PROC          LCD1602_ENABLE
+  C:0F1CH         LINE#         51
+  C:0F1CH         LINE#         52
+  C:0F1CH         LINE#         53
+  C:0F1EH         LINE#         54
+  C:0F25H         LINE#         55
+  C:0F27H         LINE#         56
+  -------         ENDPROC       LCD1602_ENABLE
+  -------         PROC          _LCD1602_SEND_4BIT_DATA
+  D:0007H         SYMBOL        cX
+  C:0EFDH         LINE#         60
+  C:0EFDH         LINE#         61
+  C:0EFDH         LINE#         62
+  C:0F01H         LINE#         63
+  C:0F07H         LINE#         64
+  C:0F0FH         LINE#         65
+  C:0F18H         LINE#         66
+  -------         ENDPROC       _LCD1602_SEND_4BIT_DATA
+  -------         PROC          _LCD1602_SEND_COMMAND
+  D:0001H         SYMBOL        cX
+  C:0F52H         LINE#         70
+  C:0F54H         LINE#         71
+  C:0F54H         LINE#         72
+  C:0F59H         LINE#         73
+  C:0F5CH         LINE#         74
+  C:0F61H         LINE#         75
+  -------         ENDPROC       _LCD1602_SEND_COMMAND
+  -------         PROC          LCD1602_INIT
+  C:0CCCH         LINE#         80
+  C:0CCCH         LINE#         81
+  C:0CCCH         LINE#         82
+  C:0CD1H         LINE#         83
+  C:0CD8H         LINE#         85
+  C:0CDAH         LINE#         86
+  C:0CDCH         LINE#         87
+  C:0CDEH         LINE#         89
+  C:0CE0H         LINE#         90
+  C:0CE3H         LINE#         91
+  C:0CE6H         LINE#         92
+  C:0CE9H         LINE#         93
+  C:0CEEH         LINE#         94
+  C:0CF1H         LINE#         96
+  C:0CF6H         LINE#         97
+  C:0CFBH         LINE#         98
+  C:0D00H         LINE#         99
+  C:0D05H         LINE#         100
+BL51 BANKED LINKER/LOCATER V6.22                                                      03/01/2023  20:27:40  PAGE 6
+
+
+  -------         ENDPROC       LCD1602_INIT
+  -------         PROC          L?0073
+  -------         ENDPROC       L?0073
+  -------         PROC          _LCD1602_GOTOXY
+  D:0007H         SYMBOL        x
+  D:0005H         SYMBOL        y
+  -------         DO            
+  D:0022H         SYMBOL        address
+  -------         ENDDO         
+  C:0E2FH         LINE#         105
+  C:0E2FH         LINE#         106
+  C:0E2FH         LINE#         108
+  C:0E32H         LINE#         109
+  C:0E39H         LINE#         111
+  C:0E3EH         LINE#         112
+  C:0E45H         LINE#         113
+  C:0E4AH         LINE#         114
+  -------         ENDPROC       _LCD1602_GOTOXY
+  -------         PROC          LCD1602_CLEAR
+  C:0FA7H         LINE#         119
+  C:0FA7H         LINE#         120
+  C:0FA7H         LINE#         121
+  -------         ENDPROC       LCD1602_CLEAR
+  -------         PROC          _LCD1602_PUTCHAR
+  D:0006H         SYMBOL        cX
+  C:0F9FH         LINE#         127
+  C:0F9FH         LINE#         128
+  C:0F9FH         LINE#         129
+  C:0FA1H         LINE#         130
+  C:0FA4H         LINE#         131
+  C:0FA6H         LINE#         132
+  -------         ENDPROC       _LCD1602_PUTCHAR
+  -------         PROC          _LCD1602_PUTS
+  D:0022H         SYMBOL        s
+  C:0E51H         LINE#         136
+  C:0E57H         LINE#         137
+  C:0E57H         LINE#         138
+  C:0E63H         LINE#         139
+  C:0E63H         LINE#         140
+  C:0E6AH         LINE#         141
+  C:0E75H         LINE#         142
+  C:0E77H         LINE#         143
+  -------         ENDPROC       _LCD1602_PUTS
+  C:0F64H         SYMBOL        L?0069
+  C:0F66H         SYMBOL        L?0070
+  -------         PROC          L?0068
+  -------         ENDPROC       L?0068
+  C:0F64H         SYMBOL        L?0069
+  C:0F66H         SYMBOL        L?0070
+  -------         PROC          _AT24CXX_I2C_DELAY
+  D:0006H         SYMBOL        time
+  C:0F6AH         LINE#         29
+  C:0F6AH         LINE#         30
+  C:0F6AH         LINE#         31
+  C:0F6EH         LINE#         32
+  C:0F75H         LINE#         33
+  -------         ENDPROC       _AT24CXX_I2C_DELAY
+BL51 BANKED LINKER/LOCATER V6.22                                                      03/01/2023  20:27:40  PAGE 7
+
+
+  -------         PROC          _I2C_DELAY
+  D:0006H         SYMBOL        t
+  C:0F94H         LINE#         34
+  C:0F94H         LINE#         35
+  C:0F9EH         LINE#         36
+  -------         ENDPROC       _I2C_DELAY
+  -------         PROC          AT24CXX_I2C_INIT
+  C:0F76H         LINE#         37
+  C:0F76H         LINE#         38
+  C:0F76H         LINE#         39
+  C:0F78H         LINE#         40
+  C:0F7FH         LINE#         41
+  C:0F81H         LINE#         42
+  -------         ENDPROC       AT24CXX_I2C_INIT
+  -------         PROC          AT24CXX_I2C_START
+  C:0F2CH         LINE#         44
+  C:0F2CH         LINE#         45
+  C:0F2CH         LINE#         46
+  C:0F2EH         LINE#         47
+  C:0F2EH         LINE#         48
+  C:0F31H         LINE#         49
+  C:0F33H         LINE#         50
+  C:0F36H         LINE#         51
+  C:0F38H         LINE#         52
+  -------         ENDPROC       AT24CXX_I2C_START
+  -------         PROC          AT24CXX_I2C_STOP
+  C:0F3FH         LINE#         54
+  C:0F3FH         LINE#         55
+  C:0F3FH         LINE#         56
+  C:0F41H         LINE#         57
+  C:0F41H         LINE#         58
+  C:0F44H         LINE#         59
+  C:0F46H         LINE#         60
+  C:0F49H         LINE#         61
+  C:0F4BH         LINE#         62
+  -------         ENDPROC       AT24CXX_I2C_STOP
+  -------         PROC          L?0071
+  -------         ENDPROC       L?0071
+  -------         PROC          AT24CXX_I2C_CHECKACK
+  -------         DO            
+  D:0005H         SYMBOL        ack
+  -------         ENDDO         
+  C:0DB1H         LINE#         64
+  C:0DB1H         LINE#         65
+  C:0DB1H         LINE#         66
+  C:0DB3H         LINE#         67
+  C:0DB5H         LINE#         68
+  C:0DB7H         LINE#         69
+  C:0DBCH         LINE#         70
+  C:0DC1H         LINE#         71
+  C:0DC7H         LINE#         72
+  C:0DC9H         LINE#         73
+  C:0DCCH         LINE#         74
+  C:0DD2H         LINE#         75
+  C:0DD4H         LINE#         76
+  -------         ENDPROC       AT24CXX_I2C_CHECKACK
+  -------         PROC          _AT24CXX_I2C_WRITE
+BL51 BANKED LINKER/LOCATER V6.22                                                      03/01/2023  20:27:40  PAGE 8
+
+
+  D:0005H         SYMBOL        Data
+  -------         DO            
+  D:0003H         SYMBOL        i
+  -------         ENDDO         
+  C:0EDFH         LINE#         77
+  C:0EE1H         LINE#         78
+  C:0EE1H         LINE#         80
+  C:0EE3H         LINE#         81
+  C:0EE3H         LINE#         82
+  C:0EF0H         LINE#         83
+  C:0EF0H         LINE#         84
+  C:0EF3H         LINE#         85
+  C:0EF5H         LINE#         86
+  C:0EF8H         LINE#         87
+  C:0EFCH         LINE#         88
+  -------         ENDPROC       _AT24CXX_I2C_WRITE
+  -------         PROC          AT24CXX_I2C_READ
+  -------         DO            
+  D:0005H         SYMBOL        I2C_data
+  D:0004H         SYMBOL        i
+  D:0003H         SYMBOL        temp
+  -------         ENDDO         
+  C:0D46H         LINE#         89
+  C:0D46H         LINE#         90
+  C:0D46H         LINE#         91
+  C:0D48H         LINE#         92
+  C:0D49H         LINE#         93
+  C:0D49H         LINE#         94
+  C:0D4BH         LINE#         95
+  C:0D4DH         LINE#         96
+  C:0D54H         LINE#         97
+  C:0D59H         LINE#         98
+  C:0D60H         LINE#         99
+  C:0D62H         LINE#         100
+  C:0D66H         LINE#         101
+  C:0D66H         LINE#         102
+  C:0D69H         LINE#         103
+  C:0D6CH         LINE#         104
+  C:0D6EH         LINE#         106
+  C:0D71H         LINE#         107
+  C:0D75H         LINE#         108
+  C:0D77H         LINE#         109
+  -------         ENDPROC       AT24CXX_I2C_READ
+  -------         PROC          EEP_24CXX_INIT
+  C:0FACH         LINE#         111
+  C:0FACH         LINE#         112
+  C:0FACH         LINE#         113
+  -------         ENDPROC       EEP_24CXX_INIT
+  -------         PROC          _EEP_24CXX_READ
+  D:0002H         SYMBOL        address
+  -------         DO            
+  B:0020H.0       SYMBOL        AckTemp
+  D:0003H         SYMBOL        Data
+  -------         ENDDO         
+  C:0D0AH         LINE#         115
+  C:0D0CH         LINE#         116
+  C:0D0CH         LINE#         117
+BL51 BANKED LINKER/LOCATER V6.22                                                      03/01/2023  20:27:40  PAGE 9
+
+
+  C:0D0EH         LINE#         119
+  C:0D0EH         LINE#         120
+  C:0D0EH         LINE#         121
+  C:0D16H         LINE#         122
+  C:0D1BH         LINE#         123
+  C:0D23H         LINE#         124
+  C:0D26H         LINE#         125
+  C:0D2BH         LINE#         126
+  C:0D33H         LINE#         127
+  C:0D38H         LINE#         128
+  C:0D40H         LINE#         129
+  C:0D43H         LINE#         130
+  C:0D45H         LINE#         131
+  -------         ENDPROC       _EEP_24CXX_READ
+  -------         PROC          _EEP_24CXX_WRITE
+  D:0001H         SYMBOL        address
+  D:0002H         SYMBOL        Data
+  -------         DO            
+  B:0020H.0       SYMBOL        AckTemp
+  -------         ENDDO         
+  C:0DD5H         LINE#         132
+  C:0DD9H         LINE#         133
+  C:0DD9H         LINE#         134
+  C:0DDBH         LINE#         135
+  C:0DDBH         LINE#         136
+  C:0DDBH         LINE#         137
+  C:0DE3H         LINE#         138
+  C:0DE8H         LINE#         139
+  C:0DF0H         LINE#         140
+  C:0DF5H         LINE#         141
+  C:0DFDH         LINE#         142
+  -------         ENDPROC       _EEP_24CXX_WRITE
+  -------         PROC          _EEP_24CXX_WRITES
+  D:0022H         SYMBOL        address
+  D:0023H         SYMBOL        a
+  C:0E00H         LINE#         144
+  C:0E08H         LINE#         145
+  C:0E08H         LINE#         146
+  C:0E14H         LINE#         147
+  C:0E14H         LINE#         148
+  C:0E1BH         LINE#         149
+  C:0E26H         LINE#         150
+  C:0E28H         LINE#         151
+  -------         ENDPROC       _EEP_24CXX_WRITES
+  -------         PROC          _EEPROM_24CXX_READS
+  D:0022H         SYMBOL        address
+  D:0023H         SYMBOL        lenght
+  D:0024H         SYMBOL        s
+  -------         DO            
+  D:0027H         SYMBOL        i
+  -------         ENDDO         
+  C:0C8BH         LINE#         152
+  C:0C95H         LINE#         153
+  C:0C95H         LINE#         154
+  C:0C98H         LINE#         155
+  C:0C9CH         LINE#         156
+  C:0C9CH         LINE#         157
+BL51 BANKED LINKER/LOCATER V6.22                                                      03/01/2023  20:27:40  PAGE 10
+
+
+  C:0CB6H         LINE#         158
+  C:0CB8H         LINE#         159
+  C:0CBAH         LINE#         160
+  -------         ENDPROC       _EEPROM_24CXX_READS
+  -------         PROC          MAIN
+  C:0C0CH         LINE#         15
+  C:0C0CH         LINE#         17
+  C:0C0FH         LINE#         19
+  C:0C12H         LINE#         20
+  C:0C12H         LINE#         21
+  C:0C15H         LINE#         22
+  C:0C1EH         LINE#         23
+  C:0C25H         LINE#         24
+  C:0C2CH         LINE#         25
+  C:0C35H         LINE#         26
+  C:0C3CH         LINE#         27
+  C:0C3CH         LINE#         28
+  C:0C3FH         LINE#         29
+  C:0C48H         LINE#         31
+  C:0C5AH         LINE#         32
+  C:0C65H         LINE#         33
+  C:0C6CH         LINE#         34
+  C:0C79H         LINE#         35
+  C:0C80H         LINE#         36
+  C:0C89H         LINE#         37
+  C:0C89H         LINE#         38
+  C:0C89H         LINE#         39
+  -------         ENDPROC       MAIN
+  -------         ENDMOD        BAI8_EEPROM_AT24C04_8051
+
+  -------         MODULE        ?C?CLDPTR
+  C:0B5CH         PUBLIC        ?C?CLDPTR
+  -------         ENDMOD        ?C?CLDPTR
+
+  -------         MODULE        ?C?CSTOPTR
+  C:0B75H         PUBLIC        ?C?CSTOPTR
+  -------         ENDMOD        ?C?CSTOPTR
+
+  -------         MODULE        PRINTF
+  D:0022H         PUBLIC        ?_PRINTF517?BYTE
+  D:0022H         PUBLIC        ?_PRINTF?BYTE
+  D:0022H         PUBLIC        ?_SPRINTF517?BYTE
+  D:0022H         PUBLIC        ?_SPRINTF?BYTE
+  C:0862H         PUBLIC        _PRINTF
+  C:0862H         PUBLIC        _PRINTF517
+  C:085CH         PUBLIC        _SPRINTF
+  C:085CH         PUBLIC        _SPRINTF517
+  -------         ENDMOD        PRINTF
+
+  -------         MODULE        ?C?CLDOPTR
+  C:0B97H         PUBLIC        ?C?CLDOPTR
+  -------         ENDMOD        ?C?CLDOPTR
+
+  -------         MODULE        ?C?CSTPTR
+  C:0BC4H         PUBLIC        ?C?CSTPTR
+  -------         ENDMOD        ?C?CSTPTR
+
+BL51 BANKED LINKER/LOCATER V6.22                                                      03/01/2023  20:27:40  PAGE 11
+
+
+  -------         MODULE        ?C?PLDIIDATA
+  C:0BD6H         PUBLIC        ?C?PLDIIDATA
+  -------         ENDMOD        ?C?PLDIIDATA
+
+  -------         MODULE        ?C?CCASE
+  C:0BE6H         PUBLIC        ?C?CCASE
+  -------         ENDMOD        ?C?CCASE
+
+  -------         MODULE        PUTCHAR
+  C:0E78H         PUBLIC        _PUTCHAR
+  -------         ENDMOD        PUTCHAR
+
+******************************************************************************
+* RESTRICTED VERSION WITH 0800H BYTE CODE SIZE LIMIT; USED: 0370H BYTE (42%) *
+******************************************************************************
+
+Program Size: data=50.1 xdata=0 code=1970
+LINK/LOCATE RUN COMPLETE.  0 WARNING(S),  0 ERROR(S)

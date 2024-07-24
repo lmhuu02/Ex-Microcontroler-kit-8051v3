@@ -1,0 +1,169 @@
+<html>
+<body>
+<pre>
+<h1>µVision Build Log</h1>
+<h2>Project:</h2>
+D:\HOC TAP-  NAM 2  ( 2021 - 2022)\Lap_trinh_nhung_co_ban_8051\Bai tap code and project\dieu khien 2 led 7 thanh tu 00  99 dung port2 va port3\7segDungPort2Port3DocLap.uvproj
+Project File Date:  02/11/2022
+
+<h2>Output:</h2>
+Rebuild target 'Target 1'
+compiling 7segDungPort2Port3DocLap.c...
+7segDungPort2Port3DocLap.c(19): error C202: 'soDonvi': undefined identifier
+7segDungPort2Port3DocLap.c(21): error C141: syntax error near ']'
+7segDungPort2Port3DocLap.c(22): error C141: syntax error near ']'
+Target not created
+Rebuild target 'Target 1'
+compiling 7segDungPort2Port3DocLap.c...
+7segDungPort2Port3DocLap.c(19): error C202: 'soDonvi': undefined identifier
+7segDungPort2Port3DocLap.c(22): error C202: 'soDonvi': undefined identifier
+Target not created
+Rebuild target 'Target 1'
+compiling 7segDungPort2Port3DocLap.c...
+linking...
+Program Size: data=35.0 xdata=0 code=402
+creating hex file from "7segDungPort2Port3DocLap"...
+"7segDungPort2Port3DocLap" - 0 Error(s), 0 Warning(s).
+Rebuild target 'Target 1'
+compiling 7segDungPort2Port3DocLap.c...
+linking...
+Program Size: data=35.0 xdata=0 code=402
+creating hex file from "7segDungPort2Port3DocLap"...
+"7segDungPort2Port3DocLap" - 0 Error(s), 0 Warning(s).
+Rebuild target 'Target 1'
+compiling 7segDungPort2Port3DocLap.c...
+7segDungPort2Port3DocLap.c(36): error C202: 'j': undefined identifier
+7segDungPort2Port3DocLap.c(38): error C202: 'led2': undefined identifier
+7segDungPort2Port3DocLap.c(39): error C202: 'so': undefined identifier
+7segDungPort2Port3DocLap.c(41): error C202: 'led2': undefined identifier
+7segDungPort2Port3DocLap.c(44): error C202: 'led1': undefined identifier
+7segDungPort2Port3DocLap.c(45): error C202: 'so': undefined identifier
+7segDungPort2Port3DocLap.c(47): error C202: 'led1': undefined identifier
+7segDungPort2Port3DocLap.c(60): error C202: 'j': undefined identifier
+7segDungPort2Port3DocLap.c(62): error C202: 'led2': undefined identifier
+7segDungPort2Port3DocLap.c(63): error C202: 'so': undefined identifier
+7segDungPort2Port3DocLap.c(65): error C202: 'led2': undefined identifier
+7segDungPort2Port3DocLap.c(68): error C202: 'led1': undefined identifier
+7segDungPort2Port3DocLap.c(69): error C202: 'so': undefined identifier
+7segDungPort2Port3DocLap.c(71): error C202: 'led1': undefined identifier
+7segDungPort2Port3DocLap.c(95): error C202: 'led2': undefined identifier
+7segDungPort2Port3DocLap.c(96): error C202: 'so': undefined identifier
+7segDungPort2Port3DocLap.c(98): error C202: 'led2': undefined identifier
+7segDungPort2Port3DocLap.c(101): error C202: 'led1': undefined identifier
+7segDungPort2Port3DocLap.c(102): error C202: 'so': undefined identifier
+7segDungPort2Port3DocLap.c(104): error C202: 'led1': undefined identifier
+7segDungPort2Port3DocLap.c(118): error C202: 'j': undefined identifier
+7segDungPort2Port3DocLap.c(120): error C202: 'led2': undefined identifier
+7segDungPort2Port3DocLap.c(121): error C202: 'so': undefined identifier
+7segDungPort2Port3DocLap.c(123): error C202: 'led2': undefined identifier
+7segDungPort2Port3DocLap.c(126): error C202: 'led1': undefined identifier
+7segDungPort2Port3DocLap.c(127): error C202: 'so': undefined identifier
+7segDungPort2Port3DocLap.c(129): error C202: 'led1': undefined identifier
+7segDungPort2Port3DocLap.c(143): error C202: 'j': undefined identifier
+7segDungPort2Port3DocLap.c(145): error C202: 'led2': undefined identifier
+7segDungPort2Port3DocLap.c(146): error C202: 'so': undefined identifier
+7segDungPort2Port3DocLap.c(148): error C202: 'led2': undefined identifier
+7segDungPort2Port3DocLap.c(151): error C202: 'led1': undefined identifier
+7segDungPort2Port3DocLap.c(152): error C202: 'so': undefined identifier
+7segDungPort2Port3DocLap.c(154): error C202: 'led1': undefined identifier
+Target not created
+Rebuild target 'Target 1'
+compiling 7segDungPort2Port3DocLap.c...
+7segDungPort2Port3DocLap.c(97): error C202: 'j': undefined identifier
+Target not created
+Rebuild target 'Target 1'
+compiling 7segDungPort2Port3DocLap.c...
+linking...
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?DEM99VE00?7SEGDUNGPORT2PORT3DOCLAP
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?DEMLE?7SEGDUNGPORT2PORT3DOCLAP
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?DEMNGUYENTO?7SEGDUNGPORT2PORT3DOCLAP
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?DEMCHIAHET3?7SEGDUNGPORT2PORT3DOCLAP
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?DEMCHIAHET3VA5?7SEGDUNGPORT2PORT3DOCLAP
+Program Size: data=41.0 xdata=0 code=848
+creating hex file from "7segDungPort2Port3DocLap"...
+"7segDungPort2Port3DocLap" - 0 Error(s), 5 Warning(s).
+Rebuild target 'Target 1'
+compiling 7segDungPort2Port3DocLap.c...
+linking...
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?DEM00TOI99?7SEGDUNGPORT2PORT3DOCLAP
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?DEMLE?7SEGDUNGPORT2PORT3DOCLAP
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?DEMNGUYENTO?7SEGDUNGPORT2PORT3DOCLAP
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?DEMCHIAHET3?7SEGDUNGPORT2PORT3DOCLAP
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?DEMCHIAHET3VA5?7SEGDUNGPORT2PORT3DOCLAP
+Program Size: data=41.0 xdata=0 code=848
+creating hex file from "7segDungPort2Port3DocLap"...
+"7segDungPort2Port3DocLap" - 0 Error(s), 5 Warning(s).
+Rebuild target 'Target 1'
+compiling 7segDungPort2Port3DocLap.c...
+linking...
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?DEM00TOI99?7SEGDUNGPORT2PORT3DOCLAP
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?DEMLE?7SEGDUNGPORT2PORT3DOCLAP
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?DEMNGUYENTO?7SEGDUNGPORT2PORT3DOCLAP
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?DEMCHIAHET3?7SEGDUNGPORT2PORT3DOCLAP
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?DEMCHIAHET3VA5?7SEGDUNGPORT2PORT3DOCLAP
+Program Size: data=39.0 xdata=0 code=832
+creating hex file from "7segDungPort2Port3DocLap"...
+"7segDungPort2Port3DocLap" - 0 Error(s), 5 Warning(s).
+Rebuild target 'Target 1'
+compiling 7segDungPort2Port3DocLap.c...
+linking...
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?DEM00TOI99?7SEGDUNGPORT2PORT3DOCLAP
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?DEM99VE00?7SEGDUNGPORT2PORT3DOCLAP
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?DEMLE?7SEGDUNGPORT2PORT3DOCLAP
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?DEMCHIAHET3?7SEGDUNGPORT2PORT3DOCLAP
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?DEMCHIAHET3VA5?7SEGDUNGPORT2PORT3DOCLAP
+Program Size: data=39.0 xdata=0 code=832
+creating hex file from "7segDungPort2Port3DocLap"...
+"7segDungPort2Port3DocLap" - 0 Error(s), 5 Warning(s).
+Rebuild target 'Target 1'
+compiling 7segDungPort2Port3DocLap.c...
+linking...
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?DEM00TOI99?7SEGDUNGPORT2PORT3DOCLAP
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?DEM99VE00?7SEGDUNGPORT2PORT3DOCLAP
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?DEMLE?7SEGDUNGPORT2PORT3DOCLAP
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?DEMCHIAHET3?7SEGDUNGPORT2PORT3DOCLAP
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?DEMCHIAHET3VA5?7SEGDUNGPORT2PORT3DOCLAP
+Program Size: data=39.0 xdata=0 code=830
+creating hex file from "7segDungPort2Port3DocLap"...
+"7segDungPort2Port3DocLap" - 0 Error(s), 5 Warning(s).
+Rebuild target 'Target 1'
+compiling 7segDungPort2Port3DocLap.c...
+linking...
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?DEM00TOI99?7SEGDUNGPORT2PORT3DOCLAP
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?DEM99VE00?7SEGDUNGPORT2PORT3DOCLAP
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?DEMLE?7SEGDUNGPORT2PORT3DOCLAP
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?DEMCHIAHET3?7SEGDUNGPORT2PORT3DOCLAP
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?DEMCHIAHET3VA5?7SEGDUNGPORT2PORT3DOCLAP
+Program Size: data=39.0 xdata=0 code=812
+creating hex file from "7segDungPort2Port3DocLap"...
+"7segDungPort2Port3DocLap" - 0 Error(s), 5 Warning(s).

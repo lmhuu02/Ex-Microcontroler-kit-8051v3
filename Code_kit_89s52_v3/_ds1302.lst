@@ -1,0 +1,136 @@
+C51 COMPILER V9.01   _DS1302                                                               10/21/2012 21:18:22 PAGE 1   
+
+
+C51 COMPILER V9.01, COMPILATION OF MODULE _DS1302
+OBJECT MODULE PLACED IN _ds1302.obj
+COMPILER INVOKED BY: C:\Keil\C51\BIN\C51.EXE DS1302\_ds1302.c BROWSE DEBUG OBJECTEXTEND PRINT(.\_ds1302.lst) TABS(2) OBJ
+                    -ECT(_ds1302.obj)
+
+line level    source
+
+   1          #include "_ds1302.h"
+   2          
+   3          void DS1302_WriteByte(unsigned char Data) 
+   4          { 
+   5   1          unsigned char i;
+   6   1          Data=((Data/10)*16+Data%10);
+   7   1          for(i=0; i<8;i++)
+   8   1          {
+   9   2          SDA=(Data&(0x01<<i));
+*** ERROR C202 IN LINE 9 OF DS1302\_DS1302.C: 'SDA': undefined identifier
+  10   2          SCL=1;
+*** ERROR C202 IN LINE 10 OF DS1302\_DS1302.C: 'SCL': undefined identifier
+  11   2          delay_ms(1);
+  12   2          SCL=0;
+*** ERROR C202 IN LINE 12 OF DS1302\_DS1302.C: 'SCL': undefined identifier
+  13   2          delay_ms(1);
+  14   2          } 
+  15   1      }
+  16          unsigned char DS1302_RaedByte(void) 
+  17          { 
+  18   1          unsigned char i,temp,Data=0;
+  19   1          for(i=0; i<8; i++)
+  20   1          {
+  21   2          temp=SDA;
+*** ERROR C202 IN LINE 21 OF DS1302\_DS1302.C: 'SDA': undefined identifier
+  22   2           if(temp)
+  23   2          {
+  24   3                //Data=Data<<1;
+  25   3                Data=Data|(0x01<<i);
+  26   3          }
+  27   2           //else
+  28   2          //Data=Data<<1;
+  29   2          SCL=1;
+*** ERROR C202 IN LINE 29 OF DS1302\_DS1302.C: 'SCL': undefined identifier
+  30   2          delay_ms(1);
+  31   2          SCL=0;
+*** ERROR C202 IN LINE 31 OF DS1302\_DS1302.C: 'SCL': undefined identifier
+  32   2          delay_ms(1);
+  33   2          }
+  34   1          Data = ((Data / 16) * 10 + Data % 16);    
+  35   1          return(Data); 
+  36   1      }   
+  37          void DS1302_Write(unsigned char Addr, unsigned char Data)
+  38          {
+  39   1          DS_RST = 0;
+*** ERROR C202 IN LINE 39 OF DS1302\_DS1302.C: 'DS_RST': undefined identifier
+  40   1        delay_ms(1);
+  41   1          SCL = 0;
+*** ERROR C202 IN LINE 41 OF DS1302\_DS1302.C: 'SCL': undefined identifier
+  42   1        delay_ms(1);
+  43   1          DS_RST = 1;
+*** ERROR C202 IN LINE 43 OF DS1302\_DS1302.C: 'DS_RST': undefined identifier
+  44   1        delay_ms(1);
+  45   1          
+C51 COMPILER V9.01   _DS1302                                                               10/21/2012 21:18:22 PAGE 2   
+
+  46   1          DS1302_WriteByte(Addr);      
+  47   1          DS1302_WriteByte(Data);
+  48   1      delay_ms(1);  
+  49   1          SCL = 1;
+*** ERROR C202 IN LINE 49 OF DS1302\_DS1302.C: 'SCL': undefined identifier
+  50   1        delay_ms(1);
+  51   1          DS_RST = 0;
+*** ERROR C202 IN LINE 51 OF DS1302\_DS1302.C: 'DS_RST': undefined identifier
+  52   1      }  
+  53          unsigned char DS1302_Read(unsigned char Addr)
+  54          {
+  55   1          unsigned char Data;
+  56   1          DS_RST = 0;
+*** ERROR C202 IN LINE 56 OF DS1302\_DS1302.C: 'DS_RST': undefined identifier
+  57   1        delay_ms(1);
+  58   1          SCL = 0;
+*** ERROR C202 IN LINE 58 OF DS1302\_DS1302.C: 'SCL': undefined identifier
+  59   1        delay_ms(1);
+  60   1          DS_RST = 1;
+*** ERROR C202 IN LINE 60 OF DS1302\_DS1302.C: 'DS_RST': undefined identifier
+  61   1        delay_ms(1);
+  62   1          DS1302_WriteByte(Addr);            
+  63   1          Data = DS1302_RaedByte();         
+  64   1          SCL = 1;
+*** ERROR C202 IN LINE 64 OF DS1302\_DS1302.C: 'SCL': undefined identifier
+  65   1        delay_ms(1);
+  66   1          DS_RST = 0;
+*** ERROR C202 IN LINE 66 OF DS1302\_DS1302.C: 'DS_RST': undefined identifier
+  67   1        delay_ms(1);
+  68   1          return(Data);
+  69   1      }
+  70          
+  71          void DS1302_SetTime(unsigned char hour,unsigned char minute,unsigned char second)
+  72          {
+  73   1        DS1302_Write(0x8e,0x00);
+  74   1        DS1302_Write(0x80,second);
+  75   1        DS1302_Write(0x82,minute);
+  76   1        DS1302_Write(0x84,hour);
+  77   1        DS1302_Write(0x8e,0x80);
+  78   1      }
+  79          /*
+  80          void DS1302_SetDate(unsigned char day, unsigned char date, unsigned char month, unsigned char year)
+  81          {
+  82            DS1302_Write(0x8e,0x00);
+  83            DS1302_Write(0x86,date);
+  84            DS1302_Write(0x88,month);
+  85            DS1302_Write(0x8A,day);
+  86            DS1302_Write(0x8C,year);
+  87            DS1302_Write(0x8e,0x80);
+  88          }
+  89          */
+  90          void DS1302_GetTime(unsigned char *hour,unsigned char *minute,unsigned char *second)
+  91          {
+  92   1        *second=DS1302_Read(0x81);
+  93   1        *minute=DS1302_Read(0x83);
+  94   1        *hour=DS1302_Read(0x85);
+  95   1      }
+  96          /*
+  97          void DS1302_GetDate(unsigned char *day, unsigned char *date, unsigned char *month, unsigned char *year)
+  98          {
+  99            *date=DS1302_Read(0x87);
+ 100            *month=DS1302_Read(0x89);
+C51 COMPILER V9.01   _DS1302                                                               10/21/2012 21:18:22 PAGE 3   
+
+ 101            *day=DS1302_Read(0x8B);
+ 102            *year=DS1302_Read(0x8D);
+ 103          }
+ 104          */
+
+C51 COMPILATION COMPLETE.  0 WARNING(S),  16 ERROR(S)

@@ -1,0 +1,95 @@
+C51 COMPILER V9.52.0.0   BAI9_COI_RELAY_8051                                               03/01/2023 19:32:35 PAGE 1   
+
+
+C51 COMPILER V9.52.0.0, COMPILATION OF MODULE BAI9_COI_RELAY_8051
+OBJECT MODULE PLACED IN .\Objects\bai9_coi_relay_8051.obj
+COMPILER INVOKED BY: C:\Keil_v5\C51\BIN\C51.EXE bai9_coi_relay_8051.c OPTIMIZE(8,SPEED) BROWSE DEBUG OBJECTEXTEND PRINT(
+                    -.\Listings\bai9_coi_relay_8051.lst) TABS(2) OBJECT(.\Objects\bai9_coi_relay_8051.obj)
+
+line level    source
+
+   1          /*
+   2          DO AN TOT NGHIEP: KIT 8051 V3.
+   3          NAME: CONTROL RELAY AND WHISTEL BY BUTTON in chip 8051.
+   4          TIME: 2/2023  - ICTU.
+   5          */
+   6          /*---------------------------INCLUDE AND DEFINE-----------------------------------*/
+   7          #include <REGX51.H>
+   8          #include <lcd16x2.h>
+   9          
+  10          //ngat ngoai 0 1: P3_2, P3_3
+  11          #define RELAY P1_0
+  12          // Chan dieu khien COI CHIP ----------------------
+  13          #define COI P1_3
+  14          
+  15          /*------------------------------- FUNCTION-------------------------------*/
+  16          //ham delay timer 0 cd 1
+  17          void delay_ms1(unsigned int time){
+  18   1        while(time--){
+  19   2          TMOD = 0x01;  //timer 0 che do 1
+  20   2          TH0 =   0xfc;
+  21   2          TL0 = 0x18;
+  22   2          TR0 = 1;
+  23   2          while(!TF0){};
+  24   2          TR0 = 0;
+  25   2          TF0 = 0;
+  26   2        }
+  27   1      }
+  28          
+  29          //ham ngat dao bat led chan p1.3
+  30          void ngatngoai0() interrupt 0{  //vecto ngat 0: ngat ngoai 0. chan P3_2. INT0. IT0
+  31   1        COI = ~ COI;
+  32   1      }
+  33          
+  34          //ham ngat dao bat led chan p1.3
+  35          void ngatngoai1() interrupt 2{  //vecto ngat 0: ngat ngoai 0. chan P3_2. INT0. IT0
+  36   1        RELAY = ~ RELAY;
+  37   1      }
+  38          
+  39          /*-------------------------------MAIN FUNCTION-------------------------------*/
+  40          void main(){
+  41   1        
+  42   1        /*------------INIT INTERRUPT REGISTER---------*/
+  43   1        RELAY = COI = 0; //npn b muc 1 bat.
+  44   1        EX0 = 1;  //chon che do ngat: ngat ngoai 0
+  45   1        EX1 = 1;
+  46   1        EA = 1; //bat thanh ghi ngat
+  47   1        IT0 = 1;  //ngat theo suon. (IT0 = 0 --> ngat theo muc). mac dinh la ngat theo muc
+  48   1        
+  49   1        /*-----------------INIT AND SHOW LCD16X2---------------*/
+  50   1        lcd1602_init();
+  51   1        lcd1602_clear();
+  52   1        lcd1602_gotoxy(0,0);
+  53   1        lcd1602_puts(" DO AN TOT NGHIEP");
+  54   1        lcd1602_gotoxy(0,1);
+C51 COMPILER V9.52.0.0   BAI9_COI_RELAY_8051                                               03/01/2023 19:32:35 PAGE 2   
+
+  55   1        delay_ms(3000);
+  56   1        lcd1602_puts("  KIT 8051 V3");
+  57   1        delay_ms(2000);
+  58   1        lcd1602_clear();
+  59   1        lcd1602_gotoxy(0,0);
+  60   1        lcd1602_puts("TEST RELAY COI");
+  61   1        while(1){
+  62   2          P1_4 = P1_5 = P1_6  = 0x00; //bat led cong p2
+  63   2          P2 = 0x00;
+  64   2          delay_ms1(700);
+  65   2          P1_4 = P1_5 = P1_6 = 0xff;  //tat led cong p2
+  66   2          delay_ms1(700);
+  67   2          P2 = 0xff;
+  68   2        }
+  69   1      }
+
+
+MODULE INFORMATION:   STATIC OVERLAYABLE
+   CODE SIZE        =    423    ----
+   CONSTANT SIZE    =     47    ----
+   XDATA SIZE       =   ----    ----
+   PDATA SIZE       =   ----    ----
+   DATA SIZE        =     16       4
+   IDATA SIZE       =   ----    ----
+   BIT SIZE         =   ----    ----
+END OF MODULE INFORMATION.
+
+
+C51 COMPILATION COMPLETE.  0 WARNING(S),  0 ERROR(S)

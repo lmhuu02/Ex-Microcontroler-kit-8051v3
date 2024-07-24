@@ -1,0 +1,318 @@
+BL51 BANKED LINKER/LOCATER V6.22                                                        03/03/2022  02:37:06  PAGE 1
+
+
+BL51 BANKED LINKER/LOCATER V6.22, INVOKED BY:
+C:\KEIL\C51\BIN\BL51.EXE hienThiLcd16x2.obj TO hienThiLcd16x2 RAMSIZE (256)
+
+
+MEMORY MODEL: SMALL
+
+
+INPUT MODULES INCLUDED:
+  hienThiLcd16x2.obj (HIENTHILCD16X2)
+  C:\KEIL\C51\LIB\C51S.LIB (?C_STARTUP)
+  C:\KEIL\C51\LIB\C51S.LIB (?C?CLDPTR)
+
+
+LINK MAP OF MODULE:  hienThiLcd16x2 (HIENTHILCD16X2)
+
+
+            TYPE    BASE      LENGTH    RELOCATION   SEGMENT NAME
+            -----------------------------------------------------
+
+            * * * * * * *   D A T A   M E M O R Y   * * * * * * *
+            REG     0000H     0008H     ABSOLUTE     "REG BANK 0"
+            DATA    0008H     0003H     UNIT         _DATA_GROUP_
+            IDATA   000BH     0001H     UNIT         ?STACK
+
+            * * * * * * *   C O D E   M E M O R Y   * * * * * * *
+            CODE    0000H     0003H     ABSOLUTE     
+                    0003H     07FDH                  *** GAP ***
+            CODE    0800H     0088H     UNIT         ?PR?MAIN?HIENTHILCD16X2
+            CODE    0888H     0058H     UNIT         ?CO?HIENTHILCD16X2
+            CODE    08E0H     0045H     UNIT         ?PR?LCD_INIT?HIENTHILCD16X2
+            CODE    0925H     0028H     UNIT         ?PR?_DELAY_MS?HIENTHILCD16X2
+            CODE    094DH     0024H     UNIT         ?PR?_LCD_GOTOXY?HIENTHILCD16X2
+            CODE    0971H     0023H     UNIT         ?PR?_LCD_PUTS?HIENTHILCD16X2
+            CODE    0994H     001FH     UNIT         ?PR?_DELAY_TIMER?HIENTHILCD16X2
+            CODE    09B3H     001CH     UNIT         ?PR?_LCD_SEND4BIT?HIENTHILCD16X2
+            CODE    09CFH     0019H     UNIT         ?C?LIB_CODE
+            CODE    09E8H     0013H     UNIT         ?PR?LCD_ENABLE?HIENTHILCD16X2
+            CODE    09FBH     0012H     UNIT         ?PR?_DELAY_US?HIENTHILCD16X2
+            CODE    0A0DH     0012H     UNIT         ?PR?_LCD_SENDCOMMAND?HIENTHILCD16X2
+            CODE    0A1FH     000CH     UNIT         ?PR?LCD_CLEAR?HIENTHILCD16X2
+            CODE    0A2BH     000CH     UNIT         ?C_C51STARTUP
+            CODE    0A37H     000BH     UNIT         ?PR?_DELAY?HIENTHILCD16X2
+            CODE    0A42H     0008H     UNIT         ?PR?_LCD_PUTCHAR?HIENTHILCD16X2
+
+
+
+OVERLAY MAP OF MODULE:   hienThiLcd16x2 (HIENTHILCD16X2)
+
+
+SEGMENT                                       DATA_GROUP 
+  +--> CALLED SEGMENT                       START    LENGTH
+-----------------------------------------------------------
+?C_C51STARTUP                               -----    -----
+  +--> ?PR?MAIN?HIENTHILCD16X2
+
+?PR?MAIN?HIENTHILCD16X2                     -----    -----
+  +--> ?PR?LCD_INIT?HIENTHILCD16X2
+  +--> ?CO?HIENTHILCD16X2
+BL51 BANKED LINKER/LOCATER V6.22                                                      03/03/2022  02:37:06  PAGE 2
+
+
+  +--> ?PR?_LCD_PUTS?HIENTHILCD16X2
+  +--> ?PR?_DELAY_MS?HIENTHILCD16X2
+  +--> ?PR?LCD_CLEAR?HIENTHILCD16X2
+  +--> ?PR?_LCD_GOTOXY?HIENTHILCD16X2
+  +--> ?PR?_DELAY_TIMER?HIENTHILCD16X2
+
+?PR?LCD_INIT?HIENTHILCD16X2                 -----    -----
+  +--> ?PR?_LCD_SEND4BIT?HIENTHILCD16X2
+  +--> ?PR?_DELAY_MS?HIENTHILCD16X2
+  +--> ?PR?LCD_ENABLE?HIENTHILCD16X2
+  +--> ?PR?_DELAY_US?HIENTHILCD16X2
+  +--> ?PR?_LCD_SENDCOMMAND?HIENTHILCD16X2
+
+?PR?_DELAY_MS?HIENTHILCD16X2                0008H    0002H
+
+?PR?LCD_ENABLE?HIENTHILCD16X2               -----    -----
+  +--> ?PR?_LCD_SEND4BIT?HIENTHILCD16X2
+  +--> ?PR?_DELAY_US?HIENTHILCD16X2
+
+?PR?_LCD_SENDCOMMAND?HIENTHILCD16X2         -----    -----
+  +--> ?PR?LCD_ENABLE?HIENTHILCD16X2
+  +--> ?PR?_LCD_SEND4BIT?HIENTHILCD16X2
+
+?PR?_LCD_PUTS?HIENTHILCD16X2                0008H    0003H
+  +--> ?PR?_LCD_PUTCHAR?HIENTHILCD16X2
+
+?PR?_LCD_PUTCHAR?HIENTHILCD16X2             -----    -----
+  +--> ?PR?_LCD_SENDCOMMAND?HIENTHILCD16X2
+
+?PR?LCD_CLEAR?HIENTHILCD16X2                -----    -----
+  +--> ?PR?_LCD_SENDCOMMAND?HIENTHILCD16X2
+  +--> ?PR?_DELAY_US?HIENTHILCD16X2
+
+?PR?_LCD_GOTOXY?HIENTHILCD16X2              -----    -----
+  +--> ?PR?_DELAY_US?HIENTHILCD16X2
+  +--> ?PR?_LCD_SENDCOMMAND?HIENTHILCD16X2
+
+
+
+SYMBOL TABLE OF MODULE:  hienThiLcd16x2 (HIENTHILCD16X2)
+
+  VALUE           TYPE          NAME
+  ----------------------------------
+
+  -------         MODULE        HIENTHILCD16X2
+  C:0000H         SYMBOL        _ICE_DUMMY_
+  C:09EBH         PUBLIC        LCD_Enable
+  C:0971H         PUBLIC        _LCD_puts
+  C:0A0DH         PUBLIC        _LCD_SendCommand
+  C:0A37H         PUBLIC        _delay
+  B:00A0H.0       PUBLIC        P2_0
+  B:00A0H.1       PUBLIC        P2_1
+  B:00A0H.2       PUBLIC        P2_2
+  C:09B3H         PUBLIC        _LCD_Send4Bit
+  B:00A0H.4       PUBLIC        P2_4
+  C:0994H         PUBLIC        _delay_timer
+  B:00A0H.5       PUBLIC        P2_5
+BL51 BANKED LINKER/LOCATER V6.22                                                      03/03/2022  02:37:06  PAGE 3
+
+
+  B:00A0H.6       PUBLIC        P2_6
+  B:00A0H.7       PUBLIC        P2_7
+  C:0800H         PUBLIC        main
+  C:0A42H         PUBLIC        _LCD_putchar
+  D:0089H         PUBLIC        TMOD
+  C:0A1FH         PUBLIC        LCD_clear
+  C:08E0H         PUBLIC        LCD_Init
+  B:0088H.5       PUBLIC        TF0
+  D:008CH         PUBLIC        TH0
+  D:008AH         PUBLIC        TL0
+  C:0929H         PUBLIC        _delay_ms
+  B:0088H.4       PUBLIC        TR0
+  C:09FBH         PUBLIC        _delay_us
+  C:0951H         PUBLIC        _LCD_gotoxy
+  -------         PROC          _DELAY_US
+  D:0006H         SYMBOL        t
+  -------         DO            
+  D:0004H         SYMBOL        i
+  -------         ENDDO         
+  C:09FBH         LINE#         12
+  C:09FBH         LINE#         14
+  C:0A0CH         LINE#         15
+  -------         ENDPROC       _DELAY_US
+  C:0925H         SYMBOL        L?0041
+  -------         PROC          L?0040
+  -------         ENDPROC       L?0040
+  C:0925H         SYMBOL        L?0041
+  -------         PROC          _DELAY_MS
+  D:0008H         SYMBOL        t
+  -------         DO            
+  D:0006H         SYMBOL        i
+  D:0004H         SYMBOL        j
+  -------         ENDDO         
+  C:0929H         LINE#         17
+  C:092DH         LINE#         19
+  C:0937H         LINE#         20
+  C:094CH         LINE#         21
+  -------         ENDPROC       _DELAY_MS
+  -------         PROC          _DELAY
+  D:0006H         SYMBOL        time
+  C:0A37H         LINE#         23
+  C:0A37H         LINE#         24
+  C:0A41H         LINE#         25
+  -------         ENDPROC       _DELAY
+  -------         PROC          _DELAY_TIMER
+  D:0006H         SYMBOL        timer
+  C:0994H         LINE#         28
+  C:0994H         LINE#         29
+  C:099EH         LINE#         30
+  C:09A1H         LINE#         31
+  C:09A4H         LINE#         32
+  C:09A7H         LINE#         33
+  C:09A9H         LINE#         34
+  C:09ACH         LINE#         35
+  C:09AEH         LINE#         36
+  C:09B0H         LINE#         37
+  C:09B2H         LINE#         38
+BL51 BANKED LINKER/LOCATER V6.22                                                      03/03/2022  02:37:06  PAGE 4
+
+
+  -------         ENDPROC       _DELAY_TIMER
+  -------         PROC          L?0044
+  -------         ENDPROC       L?0044
+  -------         PROC          LCD_ENABLE
+  C:09EBH         LINE#         40
+  C:09EBH         LINE#         41
+  C:09EDH         LINE#         42
+  C:09F4H         LINE#         43
+  C:09F6H         LINE#         44
+  -------         ENDPROC       LCD_ENABLE
+  -------         PROC          _LCD_SEND4BIT
+  D:0007H         SYMBOL        Data
+  C:09B3H         LINE#         47
+  C:09B3H         LINE#         48
+  C:09B7H         LINE#         49
+  C:09BDH         LINE#         50
+  C:09C5H         LINE#         51
+  C:09CEH         LINE#         52
+  -------         ENDPROC       _LCD_SEND4BIT
+  -------         PROC          _LCD_SENDCOMMAND
+  D:0003H         SYMBOL        command
+  C:0A0DH         LINE#         54
+  C:0A0FH         LINE#         55
+  C:0A14H         LINE#         56
+  C:0A17H         LINE#         57
+  C:0A1CH         LINE#         58
+  -------         ENDPROC       _LCD_SENDCOMMAND
+  -------         PROC          LCD_CLEAR
+  C:0A1FH         LINE#         61
+  C:0A1FH         LINE#         62
+  C:0A24H         LINE#         63
+  -------         ENDPROC       LCD_CLEAR
+  -------         PROC          LCD_INIT
+  C:08E0H         LINE#         66
+  C:08E0H         LINE#         67
+  C:08E5H         LINE#         68
+  C:08ECH         LINE#         69
+  C:08EEH         LINE#         70
+  C:08F0H         LINE#         71
+  C:08F2H         LINE#         72
+  C:08F5H         LINE#         73
+  C:08FCH         LINE#         74
+  C:08FFH         LINE#         75
+  C:0906H         LINE#         76
+  C:0909H         LINE#         77
+  C:090EH         LINE#         78
+  C:0911H         LINE#         79
+  C:0916H         LINE#         80
+  C:091BH         LINE#         81
+  C:0920H         LINE#         82
+  -------         ENDPROC       LCD_INIT
+  C:094DH         SYMBOL        L?0043
+  -------         PROC          L?0042
+  -------         ENDPROC       L?0042
+  C:094DH         SYMBOL        L?0043
+  -------         PROC          _LCD_GOTOXY
+  D:0007H         SYMBOL        x
+BL51 BANKED LINKER/LOCATER V6.22                                                      03/03/2022  02:37:06  PAGE 5
+
+
+  D:0005H         SYMBOL        y
+  -------         DO            
+  D:0002H         SYMBOL        address
+  -------         ENDDO         
+  C:0951H         LINE#         85
+  C:0951H         LINE#         87
+  C:095AH         LINE#         88
+  C:095EH         LINE#         89
+  C:0965H         LINE#         90
+  C:096AH         LINE#         91
+  -------         ENDPROC       _LCD_GOTOXY
+  -------         PROC          _LCD_PUTCHAR
+  D:0007H         SYMBOL        Data
+  C:0A42H         LINE#         94
+  C:0A42H         LINE#         95
+  C:0A44H         LINE#         96
+  C:0A47H         LINE#         97
+  C:0A49H         LINE#         98
+  -------         ENDPROC       _LCD_PUTCHAR
+  -------         PROC          _LCD_PUTS
+  D:0008H         SYMBOL        s
+  C:0971H         LINE#         100
+  C:0977H         LINE#         101
+  C:0983H         LINE#         102
+  C:0986H         LINE#         103
+  C:0991H         LINE#         104
+  C:0993H         LINE#         105
+  -------         ENDPROC       _LCD_PUTS
+  -------         PROC          MAIN
+  C:0800H         LINE#         106
+  C:0800H         LINE#         107
+  C:0800H         LINE#         108
+  C:0803H         LINE#         109
+  C:080CH         LINE#         110
+  C:080FH         LINE#         111
+  C:0812H         LINE#         112
+  C:0818H         LINE#         113
+  C:0821H         LINE#         114
+  C:0824H         LINE#         115
+  C:0827H         LINE#         116
+  C:0830H         LINE#         117
+  C:0833H         LINE#         118
+  C:0836H         LINE#         119
+  C:083FH         LINE#         120
+  C:0842H         LINE#         121
+  C:0849H         LINE#         122
+  C:084FH         LINE#         123
+  C:0858H         LINE#         124
+  C:085FH         LINE#         125
+  C:0862H         LINE#         126
+  C:086BH         LINE#         127
+  C:086EH         LINE#         128
+  C:0875H         LINE#         130
+  C:087EH         LINE#         131
+  C:0885H         LINE#         133
+  -------         ENDPROC       MAIN
+  -------         ENDMOD        HIENTHILCD16X2
+BL51 BANKED LINKER/LOCATER V6.22                                                      03/03/2022  02:37:06  PAGE 6
+
+
+
+  -------         MODULE        ?C?CLDPTR
+  C:09CFH         PUBLIC        ?C?CLDPTR
+  -------         ENDMOD        ?C?CLDPTR
+
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?_DELAY?HIENTHILCD16X2
+
+******************************************************************************
+* RESTRICTED VERSION WITH 0800H BYTE CODE SIZE LIMIT; USED: 0225H BYTE (26%) *
+******************************************************************************
+
+Program Size: data=12.0 xdata=0 code=589
+LINK/LOCATE RUN COMPLETE.  1 WARNING(S),  0 ERROR(S)

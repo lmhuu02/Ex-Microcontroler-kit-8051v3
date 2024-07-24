@@ -1,0 +1,65 @@
+C51 COMPILER V9.52.0.0   BAI8_EEPROM_AT24C04_8051                                          03/01/2023 20:27:40 PAGE 1   
+
+
+C51 COMPILER V9.52.0.0, COMPILATION OF MODULE BAI8_EEPROM_AT24C04_8051
+OBJECT MODULE PLACED IN .\Objects\bai8_eeprom_at24c04_8051.obj
+COMPILER INVOKED BY: C:\Keil_v5\C51\BIN\C51.EXE bai8_eeprom_at24c04_8051.c OPTIMIZE(8,SPEED) BROWSE DEBUG OBJECTEXTEND P
+                    -RINT(.\Listings\bai8_eeprom_at24c04_8051.lst) TABS(2) OBJECT(.\Objects\bai8_eeprom_at24c04_8051.obj)
+
+line level    source
+
+   1          /*
+   2          DO AN TOT NGHIEP: KIT 8051 V3.
+   3          NAME: READ SENSOR DS18B20 display on lcd16x2 in chip 8051.
+   4          TIME: 2/2023  - ICTU.
+   5          */
+   6          /*---------------------------INCLUDE AND DEFINE-----------------------------------*/
+   7          #include <REGX51.H>
+   8          #include <lcd16x2.h>
+   9          #include <eeprom24c08.h>
+  10          #include <stdio.h>  //su dung sprintf()
+  11          
+  12          float Nhiet_Do;             // DS18b20
+  13          
+  14          /*-------------------------------MAIN FUNCTION-------------------------------*/
+  15          void main(){
+  16   1        //EEP_24CXX_Init();
+  17   1        EEP_24CXX_Init();
+  18   1        //INIT LCD 16X2
+  19   1        lcd1602_init();
+  20   1        lcd1602_clear();
+  21   1        lcd1602_gotoxy(0,0);
+  22   1        lcd1602_puts("DO AN TOT NGHIEP");
+  23   1        lcd1602_gotoxy(0,1);
+  24   1        delay_ms(3000);
+  25   1        lcd1602_puts("  KIT 8051 V3");
+  26   1        delay_ms(2000);
+  27   1        lcd1602_clear();
+  28   1        lcd1602_gotoxy(0,0);
+  29   1        lcd1602_puts("TEST AT24C08");
+  30   1        //sprintf(Lcd_Buff,"embedded_c_ICTU ");
+  31   1        sprintf(Lcd_Buff,"eme ");
+  32   1        EEP_24CXX_WriteS(0x20,Lcd_Buff);
+  33   1        delay_ms(10);
+  34   1        EEPROM_24CXX_ReadS(0x20,16,Lcd_Buff);
+  35   1        lcd1602_gotoxy(0,1);
+  36   1        lcd1602_puts(Lcd_Buff);
+  37   1          while(1)
+  38   1            {
+  39   2            }
+  40   1      }
+  41          /*------------------------------END FILE--------------------------------*/
+
+
+MODULE INFORMATION:   STATIC OVERLAYABLE
+   CODE SIZE        =    831    ----
+   CONSTANT SIZE    =     49    ----
+   XDATA SIZE       =   ----    ----
+   PDATA SIZE       =   ----    ----
+   DATA SIZE        =     20      14
+   IDATA SIZE       =   ----    ----
+   BIT SIZE         =   ----       2
+END OF MODULE INFORMATION.
+
+
+C51 COMPILATION COMPLETE.  0 WARNING(S),  0 ERROR(S)

@@ -1,0 +1,118 @@
+BL51 BANKED LINKER/LOCATER V6.22                                                        03/08/2022  15:02:35  PAGE 1
+
+
+BL51 BANKED LINKER/LOCATER V6.22, INVOKED BY:
+C:\KEIL\C51\BIN\BL51.EXE ngatTruyenThongNoiTiepUART_truyenNhanData.obj TO ngatTruyenThongNoiTiepUART_truyenNhanData RAMS
+>> IZE (256)
+
+
+MEMORY MODEL: SMALL
+
+
+INPUT MODULES INCLUDED:
+  ngatTruyenThongNoiTiepUART_truyenNhanData.obj (NGATTRUYENTHONGNOITIEPUART_TRUYENNHANDATA)
+  C:\KEIL\C51\LIB\C51S.LIB (?C_STARTUP)
+
+
+LINK MAP OF MODULE:  ngatTruyenThongNoiTiepUART_truyenNhanData (NGATTRUYENTHONGNOITIEPUART_TRUYENNHANDATA)
+
+
+            TYPE    BASE      LENGTH    RELOCATION   SEGMENT NAME
+            -----------------------------------------------------
+
+            * * * * * * *   D A T A   M E M O R Y   * * * * * * *
+            REG     0000H     0008H     ABSOLUTE     "REG BANK 0"
+            IDATA   0008H     0001H     UNIT         ?STACK
+
+            * * * * * * *   C O D E   M E M O R Y   * * * * * * *
+            CODE    0000H     0003H     ABSOLUTE     
+                    0003H     07FDH                  *** GAP ***
+            CODE    0800H     0020H     UNIT         ?PR?MAIN?NGATTRUYENTHONGNOITIEPUART_TRUYENNHANDATA
+            CODE    0820H     000CH     UNIT         ?C_C51STARTUP
+            CODE    082CH     0008H     UNIT         ?PR?_SEND?NGATTRUYENTHONGNOITIEPUART_TRUYENNHANDATA
+            CODE    0834H     0008H     UNIT         ?PR?RECEIVER?NGATTRUYENTHONGNOITIEPUART_TRUYENNHANDATA
+
+
+
+OVERLAY MAP OF MODULE:   ngatTruyenThongNoiTiepUART_truyenNhanData (NGATTRUYENTHONGNOITIEPUART_TRUYENNHANDATA)
+
+
+SEGMENT
+  +--> CALLED SEGMENT
+---------------------
+?C_C51STARTUP
+  +--> ?PR?MAIN?NGATTRUYENTHONGNOITIEPUART_T...
+
+?PR?MAIN?NGATTRUYENTHONGNOITIEPUART_T...
+  +--> ?PR?RECEIVER?NGATTRUYENTHONGNOITIEPUA...
+  +--> ?PR?_SEND?NGATTRUYENTHONGNOITIEPUART_...
+
+
+
+SYMBOL TABLE OF MODULE:  ngatTruyenThongNoiTiepUART_truyenNhanData (NGATTRUYENTHONGNOITIEPUART_TRUYENNHANDATA)
+
+  VALUE           TYPE          NAME
+  ----------------------------------
+
+  -------         MODULE        NGATTRUYENTHONGNOITIEPUART_TRUYENNHANDATA
+  C:0000H         SYMBOL        _ICE_DUMMY_
+  D:00A0H         PUBLIC        P2
+  B:0098H.0       PUBLIC        RI
+  B:0098H.1       PUBLIC        TI
+BL51 BANKED LINKER/LOCATER V6.22                                                      03/08/2022  15:02:35  PAGE 2
+
+
+  C:0800H         PUBLIC        main
+  C:082CH         PUBLIC        _send
+  D:0099H         PUBLIC        SBUF
+  D:0087H         PUBLIC        PCON
+  D:0098H         PUBLIC        SCON
+  D:0089H         PUBLIC        TMOD
+  C:0834H         PUBLIC        Receiver
+  D:008DH         PUBLIC        TH1
+  B:0088H.6       PUBLIC        TR1
+  -------         PROC          _SEND
+  D:0007H         SYMBOL        a
+  C:082CH         LINE#         7
+  C:082CH         LINE#         8
+  C:082EH         LINE#         9
+  C:0831H         LINE#         10
+  C:0833H         LINE#         11
+  -------         ENDPROC       _SEND
+  -------         PROC          RECEIVER
+  -------         DO            
+  D:0007H         SYMBOL        c
+  -------         ENDDO         
+  C:0834H         LINE#         14
+  C:0834H         LINE#         16
+  C:0837H         LINE#         17
+  C:0839H         LINE#         18
+  C:083BH         LINE#         19
+  C:083BH         LINE#         20
+  -------         ENDPROC       RECEIVER
+  -------         PROC          MAIN
+  -------         DO            
+  D:0006H         SYMBOL        i
+  -------         ENDDO         
+  C:0800H         LINE#         23
+  C:0800H         LINE#         25
+  C:0803H         LINE#         26
+  C:0806H         LINE#         27
+  C:0809H         LINE#         28
+  C:080CH         LINE#         29
+  C:080EH         LINE#         30
+  C:080EH         LINE#         31
+  C:0813H         LINE#         32
+  C:0816H         LINE#         33
+  C:081BH         LINE#         34
+  C:081BH         LINE#         35
+  C:081EH         LINE#         36
+  -------         ENDPROC       MAIN
+  -------         ENDMOD        NGATTRUYENTHONGNOITIEPUART_TRUYENNHANDATA
+
+******************************************************************************
+* RESTRICTED VERSION WITH 0800H BYTE CODE SIZE LIMIT; USED: 0030H BYTE ( 2%) *
+******************************************************************************
+
+Program Size: data=9.0 xdata=0 code=63
+LINK/LOCATE RUN COMPLETE.  0 WARNING(S),  0 ERROR(S)

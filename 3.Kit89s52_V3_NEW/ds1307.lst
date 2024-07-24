@@ -1,0 +1,156 @@
+C51 COMPILER V9.01   DS1307                                                                10/13/2014 09:05:31 PAGE 1   
+
+
+C51 COMPILER V9.01, COMPILATION OF MODULE DS1307
+OBJECT MODULE PLACED IN ds1307.obj
+COMPILER INVOKED BY: C:\Keil\C51\BIN\C51.EXE ds1307\ds1307.c BROWSE DEBUG OBJECTEXTEND PRINT(.\ds1307.lst) TABS(2) OBJEC
+                    -T(ds1307.obj)
+
+line level    source
+
+   1          #include "ds1307.h"
+   2          //////////////////////////////////////////////////
+   3          
+   4          //ham su dung cho i2c
+   5          void I2C_Delay(unsigned int time)
+   6          {
+   7   1         while(time)
+   8   1         time--;
+   9   1      }
+  10          void i2c_init()
+  11          {
+  12   1         SCL=1;
+  13   1         I2C_Delay(I2C_DELAY);
+  14   1         SDA=1;
+  15   1         I2C_Delay(I2C_DELAY);
+  16   1      }
+  17          void I2C_Start()
+  18          {
+  19   1           SDA=1; 
+  20   1           SCL=1; 
+  21   1           I2C_Delay(I2C_DELAY);
+  22   1           SDA=0; 
+  23   1           I2C_Delay(I2C_DELAY);
+  24   1           SCL=0;
+  25   1           I2C_Delay(I2C_DELAY);
+  26   1      }
+  27          void I2C_Stop()
+  28          {   
+  29   1           SDA=0;
+  30   1           SCL=1;
+  31   1           I2C_Delay(I2C_DELAY);
+  32   1           SDA=1;
+  33   1           I2C_Delay(I2C_DELAY);
+  34   1           SCL=0;
+  35   1           I2C_Delay(I2C_DELAY);
+  36   1      }
+  37          unsigned char i2c_checkack(void)
+  38          {
+  39   1         unsigned char ack=0;
+  40   1           SDA=1;
+  41   1           SCL=1;
+  42   1           I2C_Delay(I2C_DELAY/2);
+  43   1           ack=SDA;
+  44   1           I2C_Delay(I2C_DELAY/2);
+  45   1           SCL=0;
+  46   1           I2C_Delay(I2C_DELAY);
+  47   1           if(ack==1) return 0; 
+  48   1           return 1;
+  49   1      }
+  50          void i2c_write(unsigned char Data)
+  51          {
+  52   1      unsigned char i;
+  53   1           for(i=0;i<8;i++)
+  54   1          {
+C51 COMPILER V9.01   DS1307                                                                10/13/2014 09:05:31 PAGE 2   
+
+  55   2               SDA=((Data<<i)&0x80);
+  56   2            SCL=1;
+  57   2            I2C_Delay(I2C_DELAY);
+  58   2            SCL=0;
+  59   2            I2C_Delay(I2C_DELAY);
+  60   2         }
+  61   1      }
+  62          unsigned char i2c_read(void)
+  63          {
+  64   1           unsigned char I2C_data=0,i,temp;
+  65   1           for(i=0;i<8;i++)
+  66   1          {
+  67   2             SDA=1;    
+  68   2               SCL=1;    
+  69   2               I2C_Delay(120);
+  70   2               temp=SDA;
+  71   2               I2C_Delay(120);
+  72   2               SCL=0;
+  73   2               if(temp==1)
+  74   2                {
+  75   3                  I2C_data=I2C_data<<1;
+  76   3                  I2C_data=I2C_data|0x01;
+  77   3                }
+  78   2               else
+  79   2                 I2C_data=I2C_data<<1;
+  80   2          }
+  81   1          return I2C_data;
+  82   1      }
+  83          //////////////////////////////////////////////////
+  84          
+  85          //ham su dung cho ds1307
+  86          unsigned char DS1307_get(unsigned char addr) 
+  87          {
+  88   1         unsigned int temp,ret; 
+  89   1         bit AckTemp=1;
+  90   1         I2C_Start(); /* Start i2c bus */
+  91   1         i2c_write(DS1307_ID); /* Connect to DS1307 */
+  92   1         AckTemp=i2c_checkack();
+  93   1         i2c_write(addr);    /* Request RAM address on DS1307 */  
+  94   1         AckTemp=i2c_checkack();
+  95   1         I2C_Start();    /* Start i2c bus */
+  96   1         i2c_write(DS1307_ID+1);   /* Connect to DS1307 for Read */
+  97   1         AckTemp=i2c_checkack();
+  98   1         ret = i2c_read();    /* Receive data */
+  99   1         AckTemp=i2c_checkack();
+ 100   1         I2C_Stop();
+ 101   1      //*********************************************
+ 102   1         temp = ret;    /*BCD to HEX*/
+ 103   1         ret = (((ret/16)*10)+ (temp & 0x0f));    /*for Led 7seg*/
+ 104   1      //*********************************************   
+ 105   1         return ret;   
+ 106   1      }
+ 107          
+ 108          
+ 109          void DS1307_Write(unsigned char addr,unsigned char dat)
+ 110          {
+ 111   1         unsigned int temp;
+ 112   1         bit AckTemp=1;
+ 113   1      //**********************************************    /*HEX to BCD*/
+ 114   1         temp = dat ;    /*for Led 7seg*/
+ 115   1         dat = (((dat/10)*16)|(temp %10));
+ 116   1      //**********************************************   
+C51 COMPILER V9.01   DS1307                                                                10/13/2014 09:05:31 PAGE 3   
+
+ 117   1         I2C_Start(); /* Start i2c bus */
+ 118   1         i2c_write(DS1307_ID); /* Connect to DS1307 */
+ 119   1         AckTemp=i2c_checkack();
+ 120   1         i2c_write(addr);    /* Request RAM address on DS1307 */ 
+ 121   1         AckTemp=i2c_checkack();
+ 122   1         i2c_write(dat);   /* Connect to DS1307 for Read */
+ 123   1         AckTemp=i2c_checkack();
+ 124   1         I2C_Stop();
+ 125   1      }
+ 126          /************************************************** *********************/
+ 127          
+ 128          
+
+
+MODULE INFORMATION:   STATIC OVERLAYABLE
+   CODE SIZE        =    349    ----
+   CONSTANT SIZE    =   ----    ----
+   XDATA SIZE       =   ----    ----
+   PDATA SIZE       =   ----    ----
+   DATA SIZE        =   ----       1
+   IDATA SIZE       =   ----    ----
+   BIT SIZE         =   ----       2
+END OF MODULE INFORMATION.
+
+
+C51 COMPILATION COMPLETE.  0 WARNING(S),  0 ERROR(S)

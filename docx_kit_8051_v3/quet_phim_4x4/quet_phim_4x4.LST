@@ -1,0 +1,190 @@
+C51 COMPILER V8.05a   QUET_PHIM_4X4                                                        11/20/2014 08:12:28 PAGE 1   
+
+
+C51 COMPILER V8.05a, COMPILATION OF MODULE QUET_PHIM_4X4
+OBJECT MODULE PLACED IN quet_phim_4x4.OBJ
+COMPILER INVOKED BY: C:\Keil\C51\BIN\C51.EXE quet_phim_4x4.c BROWSE DEBUG OBJECTEXTEND
+
+line level    source
+
+   1          /*
+   2          Code by Vu Thai - SangTaoClub.Net
+   3          Cach su dung ham: but=get_key();
+   4                  - Neu but=0 thi khong co nut nao duoc nhan
+   5                  - Neu but 0<but<17  thi nut duoc nhan, tra ve vi tri cua nut 1-16
+   6          */
+   7          #include <REGX51.H>
+   8          //Khai bao chan quet nut nhan
+   9          #define col0    P3_0    //cot
+  10          #define col1    P3_1
+  11          #define col2    P3_2
+  12          #define col3    P3_3
+  13          #define row0    P3_4    //hang
+  14          #define row1    P3_5
+  15          #define row2    P3_6
+  16          #define row3    P3_7
+  17          //Khai bao chan giao tiep LCD16x2 4bit
+  18          #define LCD_RS  P2_0
+  19          #define LCD_RW  P2_1
+  20          #define LCD_EN  P2_2
+  21          #define LCD_D4  P2_4
+  22          #define LCD_D5  P2_5
+  23          #define LCD_D6  P2_6
+  24          #define LCD_D7  P2_7
+  25          
+  26          /*****************Ham delay*********************/
+  27           void delay_us(unsigned int t){
+  28   1              unsigned int i;
+  29   1              for(i=0;i<t;i++);
+  30   1      }
+  31          void delay_ms(unsigned int t){
+  32   1              unsigned int i,j;
+  33   1              for(i=0;i<t;i++)
+  34   1              for(j=0;j<125;j++);
+  35   1      }
+  36          /*******Ham quet matrix phim nhan 4x4******/
+  37          unsigned char check_but(){ //Kiem tra nut nhan
+  38   1              row0=row1=row2=row3=0;
+  39   1              if(!col0 || !col1 || !col2 || !col3 )return 1;
+  40   1              return 0;
+  41   1      }
+  42          void scan_row(unsigned char r){ //Quet hang
+  43   1              row0=row1=row2=row3=1;
+  44   1              if(r==0)row0=0;
+  45   1              else if(r==1)row1=0;
+  46   1              else if(r==2)row2=0;
+  47   1              else if(r==3)row3=0;
+  48   1      }
+  49          unsigned char check_col(){ //Kiem tra cot
+  50   1              unsigned char c=0;
+  51   1              if(!col0)c=1;
+  52   1              else if(!col1)c=2;
+  53   1              else if(!col2)c=3;
+  54   1              else if(!col3)c=4;
+  55   1              return c;
+C51 COMPILER V8.05a   QUET_PHIM_4X4                                                        11/20/2014 08:12:28 PAGE 2   
+
+  56   1      }
+  57          unsigned char get_key(){  //Ham tra ve vi tri nut 1-16, =0 la khong nhan
+  58   1              unsigned char row,col;
+  59   1          if(check_but()){
+  60   2            delay_ms(5);
+  61   2            if(check_but()){         
+  62   3               for(row=0;row<4;row++){            
+  63   4                  scan_row(row);
+  64   4                              col=check_col();
+  65   4                              if(col>0)return ((row*4)+col); //Tra ve vi tri nut duoc nhan
+  66   4               }      
+  67   3            }
+  68   2         }
+  69   1         return 0; //Khong co nut nao duoc nhan hoac nut da nha         
+  70   1      }
+  71          
+  72          /**************Ctr giao tiep LCD 16x2 4bit**********************/
+  73          void LCD_Enable(void){
+  74   1              LCD_EN =1;
+  75   1              delay_us(3);
+  76   1              LCD_EN=0;
+  77   1              delay_us(50); 
+  78   1      }
+  79          //Ham Gui 4 Bit Du Lieu Ra LCD
+  80          void LCD_Send4Bit(unsigned char Data){
+  81   1              LCD_D4=Data & 0x01;
+  82   1              LCD_D5=(Data>>1)&1;
+  83   1              LCD_D6=(Data>>2)&1;
+  84   1              LCD_D7=(Data>>3)&1;
+  85   1      }
+  86          // Ham Gui 1 Lenh Cho LCD
+  87          void LCD_SendCommand(unsigned char command){
+  88   1              LCD_Send4Bit(command >>4);/* Gui 4 bit cao */
+  89   1              LCD_Enable();
+  90   1              LCD_Send4Bit(command); /* Gui 4 bit thap*/
+  91   1              LCD_Enable();
+  92   1      }
+  93          void LCD_Clear(){// Ham Xoa Man Hinh LCD
+  94   1              LCD_SendCommand(0x01); 
+  95   1              delay_us(10);
+  96   1      }
+  97          // Ham Khoi Tao LCD
+  98          void LCD_Init(){
+  99   1              LCD_Send4Bit(0x00);
+ 100   1              delay_ms(20);
+ 101   1              LCD_RS=0;
+ 102   1              LCD_RW=0;
+ 103   1              LCD_Send4Bit(0x03);
+ 104   1              LCD_Enable();
+ 105   1              delay_ms(5);
+ 106   1              LCD_Enable();
+ 107   1              delay_us(100);
+ 108   1              LCD_Enable();
+ 109   1              LCD_Send4Bit(0x02);
+ 110   1              LCD_Enable();
+ 111   1              LCD_SendCommand( 0x28 );
+ 112   1              LCD_SendCommand( 0x0c); 
+ 113   1              LCD_SendCommand( 0x06 );
+ 114   1              LCD_SendCommand(0x01);
+ 115   1      }
+ 116          void LCD_Gotoxy(unsigned char x, unsigned char y){
+ 117   1              unsigned char address;
+C51 COMPILER V8.05a   QUET_PHIM_4X4                                                        11/20/2014 08:12:28 PAGE 3   
+
+ 118   1              if(!y)address=(0x80+x);
+ 119   1              else address=(0xc0+x);
+ 120   1              delay_us(1000);
+ 121   1              LCD_SendCommand(address);
+ 122   1              delay_us(50);
+ 123   1      }
+ 124          void LCD_PutChar(unsigned char Data){//Ham Gui 1 Ki Tu
+ 125   1              LCD_RS=1;
+ 126   1              LCD_SendCommand(Data);
+ 127   1              LCD_RS=0 ;
+ 128   1      }
+ 129          void LCD_Puts(char *s){//Ham gui 1 chuoi ky tu
+ 130   1              while (*s){
+ 131   2                      LCD_PutChar(*s);
+ 132   2                      s++;
+ 133   2              }
+ 134   1      }
+ 135          ////////////////////////////////////////////////////////////////////////////////
+ 136          unsigned char code ma_nut[16]={ //Khai bao mang nut nhan
+ 137                  '7','8','9',':',
+ 138                  '4','5','6','x',
+ 139                  '1','2','3','-',
+ 140                  'C','0','=','+'
+ 141          };
+ 142          void show_button(unsigned char key){
+ 143   1               LCD_Puts("Key  ");
+ 144   1               LCD_PutChar(ma_nut[key-1]); //Xuat ra vi tri nut nhan
+ 145   1      }
+ 146          void main(){  //Chuong trinh chinh
+ 147   1               unsigned char but;
+ 148   1               LCD_Init();
+ 149   1               delay_ms(200);
+ 150   1               LCD_Puts("Quet phim 4x4..");
+ 151   1               delay_ms(500);
+ 152   1               LCD_Clear();
+ 153   1               LCD_Gotoxy(0,0);
+ 154   1               LCD_Puts("SangTaoClub.Net");
+ 155   1               while(1){
+ 156   2                       LCD_Gotoxy(0,1);
+ 157   2                       but=get_key();
+ 158   2                       if(but>0)show_button(but);
+ 159   2                       else LCD_Puts("No key");
+ 160   2                       delay_ms(200);
+ 161   2               }
+ 162   1      
+ 163   1      }
+
+
+MODULE INFORMATION:   STATIC OVERLAYABLE
+   CODE SIZE        =    509    ----
+   CONSTANT SIZE    =     61    ----
+   XDATA SIZE       =   ----    ----
+   PDATA SIZE       =   ----    ----
+   DATA SIZE        =   ----       4
+   IDATA SIZE       =   ----    ----
+   BIT SIZE         =   ----    ----
+END OF MODULE INFORMATION.
+
+
+C51 COMPILATION COMPLETE.  0 WARNING(S),  0 ERROR(S)

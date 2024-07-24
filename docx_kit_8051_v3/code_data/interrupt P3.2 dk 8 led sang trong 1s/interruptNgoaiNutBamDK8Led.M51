@@ -1,0 +1,92 @@
+BL51 BANKED LINKER/LOCATER V6.22                                                        03/18/2022  10:54:48  PAGE 1
+
+
+BL51 BANKED LINKER/LOCATER V6.22, INVOKED BY:
+C:\KEIL\C51\BIN\BL51.EXE interruptNgoaiNutBamDK8Led.obj TO interruptNgoaiNutBamDK8Led RAMSIZE (256)
+
+
+MEMORY MODEL: SMALL
+
+
+INPUT MODULES INCLUDED:
+  interruptNgoaiNutBamDK8Led.obj (INTERRUPTNGOAINUTBAMDK8LED)
+  C:\KEIL\C51\LIB\C51S.LIB (?C_STARTUP)
+
+
+LINK MAP OF MODULE:  interruptNgoaiNutBamDK8Led (INTERRUPTNGOAINUTBAMDK8LED)
+
+
+            TYPE    BASE      LENGTH    RELOCATION   SEGMENT NAME
+            -----------------------------------------------------
+
+            * * * * * * *   D A T A   M E M O R Y   * * * * * * *
+            REG     0000H     0008H     ABSOLUTE     "REG BANK 0"
+            IDATA   0008H     0001H     UNIT         ?STACK
+
+            * * * * * * *   C O D E   M E M O R Y   * * * * * * *
+            CODE    0000H     0003H     ABSOLUTE     
+            CODE    0003H     0003H     ABSOLUTE     
+            CODE    0006H     002CH     UNIT         ?PR?NGATNGOAI0?INTERRUPTNGOAINUTBAMDK8LED
+            CODE    0032H     000CH     UNIT         ?C_C51STARTUP
+            CODE    003EH     000BH     UNIT         ?PR?_DELAY?INTERRUPTNGOAINUTBAMDK8LED
+            CODE    0049H     0007H     UNIT         ?PR?MAIN?INTERRUPTNGOAINUTBAMDK8LED
+
+
+
+OVERLAY MAP OF MODULE:   interruptNgoaiNutBamDK8Led (INTERRUPTNGOAINUTBAMDK8LED)
+
+
+SEGMENT
+  +--> CALLED SEGMENT
+---------------------
+?C_C51STARTUP
+  +--> ?PR?MAIN?INTERRUPTNGOAINUTBAMDK8LED
+
+
+
+SYMBOL TABLE OF MODULE:  interruptNgoaiNutBamDK8Led (INTERRUPTNGOAINUTBAMDK8LED)
+
+  VALUE           TYPE          NAME
+  ----------------------------------
+
+  -------         MODULE        INTERRUPTNGOAINUTBAMDK8LED
+  C:0000H         SYMBOL        _ICE_DUMMY_
+  D:00A0H         PUBLIC        P2
+  D:00A8H         PUBLIC        IE
+  C:003EH         PUBLIC        _delay
+  C:0049H         PUBLIC        main
+  B:0088H.0       PUBLIC        IT0
+  C:0006H         PUBLIC        ngatNgoai0
+  -------         PROC          _DELAY
+  D:0006H         SYMBOL        time
+BL51 BANKED LINKER/LOCATER V6.22                                                      03/18/2022  10:54:48  PAGE 2
+
+
+  C:003EH         LINE#         5
+  C:003EH         LINE#         6
+  C:0048H         LINE#         7
+  -------         ENDPROC       _DELAY
+  -------         PROC          NGATNGOAI0
+  -------         DO            
+  D:0006H         SYMBOL        a
+  -------         ENDDO         
+  C:0006H         LINE#         9
+  C:0013H         LINE#         10
+  C:0017H         LINE#         11
+  C:001AH         LINE#         12
+  C:0024H         LINE#         13
+  C:0027H         LINE#         14
+  -------         ENDPROC       NGATNGOAI0
+  -------         PROC          MAIN
+  C:0049H         LINE#         16
+  C:0049H         LINE#         17
+  C:004CH         LINE#         18
+  C:004EH         LINE#         20
+  -------         ENDPROC       MAIN
+  -------         ENDMOD        INTERRUPTNGOAINUTBAMDK8LED
+
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?_DELAY?INTERRUPTNGOAINUTBAMDK8LED
+
+Program Size: data=9.0 xdata=0 code=80
+LINK/LOCATE RUN COMPLETE.  1 WARNING(S),  0 ERROR(S)

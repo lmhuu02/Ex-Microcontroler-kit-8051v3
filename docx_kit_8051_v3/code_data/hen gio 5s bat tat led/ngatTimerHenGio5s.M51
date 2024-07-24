@@ -1,0 +1,99 @@
+BL51 BANKED LINKER/LOCATER V6.22                                                        03/18/2022  10:49:28  PAGE 1
+
+
+BL51 BANKED LINKER/LOCATER V6.22, INVOKED BY:
+C:\KEIL\C51\BIN\BL51.EXE ngatTimerHenGio5s.obj TO ngatTimerHenGio5s RAMSIZE (256)
+
+
+MEMORY MODEL: SMALL
+
+
+INPUT MODULES INCLUDED:
+  ngatTimerHenGio5s.obj (NGATTIMERHENGIO5S)
+  C:\KEIL\C51\LIB\C51S.LIB (?C_STARTUP)
+
+
+LINK MAP OF MODULE:  ngatTimerHenGio5s (NGATTIMERHENGIO5S)
+
+
+            TYPE    BASE      LENGTH    RELOCATION   SEGMENT NAME
+            -----------------------------------------------------
+
+            * * * * * * *   D A T A   M E M O R Y   * * * * * * *
+            REG     0000H     0008H     ABSOLUTE     "REG BANK 0"
+            IDATA   0008H     0001H     UNIT         ?STACK
+
+            * * * * * * *   C O D E   M E M O R Y   * * * * * * *
+            CODE    0000H     0003H     ABSOLUTE     
+                    0003H     0008H                  *** GAP ***
+            CODE    000BH     0003H     ABSOLUTE     
+            CODE    000EH     0051H     UNIT         ?PR?NGATTIMER5S?NGATTIMERHENGIO5S
+            CODE    005FH     0010H     UNIT         ?PR?MAIN?NGATTIMERHENGIO5S
+            CODE    006FH     000CH     UNIT         ?C_C51STARTUP
+
+
+
+OVERLAY MAP OF MODULE:   ngatTimerHenGio5s (NGATTIMERHENGIO5S)
+
+
+SEGMENT
+  +--> CALLED SEGMENT
+---------------------
+?C_C51STARTUP
+  +--> ?PR?MAIN?NGATTIMERHENGIO5S
+
+
+
+SYMBOL TABLE OF MODULE:  ngatTimerHenGio5s (NGATTIMERHENGIO5S)
+
+  VALUE           TYPE          NAME
+  ----------------------------------
+
+  -------         MODULE        NGATTIMERHENGIO5S
+  C:0000H         SYMBOL        _ICE_DUMMY_
+  B:00A8H.7       PUBLIC        EA
+  D:00A8H         PUBLIC        IE
+  B:0090H.0       PUBLIC        P1_0
+  C:005FH         PUBLIC        main
+  D:0089H         PUBLIC        TMOD
+  B:00A8H.1       PUBLIC        ET0
+  D:008CH         PUBLIC        TH0
+  D:008AH         PUBLIC        TL0
+BL51 BANKED LINKER/LOCATER V6.22                                                      03/18/2022  10:49:28  PAGE 2
+
+
+  B:0088H.4       PUBLIC        TR0
+  C:000EH         PUBLIC        ngatTimer5s
+  -------         PROC          NGATTIMER5S
+  -------         DO            
+  D:0006H         SYMBOL        a
+  D:0004H         SYMBOL        count
+  -------         ENDDO         
+  C:000EH         LINE#         7
+  C:001FH         LINE#         8
+  C:0026H         LINE#         9
+  C:002BH         LINE#         10
+  C:002EH         LINE#         11
+  C:0031H         LINE#         12
+  C:0033H         LINE#         13
+  C:003CH         LINE#         14
+  C:003EH         LINE#         15
+  C:0048H         LINE#         16
+  C:004AH         LINE#         17
+  C:004EH         LINE#         18
+  C:0050H         LINE#         19
+  -------         ENDPROC       NGATTIMER5S
+  -------         PROC          MAIN
+  C:005FH         LINE#         21
+  C:005FH         LINE#         22
+  C:0061H         LINE#         23
+  C:0064H         LINE#         24
+  C:0067H         LINE#         25
+  C:0069H         LINE#         26
+  C:006BH         LINE#         27
+  C:006DH         LINE#         28
+  -------         ENDPROC       MAIN
+  -------         ENDMOD        NGATTIMERHENGIO5S
+
+Program Size: data=9.0 xdata=0 code=115
+LINK/LOCATE RUN COMPLETE.  0 WARNING(S),  0 ERROR(S)

@@ -1,0 +1,147 @@
+BL51 BANKED LINKER/LOCATER V6.22                                                        02/10/2022  16:04:42  PAGE 1
+
+
+BL51 BANKED LINKER/LOCATER V6.22, INVOKED BY:
+C:\KEIL\C51\BIN\BL51.EXE led7ThanhTu0DenN.obj TO led7ThanhTu0DenN RAMSIZE (256)
+
+
+MEMORY MODEL: SMALL
+
+
+INPUT MODULES INCLUDED:
+  led7ThanhTu0DenN.obj (LED7THANHTU0DENN)
+  C:\KEIL\C51\LIB\C51S.LIB (?C_STARTUP)
+  C:\KEIL\C51\LIB\C51S.LIB (?C?ULDIV)
+  C:\KEIL\C51\LIB\C51S.LIB (?C?SLCMP)
+  C:\KEIL\C51\LIB\C51S.LIB (?C_INIT)
+
+
+LINK MAP OF MODULE:  led7ThanhTu0DenN (LED7THANHTU0DENN)
+
+
+            TYPE    BASE      LENGTH    RELOCATION   SEGMENT NAME
+            -----------------------------------------------------
+
+            * * * * * * *   D A T A   M E M O R Y   * * * * * * *
+            REG     0000H     0008H     ABSOLUTE     "REG BANK 0"
+            DATA    0008H     001AH     UNIT         ?DT?LED7THANHTU0DENN
+            DATA    0022H     0008H     UNIT         _DATA_GROUP_
+            IDATA   002AH     0001H     UNIT         ?STACK
+
+            * * * * * * *   C O D E   M E M O R Y   * * * * * * *
+            CODE    0000H     0003H     ABSOLUTE     
+                    0003H     07FDH                  *** GAP ***
+            CODE    0800H     00E4H     UNIT         ?C?LIB_CODE
+            CODE    08E4H     008CH     UNIT         ?C_C51STARTUP
+            CODE    0970H     005CH     UNIT         ?PR?_TACHCHUSO?LED7THANHTU0DENN
+            CODE    09CCH     004AH     UNIT         ?PR?_QUETLED?LED7THANHTU0DENN
+            CODE    0A16H     0041H     UNIT         ?PR?MAIN?LED7THANHTU0DENN
+            CODE    0A57H     0016H     UNIT         ?C_INITSEG
+            CODE    0A6DH     000BH     UNIT         ?PR?_DELAY?LED7THANHTU0DENN
+
+
+
+OVERLAY MAP OF MODULE:   led7ThanhTu0DenN (LED7THANHTU0DENN)
+
+
+SEGMENT                                   DATA_GROUP 
+  +--> CALLED SEGMENT                   START    LENGTH
+-------------------------------------------------------
+?C_C51STARTUP                           -----    -----
+  +--> ?PR?MAIN?LED7THANHTU0DENN
+  +--> ?C_INITSEG
+
+?PR?MAIN?LED7THANHTU0DENN               -----    -----
+  +--> ?PR?_TACHCHUSO?LED7THANHTU0DENN
+  +--> ?PR?_QUETLED?LED7THANHTU0DENN
+
+?PR?_TACHCHUSO?LED7THANHTU0DENN         0022H    0008H
+
+?PR?_QUETLED?LED7THANHTU0DENN           0022H    0002H
+  +--> ?PR?_DELAY?LED7THANHTU0DENN
+BL51 BANKED LINKER/LOCATER V6.22                                                      02/10/2022  16:04:42  PAGE 2
+
+
+
+
+
+SYMBOL TABLE OF MODULE:  led7ThanhTu0DenN (LED7THANHTU0DENN)
+
+  VALUE           TYPE          NAME
+  ----------------------------------
+
+  -------         MODULE        LED7THANHTU0DENN
+  C:0000H         SYMBOL        _ICE_DUMMY_
+  D:0080H         PUBLIC        P0
+  D:00A0H         PUBLIC        P2
+  C:0970H         PUBLIC        _tachChuSo
+  D:0008H         PUBLIC        soHienThi
+  C:0A6DH         PUBLIC        _delay
+  C:0A16H         PUBLIC        main
+  D:0012H         PUBLIC        chuSoThu
+  D:0019H         PUBLIC        quetSoThu
+  C:09CCH         PUBLIC        _quetLed
+  D:0020H         PUBLIC        demSo
+  -------         PROC          _DELAY
+  D:0006H         SYMBOL        time
+  C:0A6DH         LINE#         11
+  C:0A6DH         LINE#         12
+  C:0A77H         LINE#         13
+  -------         ENDPROC       _DELAY
+  -------         PROC          _TACHCHUSO
+  D:0022H         SYMBOL        temp
+  D:0026H         SYMBOL        soLed
+  -------         DO            
+  D:0028H         SYMBOL        i
+  -------         ENDDO         
+  C:0970H         LINE#         19
+  C:0978H         LINE#         21
+  C:098EH         LINE#         22
+  C:09A8H         LINE#         23
+  C:09C1H         LINE#         24
+  C:09CBH         LINE#         25
+  -------         ENDPROC       _TACHCHUSO
+  -------         PROC          _QUETLED
+  D:0022H         SYMBOL        soLed
+  -------         DO            
+  D:0002H         SYMBOL        i
+  D:0082H         SYMBOL        j
+  -------         ENDDO         
+  C:09CCH         LINE#         28
+  C:09D0H         LINE#         30
+  C:09D3H         LINE#         31
+  C:09E7H         LINE#         32
+  C:09F4H         LINE#         33
+  C:09FDH         LINE#         34
+  C:0A04H         LINE#         35
+  C:0A07H         LINE#         36
+  C:0A0AH         LINE#         37
+  C:0A15H         LINE#         38
+  -------         ENDPROC       _QUETLED
+  -------         PROC          MAIN
+BL51 BANKED LINKER/LOCATER V6.22                                                      02/10/2022  16:04:42  PAGE 3
+
+
+  C:0A16H         LINE#         40
+  C:0A16H         LINE#         41
+  C:0A16H         LINE#         43
+  C:0A33H         LINE#         44
+  C:0A46H         LINE#         45
+  C:0A4DH         LINE#         46
+  -------         ENDPROC       MAIN
+  -------         ENDMOD        LED7THANHTU0DENN
+
+  -------         MODULE        ?C?ULDIV
+  C:083CH         PUBLIC        ?C?ULDIV
+  -------         ENDMOD        ?C?ULDIV
+
+  -------         MODULE        ?C?SLCMP
+  C:08CEH         PUBLIC        ?C?SLCMP
+  -------         ENDMOD        ?C?SLCMP
+
+******************************************************************************
+* RESTRICTED VERSION WITH 0800H BYTE CODE SIZE LIMIT; USED: 0107H BYTE (12%) *
+******************************************************************************
+
+Program Size: data=43.0 xdata=0 code=635
+LINK/LOCATE RUN COMPLETE.  0 WARNING(S),  0 ERROR(S)

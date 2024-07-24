@@ -1,0 +1,65 @@
+C51 COMPILER V9.52.0.0   BAI_CAMBIEN_LM35                                                  03/01/2023 18:41:29 PAGE 1   
+
+
+C51 COMPILER V9.52.0.0, COMPILATION OF MODULE BAI_CAMBIEN_LM35
+OBJECT MODULE PLACED IN .\Objects\bai_cambien_lm35.obj
+COMPILER INVOKED BY: C:\Keil_v5\C51\BIN\C51.EXE bai_cambien_lm35.c OPTIMIZE(8,SPEED) BROWSE DEBUG OBJECTEXTEND PRINT(.\L
+                    -istings\bai_cambien_lm35.lst) TABS(2) OBJECT(.\Objects\bai_cambien_lm35.obj)
+
+line level    source
+
+   1          /*
+   2          DO AN TOT NGHIEP: KIT 8051 V3.
+   3          bai tap hien thi nhiet do LM35 len lcd 16x2 chip 8051, ADC PCF8591
+   4          TIME: 2/2023  - ICTU.
+   5          */
+   6          /*--------------------------------------------------------------*/
+   7          //include cac thu vien lien quan: regx51.h, adc: pcf8591.h, lcd16x2.h, stdio.h de su dung: sprintf()
+   8          #include <REGX51.H>
+   9          #include <pcf8591.h>
+  10          #include <lcd16x2.h>
+  11          #include <stdio.h>
+  12          
+  13          /*----------------------------MAIN FUNCTION----------------------------------*/
+  14          void main(){
+  15   1        //INIT lcd, pcf8591.
+  16   1        lcd1602_init();
+  17   1        PCF8591_Init();
+  18   1        lcd1602_clear();
+  19   1        lcd1602_gotoxy(0,0);
+  20   1        lcd1602_puts(" DO AN TOT NGHIEP");
+  21   1        lcd1602_gotoxy(0,1);
+  22   1        delay_ms(3000);
+  23   1        lcd1602_puts("  KIT 8051 V3");
+  24   1        delay_ms(2000);
+  25   1        lcd1602_clear();
+  26   1        lcd1602_gotoxy(0,0);
+  27   1        lcd1602_puts("TEST LM35");
+  28   1        while(1)
+  29   1          {
+  30   2            //DOC GIA TRI LM35 QUA IC PCF8591
+  31   2            adc_value=PCF8591_Read(1);
+  32   2            value_lm35=(float)adc_value*5000;
+  33   2            value_lm35=(float)value_lm35/2550;
+  34   2            sprintf(Lcd_Buff,"value = %.2f  ",value_lm35);
+  35   2            //HIEN THI GIA TRI TINH TOAN LEN LCD 1602
+  36   2            lcd1602_gotoxy(0,1);
+  37   2            lcd1602_puts(Lcd_Buff);
+  38   2            delay_ms(300);
+  39   2          }
+  40   1      }
+  41          /*----------------------------END FILE----------------------------------*/
+
+
+MODULE INFORMATION:   STATIC OVERLAYABLE
+   CODE SIZE        =    815    ----
+   CONSTANT SIZE    =     57    ----
+   XDATA SIZE       =   ----    ----
+   PDATA SIZE       =   ----    ----
+   DATA SIZE        =     22       4
+   IDATA SIZE       =   ----    ----
+   BIT SIZE         =   ----       3
+END OF MODULE INFORMATION.
+
+
+C51 COMPILATION COMPLETE.  0 WARNING(S),  0 ERROR(S)

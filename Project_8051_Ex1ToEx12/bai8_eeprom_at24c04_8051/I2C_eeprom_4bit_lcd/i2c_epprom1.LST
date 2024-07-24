@@ -1,0 +1,281 @@
+C51 COMPILER V9.52.0.0   I2C_EPPROM1                                                       02/24/2023 14:25:05 PAGE 1   
+
+
+C51 COMPILER V9.52.0.0, COMPILATION OF MODULE I2C_EPPROM1
+OBJECT MODULE PLACED IN i2c_epprom1.OBJ
+COMPILER INVOKED BY: C:\Keil_v5\C51\BIN\C51.EXE i2c_epprom1.c OPTIMIZE(8,SPEED) BROWSE DEBUG OBJECTEXTEND TABS(2)
+
+line level    source
+
+   1          #include<reg52.h>
+   2          #include<intrins.h>
+   3          #include "lcd.h"
+   4          
+   5          typedef unsigned char u8;
+   6          typedef unsigned int u16;
+   7          
+   8          //*****************************************************************************
+   9          //*                 I2C SDA SCL                     *
+  10          //*****************************************************************************
+  11          sbit scl=P3^7;
+  12          sbit sda=P3^6;
+  13          
+  14          //******************************************************************************
+  15          //*                       I2C START Condition                    *
+  16          //******************************************************************************
+  17          void i2cstart(void)
+  18          {
+  19   1        sda=1;
+  20   1        _nop_();_nop_();
+  21   1        scl=1;
+  22   1        _nop_();_nop_();
+  23   1        sda=0;
+  24   1        _nop_();_nop_();
+  25   1      }
+  26          
+  27          //*******************************************************************************
+  28          //*                  I2C STOP Condition                     *
+  29          //*******************************************************************************
+  30          void i2cstop(void)
+  31          {
+  32   1        scl=0;
+  33   1        sda=0;
+  34   1        scl=1;
+  35   1        sda=1;
+  36   1      }
+  37          
+  38          //*******************************************************************************
+  39          //*                       I2C ACK                             *
+  40          //*******************************************************************************
+  41          void i2cACK(void)
+  42          {
+  43   1        scl=0;
+  44   1        sda=1;
+  45   1        scl=1;
+  46   1        while(sda);
+  47   1      }
+  48          
+  49          //*******************************************************************************
+  50          //*                       I2C NACK                              *
+  51          //*******************************************************************************
+  52          void i2cNoAck(void)
+  53          {
+  54   1        scl=0;
+  55   1        sda=1;
+C51 COMPILER V9.52.0.0   I2C_EPPROM1                                                       02/24/2023 14:25:05 PAGE 2   
+
+  56   1        scl=1;
+  57   1      }
+  58          
+  59          //*******************************************************************************
+  60          //*                       I2C ReStart Condition                 *
+  61          //*******************************************************************************
+  62          void i2cRestart()
+  63          {
+  64   1        scl=0;
+  65   1        sda=1;
+  66   1        scl=1;
+  67   1        sda=0;
+  68   1      }
+  69          
+  70          void i2cWrite(u8 dat)
+  71          {
+  72   1        u8 i;
+  73   1        for(i=0;i<8;i++)
+  74   1       {
+  75   2         scl=0;
+  76   2         sda=(dat&(0x80>>i))?1:0;
+  77   2         scl=1;
+  78   2       }
+  79   1      }
+  80          
+  81          u8 i2cRead(void)
+  82          {
+  83   1        u8 i,buff=0;
+  84   1        for(i=0;i<8;i++)
+  85   1       {
+  86   2         scl=0;
+  87   2         scl=1;
+  88   2         if(sda)
+  89   2         buff|=0x80>>i;
+  90   2       }
+  91   1        return buff;
+  92   1      }
+  93          
+  94          //*******************************************************************************
+  95          //*                       I2C Data Write Steps                  *
+  96          //*******************************************************************************
+  97          //24c01c 24c256c
+  98          void i2cDevWrite(u8 sa,u8 buffer,u8 dat)
+  99          {
+ 100   1        i2cstart();      // 1 . Master issue START condition
+ 101   1        i2cWrite(sa&0xfe);   // 2 . Master Send Device Address(8 bites)  fe = 11111110
+ 102   1        i2cACK();        // 3 . Master Takes ACK from Slave
+ 103   1        i2cWrite(0x00);    // 4 . Master Send Dummy Buffer/Resister Address(8 bites) 0x00
+ 104   1        i2cACK();        // 5 . Master Takes ACK from Slave
+ 105   1        i2cWrite(buffer);    // 6 . Master Send Buffer/Resister Address(8 bites)  
+ 106   1        i2cACK();        // 7 . Master Takes ACK from Slave
+ 107   1        i2cWrite(dat);     // 8 . master issue data to be Written to Address Location
+ 108   1        i2cACK();        // 9 . Master Takes ACK from Slave
+ 109   1        i2cstop();       // 10 . Master issue STOP condition
+ 110   1        delay_ms(10);
+ 111   1      }
+ 112          
+ 113          //*******************************************************************************
+ 114          //*                       I2C Data Read Steps                 *
+ 115          //*******************************************************************************
+ 116          u8 i2cDevRead(u8 sa,u8 buffAddr)
+ 117          {
+C51 COMPILER V9.52.0.0   I2C_EPPROM1                                                       02/24/2023 14:25:05 PAGE 3   
+
+ 118   1        u8 buff;         
+ 119   1        i2cstart();      // 1 . Master issue START condition
+ 120   1        i2cWrite(sa&0xfe);   // 2 . Master Send Device Address(8 bites)  fe = 11111110
+ 121   1        i2cACK();        // 3 . Master Takes ACK from Slave
+ 122   1        i2cWrite(0x00);      // 4 . Master Send Dummy Buffer/Resister Address(8 bites) 0x00
+ 123   1        i2cACK();        // 5 . Master Takes ACK from Slave
+ 124   1        i2cWrite(buffAddr) ; // 6 . Master Send Buffer/Resister Address(8 bites) 
+ 125   1        i2cACK();        // 7 . Master Takes ACK from Slave
+ 126   1        i2cRestart();      // 8 . Master issue RESTART condition
+ 127   1        i2cWrite(sa|1);    // 9 . Master issue Slave Address With Write Read Option.
+ 128   1        i2cACK();        // 10 . Master Takes ACK from Slave
+ 129   1        buff=i2cRead();    // 11 . Master Reads Data From Slave.
+ 130   1        i2cNoAck();      // 12 . Master issue NACK 
+ 131   1        i2cstop();       // 13 . Master issue STOP condition
+ 132   1        return buff;
+ 133   1      }
+ 134          void str_write(u8 sa, u8 buffAddr, char *st)
+ 135          {
+ 136   1       u8 len = 0;
+ 137   1       while(st[len] != '\0')
+ 138   1       {
+ 139   2         i2cDevWrite(sa,buffAddr+len,st[len]);
+ 140   2         len++;
+ 141   2       }
+ 142   1      }
+ 143          
+ 144          void str_read(u8 sa, u8 buffAddr, char *str1,len)
+ 145          { 
+ 146   1       u8 count = 0;
+ 147   1       while(len != count)
+ 148   1       {
+ 149   2          str1[count]= i2cDevRead(sa,buffAddr+count);
+ 150   2          count++;
+ 151   2       }
+ 152   1        str1[count] = '\n';
+ 153   1      }
+ 154          void epprom(void)
+ 155          {
+ 156   1        u8 t,i;
+ 157   1        char dat[10]={0};
+ 158   1        lcd_cmd(0x01);
+ 159   1        lcd_cmd(0x80);
+ 160   1        lcd_str("Writing......"); 
+ 161   1        str_write(0xa0,0x00,"MICROMAGIC");
+ 162   1        delay_ms(500);
+ 163   1        lcd_cmd(0x01);
+ 164   1        lcd_cmd(0x80);
+ 165   1        lcd_str("Reading.....");
+ 166   1        lcd_cmd(0xc0);
+ 167   1        str_read(0xa0,0x00,dat,10);
+ 168   1        lcd_str(dat);
+ 169   1        delay_ms(1000); 
+ 170   1      
+ 171   1        lcd_cmd(0x01);
+ 172   1        lcd_cmd(0x80);
+ 173   1        lcd_str("Writing......"); 
+ 174   1        for(i=0;i<26;i++)
+ 175   1        {                 //        A2  A1  A0
+ 176   2         i2cDevWrite(0xa0,i,'A'+i);  // a0   0 1 0 1  0   0   0    r/w
+ 177   2         lcd_cmd(0xc0);        // a2   0 1 0 1  0   0   1    r/w
+ 178   2         lcd_data('A'+i);        
+ 179   2         delay_ms(350);
+C51 COMPILER V9.52.0.0   I2C_EPPROM1                                                       02/24/2023 14:25:05 PAGE 4   
+
+ 180   2        }
+ 181   1        lcd_cmd(0x01);
+ 182   1        lcd_cmd(0x80);
+ 183   1        lcd_str("Reading.....");
+ 184   1        for(i=0;i<26;i++)
+ 185   1        {
+ 186   2         t=i2cDevRead(0xa0,i);
+ 187   2         lcd_cmd(0xc0);
+ 188   2         lcd_data(t);
+ 189   2         delay_ms(400);
+ 190   2        }
+ 191   1      
+ 192   1      /*  lcd_cmd(0x01);
+ 193   1        lcd_cmd(0x80);
+ 194   1        lcd_str("Writing......"); 
+ 195   1        for(i=0;i<26;i++)
+ 196   1        {                 //        A2  A1  A0
+ 197   1         i2cDevWrite(0xa2,i,'A'+i);  // a0   0 1 0 1  0   0   0    r/w
+ 198   1         lcd_cmd(0xc0);        // a2   0 1 0 1  0   0   1    r/w
+ 199   1         lcd_data('A'+i);        
+ 200   1         delay_ms(250);
+ 201   1        }
+ 202   1        lcd_cmd(0x01);
+ 203   1        lcd_cmd(0x80);
+ 204   1        lcd_str("Reading.....");
+ 205   1        for(i=0;i<26;i++)
+ 206   1        {
+ 207   1         t=i2cDevRead(0xa2,i);
+ 208   1         lcd_cmd(0xc0);
+ 209   1         lcd_data(t);
+ 210   1         delay_ms(250);
+ 211   1        }
+ 212   1      
+ 213   1        lcd_cmd(0x01);
+ 214   1        lcd_cmd(0x80);
+ 215   1        lcd_str("Writing......"); 
+ 216   1        for(i=0;i<26;i++)
+ 217   1        {                 //        A2  A1  A0
+ 218   1         i2cDevWrite(0xa4,i,'a'+i);  // a0   0 1 0 1  0   0   0    r/w
+ 219   1         lcd_cmd(0xc0);     
+ 220   1         lcd_data('a'+i);        // a4   0 1 0 1  0   1   0    r/w
+ 221   1         delay_ms(250);
+ 222   1        }
+ 223   1        lcd_cmd(0x01);
+ 224   1        lcd_cmd(0x80);
+ 225   1        lcd_str("Reading.....");
+ 226   1        for(i=0;i<26;i++)
+ 227   1        {
+ 228   1         t=i2cDevRead(0xa4,i);
+ 229   1         lcd_cmd(0xc0);
+ 230   1         lcd_data(t);
+ 231   1         delay_ms(250);
+ 232   1        }  */
+ 233   1      }
+ 234          
+ 235          //*******************************************************************************
+ 236          //*                           MAIN                            *
+ 237          //*******************************************************************************
+ 238           main()
+ 239          {
+ 240   1        lcd_init();
+ 241   1        lcd_cmd(0x01);
+C51 COMPILER V9.52.0.0   I2C_EPPROM1                                                       02/24/2023 14:25:05 PAGE 5   
+
+ 242   1        lcd_cmd(0x80);
+ 243   1        lcd_str("   welcome   ");
+ 244   1        delay_ms(500);
+ 245   1       while(1)
+ 246   1       { 
+ 247   2         epprom();
+ 248   2         delay_ms(200);
+ 249   2       }
+ 250   1      }
+
+
+MODULE INFORMATION:   STATIC OVERLAYABLE
+   CODE SIZE        =    601    ----
+   CONSTANT SIZE    =     62    ----
+   XDATA SIZE       =   ----    ----
+   PDATA SIZE       =   ----    ----
+   DATA SIZE        =   ----      26
+   IDATA SIZE       =   ----    ----
+   BIT SIZE         =   ----    ----
+END OF MODULE INFORMATION.
+
+
+C51 COMPILATION COMPLETE.  0 WARNING(S),  0 ERROR(S)

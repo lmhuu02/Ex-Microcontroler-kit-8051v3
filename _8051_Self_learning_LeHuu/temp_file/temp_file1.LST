@@ -1,0 +1,84 @@
+C51 COMPILER V9.52.0.0   TEMP_FILE1                                                        03/19/2022 08:06:37 PAGE 1   
+
+
+C51 COMPILER V9.52.0.0, COMPILATION OF MODULE TEMP_FILE1
+OBJECT MODULE PLACED IN temp_file1.OBJ
+COMPILER INVOKED BY: C:\Keil\C51\BIN\C51.EXE temp_file1.c BROWSE DEBUG OBJECTEXTEND TABS(2)
+
+line level    source
+
+   1          ////power by le minh huu 11/3/2022
+   2          ////dem so tu 0 den 99 dung led 7 thanh chung cathot, chung am. dieu khien bang muc 1
+   3          //#include <REGX52.H>
+   4          
+   5          ////gan chan cho led chuc don vi
+   6          //#define led1 P1_0
+   7          //#define led2 P1_1
+   8          
+   9          ////khai bao nut nhan
+  10          //sbit start = P3^2;
+  11          //bit state;
+  12          ////so tu 0 den 9 cho led 7 thanh chung cathot, chung am.
+  13          //char so[]={0x3f, 0x06, 0x5b, 0x4f, 0x66, 0x6d, 0x7d, 0x07, 0x7f, 0x6f};
+  14          //int dem;
+  15          
+  16          //void delay(int time){
+  17          //  while(time--);
+  18          //}
+  19          
+  20          ////ham hien thi led
+  21          //void hienthi(int chuso){
+  22          //  int chuc, donvi;
+  23          //  chuc = chuso/10;  //tinh so hang chuc
+  24          //  donvi = chuso%10; //tinh so hang don vi
+  25          //  //hien thi quyet led
+  26          //  led1 = 0; P2 = so[chuc]; delay(6000); led1 = 1;
+  27          //  led2 = 0; P2 = so[donvi]; delay(6000); led2 = 1;
+  28          //}
+  29          
+  30          //void main(){
+  31          //  dem = P1_0 = P1_1 = 0;
+  32          //  while(1){
+  33          //    //kiem tra nut bam neu dung la bam thi tang bien dem len 1 don vi
+  34          //    if(start == 0){
+  35          //        delay(100);
+  36          //        if(start == 0 && state == 1){
+  37          //          dem++;
+  38          //          P0_0 = ~P0_0; delay(1000);  //cho den led cong p0_0 nhap nhay
+  39          //          if(dem == 100) { dem = 0;}  //neu bien dem = 100 thi gan bien dem = 0
+  40          //        }
+  41          //      }
+  42          //    state = start;
+  43          //      //goi ham hien thi va truyen vao gia tri la bien dem
+  44          //    hienthi(dem);
+  45          //    delay(1000);
+  46          //  }
+  47          //}
+  48          #include <REGX51.H>
+  49          void delay(int time){
+  50   1        while(time--);
+  51   1      }
+  52          
+  53          void main(){
+  54   1        P2_0 = 1;
+  55   1        while(1){
+C51 COMPILER V9.52.0.0   TEMP_FILE1                                                        03/19/2022 08:06:37 PAGE 2   
+
+  56   2          P2_0 = ~ P2_0;
+  57   2          delay(10000);
+  58   2        }   
+  59   1      }
+
+
+MODULE INFORMATION:   STATIC OVERLAYABLE
+   CODE SIZE        =     24    ----
+   CONSTANT SIZE    =   ----    ----
+   XDATA SIZE       =   ----    ----
+   PDATA SIZE       =   ----    ----
+   DATA SIZE        =   ----    ----
+   IDATA SIZE       =   ----    ----
+   BIT SIZE         =   ----    ----
+END OF MODULE INFORMATION.
+
+
+C51 COMPILATION COMPLETE.  0 WARNING(S),  0 ERROR(S)

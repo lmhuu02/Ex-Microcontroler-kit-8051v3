@@ -1,0 +1,78 @@
+BL51 BANKED LINKER/LOCATER V6.22                                                        03/19/2022  08:06:37  PAGE 1
+
+
+BL51 BANKED LINKER/LOCATER V6.22, INVOKED BY:
+C:\KEIL\C51\BIN\BL51.EXE temp_file1.obj TO temp_file RAMSIZE (256)
+
+
+MEMORY MODEL: SMALL
+
+
+INPUT MODULES INCLUDED:
+  temp_file1.obj (TEMP_FILE1)
+  C:\KEIL\C51\LIB\C51S.LIB (?C_STARTUP)
+
+
+LINK MAP OF MODULE:  temp_file (TEMP_FILE1)
+
+
+            TYPE    BASE      LENGTH    RELOCATION   SEGMENT NAME
+            -----------------------------------------------------
+
+            * * * * * * *   D A T A   M E M O R Y   * * * * * * *
+            REG     0000H     0008H     ABSOLUTE     "REG BANK 0"
+            IDATA   0008H     0001H     UNIT         ?STACK
+
+            * * * * * * *   C O D E   M E M O R Y   * * * * * * *
+            CODE    0000H     0003H     ABSOLUTE     
+            CODE    0003H     000DH     UNIT         ?PR?MAIN?TEMP_FILE1
+            CODE    0010H     000CH     UNIT         ?C_C51STARTUP
+            CODE    001CH     000BH     UNIT         ?PR?_DELAY?TEMP_FILE1
+
+
+
+OVERLAY MAP OF MODULE:   temp_file (TEMP_FILE1)
+
+
+SEGMENT
+  +--> CALLED SEGMENT
+---------------------
+?C_C51STARTUP
+  +--> ?PR?MAIN?TEMP_FILE1
+
+?PR?MAIN?TEMP_FILE1
+  +--> ?PR?_DELAY?TEMP_FILE1
+
+
+
+SYMBOL TABLE OF MODULE:  temp_file (TEMP_FILE1)
+
+  VALUE           TYPE          NAME
+  ----------------------------------
+
+  -------         MODULE        TEMP_FILE1
+  C:0000H         SYMBOL        _ICE_DUMMY_
+  C:001CH         PUBLIC        _delay
+  B:00A0H.0       PUBLIC        P2_0
+  C:0003H         PUBLIC        main
+  -------         PROC          _DELAY
+  D:0006H         SYMBOL        time
+  C:001CH         LINE#         49
+  C:001CH         LINE#         50
+BL51 BANKED LINKER/LOCATER V6.22                                                      03/19/2022  08:06:37  PAGE 2
+
+
+  C:0026H         LINE#         51
+  -------         ENDPROC       _DELAY
+  -------         PROC          MAIN
+  C:0003H         LINE#         53
+  C:0003H         LINE#         54
+  C:0005H         LINE#         55
+  C:0005H         LINE#         56
+  C:0007H         LINE#         57
+  C:000EH         LINE#         58
+  -------         ENDPROC       MAIN
+  -------         ENDMOD        TEMP_FILE1
+
+Program Size: data=9.0 xdata=0 code=39
+LINK/LOCATE RUN COMPLETE.  0 WARNING(S),  0 ERROR(S)

@@ -1,0 +1,63 @@
+C51 COMPILER V9.52.0.0   NUTBAM                                                            11/26/2021 20:53:21 PAGE 1   
+
+
+C51 COMPILER V9.52.0.0, COMPILATION OF MODULE NUTBAM
+OBJECT MODULE PLACED IN nutbam.OBJ
+COMPILER INVOKED BY: C:\Keil\C51\BIN\C51.EXE nutbam.c BROWSE DEBUG OBJECTEXTEND TABS(2)
+
+line level    source
+
+   1          #include <REGX52.H>
+   2          
+   3          int dem;
+   4          
+   5          void delay(int time){
+   6   1      while(time--);
+   7   1      }
+   8          
+   9          void main(){
+  10   1        P1_5 = P1_6 = 1; //tat den
+  11   1        //dem = 0;
+  12   1        while(1){ 
+  13   2          //delay(100);
+  14   2          //bam 3 nut dieu khien 2 led
+  15   2          /*
+  16   2            if(P1_0 == 0){
+  17   2              P1_5 = 0; //den 1 sang
+  18   2            }
+  19   2            if(P1_2 == 0){
+  20   2              P1_6 = 0;
+  21   2            }
+  22   2            if(P1_4 == 0){
+  23   2              P1_5 = P1_6 = 1; //tat den
+  24   2            }
+  25   2          */
+  26   2            //1 nut bam P1_1 dieu khien 2 led
+  27   2          if(P1_1 ==0 ){
+  28   3            delay(200);
+  29   3            if(P1_1 == 0)dem++;
+  30   3            if(dem >= 4)  dem = 0;
+  31   3          }
+  32   2            if(dem == 0)P1_7 = 0;
+  33   2            if(dem == 1)P1_5 = 0;
+  34   2            if(dem == 2)P1_6 = 0;
+  35   2            if(dem == 3){
+  36   3              P1_5 = P1_6 = P1_7 =1;
+  37   3            }
+  38   2            
+  39   2        }
+  40   1      }
+
+
+MODULE INFORMATION:   STATIC OVERLAYABLE
+   CODE SIZE        =     98    ----
+   CONSTANT SIZE    =   ----    ----
+   XDATA SIZE       =   ----    ----
+   PDATA SIZE       =   ----    ----
+   DATA SIZE        =      2    ----
+   IDATA SIZE       =   ----    ----
+   BIT SIZE         =   ----    ----
+END OF MODULE INFORMATION.
+
+
+C51 COMPILATION COMPLETE.  0 WARNING(S),  0 ERROR(S)

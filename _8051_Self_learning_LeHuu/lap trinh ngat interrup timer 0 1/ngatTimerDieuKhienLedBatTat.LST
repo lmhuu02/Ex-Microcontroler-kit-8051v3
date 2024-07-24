@@ -1,0 +1,115 @@
+C51 COMPILER V9.52.0.0   NGATTIMERDIEUKHIENLEDBATTAT                                       03/06/2022 12:49:18 PAGE 1   
+
+
+C51 COMPILER V9.52.0.0, COMPILATION OF MODULE NGATTIMERDIEUKHIENLEDBATTAT
+OBJECT MODULE PLACED IN ngatTimerDieuKhienLedBatTat.OBJ
+COMPILER INVOKED BY: C:\Keil\C51\BIN\C51.EXE ngatTimerDieuKhienLedBatTat.c BROWSE DEBUG OBJECTEXTEND TABS(2)
+
+line level    source
+
+   1          //power by le minh huu 6/3/2022
+   2          //ngat timer dieu khien led
+   3          //==============================================================
+   4          //  NGAT TIMER 0 CHE DO 1. XTAL 12MHZ
+   5          /*
+   6          #include <REGX52.H>
+   7          
+   8          int t = 0;  //khai bao bien dem thoi gian
+   9          
+  10          void delay(unsigned int time){
+  11            while(time--);
+  12          }
+  13          
+  14          //ngat timer 0 che do 1. XTAL = 12mhz.  TH0 = 0xfc; TL0 = 0x18;  thuc hien dem trong thoi gian 1ms.
+  15          void ngat() interrupt 1 {
+  16            long time = 50000;  //khoi tao bien tre
+  17            t++;    //tang bien t len moi. khi lan ngat tiep theo duoc thuc hien khi het thoi gian tre
+  18            TH0 = 0xfc; 
+  19            TL0 = 0x18; 
+  20            TR0 = 1;  //khoi dong bo dinh thoi timer 0
+  21            //kiem tra xem neu dem duoc 10000 lan thi thuc hien
+  22            if(t > 1000){
+  23              t = 0;  //gan bien dem t = 0 de dem lai tu dau khi t > 10000
+  24              P1_3 = 0; //bat led
+  25              while(time--){};  //lenh delay 50000.  NOTE: KHONG DUNG CHUNG HAM DELAY TRONG HAM MAIN
+  26                P2 = 0xff;  //tat led
+  27                P1_3 = 1; //tat led
+  28              //while(time--){};
+  29            }
+  30          }
+  31          
+  32          void main(){
+  33            //khai bao ngat
+  34            TMOD = 0x01;  //khai bao timer 0 che do 1: 
+  35            ET0 = 1;  // cho phep ngat timer 0
+  36            TR0 = 1;  // khoi dong bo dinh thoi timer 0
+  37            EA = 1;   // cho phep ngat 
+  38            while(1){     //thuc hien nhay led lien tuc tren cong p2
+  39              P2 = 0; //bat led
+  40              delay(10000);
+  41          //    P2 = 0xff;  //tat led
+  42          //    delay(10000);
+  43          
+  44            }
+  45          }
+  46          */
+  47          
+  48          //================================================================
+  49          //  NGAT TIMER 1 CHE DO 1. XTAL 12MHZ
+  50          #include <REGX52.H>
+  51          
+  52          int t = 0;  //khai bao bien dem thoi gian
+  53          
+  54          void delay(unsigned int time){
+  55   1        while(time--);
+C51 COMPILER V9.52.0.0   NGATTIMERDIEUKHIENLEDBATTAT                                       03/06/2022 12:49:18 PAGE 2   
+
+  56   1      }
+  57          
+  58          //ngat timer 1 che do 1. XTAL = 12mhz.  TH0 = 0xfc; TL0 = 0x18;  thuc hien dem trong thoi gian 1ms.
+  59          void ngat() interrupt 3 { //timer 1 thu tu ngat: 3
+  60   1        long time = 50000;  //khoi tao bien tre
+  61   1        t++;    //tang bien t len moi. khi lan ngat tiep theo duoc thuc hien khi het thoi gian tre
+  62   1        TH1 = 0xfc; 
+  63   1        TL1 = 0x18; 
+  64   1        TR1 = 1;  //khoi dong bo dinh thoi timer 0
+  65   1        //kiem tra xem neu dem duoc 10000 lan thi thuc hien
+  66   1        if(t > 5000){
+  67   2          t = 0;  //gan bien dem t = 0 de dem lai tu dau khi t > 10000
+  68   2          P1_3 = 0; //bat led
+  69   2          while(time--){};  //lenh delay 50000.  NOTE: KHONG DUNG CHUNG HAM DELAY TRONG HAM MAIN
+  70   2            P2 = 0xff;  //tat led
+  71   2            P1_3 = 1; //tat led
+  72   2          //while(time--){};
+  73   2        }
+  74   1      }
+  75          
+  76          void main(){
+  77   1        //khai bao ngat
+  78   1        TMOD = 0x10;  //khai bao timer 1 che do 1: 
+  79   1        ET1 = 1;  // cho phep ngat timer 0
+  80   1        TR1 = 1;  // khoi dong bo dinh thoi timer 0
+  81   1        EA = 1;   // cho phep ngat 
+  82   1        while(1){     //thuc hien nhay led lien tuc tren cong p2
+  83   2          P2 = 0; //bat led
+  84   2          delay(6000);
+  85   2          P2 = 0xff;  //tat led
+  86   2          delay(10000);
+  87   2      
+  88   2        }
+  89   1      }
+  90          //==============================================================
+
+
+MODULE INFORMATION:   STATIC OVERLAYABLE
+   CODE SIZE        =    141    ----
+   CONSTANT SIZE    =   ----    ----
+   XDATA SIZE       =   ----    ----
+   PDATA SIZE       =   ----    ----
+   DATA SIZE        =      2       4
+   IDATA SIZE       =   ----    ----
+   BIT SIZE         =   ----    ----
+END OF MODULE INFORMATION.
+
+
+C51 COMPILATION COMPLETE.  0 WARNING(S),  0 ERROR(S)

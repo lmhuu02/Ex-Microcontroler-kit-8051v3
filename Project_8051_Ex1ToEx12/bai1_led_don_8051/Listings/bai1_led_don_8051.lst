@@ -1,0 +1,124 @@
+C51 COMPILER V9.52.0.0   BAI1_LED_DON_8051                                                 02/20/2023 09:49:47 PAGE 1   
+
+
+C51 COMPILER V9.52.0.0, COMPILATION OF MODULE BAI1_LED_DON_8051
+OBJECT MODULE PLACED IN .\Objects\bai1_led_don_8051.obj
+COMPILER INVOKED BY: C:\Keil_v5\C51\BIN\C51.EXE bai1_led_don_8051.c OPTIMIZE(8,SPEED) BROWSE DEBUG OBJECTEXTEND PRINT(.\
+                    -Listings\bai1_led_don_8051.lst) TABS(2) OBJECT(.\Objects\bai1_led_don_8051.obj)
+
+line level    source
+
+   1          /*
+   2          time: 2023 
+   3          embedded 8051 by langauge c.
+   4          ex1: control 8 led, left right,....
+   5          */
+   6          /*
+   7          power by CLB Dien Tu - EoI - ICTU
+   8          code: Le Minh Huu
+   9          time: t5 - 9/2/2023
+  10          lesson 1: control 8 led port 1 - low (positive)
+  11          embedded 8051 by laugauge C.
+  12          */
+  13          
+  14          //include library 8051
+  15          #include <REGX51.H>
+  16          
+  17          //function base delay
+  18          void delay(unsigned int time){
+  19   1          while(time--);
+  20   1      }
+  21          char hd1[8] = {0xfe, 0xfd,0xfb,0xf7,0xef,0xdf,0xbf,0x7f}; //trai sang phai
+  22          char hd2[4] = {0xe7,0xdb,0xbd,0x7e}; //giua ra hai ben
+  23            char hd3[4] = {0xe7,0xc3,0x81,0x00}; //giua ra hai ben giu
+  24              char hd4[4] = {0x7e, 0x3c,0x18,0x00}; //hai ben vao giua giu
+  25              
+  26          int i;
+  27          void hieuUng1(){
+  28   1        P1  = 0;  
+  29   1        for(i = 0; i < 8; i++){
+  30   2          P1 = hd1[i];  
+  31   2          delay(10000);
+  32   2        }
+  33   1        P1  = 0;  
+  34   1        for(i = 7; i >=0; i--){
+  35   2          P1 = hd1[i];  
+  36   2          delay(10000);
+  37   2        } 
+  38   1      }
+  39          /*-------------------------------------*/
+  40          void hieuUng2(){
+  41   1        P1  = 0;  
+  42   1        for(i = 0; i < 4; i++){
+  43   2          P1 = hd2[i];  
+  44   2          delay(10000);
+  45   2        }
+  46   1        P1  = 0;
+  47   1        for(i = 3; i >=0; i--){
+  48   2          P1 = hd3[i];
+  49   2          delay(10000);
+  50   2        } 
+  51   1      }
+  52          /*-------------------------------------*/
+  53          /*-------------------------------------*/
+  54          void hieuUng3(){
+C51 COMPILER V9.52.0.0   BAI1_LED_DON_8051                                                 02/20/2023 09:49:47 PAGE 2   
+
+  55   1        P1  = 0;  
+  56   1        for(i = 0; i < 4; i++){
+  57   2          P1 = hd3[i];  
+  58   2          delay(10000);
+  59   2        }
+  60   1        P1  = 0;
+  61   1        for(i = 3; i >=0; i--){
+  62   2          P1 = hd3[i];
+  63   2          delay(10000);
+  64   2        } 
+  65   1      }
+  66          /*-------------------------------------*/
+  67          void test1(){
+  68   1        P1_0 = P1_2 = P1_1 = P1_3 = P1_4 = P1_5 = P1_6 = P1_7 = 1;  //khoi tao port 1 =0    
+  69   1          P1_3 = P1_4 = 0;  delay(100000);
+  70   1          P1_2 = P1_5 = 0;  delay(100000);
+  71   1          P1_1 = P1_6 = 0;  delay(100000);
+  72   1          P1_0 = P1_7 = 0;  delay(100000);
+  73   1      }
+  74          /*-------------------------------------*/
+  75          void blink(){
+  76   1          P1 = 0x00;
+  77   1          delay(10000);
+  78   1          P1 = 0xff;
+  79   1          delay(100000);  
+  80   1      }
+  81          /*-------------------------------------*/
+  82          
+  83          void main(){  //chuong trinh chinh
+  84   1        while(1){
+  85   2          //test();
+  86   2          //ledTraiPhai();
+  87   2          //giuTraiPhai();
+  88   2          //test1();
+  89   2        
+  90   2          blink();
+  91   2          blink();
+  92   2          hieuUng1();
+  93   2          hieuUng2();
+  94   2          hieuUng3();
+  95   2          hieuUng2();
+  96   2          hieuUng2();
+  97   2        }
+  98   1      }
+
+
+MODULE INFORMATION:   STATIC OVERLAYABLE
+   CODE SIZE        =    300    ----
+   CONSTANT SIZE    =   ----    ----
+   XDATA SIZE       =   ----    ----
+   PDATA SIZE       =   ----    ----
+   DATA SIZE        =     22    ----
+   IDATA SIZE       =   ----    ----
+   BIT SIZE         =   ----    ----
+END OF MODULE INFORMATION.
+
+
+C51 COMPILATION COMPLETE.  0 WARNING(S),  0 ERROR(S)

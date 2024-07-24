@@ -1,0 +1,512 @@
+C51 COMPILER V9.52.0.0   GLCD_KS0108                                                       08/07/2014 10:51:48 PAGE 1   
+
+
+C51 COMPILER V9.52.0.0, COMPILATION OF MODULE GLCD_KS0108
+OBJECT MODULE PLACED IN glcd_ks0108.obj
+COMPILER INVOKED BY: C:\Keil_v5\C51\BIN\C51.EXE GLCD\KS0108\glcd_ks0108.c BROWSE DEBUG OBJECTEXTEND PRINT(.\glcd_ks0108.
+                    -lst) TABS(2) OBJECT(glcd_ks0108.obj)
+
+line level    source
+
+   1          #include "glcd_ks0108.h"
+*** WARNING C318 IN LINE 68 OF main.h: can't open file 'FONT/FONT.'
+*** WARNING C318 IN LINE 69 OF main.h: can't open file 'GLCD/KS0108/ks0108.h'
+   2          uint8_t u8CursorX, u8CursorY;
+   3          
+   4          void LcdDelay(uint32_t u32Duration)
+   5          {
+   6   1        uint32_t u32Delay;
+   7   1        for (u32Delay=0; u32Delay<u32Duration; u32Delay++);
+   8   1      }
+   9          
+  10          /*-------------------------------------------------------------------------------
+  11          Select the side of the LCD
+  12            LcdSelectSide(U8 u8LcdSide)
+  13              u8LcdSide = LEFT or RIGHT
+  14          -------------------------------------------------------------------------------*/
+  15          void LcdSelectSide(uint8_t u8LcdSide)
+  16          {
+  17   1        if(u8LcdSide == RIGHT)
+  18   1        {
+  19   2          /* switch to right */
+  20   2          LCD_E=0;
+  21   2          LCD_RS=0;
+  22   2          LCD_RW=1;
+  23   2          LCD_CS1=0;  
+  24   2          LCD_CS2=1;
+  25   2          LcdInstructionWrite(Y_ADRESS); /* Set column to 0 */
+  26   2        }
+  27   1        else
+  28   1        {
+  29   2          /* switch to left */
+  30   2          LCD_E=0;
+  31   2          LCD_RS=0;
+  32   2          LCD_RW=1;
+  33   2          LCD_CS1=1;  
+  34   2          LCD_CS2=0;
+  35   2          LcdInstructionWrite(Y_ADRESS); /* Set column to 0 */
+  36   2        }
+  37   1      }
+  38          
+  39          /*-------------------------------------------------------------------------------
+  40          Send datas to the LCD
+  41          LcdDataWrite (U8 u8Data)
+  42          u8Data = data to send to the LCD
+  43          -------------------------------------------------------------------------------*/
+  44          void LcdDataWrite (uint8_t u8Data)
+  45          {
+  46   1        LcdWaitBusy ();   /* wait until LCD not busy */
+  47   1        LCD_RS = 1;       /* Data mode */
+  48   1        LCD_RW = 0;       /* write mode */
+  49   1        
+  50   1        LCD_DATA = u8Data;  /* outbyte */
+  51   1        
+  52   1        LCD_E = 1;    /* Strobe */
+C51 COMPILER V9.52.0.0   GLCD_KS0108                                                       08/07/2014 10:51:48 PAGE 2   
+
+  53   1        LcdDelay(1);  
+  54   1        LCD_E = 0;
+  55   1      }
+  56          
+  57          /*-------------------------------------------------------------------------------
+  58          Send instruction to the LCD
+  59            LcdDataWrite (U8 u8Instruction)
+  60              u8Instruction = Instructino to send to the LCD
+  61          -------------------------------------------------------------------------------*/
+  62          void LcdInstructionWrite (uint8_t u8Instruction)
+  63          {
+  64   1          LcdWaitBusy ();   /* wait until LCD not busy */
+  65   1          LCD_RS = 0;         /* Instruction mode */
+  66   1          LCD_RW = 0;         /* Write mode */
+  67   1          
+  68   1          LCD_DATA = u8Instruction;/* outbyte */
+  69   1              
+  70   1          LCD_E = 1;    /* Strobe */
+  71   1          LcdDelay(1);
+  72   1          LCD_E = 0;
+  73   1      }
+  74          /*-------------------------------------------------------------------------------
+  75          Read data from LCD
+  76            U8 = LcdDataRead();
+  77          -------------------------------------------------------------------------------*/
+  78          uint8_t LcdDataRead ()
+  79          {
+  80   1        LCD_DATA = 0xFF;  /* set LCD_DATA port in input mode */
+  81   1        
+  82   1        LCD_RW = 1;         /* Read mode */
+  83   1        LCD_RS = 1;         /* Data mode */
+  84   1          
+  85   1        LCD_E  = 0;         /* strobe */
+  86   1        LcdDelay(1);
+  87   1        LCD_E  = 1;
+  88   1        LcdDelay(1);
+  89   1                
+  90   1        return LCD_DATA;  /* return the data read */
+  91   1      }
+  92          
+  93          /*-------------------------------------------------------------------------------
+  94          Wait as long as the LCD is busy
+  95            LcdWaitBusy();
+  96          -------------------------------------------------------------------------------*/
+  97          void LcdWaitBusy ()
+  98          {
+  99   1        LCD_DATA=0xFF;    /* set LCD_DATA port in input mode */
+ 100   1            
+ 101   1        LCD_RS = 0;         /* Instruction mode */
+ 102   1        LCD_RW = 1;         /* Read mode */
+ 103   1          
+ 104   1       LCD_E  = 0;        /* strobe */
+ 105   1       LcdDelay(1);
+ 106   1       LCD_E  = 1;
+ 107   1        
+ 108   1       while (LCD_DATA & 0x7F == BUSY); /* mask the other status bits and test the
+ 109   1                    BUSY bit */
+ 110   1      }
+ 111          
+ 112          /*-------------------------------------------------------------------------------
+ 113          Clear the LCD screen
+ 114            GLCD_ClearScren ()
+C51 COMPILER V9.52.0.0   GLCD_KS0108                                                       08/07/2014 10:51:48 PAGE 3   
+
+ 115          -------------------------------------------------------------------------------*/
+ 116          void GLCD_ClearScreen (void)
+ 117          {
+ 118   1          uint8_t u8Page=0;  //
+ 119   1          uint8_t u8Column=0;  //
+ 120   1          
+ 121   1            /* process the 8 pages of the LCD */
+ 122   1          for (u8Page = 0; u8Page < 8; u8Page++) 
+ 123   1            {
+ 124   2                LcdSelectSide(LEFT);      /* Select left side */
+ 125   2                LcdInstructionWrite(X_ADRESS | u8Page); /* Set the page number */
+ 126   2                LcdInstructionWrite(Y_ADRESS);    /* Set column to 0 */
+ 127   2                
+ 128   2                /* process a page on both sides */
+ 129   2                for (u8Column = 0; u8Column < 128; u8Column++) 
+ 130   2                  {
+ 131   3                  if (u8Column == 64)
+ 132   3                        {    
+ 133   4                          LcdSelectSide(RIGHT); /* Select right side */
+ 134   4                          LcdInstructionWrite(X_ADRESS | u8Page); /* Set the page number */
+ 135   4                          LcdInstructionWrite(Y_ADRESS); /* Set column to 0 */
+ 136   4                        }
+ 137   3                    LcdDataWrite (0x00);    /* erase a column */
+ 138   3                  }
+ 139   2            }
+ 140   1      }
+ 141          
+ 142          /*-------------------------------------------------------------------------------
+ 143          Send an image to the LCD
+ 144            GLCD_DisplayPicture (U8 *au8PictureData)
+ 145              au8PictureData = contains datas for picture
+ 146          -------------------------------------------------------------------------------*/
+ 147          void GLCD_DisplayPicture (uint8_t *au8PictureData)
+ 148          {
+ 149   1         uint8_t u8Page=0;  //
+ 150   1         uint8_t u8Column=0;  //
+ 151   1            
+ 152   1         /* Send the left side */
+ 153   1         LcdSelectSide(LEFT);
+ 154   1          for (u8Page = 0; u8Page < 8; u8Page++) /* loop on the 8 pages */
+ 155   1            {
+ 156   2                LcdInstructionWrite(X_ADRESS | u8Page); /* Set the page */
+ 157   2                for (u8Column = 0; u8Column < 64; u8Column++)
+ 158   2            LcdDataWrite(au8PictureData[(128*u8Page)+u8Column]);
+ 159   2            }
+ 160   1        
+ 161   1        /* Send the right side */
+ 162   1        LcdSelectSide(RIGHT);
+ 163   1          for (u8Page = 0; u8Page < 8; u8Page++) /* loop on the 8 pages */
+ 164   1            {
+ 165   2                LcdInstructionWrite(X_ADRESS | u8Page); /* Set the page */
+ 166   2                for (u8Column = 64; u8Column < 128; u8Column++)
+ 167   2            LcdDataWrite(au8PictureData[(128*u8Page)+u8Column]);
+ 168   2            } 
+ 169   1      }
+ 170          
+ 171          /*-------------------------------------------------------------------------------
+ 172          Draw a dot on the LCD
+ 173            LcdSetDoc (U8 u8Xaxis, U8 u8Yaxis)
+ 174              u8Xaxis = absciss
+ 175              u8Yaxis = ordinate
+ 176          -------------------------------------------------------------------------------*/ 
+C51 COMPILER V9.52.0.0   GLCD_KS0108                                                       08/07/2014 10:51:48 PAGE 4   
+
+ 177          void LcdSetDot (uint8_t u8Xaxis, uint8_t u8Yaxis)
+ 178          {
+ 179   1         uint8_t u8DataRead=0;  //
+ 180   1        
+ 181   1        LcdInstructionWrite(START_LINE); /* Set adress for line 0 */
+ 182   1      
+ 183   1        /* Left side */
+ 184   1        if (u8Xaxis < 64)
+ 185   1        {
+ 186   2              LcdSelectSide (LEFT);       /* Select left side */
+ 187   2              LcdInstructionWrite (X_ADRESS + (u8Yaxis / 8)); /* Select page number */
+ 188   2              LcdInstructionWrite (Y_ADRESS + u8Xaxis); /* Select column */
+ 189   2              
+ 190   2              u8DataRead = LcdDataRead ();        /* read the current location */
+ 191   2              u8DataRead = LcdDataRead ();        /* on the LCD. dummy read */
+ 192   2              
+ 193   2              LcdInstructionWrite (X_ADRESS + (u8Yaxis / 8)); /* Select page number */
+ 194   2              LcdInstructionWrite (Y_ADRESS + u8Xaxis); /* Select column */
+ 195   2              LcdDataWrite (u8DataRead | (1 << (u8Yaxis % 8)));/* plot the dot */
+ 196   2            } 
+ 197   1          else 
+ 198   1          /* Right side */
+ 199   1          {
+ 200   2              LcdSelectSide(RIGHT);       /* Select left side */         
+ 201   2              LcdInstructionWrite (X_ADRESS + (u8Yaxis / 8)); /* Select page number */       
+ 202   2              LcdInstructionWrite (Y_ADRESS + u8Xaxis - 64);  /* Select column */            
+ 203   2                                                                                             
+ 204   2              u8DataRead = LcdDataRead ();                    /* read the current location */
+ 205   2              u8DataRead = LcdDataRead ();                    /* on the LCD. dummy read */   
+ 206   2                                                                                             
+ 207   2              LcdInstructionWrite (X_ADRESS + (u8Yaxis / 8)); /* Select page number */       
+ 208   2              LcdInstructionWrite (Y_ADRESS + u8Xaxis - 64);  /* Select column */            
+ 209   2              LcdDataWrite (u8DataRead | (1 << (u8Yaxis % 8)));/* plot the dot */   
+ 210   2              
+ 211   2            }
+ 212   1              LcdInstructionWrite(START_LINE); /* Set adress for line 0 */
+ 213   1      }
+ 214          
+ 215          /*-------------------------------------------------------------------------------
+ 216          Print a char on the LCD
+ 217            GLCD_Putchar (U8 u8Char)
+ 218              u8Char = char to display
+ 219          -------------------------------------------------------------------------------*/
+ 220          void LcdPutchar (uint8_t u8Char, FONT_DEF *toto)
+ 221          {
+ 222   1         uint8_t u8CharColumn=0,u8RightSide=0;
+ 223   1         uint8_t u8UpperCharPointer=1,u8Page=0;
+ 224   1        
+ 225   1        
+ 226   1        /* test for carrier return */
+ 227   1        if (u8CursorX > 128 - (toto->u8Width) ) 
+ 228   1        { 
+ 229   2          u8CursorX = 0;
+ 230   2          u8CursorY++;
+ 231   2          if (u8CursorY == 8) u8CursorY = 0;
+ 232   2        }
+ 233   1        
+ 234   1        /* Select the side of the LCD */
+ 235   1        if (u8CursorX < 64)
+ 236   1        { 
+ 237   2          /* Select left side */
+ 238   2          LcdSelectSide (LEFT);
+C51 COMPILER V9.52.0.0   GLCD_KS0108                                                       08/07/2014 10:51:48 PAGE 5   
+
+ 239   2          LcdInstructionWrite (Y_ADRESS + u8CursorX);
+ 240   2        }
+ 241   1        else 
+ 242   1        {
+ 243   2          /* Select right side */
+ 244   2          LcdSelectSide (RIGHT);
+ 245   2          LcdInstructionWrite (Y_ADRESS + u8CursorX - 64);
+ 246   2        }
+ 247   1              
+ 248   1            /* Draw a char */
+ 249   1        while (u8CharColumn < (toto->u8Width) )
+ 250   1        {
+ 251   2          if ((toto->u8Height) > 8)
+ 252   2          {
+ 253   3            u8UpperCharPointer = 2;
+ 254   3            if (u8CursorX > 64)
+ 255   3              u8RightSide=64;
+ 256   3            LcdInstructionWrite (X_ADRESS + u8CursorY -1); 
+ 257   3            LcdInstructionWrite (Y_ADRESS + u8CursorX -u8RightSide);
+ 258   3            LcdDataWrite ((toto->au8FontTable)[( (u8Char - 32) * u8UpperCharPointer * (toto->u8Width) ) + ((u8CharC
+             -olumn * u8UpperCharPointer) + 1)]);
+ 259   3            LcdInstructionWrite (Y_ADRESS + u8CursorX -u8RightSide);
+ 260   3            
+ 261   3          }
+ 262   2          LcdInstructionWrite (X_ADRESS + u8CursorY); 
+ 263   2          LcdDataWrite ((toto->au8FontTable)[( (u8Char - 32) * u8UpperCharPointer * (toto->u8Width) ) + (u8CharCol
+             -umn * u8UpperCharPointer)]);    
+ 264   2          u8CharColumn++;
+ 265   2          u8CursorX++;
+ 266   2          
+ 267   2          /* test if a char is wrote on both sides of LCD */
+ 268   2          if (u8CursorX == 64)
+ 269   2          {
+ 270   3            u8RightSide=64;
+ 271   3            LcdSelectSide (RIGHT);  /* if yes, select right side */
+ 272   3            LcdInstructionWrite (X_ADRESS + u8CursorY);
+ 273   3            LcdInstructionWrite (Y_ADRESS + u8CursorX -u8RightSide);
+ 274   3          }
+ 275   2        }
+ 276   1        
+ 277   1        /* Insert a space after a char */ 
+ 278   1        if (u8CursorX < 128)    /* Check if this is the last char of the line */
+ 279   1        {
+ 280   2          if ((toto->u8Height) > 8)
+ 281   2          {
+ 282   3            LcdInstructionWrite (X_ADRESS + u8CursorY - 1); /* Select the page of the LCD */
+ 283   3            LcdInstructionWrite (Y_ADRESS + u8CursorX);
+ 284   3            LcdDataWrite(0x00);
+ 285   3            LcdInstructionWrite (Y_ADRESS + u8CursorX -u8RightSide);
+ 286   3          }
+ 287   2          LcdInstructionWrite (X_ADRESS + u8CursorY); /* Select the page of the LCD */
+ 288   2          LcdInstructionWrite (Y_ADRESS + u8CursorX );  
+ 289   2          LcdDataWrite(0x00);   /* if not then insert a space before next letter */
+ 290   2        }
+ 291   1            
+ 292   1        u8CharColumn++;
+ 293   1        u8CursorX++;
+ 294   1      }
+ 295          
+ 296          /*-------------------------------------------------------------------------------
+ 297          Print a string on the LCD
+ 298            GLCD_Printf (U8 *au8Text) 
+C51 COMPILER V9.52.0.0   GLCD_KS0108                                                       08/07/2014 10:51:48 PAGE 6   
+
+ 299              *au8Text = string to display
+ 300          -------------------------------------------------------------------------------*/
+ 301          void GLCD_Printf (uint8_t *au8Text, FONT_DEF *toto) 
+ 302          {
+ 303   1        while(*au8Text != 0)
+ 304   1        {
+ 305   2          LcdPutchar (*au8Text,toto);
+ 306   2          au8Text++;
+ 307   2        }
+ 308   1      }
+ 309          
+ 310          /*-------------------------------------------------------------------------------
+ 311          Set the position of the cursor
+ 312            GLCD_Locate (U8 u8Column, U8 u8Line)
+ 313              u8Column = Column number of the cursor (in pixels)
+ 314              u8Line   = Line number of the cursor (in page number)
+ 315          -------------------------------------------------------------------------------*/
+ 316          void GLCD_Locate (uint8_t u8Column, uint8_t u8Line)
+ 317          {
+ 318   1        u8CursorX = u8Column;
+ 319   1        u8CursorY = u8Line;
+ 320   1      }
+ 321          
+ 322          /*-------------------------------------------------------------------------------
+ 323          Convert a digital value into an ASCII string
+ 324            GLCD_DisplayValue (U32 u32Value, U8 u8NumberOfIntegerDigits, U8 u8NumberOfDecimalDigits)
+ 325              u32Value = 32 bits Value to display
+ 326              u8NumberOfIntegerDigits = Number of interger digits.
+ 327                      If this number is higher than the number of integer
+ 328                      digits, it will display the non significant '0'
+ 329              u8NumberOfDecimalDigits = Number of decimal digits      
+ 330          -------------------------------------------------------------------------------*/
+ 331          void GLCD_DisplayValue (uint32_t u32Value, uint8_t u8NumberOfIntegerDigits, uint8_t u8NumberOfDecimalDigit
+             -s) 
+ 332          {
+ 333   1         uint8_t u8Size=0;      /* Size of the table */
+ 334   1         uint8_t au8ValueToDisplay[10]; /* String where is converted the value */
+ 335   1         int8_t s8CharNumber=0;   /* Character number in the string */
+ 336   1        
+ 337   1        /* Check if the dot has to be displayed and change the Size value */  
+ 338   1        if (u8NumberOfDecimalDigits == 0)
+ 339   1          {
+ 340   2          u8Size = u8NumberOfIntegerDigits + u8NumberOfDecimalDigits;
+ 341   2          }
+ 342   1        else
+ 343   1          {
+ 344   2          u8Size = u8NumberOfIntegerDigits + u8NumberOfDecimalDigits + 1;
+ 345   2          }
+ 346   1        /* Last value of the table = 0 */ 
+ 347   1        au8ValueToDisplay[u8Size] = 0;
+ 348   1      
+ 349   1        /* Convert the value to an ASCII string */      
+ 350   1        for(s8CharNumber=u8Size - 1;s8CharNumber>=0;s8CharNumber--)
+ 351   1        {
+ 352   2          if ((s8CharNumber == u8Size - 1 - u8NumberOfDecimalDigits) && u8NumberOfDecimalDigits !=0)
+ 353   2            {
+ 354   3            au8ValueToDisplay[s8CharNumber] = '.';
+ 355   3            }
+ 356   2          else
+ 357   2            {
+ 358   3            au8ValueToDisplay[s8CharNumber] = u32Value % 10 + '0';
+ 359   3            u32Value /= 10;
+C51 COMPILER V9.52.0.0   GLCD_KS0108                                                       08/07/2014 10:51:48 PAGE 7   
+
+ 360   3            }
+ 361   2        }
+ 362   1        
+ 363   1        /* Display the string */
+ 364   1        GLCD_Printf(au8ValueToDisplay,&Font_System5x8);
+ 365   1      } 
+ 366          
+ 367          /*-------------------------------------------------------------------------------
+ 368          Draw a rectangle on the LCD
+ 369            GLCD_Rectangle (U8 u8Xaxis1,U8 u8Yaxis1,U8 u8Xaxis2,U8 u8Yaxis2)
+ 370              u8Xaxis1 = absciss top-left (in pixels)
+ 371              u8Yaxis1 = ordinate top-left (in pixels)
+ 372              u8Xaxis2 = absciss bottom-right (in pixels)
+ 373              u8Yaxis2 = ordinate bottom-right (in pixels)
+ 374          -------------------------------------------------------------------------------*/
+ 375          void GLCD_Rectangle (uint8_t u8Xaxis1,uint8_t u8Yaxis1,uint8_t u8Xaxis2,uint8_t u8Yaxis2)
+ 376          {
+ 377   1           uint8_t u8CurrentValue=0;
+ 378   1      
+ 379   1        /* Draw the two horizontal lines */
+ 380   1          for (u8CurrentValue = 0; u8CurrentValue < u8Xaxis2 - u8Xaxis1+ 1; u8CurrentValue++) 
+ 381   1          {
+ 382   2          LcdSetDot(u8Xaxis1 + u8CurrentValue, u8Yaxis1);
+ 383   2          LcdSetDot(u8Xaxis1 + u8CurrentValue, u8Yaxis2);
+ 384   2        }
+ 385   1          
+ 386   1          /* draw the two vertical lines */
+ 387   1          for (u8CurrentValue = 0; u8CurrentValue < u8Yaxis2 - u8Yaxis1 + 1; u8CurrentValue++)  
+ 388   1          {
+ 389   2          LcdSetDot(u8Xaxis1, u8Yaxis1 + u8CurrentValue);
+ 390   2          LcdSetDot(u8Xaxis2, u8Yaxis1 + u8CurrentValue);
+ 391   2        }
+ 392   1      }
+ 393          
+ 394          /*-------------------------------------------------------------------------------
+ 395          Draw a circle on the LCD
+ 396            GLCD_Circle (U8 u8CenterX, U8 u8CenterY, U8 u8Radius)
+ 397              u8CenterX = Center absciss (in pixels)
+ 398              u8CenterY = Center ordinate (in pixels) 
+ 399              u8Radius  = Radius (in pixels)
+ 400          -------------------------------------------------------------------------------*/
+ 401          void GLCD_Circle (uint8_t u8CenterX, uint8_t u8CenterY, uint8_t u8Radius)
+ 402          {
+ 403   1         int16_t s16tswitch=0, s16y=0, s16x=0;
+ 404   1         uint8_t u8d;
+ 405   1      
+ 406   1        u8d = u8CenterY - u8CenterX;
+ 407   1        s16y = u8Radius;
+ 408   1        s16tswitch = 3 - 2 * u8Radius;
+ 409   1        while (s16x <= s16y) 
+ 410   1        {
+ 411   2          LcdSetDot(u8CenterX + s16x, u8CenterY + s16y);
+ 412   2          LcdSetDot(u8CenterX + s16x, u8CenterY - s16y);
+ 413   2          
+ 414   2          LcdSetDot(u8CenterX - s16x, u8CenterY + s16y);
+ 415   2          LcdSetDot(u8CenterX - s16x, u8CenterY - s16y);
+ 416   2          
+ 417   2          LcdSetDot(u8CenterY + s16y - u8d, u8CenterY + s16x);
+ 418   2          LcdSetDot(u8CenterY + s16y - u8d, u8CenterY - s16x);
+ 419   2          LcdSetDot(u8CenterY - s16y - u8d, u8CenterY + s16x); 
+ 420   2          LcdSetDot(u8CenterY - s16y - u8d, u8CenterY - s16x);
+ 421   2      
+C51 COMPILER V9.52.0.0   GLCD_KS0108                                                       08/07/2014 10:51:48 PAGE 8   
+
+ 422   2          if (s16tswitch < 0) 
+ 423   2            s16tswitch += (4 * s16x + 6);
+ 424   2          else 
+ 425   2          {
+ 426   3            s16tswitch += (4 * (s16x - s16y) + 10);
+ 427   3            s16y--;
+ 428   3          }
+ 429   2        
+ 430   2          s16x++;
+ 431   2        }
+ 432   1      }
+ 433          
+ 434          
+ 435          /*-------------------------------------------------------------------------------
+ 436          LCD Initialization
+ 437            GLCD_LcdINIT()
+ 438          -------------------------------------------------------------------------------*/
+ 439          void GLCD_LcdInit(void) 
+ 440          {
+ 441   1        LCD_DATA = 0;
+ 442   1        LCD_RS = 0;
+ 443   1          LCD_RW = 0;
+ 444   1          LCD_E = 0;
+ 445   1          LCD_CS1 = 0;
+ 446   1          LCD_CS2 = 0;
+ 447   1          
+ 448   1          //LCD_RST = 1;
+ 449   1          LcdDelay(10);
+ 450   1          //LCD_RST=0;
+ 451   1          //LcdDelay(10);
+ 452   1          //LCD_RST=1;
+ 453   1              
+ 454   1          LcdSelectSide(LEFT);
+ 455   1          LcdInstructionWrite(DISPLAY_OFF); /* Display OFF */
+ 456   1          LcdInstructionWrite(START_LINE);
+ 457   1          LcdInstructionWrite(X_ADRESS);
+ 458   1          LcdInstructionWrite(Y_ADRESS);
+ 459   1          LcdInstructionWrite(DISPLAY_ON); /* Display ON */
+ 460   1          
+ 461   1          LcdSelectSide(RIGHT);
+ 462   1          LcdInstructionWrite(DISPLAY_OFF); /* Display OFF */
+ 463   1          LcdInstructionWrite(START_LINE);
+ 464   1          LcdInstructionWrite(X_ADRESS);
+ 465   1          LcdInstructionWrite(Y_ADRESS);
+ 466   1          LcdInstructionWrite(DISPLAY_ON); /* Display ON */
+ 467   1          
+ 468   1          GLCD_ClearScreen();
+ 469   1      }   
+
+
+MODULE INFORMATION:   STATIC OVERLAYABLE
+   CODE SIZE        =   1587    ----
+   CONSTANT SIZE    =   ----    ----
+   XDATA SIZE       =   ----    ----
+   PDATA SIZE       =   ----    ----
+   DATA SIZE        =      2      66
+   IDATA SIZE       =   ----    ----
+   BIT SIZE         =   ----    ----
+END OF MODULE INFORMATION.
+
+
+C51 COMPILATION COMPLETE.  2 WARNING(S),  0 ERROR(S)

@@ -1,0 +1,207 @@
+<html>
+<body>
+<pre>
+<h1>µVision Build Log</h1>
+<h2>Project:</h2>
+D:\TU HOC code project LeHuu\Project_vdk_8051_LeHuu\3 cach dieu khien ngat logic, muc, suon\3CachDieuKhienNgatTheoLogicMucSuon.uvproj
+Project File Date:  01/14/2022
+
+<h2>Output:</h2>
+Build target 'Target 1'
+compiling 3CachDieuKhienNgatTheoLogicMucSuon.c...
+3CachDieuKhienNgatTheoLogicMucSuon.c(5): error C202: 'p1': undefined identifier
+3CachDieuKhienNgatTheoLogicMucSuon.c(6): error C202: 'p1': undefined identifier
+3CachDieuKhienNgatTheoLogicMucSuon.c(13): error C202: 'relay': undefined identifier
+3CachDieuKhienNgatTheoLogicMucSuon.c(15): error C202: 'button': undefined identifier
+3CachDieuKhienNgatTheoLogicMucSuon.c(17): error C202: 'button': undefined identifier
+3CachDieuKhienNgatTheoLogicMucSuon.c(18): error C202: 'relay': undefined identifier
+Target not created
+Build target 'Target 1'
+compiling 3CachDieuKhienNgatTheoLogicMucSuon.c...
+3CachDieuKhienNgatTheoLogicMucSuon.c(5): error C202: 'p1': undefined identifier
+3CachDieuKhienNgatTheoLogicMucSuon.c(6): error C202: 'p1': undefined identifier
+3CachDieuKhienNgatTheoLogicMucSuon.c(15): error C202: 'button': undefined identifier
+3CachDieuKhienNgatTheoLogicMucSuon.c(17): error C202: 'button': undefined identifier
+Target not created
+Build target 'Target 1'
+compiling 3CachDieuKhienNgatTheoLogicMucSuon.c...
+3CachDieuKhienNgatTheoLogicMucSuon.c(5): error C202: 'p1': undefined identifier
+3CachDieuKhienNgatTheoLogicMucSuon.c(6): error C202: 'p1': undefined identifier
+3CachDieuKhienNgatTheoLogicMucSuon.c(15): error C202: 'button': undefined identifier
+3CachDieuKhienNgatTheoLogicMucSuon.c(17): error C202: 'button': undefined identifier
+3CachDieuKhienNgatTheoLogicMucSuon.c(18): error C202: 'relay': undefined identifier
+Target not created
+Build target 'Target 1'
+compiling 3CachDieuKhienNgatTheoLogicMucSuon.c...
+3CachDieuKhienNgatTheoLogicMucSuon.c(5): error C202: 'p1': undefined identifier
+3CachDieuKhienNgatTheoLogicMucSuon.c(6): error C202: 'p1': undefined identifier
+3CachDieuKhienNgatTheoLogicMucSuon.c(15): error C202: 'button': undefined identifier
+3CachDieuKhienNgatTheoLogicMucSuon.c(17): error C202: 'button': undefined identifier
+3CachDieuKhienNgatTheoLogicMucSuon.c(18): error C202: 'relay': undefined identifier
+Target not created
+Build target 'Target 1'
+compiling 3CachDieuKhienNgatTheoLogicMucSuon.c...
+3CachDieuKhienNgatTheoLogicMucSuon.c(5): error C202: 'p1': undefined identifier
+3CachDieuKhienNgatTheoLogicMucSuon.c(6): error C202: 'p1': undefined identifier
+3CachDieuKhienNgatTheoLogicMucSuon.c(15): error C202: 'button': undefined identifier
+3CachDieuKhienNgatTheoLogicMucSuon.c(17): error C202: 'button': undefined identifier
+3CachDieuKhienNgatTheoLogicMucSuon.c(18): error C202: 'relay': undefined identifier
+Target not created
+Build target 'Target 1'
+compiling 3CachDieuKhienNgatTheoLogicMucSuon.c...
+3CachDieuKhienNgatTheoLogicMucSuon.c(5): error C202: 'p1': undefined identifier
+3CachDieuKhienNgatTheoLogicMucSuon.c(6): error C202: 'p1': undefined identifier
+3CachDieuKhienNgatTheoLogicMucSuon.c(15): error C202: 'button': undefined identifier
+3CachDieuKhienNgatTheoLogicMucSuon.c(17): error C202: 'button': undefined identifier
+Target not created
+Build target 'Target 1'
+compiling 3CachDieuKhienNgatTheoLogicMucSuon.c...
+3CachDieuKhienNgatTheoLogicMucSuon.c(5): error C202: 'p1': undefined identifier
+3CachDieuKhienNgatTheoLogicMucSuon.c(6): error C202: 'p1': undefined identifier
+3CachDieuKhienNgatTheoLogicMucSuon.c(16): error C202: 'button': undefined identifier
+3CachDieuKhienNgatTheoLogicMucSuon.c(18): error C202: 'button': undefined identifier
+Target not created
+Build target 'Target 1'
+compiling 3CachDieuKhienNgatTheoLogicMucSuon.c...
+3CachDieuKhienNgatTheoLogicMucSuon.c(5): error C202: 'p1': undefined identifier
+3CachDieuKhienNgatTheoLogicMucSuon.c(6): error C202: 'p1': undefined identifier
+3CachDieuKhienNgatTheoLogicMucSuon.c(16): error C202: 'button': undefined identifier
+Target not created
+Rebuild target 'Target 1'
+compiling 3CachDieuKhienNgatTheoLogicMucSuon.c...
+3CachDieuKhienNgatTheoLogicMucSuon.c(5): error C202: 'p1': undefined identifier
+3CachDieuKhienNgatTheoLogicMucSuon.c(6): error C202: 'p1': undefined identifier
+Target not created
+Build target 'Target 1'
+compiling 3CachDieuKhienNgatTheoLogicMucSuon.c...
+linking...
+Program Size: data=9.0 xdata=0 code=52
+creating hex file from "3CachDieuKhienNgatTheoLogicMucSuon"...
+"3CachDieuKhienNgatTheoLogicMucSuon" - 0 Error(s), 0 Warning(s).
+Build target 'Target 1'
+compiling 3CachDieuKhienNgatTheoLogicMucSuon.c...
+3CachDieuKhienNgatTheoLogicMucSuon.c(5): error C202: 'p1': undefined identifier
+3CachDieuKhienNgatTheoLogicMucSuon.c(16): error C202: 'button': undefined identifier
+3CachDieuKhienNgatTheoLogicMucSuon.c(18): error C202: 'button': undefined identifier
+Target not created
+Build target 'Target 1'
+compiling 3CachDieuKhienNgatTheoLogicMucSuon.c...
+3CachDieuKhienNgatTheoLogicMucSuon.c(5): error C202: 'p1': undefined identifier
+3CachDieuKhienNgatTheoLogicMucSuon.c(16): error C202: 'button': undefined identifier
+3CachDieuKhienNgatTheoLogicMucSuon.c(18): error C202: 'button': undefined identifier
+Target not created
+Build target 'Target 1'
+compiling 3CachDieuKhienNgatTheoLogicMucSuon.c...
+3CachDieuKhienNgatTheoLogicMucSuon.c(5): error C202: 'p1': undefined identifier
+Target not created
+Build target 'Target 1'
+compiling 3CachDieuKhienNgatTheoLogicMucSuon.c...
+linking...
+Program Size: data=9.0 xdata=0 code=52
+creating hex file from "3CachDieuKhienNgatTheoLogicMucSuon"...
+"3CachDieuKhienNgatTheoLogicMucSuon" - 0 Error(s), 0 Warning(s).
+Build target 'Target 1'
+compiling 3CachDieuKhienNgatTheoLogicMucSuon.c...
+linking...
+Program Size: data=9.0 xdata=0 code=54
+creating hex file from "3CachDieuKhienNgatTheoLogicMucSuon"...
+"3CachDieuKhienNgatTheoLogicMucSuon" - 0 Error(s), 0 Warning(s).
+Build target 'Target 1'
+compiling 3CachDieuKhienNgatTheoLogicMucSuon.c...
+linking...
+Program Size: data=9.0 xdata=0 code=54
+creating hex file from "3CachDieuKhienNgatTheoLogicMucSuon"...
+"3CachDieuKhienNgatTheoLogicMucSuon" - 0 Error(s), 0 Warning(s).
+Rebuild target 'Target 1'
+compiling 3CachDieuKhienNgatTheoLogicMucSuon.c...
+linking...
+Program Size: data=9.0 xdata=0 code=54
+creating hex file from "3CachDieuKhienNgatTheoLogicMucSuon"...
+"3CachDieuKhienNgatTheoLogicMucSuon" - 0 Error(s), 0 Warning(s).
+Rebuild target 'Target 1'
+compiling 3CachDieuKhienNgatTheoLogicMucSuon.c...
+3CachDieuKhienNgatTheoLogicMucSuon.c(7): error C141: syntax error near '=', expected ';'
+3CachDieuKhienNgatTheoLogicMucSuon.c(7): error C129: missing ';' before '^'
+Target not created
+Build target 'Target 1'
+compiling 3CachDieuKhienNgatTheoLogicMucSuon.c...
+linking...
+Program Size: data=9.0 xdata=0 code=54
+creating hex file from "3CachDieuKhienNgatTheoLogicMucSuon"...
+"3CachDieuKhienNgatTheoLogicMucSuon" - 0 Error(s), 0 Warning(s).
+Rebuild target 'Target 1'
+compiling 3CachDieuKhienNgatTheoLogicMucSuon.c...
+linking...
+Program Size: data=9.0 xdata=0 code=54
+creating hex file from "3CachDieuKhienNgatTheoLogicMucSuon"...
+"3CachDieuKhienNgatTheoLogicMucSuon" - 0 Error(s), 0 Warning(s).
+Build target 'Target 1'
+compiling 3CachDieuKhienNgatTheoLogicMucSuon.c...
+linking...
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?_DELAY?3CACHDIEUKHIENNGATTHEOLOGICMUCSUON
+Program Size: data=9.0 xdata=0 code=32
+creating hex file from "3CachDieuKhienNgatTheoLogicMucSuon"...
+"3CachDieuKhienNgatTheoLogicMucSuon" - 0 Error(s), 1 Warning(s).
+Build target 'Target 1'
+compiling 3CachDieuKhienNgatTheoLogicMucSuon.c...
+linking...
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?_DELAY?3CACHDIEUKHIENNGATTHEOLOGICMUCSUON
+Program Size: data=9.0 xdata=0 code=35
+creating hex file from "3CachDieuKhienNgatTheoLogicMucSuon"...
+"3CachDieuKhienNgatTheoLogicMucSuon" - 0 Error(s), 1 Warning(s).
+Build target 'Target 1'
+compiling 3CachDieuKhienNgatTheoLogicMucSuon.c...
+linking...
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?_DELAY?3CACHDIEUKHIENNGATTHEOLOGICMUCSUON
+Program Size: data=9.0 xdata=0 code=38
+creating hex file from "3CachDieuKhienNgatTheoLogicMucSuon"...
+"3CachDieuKhienNgatTheoLogicMucSuon" - 0 Error(s), 1 Warning(s).
+Build target 'Target 1'
+compiling 3CachDieuKhienNgatTheoLogicMucSuon.c...
+linking...
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?_DELAY?3CACHDIEUKHIENNGATTHEOLOGICMUCSUON
+Program Size: data=9.0 xdata=0 code=40
+creating hex file from "3CachDieuKhienNgatTheoLogicMucSuon"...
+"3CachDieuKhienNgatTheoLogicMucSuon" - 0 Error(s), 1 Warning(s).
+Build target 'Target 1'
+compiling 3CachDieuKhienNgatTheoLogicMucSuon.c...
+linking...
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?_DELAY?3CACHDIEUKHIENNGATTHEOLOGICMUCSUON
+Program Size: data=9.0 xdata=0 code=42
+creating hex file from "3CachDieuKhienNgatTheoLogicMucSuon"...
+"3CachDieuKhienNgatTheoLogicMucSuon" - 0 Error(s), 1 Warning(s).
+Build target 'Target 1'
+compiling 3CachDieuKhienNgatTheoLogicMucSuon.c...
+linking...
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?_DELAY?3CACHDIEUKHIENNGATTHEOLOGICMUCSUON
+Program Size: data=9.0 xdata=0 code=42
+creating hex file from "3CachDieuKhienNgatTheoLogicMucSuon"...
+"3CachDieuKhienNgatTheoLogicMucSuon" - 0 Error(s), 1 Warning(s).
+Build target 'Target 1'
+compiling 3CachDieuKhienNgatTheoLogicMucSuon.c...
+3CachDieuKhienNgatTheoLogicMucSuon.c(69): error C141: syntax error near ';', expected '='
+Target not created
+Build target 'Target 1'
+compiling 3CachDieuKhienNgatTheoLogicMucSuon.c...
+linking...
+Program Size: data=9.1 xdata=0 code=42
+creating hex file from "3CachDieuKhienNgatTheoLogicMucSuon"...
+"3CachDieuKhienNgatTheoLogicMucSuon" - 0 Error(s), 0 Warning(s).
+Build target 'Target 1'
+compiling 3CachDieuKhienNgatTheoLogicMucSuon.c...
+linking...
+Program Size: data=9.1 xdata=0 code=63
+creating hex file from "3CachDieuKhienNgatTheoLogicMucSuon"...
+"3CachDieuKhienNgatTheoLogicMucSuon" - 0 Error(s), 0 Warning(s).
+Rebuild target 'Target 1'
+compiling 3CachDieuKhienNgatTheoLogicMucSuon.c...
+linking...
+Program Size: data=9.1 xdata=0 code=63
+creating hex file from "3CachDieuKhienNgatTheoLogicMucSuon"...
+"3CachDieuKhienNgatTheoLogicMucSuon" - 0 Error(s), 0 Warning(s).

@@ -1,0 +1,403 @@
+//power by dientu360.com e360 - make by le minh huu 10/2/2022
+#include <REGX52.H>
+
+#define sang 0
+#define tat 1
+
+int demSo;
+char soHienThi[] = {0x40, 0x79, 0x24, 0x30, 0x19, 0x12, 0x02, 0x78, 0x00, 0x10};	//led 7 thanh hien thi so tu 0 den 9
+unsigned char quetSoThu[] = {0xbf, 0xdf, 0xef, 0xf7, 0xfb, 0xfd, 0xfe};	//cho biet so led sang, dieu khien chan annot cua moi chu so 
+unsigned char chuSoThu[7];	//do trong protues led 7 thanh chi co toi da la 7seg mpx 
+	
+void delay(int time){
+	while(time--);
+}
+
+//temp la chu so ta can hien thi ra vd 87, soLed la so chu so led can hien thi vd soLed = 3 thi gia tri chay tu 0 den 999
+//khi goi den ham tach chu so thi gia tri temp duoc truyen vao la thu tu duoc dem tu 0 trong ham main. 
+//moi lan bien demSo tang len mot thi lai thuc hien lai ham tachChuSo va ghi de len cac gia tri truoc co trong  mang chuSoThu
+// bien soLed truyen vao bang cach gan gia tri trong ham main: khi muon led chay tu 0 den 999 thi soLed = 3
+void tachChuSo(unsigned long temp, int soLed){
+	int i;
+	for(i = 0; i < soLed; i++){	//bien i duoc chay tu o den soLed duoc truyen vao 
+		chuSoThu[i] = temp % 10;	//chuSoThu[i] la mot mang luu cac gia tri tach (chia lay du) lan luot tu hang don vi, chuc, tram, nghin,... tuy thuoc vao gia tri soLed 
+		temp = temp/10;	
+	}
+}
+
+//soLed duoc nhap vao tu ham main.
+void quetLed(int soLed ){
+	int i, j;
+	for(i = 0; i < 10; i++){	//lap lai i lan tren cung mot so hien thi
+			for(j = 0; j < soLed; j++){
+				P0 = soHienThi[chuSoThu[j]];	//cong P0 de hien thi so tu 0 den 9 cho moi led 7 doan co gia tri la chuSoThu[], mang chuSoThu[] duoc luu  
+				P2 = quetSoThu[j];	//cong P2 de kieu khien led 7 thanh nao dang hoat dong. mang quetSoThu tu 0 den 6, tuc la dieu kien led 7 thanh tu phai sang trai
+				delay(1000); 	// delay 1000 de hien thi chu so lau hon
+				P2 = 0xff; 	//tat tat ca cac led vua hien thi
+			}
+	}
+}
+
+void main(){
+	while(1){
+		//demSo tu 0 den 1 gia tri toi da (max) ma ta nhap vao
+		for(demSo = 0; demSo < 999999; demSo++){
+			tachChuSo(demSo, 6);	//moi lan tang bien demSo va truyen gia tri vao ham tachChuSo thi mang chuSoThu lai thay doi 
+			quetLed(6);	//goi ham hien thi, quyet led 7 thanh
+		}
+	}
+}
+
+
+
+
+
+
+
+#include "led7.h"
+
+static unsigned char chu_so[10]= {0xc0,0xf9,0xa4,0xb0,0x99,0x92,0x82,0xf8,0x80,0x90};	
+//Ma Hien Thi					0		1			2		3			4		5			6			7		8		9
+static unsigned char buffer_led[8];			//so luong led hien thi
+
+//---------------------------------------------------
+// Ham chuyen doi gia tri so dua vao
+// Tach cac chu so hang tram nghin, hang chuc nghin... dua vao mang buffer_led[8]
+//---------------------------------------------------
+void LED7_ChuyenDoi(unsigned long int number)
+{
+		unsigned char i,j;
+		unsigned long int temp;
+		for(i=7;i>0;i--)
+		{
+			temp=1;
+			for(j=i;j>0;j--)
+			{
+					temp*=10;
+			}
+			buffer_led[i]=chu_so[number/temp];	
+			number=number%temp;
+		}
+		buffer_led[0]=chu_so[number];
+}
+
+//---------------------------------------------------
+// Ham cho phep hien thi tung LED 
+//---------------------------------------------------
+void LED7_OnLed(unsigned char addr)
+{
+	PORT_DATA=0xff;
+	PORT_ADDR=~(0x01<<addr);
+	PORT_DATA=buffer_led[addr];
+}
+
+//---------------------------------------------------
+// Ham hien thi Number ra LED 7 thanh 4 so
+//---------------------------------------------------
+void LED7_Display(unsigned long int number)
+{
+		unsigned char i=8;
+		LED7_ChuyenDoi(number);
+		while(i!=0)
+		{
+			LED7_OnLed(--i);
+			delay_us(50);
+		}
+}O
+
+
+
+
+
+
+
+
+
+
+//power by dientu360.com e360 - make by le minh huu 10/2/2022
+//#include <REGX52.H>
+#include "lcd16_02.h"
+
+#define sang 0
+#define tat 1
+
+int demSo;
+char soHienThi[] = {0x40, 0x79, 0x24, 0x30, 0x19, 0x12, 0x02, 0x78, 0x00, 0x10};	//led 7 thanh hien thi so tu 0 den 9
+unsigned char quetSoThu[] = {0xbf, 0xdf, 0xef, 0xf7, 0xfb, 0xfd, 0xfe};	//cho biet so led sang, dieu khien chan annot cua moi chu so 
+unsigned char chuSoThu[7];	//do trong protues led 7 thanh chi co toi da la 7seg mpx 
+	
+void delay1(int time){
+	while(time--);
+}
+
+void tachChuSo(unsigned long temp, int soLed){
+	int i;
+	for(i = 0; i < soLed; i++){	//bien i duoc chay tu o den soLed duoc truyen vao 
+		chuSoThu[i] = temp % 10;	//chuSoThu[i] la mot mang luu cac gia tri tach (chia lay du) lan luot tu hang don vi, chuc, tram, nghin,... tuy thuoc vao gia tri soLed 
+		temp = temp/10;	
+	}
+}
+
+//soLed duoc nhap vao tu ham main.
+void quetLed(int soLed ){
+	int i, j;
+	for(i = 0; i < 10; i++){	//lap lai i lan tren cung mot so hien thi
+			for(j = 0; j < soLed; j++){
+				P0 = soHienThi[chuSoThu[j]];	//cong P0 de hien thi so tu 0 den 9 cho moi led 7 doan co gia tri la chuSoThu[], mang chuSoThu[] duoc luu  
+				P2 = quetSoThu[j];	//cong P2 de kieu khien led 7 thanh nao dang hoat dong. mang quetSoThu tu 0 den 6, tuc la dieu kien led 7 thanh tu phai sang trai
+				delay1(500); 	// delay 1000 de hien thi chu so lau hon
+				P2 = 0xff; 	//tat tat ca cac led vua hien thi
+			}
+	}
+}
+
+void main(){
+	//while(1){
+
+		LCD_Init();
+		LCD_puts(" hello");
+		delay_ms(1000);
+		LCD_clear();
+		LCD_gotoxy(0,0);
+		LCD_puts(" chao cac ban");
+		delay_ms(1000);
+		LCD_gotoxy(0,1);
+		LCD_puts(" KTMT K19A");
+		delay_ms(1000);
+		LCD_gotoxy(0,1);
+		LCD_puts("GOODBYE WORLD!");
+		LCD_clear();
+		delay_ms(100000);
+		LCD_gotoxy(0,0);
+		LCD_puts("LAP TRINH NHUNG");
+		delay_ms(100000);
+		LCD_gotoxy(0,1);
+		LCD_puts("HE THONG IOT");
+		LCD_clear();
+		delay_timer(1000);
+		//LCD_gotoxy(0,1);
+		LCD_puts("HELLO WORLD");
+		delay_timer(3000);
+		//delay(800000);
+	
+		//demSo tu 0 den 1 gia tri toi da (max) ma ta nhap vao
+		for(demSo = 0; demSo < 9999; demSo++){
+			//tachChuSo(demSo, 4);	//moi lan tang bien demSo va truyen gia tri vao ham tachChuSo thi mang chuSoThu lai thay doi 
+			//quetLed(4);	//goi ham hien thi, quyet led 7 thanh
+		}
+		
+	//}
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+#include <regx51.h>          // Khai báo hàm thu vi?n
+
+//  Khai báo chân giao ti?p cho d? nh? khi s? d?ng  
+
+#define LCD_RS P2_0
+
+#define LCD_RW         P2_1
+
+#define LCD_EN          P2_2
+
+#define LCD_D4 P2_4
+
+#define LCD_D5 P2_5
+
+#define LCD_D6 P2_6
+
+#define LCD_D7 P2_7
+
+// Khai báo các hàm s? d?ng trong chuong trình
+
+void delay_us(unsigned int t) // Hàm t?o tr? v?i th?i gian nh?
+
+          {
+
+   unsigned int i;
+
+   for(i=0;i<t; i++);
+
+          }
+
+void delay_ms(unsigned int t)                   // Hàm t?o tr? v?i th?i gian l?n
+
+          {
+
+          unsigned int i,j;
+
+          for(i=0;i<t; i++){
+
+          for(j=0;j<125;j++);
+
+          }
+				}
+//----------------------------------------------------------------
+
+// Các hàm  di?u khi?n LCD
+
+void LCD_Enable(void)
+
+{
+
+          LCD_EN =1;
+
+          delay_us(3);
+
+          LCD_EN=0;
+
+          delay_us(50);
+
+}
+
+void LCD_Send4Bit(unsigned char Data)         //Ham Gui 4 Bit Du Lieu Ra LCD
+
+{
+
+          LCD_D4=Data & 0x01;
+
+          LCD_D5=(Data>>1)&1;
+
+          LCD_D6=(Data>>2)&1;
+
+          LCD_D7=(Data>>3)&1;
+
+}
+
+// Hàm g?i 1 l?nh ra LCD
+
+void LCD_SendCommand(unsigned char command){
+
+          LCD_Send4Bit(command >>4); /* Gui 4 bit cao */
+
+          LCD_Enable();
+
+          LCD_Send4Bit(command);   /* Gui 4 bit thap*/
+
+          LCD_Enable( );
+
+}
+
+void LCD_Clear( )                  // Hàm xóa màn hình LCD
+
+{
+
+          LCD_SendCommand(0x01); 
+
+          delay_us(10);
+
+}
+
+void LCD_Init( )                     // Ham Khoi Tao LCD
+
+{
+
+          LCD_Send4Bit(0x00);
+
+          delay_ms(20);
+
+          LCD_RS=0;
+
+          LCD_RW=0;
+
+          LCD_Send4Bit(0x03);
+
+          LCD_Enable();
+
+          delay_ms(5);
+
+          LCD_Enable();
+
+          delay_us(100);
+
+          LCD_Enable();
+
+          LCD_Send4Bit(0x02);
+
+          LCD_Enable();
+
+          LCD_SendCommand( 0x28 );  // giao thuc 4 bit, hien thi 2 hang, ki tu 5x8
+
+          LCD_SendCommand( 0x0c); // cho phep hien thi man hinh
+
+          LCD_SendCommand( 0x06 ); // tang ID, khong dich khung hinh
+
+          LCD_SendCommand(0x01); // xoa toan bo khung hinh
+
+}
+
+void LCD_Gotoxy(unsigned char x, unsigned char y)
+
+{
+
+          unsigned char address;
+
+          if(!y)address=(0x80+x);
+
+          else address=(0xc0+x);
+
+          delay_us(1000);
+
+          LCD_SendCommand(address);
+
+          delay_us(50);
+
+}
+
+void LCD_PutChar(unsigned char Data)          //Hàm g?i 1 ký t?
+
+{
+
+          LCD_RS=1;
+
+          LCD_SendCommand(Data);
+
+          LCD_RS=0 ;
+
+}
+
+void LCD_Puts (char *s)                 //Hàm g?i 1 chu?i ký t?
+
+{
+
+          while (*s)
+
+{
+
+          LCD_PutChar(*s);
+
+          s++;
+
+          }
+
+}
+
+//---CT chính, dây là ph?n t? l?p trình d? hi?n th? ch? theo ý mu?n
+
+void main ( )
+
+{
+
+          LCD_Init();                   //Khoi tao LCD
+
+          delay_ms(1000);
+
+          LCD_Puts(" Truong BTL"); // g?i chu?i lên LCD
+
+          delay_ms(1000);
+
+while(1); //ko lam gi ca
+
+}

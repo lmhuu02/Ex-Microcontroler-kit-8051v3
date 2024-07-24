@@ -1,0 +1,137 @@
+BL51 BANKED LINKER/LOCATER V6.22                                                        03/10/2022  15:34:25  PAGE 1
+
+
+BL51 BANKED LINKER/LOCATER V6.22, INVOKED BY:
+C:\KEIL\C51\BIN\BL51.EXE lapTrinhNgatTimer.obj TO lapTrinhNgatTimer RAMSIZE (256)
+
+
+MEMORY MODEL: SMALL
+
+
+INPUT MODULES INCLUDED:
+  lapTrinhNgatTimer.obj (LAPTRINHNGATTIMER)
+  C:\KEIL\C51\LIB\C51S.LIB (?C_STARTUP)
+  C:\KEIL\C51\LIB\C51S.LIB (?C?SLCMP)
+  C:\KEIL\C51\LIB\C51S.LIB (?C?LLDIIDATA)
+
+
+LINK MAP OF MODULE:  lapTrinhNgatTimer (LAPTRINHNGATTIMER)
+
+
+            TYPE    BASE      LENGTH    RELOCATION   SEGMENT NAME
+            -----------------------------------------------------
+
+            * * * * * * *   D A T A   M E M O R Y   * * * * * * *
+            REG     0000H     0008H     ABSOLUTE     "REG BANK 0"
+            DATA    0008H     0006H     UNIT         _DATA_GROUP_
+            IDATA   000EH     0001H     UNIT         ?STACK
+
+            * * * * * * *   C O D E   M E M O R Y   * * * * * * *
+            CODE    0000H     0003H     ABSOLUTE     
+                    0003H     0018H                  *** GAP ***
+            CODE    001BH     0003H     ABSOLUTE     
+                    001EH     07E2H                  *** GAP ***
+            CODE    0800H     0080H     UNIT         ?PR?NGATTIMER?LAPTRINHNGATTIMER
+            CODE    0880H     0036H     UNIT         ?C?LIB_CODE
+            CODE    08B6H     0015H     UNIT         ?PR?MAIN?LAPTRINHNGATTIMER
+            CODE    08CBH     000CH     UNIT         ?C_C51STARTUP
+            CODE    08D7H     000BH     UNIT         ?PR?_DELAY?LAPTRINHNGATTIMER
+
+
+
+OVERLAY MAP OF MODULE:   lapTrinhNgatTimer (LAPTRINHNGATTIMER)
+
+
+SEGMENT                                   DATA_GROUP 
+  +--> CALLED SEGMENT                   START    LENGTH
+-------------------------------------------------------
+?PR?NGATTIMER?LAPTRINHNGATTIMER         0008H    0006H
+
+*** NEW ROOT ***************************************************
+
+?C_C51STARTUP                           -----    -----
+  +--> ?PR?MAIN?LAPTRINHNGATTIMER
+
+?PR?MAIN?LAPTRINHNGATTIMER              -----    -----
+  +--> ?PR?_DELAY?LAPTRINHNGATTIMER
+
+
+
+SYMBOL TABLE OF MODULE:  lapTrinhNgatTimer (LAPTRINHNGATTIMER)
+
+BL51 BANKED LINKER/LOCATER V6.22                                                      03/10/2022  15:34:25  PAGE 2
+
+
+  VALUE           TYPE          NAME
+  ----------------------------------
+
+  -------         MODULE        LAPTRINHNGATTIMER
+  C:0000H         SYMBOL        _ICE_DUMMY_
+  D:00A0H         PUBLIC        P2
+  B:00A8H.7       PUBLIC        EA
+  B:0090H.0       PUBLIC        P1_0
+  C:08D7H         PUBLIC        _delay
+  C:08B6H         PUBLIC        main
+  C:0800H         PUBLIC        ngatTimer
+  D:0089H         PUBLIC        TMOD
+  B:00A8H.3       PUBLIC        ET1
+  D:008DH         PUBLIC        TH1
+  D:008BH         PUBLIC        TL1
+  B:0088H.6       PUBLIC        TR1
+  -------         PROC          _DELAY
+  D:0006H         SYMBOL        time
+  C:08D7H         LINE#         45
+  C:08D7H         LINE#         46
+  C:08E1H         LINE#         47
+  -------         ENDPROC       _DELAY
+  -------         PROC          NGATTIMER
+  -------         DO            
+  D:0008H         SYMBOL        a
+  D:000CH         SYMBOL        t
+  -------         ENDDO         
+  C:0800H         LINE#         51
+  C:081DH         LINE#         52
+  C:0829H         LINE#         54
+  C:0831H         LINE#         55
+  C:0834H         LINE#         56
+  C:0837H         LINE#         57
+  C:0839H         LINE#         58
+  C:084CH         LINE#         59
+  C:084EH         LINE#         60
+  C:0854H         LINE#         61
+  C:0861H         LINE#         62
+  C:0863H         LINE#         63
+  C:0865H         LINE#         64
+  -------         ENDPROC       NGATTIMER
+  -------         PROC          MAIN
+  C:08B6H         LINE#         66
+  C:08B6H         LINE#         67
+  C:08B9H         LINE#         68
+  C:08BBH         LINE#         69
+  C:08BDH         LINE#         70
+  C:08BFH         LINE#         71
+  C:08BFH         LINE#         72
+  C:08C2H         LINE#         73
+  C:08C9H         LINE#         74
+  -------         ENDPROC       MAIN
+  -------         ENDMOD        LAPTRINHNGATTIMER
+
+  -------         MODULE        ?C?SLCMP
+  C:0880H         PUBLIC        ?C?SLCMP
+  -------         ENDMOD        ?C?SLCMP
+BL51 BANKED LINKER/LOCATER V6.22                                                      03/10/2022  15:34:25  PAGE 3
+
+
+
+  -------         MODULE        ?C?LLDIIDATA
+  C:089FH         PUBLIC        ?C?LLDIIDATA
+  C:0896H         PUBLIC        ?C?LLDIIDATA1
+  C:0898H         PUBLIC        ?C?LLDIIDATA8
+  -------         ENDMOD        ?C?LLDIIDATA
+
+******************************************************************************
+* RESTRICTED VERSION WITH 0800H BYTE CODE SIZE LIMIT; USED: 00A3H BYTE ( 7%) *
+******************************************************************************
+
+Program Size: data=15.0 xdata=0 code=232
+LINK/LOCATE RUN COMPLETE.  0 WARNING(S),  0 ERROR(S)

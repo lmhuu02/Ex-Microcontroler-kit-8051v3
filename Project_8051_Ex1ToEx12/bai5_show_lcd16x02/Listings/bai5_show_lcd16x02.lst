@@ -1,0 +1,59 @@
+C51 COMPILER V9.52.0.0   BAI5_SHOW_LCD16X02                                                03/01/2023 21:26:41 PAGE 1   
+
+
+C51 COMPILER V9.52.0.0, COMPILATION OF MODULE BAI5_SHOW_LCD16X02
+OBJECT MODULE PLACED IN .\Objects\bai5_show_lcd16x02.obj
+COMPILER INVOKED BY: C:\Keil_v5\C51\BIN\C51.EXE bai5_show_lcd16x02.c OPTIMIZE(8,SPEED) BROWSE DEBUG OBJECTEXTEND PRINT(.
+                    -\Listings\bai5_show_lcd16x02.lst) TABS(2) OBJECT(.\Objects\bai5_show_lcd16x02.obj)
+
+line level    source
+
+   1          /*
+   2          DO AN TOT NGHIEP: KIT 8051 V3.
+   3          NAME: SHOW DATA on lcd16x2 in chip 8051.
+   4          TIME: 2/2023  - ICTU.
+   5          */
+   6          /*---------------------------INCLUDE AND DEFINE-----------------------------------*/
+   7          #include <REGX51.H>
+   8          #include <lcd16x2.h>
+   9          #include <stdio.h>
+  10          
+  11          unsigned int number = 0;
+  12          
+  13          /*-------------------------------MAIN FUNCTION-------------------------------*/
+  14          void main(){
+  15   1        //INIT LCD 16X2
+  16   1        lcd1602_init();
+  17   1        lcd1602_clear();
+  18   1        lcd1602_gotoxy(0,0);
+  19   1        lcd1602_puts("DO AN TOT NGHIEP");
+  20   1        lcd1602_gotoxy(0,1);
+  21   1        delay_ms(3000);
+  22   1        lcd1602_puts("  KIT 8051 V3");
+  23   1        delay_ms(2000);
+  24   1        lcd1602_clear();
+  25   1        while(1){
+  26   2          lcd1602_gotoxy(0,0);
+  27   2          lcd1602_puts("DO AN TOT NGHIEP");
+  28   2          lcd1602_gotoxy(0,1);
+  29   2          sprintf(Lcd_Buff," value: %d",number);    //EP TU KIEU FLOAT SANG STRING
+  30   2          lcd1602_puts(Lcd_Buff);
+  31   2          delay_ms(1000);
+  32   2          number++;
+  33   2        }
+  34   1      }
+  35          /*------------------------------END FILE--------------------------------*/
+
+
+MODULE INFORMATION:   STATIC OVERLAYABLE
+   CODE SIZE        =    397    ----
+   CONSTANT SIZE    =     42    ----
+   XDATA SIZE       =   ----    ----
+   PDATA SIZE       =   ----    ----
+   DATA SIZE        =     18       4
+   IDATA SIZE       =   ----    ----
+   BIT SIZE         =   ----    ----
+END OF MODULE INFORMATION.
+
+
+C51 COMPILATION COMPLETE.  0 WARNING(S),  0 ERROR(S)

@@ -1,0 +1,3 @@
+".\Objects\bai_cambien_lm35.obj" 
+TO ".\Objects\bai_cambien_lm35" 
+PRINT(".\Listings\bai_cambien_lm35.m51") RAMSIZE(256) 

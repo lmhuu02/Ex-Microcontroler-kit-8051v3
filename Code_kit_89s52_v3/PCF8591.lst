@@ -1,0 +1,170 @@
+C51 COMPILER V9.52.0.0   PCF8591                                                           02/20/2023 06:22:23 PAGE 1   
+
+
+C51 COMPILER V9.52.0.0, COMPILATION OF MODULE PCF8591
+OBJECT MODULE PLACED IN PCF8591.obj
+COMPILER INVOKED BY: C:\Keil_v5\C51\BIN\C51.EXE PCF8591\PCF8591.C OPTIMIZE(8,SPEED) BROWSE DEBUG OBJECTEXTEND PRINT(.\PC
+                    -F8591.lst) TABS(2) OBJECT(PCF8591.obj)
+
+line level    source
+
+   1          #include "PCF8591.h"
+   2          
+   3          //ham su dung cho i2c
+   4          void PCF_I2C_Delay(unsigned int time)
+   5          {
+   6   1         while(time)
+   7   1         time--;
+   8   1      }
+   9          void PCF_i2c_init()
+  10          {
+  11   1         PCF_SCL=1;
+  12   1         PCF_I2C_Delay(PCF_I2C_DELAY);
+  13   1         PCF_SDA=1;
+  14   1         PCF_I2C_Delay(PCF_I2C_DELAY);
+  15   1      }
+  16          void PCF_I2C_Start()
+  17          {
+  18   1           PCF_SDA=1; 
+  19   1           PCF_SCL=1; 
+  20   1           PCF_I2C_Delay(PCF_I2C_DELAY);
+  21   1           PCF_SDA=0; 
+  22   1           PCF_I2C_Delay(PCF_I2C_DELAY);
+  23   1           PCF_SCL=0;
+  24   1           PCF_I2C_Delay(PCF_I2C_DELAY);
+  25   1      }
+  26          void PCF_I2C_Stop()
+  27          {   
+  28   1           PCF_SDA=0;
+  29   1           PCF_SCL=1;
+  30   1           PCF_I2C_Delay(PCF_I2C_DELAY);
+  31   1           PCF_SDA=1;
+  32   1           PCF_I2C_Delay(PCF_I2C_DELAY);
+  33   1           PCF_SCL=0;
+  34   1           PCF_I2C_Delay(PCF_I2C_DELAY);
+  35   1      }
+  36          unsigned char PCF_i2c_checkack(void)
+  37          {
+  38   1         unsigned char ack=0;
+  39   1           PCF_SDA=1;
+  40   1           PCF_SCL=1;
+  41   1           PCF_I2C_Delay(PCF_I2C_DELAY/2);
+  42   1           ack=PCF_SDA;
+  43   1           PCF_I2C_Delay(PCF_I2C_DELAY/2);
+  44   1           PCF_SCL=0;
+  45   1           PCF_I2C_Delay(PCF_I2C_DELAY);
+  46   1           if(ack==1) return 0; 
+  47   1           return 1;
+  48   1      }
+  49          void PCF_i2c_write(unsigned char Data)
+  50          {
+  51   1      unsigned char i;
+  52   1           for(i=0;i<8;i++)
+  53   1          {
+  54   2            PCF_SDA=((Data<<i)&0x80);
+C51 COMPILER V9.52.0.0   PCF8591                                                           02/20/2023 06:22:23 PAGE 2   
+
+  55   2            PCF_SCL=1;
+  56   2            PCF_I2C_Delay(PCF_I2C_DELAY);
+  57   2            PCF_SCL=0;
+  58   2            PCF_I2C_Delay(PCF_I2C_DELAY);
+  59   2         }
+  60   1      }
+  61          unsigned char PCF_i2c_read(void)
+  62          {
+  63   1           unsigned char I2C_data=0,i,temp;
+  64   1           for(i=0;i<8;i++)
+  65   1          {
+  66   2             PCF_SDA=1;    
+  67   2              PCF_SCL=1;    
+  68   2               PCF_I2C_Delay(120);
+  69   2               temp=PCF_SDA;
+  70   2               PCF_I2C_Delay(120);
+  71   2               PCF_SCL=0;
+  72   2               if(temp==1)
+  73   2                {
+  74   3                  I2C_data=I2C_data<<1;
+  75   3                  I2C_data=I2C_data|0x01;
+  76   3                }
+  77   2               else
+  78   2                 I2C_data=I2C_data<<1;
+  79   2          }
+  80   1          return I2C_data;
+  81   1      }
+  82          //////////////////////////////////////////////////////////////
+  83          //////////////////////////////////////////////////////////////
+  84          
+  85          //ham su dung cho PCF8591
+  86          void PCF8591_Init(void)
+  87          {
+  88   1        bit Ack_Temp=1;
+  89   1        PCF_I2C_Start();
+  90   1        delay_ms(20);
+  91   1        PCF_i2c_write(0x90);//byte dia chi,che do ghi
+  92   1        Ack_Temp=PCF_i2c_checkack();
+  93   1        delay_ms(20);
+  94   1        PCF_i2c_write(0x40);//byte control,cho phep DA hoat dong,AD o che do 0,kenh 0 
+  95   1        Ack_Temp=PCF_i2c_checkack();
+  96   1        delay_ms(20); 
+  97   1        PCF_I2C_Stop();
+  98   1      }
+  99          uint8_t PCF8591_Read(uint8_t chanel)
+ 100          {
+ 101   1        uint8_t Data;
+ 102   1        bit Ack_Temp=1;
+ 103   1        PCF_I2C_Start();  
+ 104   1        delay_ms(10);
+ 105   1        
+ 106   1        PCF_I2C_Start();
+ 107   1        delay_ms(20);
+ 108   1        PCF_i2c_write(0x90);//byte dia chi,che do ghi
+ 109   1        Ack_Temp=PCF_i2c_checkack();
+ 110   1        delay_ms(20);
+ 111   1        PCF_i2c_write(0x40|chanel);//byte control,cho phep DA hoat dong,AD o che do 0,kenh 0 
+ 112   1        Ack_Temp=PCF_i2c_checkack();
+ 113   1        delay_ms(20); 
+ 114   1        PCF_I2C_Stop();
+ 115   1        
+ 116   1        PCF_I2C_Start();  
+C51 COMPILER V9.52.0.0   PCF8591                                                           02/20/2023 06:22:23 PAGE 3   
+
+ 117   1        delay_ms(10);
+ 118   1        
+ 119   1        PCF_i2c_write(0x91); //byte dia chi,che do doc
+ 120   1        Ack_Temp=PCF_i2c_checkack(); 
+ 121   1        Data=PCF_i2c_read();
+ 122   1        delay_ms(10);
+ 123   1        PCF_I2C_Stop();
+ 124   1        return Data;
+ 125   1        
+ 126   1      }
+ 127          void PCF8591_Write(uint8_t DA)
+ 128          {
+ 129   1        bit Ack_Temp=1;
+ 130   1        PCF_I2C_Start();
+ 131   1        delay_ms(10);
+ 132   1        PCF_i2c_write(0x90);//byte dia chi
+ 133   1        Ack_Temp=PCF_i2c_checkack();
+ 134   1        delay_ms(10);
+ 135   1        PCF_i2c_write(0x40);//byte control  
+ 136   1        Ack_Temp=PCF_i2c_checkack();
+ 137   1        delay_ms(10);   
+ 138   1        PCF_i2c_write(DA);//byte du lieu
+ 139   1        Ack_Temp=PCF_i2c_checkack();
+ 140   1        delay_ms(10); 
+ 141   1        PCF_I2C_Stop();
+ 142   1      }
+
+
+MODULE INFORMATION:   STATIC OVERLAYABLE
+   CODE SIZE        =    422    ----
+   CONSTANT SIZE    =   ----    ----
+   XDATA SIZE       =   ----    ----
+   PDATA SIZE       =   ----    ----
+   DATA SIZE        =   ----       3
+   IDATA SIZE       =   ----    ----
+   BIT SIZE         =   ----       3
+END OF MODULE INFORMATION.
+
+
+C51 COMPILATION COMPLETE.  0 WARNING(S),  0 ERROR(S)

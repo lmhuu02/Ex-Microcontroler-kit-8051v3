@@ -1,0 +1,3 @@
+".\Objects\bai7_max232_8051.obj" 
+TO ".\Objects\bai7_max232_8051" 
+PRINT(".\Listings\bai7_max232_8051.m51")

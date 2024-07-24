@@ -1,0 +1,70 @@
+C51 COMPILER V9.52.0.0   TAOTREBANGTIMER                                                   02/24/2022 16:11:07 PAGE 1   
+
+
+C51 COMPILER V9.52.0.0, COMPILATION OF MODULE TAOTREBANGTIMER
+OBJECT MODULE PLACED IN taoTreBangTimer.OBJ
+COMPILER INVOKED BY: C:\Keil\C51\BIN\C51.EXE taoTreBangTimer.c BROWSE DEBUG OBJECTEXTEND TABS(2)
+
+line level    source
+
+   1          //POWER BY LE MINH HUU 24/2/2022
+   2          //TIMER CHE DO 1 DIEU KHIEN 1 LED
+   3          #include <REGX52.H>
+   4          
+   5          //thach anh 20
+   6          void delay_ta0(){
+   7   1        TMOD = 0x10;  //timer 1 che do 1
+   8   1        TH1 = 0xf9;
+   9   1        TL1 = 0x7e;
+  10   1        TR1 = 1;
+  11   1        while(!TF1);
+  12   1        TF1 = 0;
+  13   1        TR1 = 0;
+  14   1      }
+  15          
+  16          //thach anh 11.0592, 
+  17          void delay_ta1(){
+  18   1        TMOD = 0x10;  //timer 1 che do 1
+  19   1        TH1 = 0xfc;
+  20   1        TL1 = 0x67 ;
+  21   1        TR1 = 1;
+  22   1        while(!TF1);
+  23   1        TF1 = 0;
+  24   1        TR1 = 0;
+  25   1      }
+  26          
+  27          //thach anh 12mhz, timer 0 che do 1
+  28          void delay(){
+  29   1        TMOD = 0x01;  //timer 0 che do 1
+  30   1        TH0 = 0xfc;
+  31   1        TL0 = 0x18 ;
+  32   1        TR0 = 1;
+  33   1        while(!TF0);
+  34   1        TF0 = 0;
+  35   1        TR0 = 0;
+  36   1      }
+  37          
+  38          
+  39          void main(){
+  40   1        P3_0 = 1;
+  41   1        while(1){
+  42   2          P3_0 = ~P3_0; 
+  43   2          delay();
+  44   2        }
+  45   1      }
+
+
+MODULE INFORMATION:   STATIC OVERLAYABLE
+   CODE SIZE        =     66    ----
+   CONSTANT SIZE    =   ----    ----
+   XDATA SIZE       =   ----    ----
+   PDATA SIZE       =   ----    ----
+   DATA SIZE        =   ----    ----
+   IDATA SIZE       =   ----    ----
+   BIT SIZE         =   ----    ----
+C51 COMPILER V9.52.0.0   TAOTREBANGTIMER                                                   02/24/2022 16:11:07 PAGE 2   
+
+END OF MODULE INFORMATION.
+
+
+C51 COMPILATION COMPLETE.  0 WARNING(S),  0 ERROR(S)

@@ -1,0 +1,176 @@
+BL51 BANKED LINKER/LOCATER V6.22                                                        05/18/2022  18:43:28  PAGE 1
+
+
+BL51 BANKED LINKER/LOCATER V6.22, INVOKED BY:
+C:\KEIL\C51\BIN\BL51.EXE dieuKhienLedDonDichBit.obj TO dieuKhienLedDonDichBit RAMSIZE (256)
+
+
+MEMORY MODEL: SMALL
+
+
+INPUT MODULES INCLUDED:
+  dieuKhienLedDonDichBit.obj (DIEUKHIENLEDDONDICHBIT)
+  C:\KEIL\C51\LIB\C51S.LIB (?C_STARTUP)
+
+
+LINK MAP OF MODULE:  dieuKhienLedDonDichBit (DIEUKHIENLEDDONDICHBIT)
+
+
+            TYPE    BASE      LENGTH    RELOCATION   SEGMENT NAME
+            -----------------------------------------------------
+
+            * * * * * * *   D A T A   M E M O R Y   * * * * * * *
+            REG     0000H     0008H     ABSOLUTE     "REG BANK 0"
+            IDATA   0008H     0001H     UNIT         ?STACK
+
+            * * * * * * *   C O D E   M E M O R Y   * * * * * * *
+            CODE    0000H     0003H     ABSOLUTE     
+            CODE    0003H     0033H     UNIT         ?PR?TRAIPHAINHAY?DIEUKHIENLEDDONDICHBIT
+            CODE    0036H     0024H     UNIT         ?PR?GIUAHAIBENGIU?DIEUKHIENLEDDONDICHBIT
+            CODE    005AH     001EH     UNIT         ?PR?HAIBENGIUA?DIEUKHIENLEDDONDICHBIT
+            CODE    0078H     001DH     UNIT         ?PR?GIUTRAIPHAI?DIEUKHIENLEDDONDICHBIT
+            CODE    0095H     0013H     UNIT         ?PR?_DELAY?DIEUKHIENLEDDONDICHBIT
+            CODE    00A8H     000CH     UNIT         ?C_C51STARTUP
+            CODE    00B4H     0008H     UNIT         ?PR?MAIN?DIEUKHIENLEDDONDICHBIT
+
+
+
+OVERLAY MAP OF MODULE:   dieuKhienLedDonDichBit (DIEUKHIENLEDDONDICHBIT)
+
+
+SEGMENT
+  +--> CALLED SEGMENT
+---------------------
+?C_C51STARTUP
+  +--> ?PR?MAIN?DIEUKHIENLEDDONDICHBIT
+
+?PR?MAIN?DIEUKHIENLEDDONDICHBIT
+  +--> ?PR?GIUAHAIBENGIU?DIEUKHIENLEDDONDICHBIT
+
+?PR?GIUAHAIBENGIU?DIEUKHIENLEDDONDICHBIT
+  +--> ?PR?_DELAY?DIEUKHIENLEDDONDICHBIT
+
+
+
+SYMBOL TABLE OF MODULE:  dieuKhienLedDonDichBit (DIEUKHIENLEDDONDICHBIT)
+
+  VALUE           TYPE          NAME
+  ----------------------------------
+
+  -------         MODULE        DIEUKHIENLEDDONDICHBIT
+  C:0000H         SYMBOL        _ICE_DUMMY_
+BL51 BANKED LINKER/LOCATER V6.22                                                      05/18/2022  18:43:28  PAGE 2
+
+
+  D:00A0H         PUBLIC        P2
+  C:009DH         PUBLIC        _delay
+  C:00B4H         PUBLIC        main
+  C:0003H         PUBLIC        traiPhaiNhay
+  C:005AH         PUBLIC        haiBenGiua
+  C:0078H         PUBLIC        giuTraiPhai
+  C:0036H         PUBLIC        giuaHaiBenGiu
+  C:0099H         SYMBOL        L?0033
+  -------         PROC          L?0032
+  -------         ENDPROC       L?0032
+  C:0099H         SYMBOL        L?0033
+  -------         PROC          _DELAY
+  D:0006H         SYMBOL        time
+  C:009DH         LINE#         12
+  C:009DH         LINE#         13
+  C:00A7H         LINE#         14
+  -------         ENDPROC       _DELAY
+  -------         PROC          TRAIPHAINHAY
+  -------         DO            
+  D:0005H         SYMBOL        a
+  D:0005H         SYMBOL        b
+  D:0002H         SYMBOL        i
+  -------         ENDDO         
+  C:0003H         LINE#         15
+  C:0003H         LINE#         19
+  C:0005H         LINE#         20
+  C:0008H         LINE#         21
+  C:000AH         LINE#         22
+  C:000DH         LINE#         23
+  C:0011H         LINE#         24
+  C:001CH         LINE#         26
+  C:001EH         LINE#         27
+  C:0021H         LINE#         28
+  C:0023H         LINE#         29
+  C:0026H         LINE#         30
+  C:002AH         LINE#         31
+  C:0035H         LINE#         32
+  -------         ENDPROC       TRAIPHAINHAY
+  -------         PROC          GIUTRAIPHAI
+  -------         DO            
+  D:0005H         SYMBOL        a
+  D:0002H         SYMBOL        i
+  -------         ENDDO         
+  C:0078H         LINE#         33
+  C:0078H         LINE#         36
+  C:007AH         LINE#         37
+  C:007DH         LINE#         38
+  C:007FH         LINE#         39
+  C:0083H         LINE#         40
+  C:0086H         LINE#         41
+  C:0089H         LINE#         42
+  C:0094H         LINE#         43
+  -------         ENDPROC       GIUTRAIPHAI
+  -------         PROC          GIUAHAIBENGIU
+  -------         DO            
+  D:0001H         SYMBOL        a
+  D:0005H         SYMBOL        b
+BL51 BANKED LINKER/LOCATER V6.22                                                      05/18/2022  18:43:28  PAGE 3
+
+
+  D:0002H         SYMBOL        i
+  -------         ENDDO         
+  C:0036H         LINE#         44
+  C:0036H         LINE#         47
+  C:0038H         LINE#         48
+  C:003AH         LINE#         49
+  C:003DH         LINE#         50
+  C:003DH         LINE#         51
+  C:0040H         LINE#         52
+  C:0044H         LINE#         53
+  C:0048H         LINE#         54
+  C:004BH         LINE#         55
+  C:004EH         LINE#         56
+  C:0059H         LINE#         57
+  -------         ENDPROC       GIUAHAIBENGIU
+  -------         PROC          HAIBENGIUA
+  -------         DO            
+  D:0001H         SYMBOL        a
+  D:0005H         SYMBOL        b
+  D:0002H         SYMBOL        i
+  -------         ENDDO         
+  C:005AH         LINE#         58
+  C:005AH         LINE#         61
+  C:005CH         LINE#         62
+  C:005EH         LINE#         63
+  C:0061H         LINE#         64
+  C:0061H         LINE#         65
+  C:0064H         LINE#         66
+  C:0068H         LINE#         67
+  C:006CH         LINE#         68
+  C:0077H         LINE#         69
+  -------         ENDPROC       HAIBENGIUA
+  -------         PROC          MAIN
+  C:00B4H         LINE#         70
+  C:00B4H         LINE#         71
+  C:00B7H         LINE#         72
+  C:00B7H         LINE#         75
+  C:00BAH         LINE#         77
+  -------         ENDPROC       MAIN
+  -------         ENDMOD        DIEUKHIENLEDDONDICHBIT
+
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?TRAIPHAINHAY?DIEUKHIENLEDDONDICHBIT
+
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?GIUTRAIPHAI?DIEUKHIENLEDDONDICHBIT
+
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?HAIBENGIUA?DIEUKHIENLEDDONDICHBIT
+
+Program Size: data=9.0 xdata=0 code=188
+LINK/LOCATE RUN COMPLETE.  3 WARNING(S),  0 ERROR(S)

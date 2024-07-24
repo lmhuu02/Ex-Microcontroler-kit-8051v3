@@ -1,0 +1,263 @@
+<html>
+<body>
+<pre>
+<h1>µVision Build Log</h1>
+<h2>Project:</h2>
+D:\TU HOC code project LeHuu\Project_vdk_8051_LeHuu\ON THI LAP TRINH NHUNG 8051\DEM  LED 7 THANH 6 LED\timeCounterNLed7Thanh.uvproj
+Project File Date:  05/18/2022
+
+<h2>Output:</h2>
+Rebuild target 'Target 1'
+compiling timeCounterNLed7Thanh.c...
+timeCounterNLed7Thanh.c(18): warning C280: 'time': unreferenced local variable
+timeCounterNLed7Thanh.c(26): error C202: 'TF': undefined identifier
+timeCounterNLed7Thanh.c(40): error C141: syntax error near '='
+timeCounterNLed7Thanh.c(40): error C141: syntax error near '='
+timeCounterNLed7Thanh.c(41): error C141: syntax error near '='
+timeCounterNLed7Thanh.c(41): error C141: syntax error near '='
+timeCounterNLed7Thanh.c(42): error C141: syntax error near '='
+timeCounterNLed7Thanh.c(42): error C141: syntax error near '='
+timeCounterNLed7Thanh.c(43): error C141: syntax error near '='
+timeCounterNLed7Thanh.c(43): error C141: syntax error near '='
+timeCounterNLed7Thanh.c(44): error C141: syntax error near '='
+timeCounterNLed7Thanh.c(44): error C141: syntax error near '='
+timeCounterNLed7Thanh.c(45): error C141: syntax error near '='
+timeCounterNLed7Thanh.c(45): error C141: syntax error near '='
+Target not created
+Rebuild target 'Target 1'
+compiling timeCounterNLed7Thanh.c...
+timeCounterNLed7Thanh.c(18): warning C280: 'time': unreferenced local variable
+timeCounterNLed7Thanh.c(21): warning C280: 'time': unreferenced local variable
+timeCounterNLed7Thanh.c(40): error C141: syntax error near '='
+timeCounterNLed7Thanh.c(40): error C141: syntax error near '='
+timeCounterNLed7Thanh.c(41): error C141: syntax error near '='
+timeCounterNLed7Thanh.c(41): error C141: syntax error near '='
+timeCounterNLed7Thanh.c(42): error C141: syntax error near '='
+timeCounterNLed7Thanh.c(42): error C141: syntax error near '='
+timeCounterNLed7Thanh.c(43): error C141: syntax error near '='
+timeCounterNLed7Thanh.c(43): error C141: syntax error near '='
+timeCounterNLed7Thanh.c(44): error C141: syntax error near '='
+timeCounterNLed7Thanh.c(44): error C141: syntax error near '='
+timeCounterNLed7Thanh.c(45): error C141: syntax error near '='
+timeCounterNLed7Thanh.c(45): error C141: syntax error near '='
+Target not created
+Rebuild target 'Target 1'
+compiling timeCounterNLed7Thanh.c...
+timeCounterNLed7Thanh.c(21): warning C280: 'time': unreferenced local variable
+timeCounterNLed7Thanh.c(40): error C141: syntax error near '='
+timeCounterNLed7Thanh.c(40): error C141: syntax error near '='
+timeCounterNLed7Thanh.c(41): error C141: syntax error near '='
+timeCounterNLed7Thanh.c(41): error C141: syntax error near '='
+timeCounterNLed7Thanh.c(42): error C141: syntax error near '='
+timeCounterNLed7Thanh.c(42): error C141: syntax error near '='
+timeCounterNLed7Thanh.c(43): error C141: syntax error near '='
+timeCounterNLed7Thanh.c(43): error C141: syntax error near '='
+timeCounterNLed7Thanh.c(44): error C141: syntax error near '='
+timeCounterNLed7Thanh.c(44): error C141: syntax error near '='
+timeCounterNLed7Thanh.c(45): error C141: syntax error near '='
+timeCounterNLed7Thanh.c(45): error C141: syntax error near '='
+Target not created
+Rebuild target 'Target 1'
+compiling timeCounterNLed7Thanh.c...
+timeCounterNLed7Thanh.c(42): error C141: syntax error near '='
+timeCounterNLed7Thanh.c(42): error C141: syntax error near '='
+timeCounterNLed7Thanh.c(43): error C141: syntax error near '='
+timeCounterNLed7Thanh.c(43): error C141: syntax error near '='
+timeCounterNLed7Thanh.c(44): error C141: syntax error near '='
+timeCounterNLed7Thanh.c(44): error C141: syntax error near '='
+timeCounterNLed7Thanh.c(45): error C141: syntax error near '='
+timeCounterNLed7Thanh.c(45): error C141: syntax error near '='
+timeCounterNLed7Thanh.c(46): error C141: syntax error near '='
+timeCounterNLed7Thanh.c(46): error C141: syntax error near '='
+timeCounterNLed7Thanh.c(47): error C141: syntax error near '='
+timeCounterNLed7Thanh.c(47): error C141: syntax error near '='
+Target not created
+Rebuild target 'Target 1'
+compiling timeCounterNLed7Thanh.c...
+timeCounterNLed7Thanh.c(33): warning C280: 'j': unreferenced local variable
+linking...
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?_DELAY?TIMECOUNTERNLED7THANH
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?_DELAY_MS?TIMECOUNTERNLED7THANH
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?DEM0TOI99?TIMECOUNTERNLED7THANH
+Program Size: data=35.0 xdata=0 code=766
+creating hex file from "timeCounterNLed7Thanh"...
+"timeCounterNLed7Thanh" - 0 Error(s), 4 Warning(s).
+Rebuild target 'Target 1'
+compiling timeCounterNLed7Thanh.c...
+timeCounterNLed7Thanh.c(42): error C141: syntax error near '='
+timeCounterNLed7Thanh.c(42): error C141: syntax error near '='
+timeCounterNLed7Thanh.c(43): error C141: syntax error near '='
+timeCounterNLed7Thanh.c(43): error C141: syntax error near '='
+timeCounterNLed7Thanh.c(44): error C141: syntax error near '='
+timeCounterNLed7Thanh.c(44): error C141: syntax error near '='
+timeCounterNLed7Thanh.c(45): error C141: syntax error near '='
+timeCounterNLed7Thanh.c(45): error C141: syntax error near '='
+timeCounterNLed7Thanh.c(46): error C141: syntax error near '='
+timeCounterNLed7Thanh.c(46): error C141: syntax error near '='
+timeCounterNLed7Thanh.c(47): error C141: syntax error near '='
+timeCounterNLed7Thanh.c(47): error C141: syntax error near '='
+Target not created
+Rebuild target 'Target 1'
+compiling timeCounterNLed7Thanh.c...
+linking...
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?_DELAY?TIMECOUNTERNLED7THANH
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?_DELAY_MS?TIMECOUNTERNLED7THANH
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?DEM0TOI99?TIMECOUNTERNLED7THANH
+Program Size: data=33.0 xdata=0 code=780
+creating hex file from "timeCounterNLed7Thanh"...
+"timeCounterNLed7Thanh" - 0 Error(s), 3 Warning(s).
+Rebuild target 'Target 1'
+compiling timeCounterNLed7Thanh.c...
+timeCounterNLed7Thanh.c(42): error C141: syntax error near '='
+timeCounterNLed7Thanh.c(42): error C141: syntax error near '='
+Target not created
+Rebuild target 'Target 1'
+compiling timeCounterNLed7Thanh.c...
+timeCounterNLed7Thanh.c(42): error C141: syntax error near '='
+timeCounterNLed7Thanh.c(45): error C141: syntax error near '='
+Target not created
+Rebuild target 'Target 1'
+compiling timeCounterNLed7Thanh.c...
+linking...
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?_DELAY?TIMECOUNTERNLED7THANH
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?DEM0TOI99?TIMECOUNTERNLED7THANH
+Program Size: data=33.0 xdata=0 code=799
+creating hex file from "timeCounterNLed7Thanh"...
+"timeCounterNLed7Thanh" - 0 Error(s), 2 Warning(s).
+Rebuild target 'Target 1'
+compiling timeCounterNLed7Thanh.c...
+linking...
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?_DELAY?TIMECOUNTERNLED7THANH
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?DEM0TOI99?TIMECOUNTERNLED7THANH
+Program Size: data=31.0 xdata=0 code=843
+creating hex file from "timeCounterNLed7Thanh"...
+"timeCounterNLed7Thanh" - 0 Error(s), 2 Warning(s).
+Rebuild target 'Target 1'
+compiling timeCounterNLed7Thanh.c...
+linking...
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?_DELAY?TIMECOUNTERNLED7THANH
+Program Size: data=31.0 xdata=0 code=846
+creating hex file from "timeCounterNLed7Thanh"...
+"timeCounterNLed7Thanh" - 0 Error(s), 1 Warning(s).
+Rebuild target 'Target 1'
+compiling timeCounterNLed7Thanh.c...
+timeCounterNLed7Thanh.c(65): error C202: 'TOMD': undefined identifier
+Target not created
+Rebuild target 'Target 1'
+compiling timeCounterNLed7Thanh.c...
+linking...
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?_DELAY?TIMECOUNTERNLED7THANH
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?DEM0TOI99?TIMECOUNTERNLED7THANH
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?DEMCHANLE?TIMECOUNTERNLED7THANH
+Program Size: data=35.0 xdata=0 code=982
+creating hex file from "timeCounterNLed7Thanh"...
+"timeCounterNLed7Thanh" - 0 Error(s), 3 Warning(s).
+Rebuild target 'Target 1'
+compiling timeCounterNLed7Thanh.c...
+linking...
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?_DELAY?TIMECOUNTERNLED7THANH
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?DEM0TOI99?TIMECOUNTERNLED7THANH
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?DEMCHANLE?TIMECOUNTERNLED7THANH
+Program Size: data=35.0 xdata=0 code=988
+creating hex file from "timeCounterNLed7Thanh"...
+"timeCounterNLed7Thanh" - 0 Error(s), 3 Warning(s).
+Rebuild target 'Target 1'
+compiling timeCounterNLed7Thanh.c...
+linking...
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?_DELAY?TIMECOUNTERNLED7THANH
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?DEM0TOI99?TIMECOUNTERNLED7THANH
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?DEMCHANLE?TIMECOUNTERNLED7THANH
+Program Size: data=35.0 xdata=0 code=992
+creating hex file from "timeCounterNLed7Thanh"...
+"timeCounterNLed7Thanh" - 0 Error(s), 3 Warning(s).
+Rebuild target 'Target 1'
+compiling timeCounterNLed7Thanh.c...
+linking...
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?_DELAY?TIMECOUNTERNLED7THANH
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?DEM0TOI99?TIMECOUNTERNLED7THANH
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?DEMCHANLE?TIMECOUNTERNLED7THANH
+Program Size: data=35.0 xdata=0 code=992
+creating hex file from "timeCounterNLed7Thanh"...
+"timeCounterNLed7Thanh" - 0 Error(s), 3 Warning(s).
+Rebuild target 'Target 1'
+compiling timeCounterNLed7Thanh.c...
+linking...
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?_DELAY?TIMECOUNTERNLED7THANH
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?DEM0TOI99?TIMECOUNTERNLED7THANH
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?DEMCHANLE?TIMECOUNTERNLED7THANH
+Program Size: data=35.0 xdata=0 code=999
+creating hex file from "timeCounterNLed7Thanh"...
+"timeCounterNLed7Thanh" - 0 Error(s), 3 Warning(s).
+Rebuild target 'Target 1'
+compiling timeCounterNLed7Thanh.c...
+linking...
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?DEM0TOI99?TIMECOUNTERNLED7THANH
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?DEMCHANLE?TIMECOUNTERNLED7THANH
+Program Size: data=35.0 xdata=0 code=968
+creating hex file from "timeCounterNLed7Thanh"...
+"timeCounterNLed7Thanh" - 0 Error(s), 2 Warning(s).
+Rebuild target 'Target 1'
+compiling timeCounterNLed7Thanh.c...
+linking...
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?DEM0TOI99?TIMECOUNTERNLED7THANH
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?DEMCHANLE?TIMECOUNTERNLED7THANH
+Program Size: data=35.0 xdata=0 code=961
+creating hex file from "timeCounterNLed7Thanh"...
+"timeCounterNLed7Thanh" - 0 Error(s), 2 Warning(s).
+Rebuild target 'Target 1'
+compiling timeCounterNLed7Thanh.c...
+timeCounterNLed7Thanh.c(57): error C202: 'i': undefined identifier
+timeCounterNLed7Thanh.c(57): error C202: 'i': undefined identifier
+Target not created
+Rebuild target 'Target 1'
+compiling timeCounterNLed7Thanh.c...
+linking...
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?_DEMXUNGTIEN?TIMECOUNTERNLED7THANH
+Program Size: data=31.0 xdata=0 code=787
+creating hex file from "timeCounterNLed7Thanh"...
+"timeCounterNLed7Thanh" - 0 Error(s), 1 Warning(s).
+Rebuild target 'Target 1'
+compiling timeCounterNLed7Thanh.c...
+linking...
+Program Size: data=31.0 xdata=0 code=794
+creating hex file from "timeCounterNLed7Thanh"...
+"timeCounterNLed7Thanh" - 0 Error(s), 0 Warning(s).
+Rebuild target 'Target 1'
+compiling timeCounterNLed7Thanh.c...
+linking...
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?_DEMXUNG50?TIMECOUNTERNLED7THANH
+Program Size: data=31.0 xdata=0 code=816
+creating hex file from "timeCounterNLed7Thanh"...
+"timeCounterNLed7Thanh" - 0 Error(s), 1 Warning(s).

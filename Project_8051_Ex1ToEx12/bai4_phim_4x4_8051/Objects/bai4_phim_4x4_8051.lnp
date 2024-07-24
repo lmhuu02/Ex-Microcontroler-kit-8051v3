@@ -1,0 +1,3 @@
+".\Objects\bai4_phim_4x4_8051.obj" 
+TO ".\Objects\bai4_phim_4x4_8051" 
+PRINT(".\Listings\bai4_phim_4x4_8051.m51")

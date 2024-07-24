@@ -1,0 +1,112 @@
+BL51 BANKED LINKER/LOCATER V6.22                                                        02/12/2022  10:32:24  PAGE 1
+
+
+BL51 BANKED LINKER/LOCATER V6.22, INVOKED BY:
+C:\KEIL\C51\BIN\BL51.EXE 7seg00To99By2Ic74ls47ChungPort2.obj TO 7seg00To99By2Ic74ls47ChungPort2 RAMSIZE (256)
+
+
+MEMORY MODEL: SMALL
+
+
+INPUT MODULES INCLUDED:
+  7seg00To99By2Ic74ls47ChungPort2.obj (7SEG00TO99BY2IC74LS47CHUNGPORT2)
+  C:\KEIL\C51\LIB\C51S.LIB (?C_STARTUP)
+  C:\KEIL\C51\LIB\C51S.LIB (?C?SIDIV)
+  C:\KEIL\C51\LIB\C51S.LIB (?C_INIT)
+  C:\KEIL\C51\LIB\C51S.LIB (?C?UIDIV)
+
+
+LINK MAP OF MODULE:  7seg00To99By2Ic74ls47ChungPort2 (7SEG00TO99BY2IC74LS47CHUNGPORT2)
+
+
+            TYPE    BASE      LENGTH    RELOCATION   SEGMENT NAME
+            -----------------------------------------------------
+
+            * * * * * * *   D A T A   M E M O R Y   * * * * * * *
+            REG     0000H     0008H     ABSOLUTE     "REG BANK 0"
+            DATA    0008H     001CH     UNIT         ?DT?7SEG00TO99BY2IC74LS47CHUNGPORT2
+            IDATA   0024H     0001H     UNIT         ?STACK
+
+            * * * * * * *   C O D E   M E M O R Y   * * * * * * *
+            CODE    0000H     0003H     ABSOLUTE     
+                    0003H     07FDH                  *** GAP ***
+            CODE    0800H     008CH     UNIT         ?C_C51STARTUP
+            CODE    088CH     008BH     UNIT         ?C?LIB_CODE
+            CODE    0917H     005EH     UNIT         ?PR?MAIN?7SEG00TO99BY2IC74LS47CHUNGPORT2
+            CODE    0975H     0019H     UNIT         ?C_INITSEG
+            CODE    098EH     0013H     UNIT         ?PR?_DELAY?7SEG00TO99BY2IC74LS47CHUNGPORT2
+
+
+
+OVERLAY MAP OF MODULE:   7seg00To99By2Ic74ls47ChungPort2 (7SEG00TO99BY2IC74LS47CHUNGPORT2)
+
+
+SEGMENT
+  +--> CALLED SEGMENT
+---------------------
+?C_C51STARTUP
+  +--> ?PR?MAIN?7SEG00TO99BY2IC74LS47CHUNGPORT2
+  +--> ?C_INITSEG
+
+?PR?MAIN?7SEG00TO99BY2IC74LS47CHUNGPORT2
+  +--> ?PR?_DELAY?7SEG00TO99BY2IC74LS47CHUNG...
+
+
+
+SYMBOL TABLE OF MODULE:  7seg00To99By2Ic74ls47ChungPort2 (7SEG00TO99BY2IC74LS47CHUNGPORT2)
+
+  VALUE           TYPE          NAME
+  ----------------------------------
+
+  -------         MODULE        7SEG00TO99BY2IC74LS47CHUNGPORT2
+BL51 BANKED LINKER/LOCATER V6.22                                                      02/12/2022  10:32:24  PAGE 2
+
+
+  C:0000H         SYMBOL        _ICE_DUMMY_
+  D:0008H         PUBLIC        dieuKhienDonVi
+  D:00A0H         PUBLIC        P2
+  D:0012H         PUBLIC        donVi
+  C:0996H         PUBLIC        _delay
+  D:0014H         PUBLIC        dieuKhienChuc
+  D:001EH         PUBLIC        chuc
+  C:0917H         PUBLIC        main
+  D:0020H         PUBLIC        i
+  D:0022H         PUBLIC        j
+  -------         PROC          L?0016
+  -------         ENDPROC       L?0016
+  -------         PROC          _DELAY
+  D:0006H         SYMBOL        time
+  C:0996H         LINE#         10
+  C:0996H         LINE#         11
+  C:09A0H         LINE#         12
+  -------         ENDPROC       _DELAY
+  -------         PROC          MAIN
+  C:0917H         LINE#         14
+  C:0917H         LINE#         15
+  C:0917H         LINE#         16
+  C:091CH         LINE#         18
+  C:092BH         LINE#         19
+  C:093AH         LINE#         20
+  C:093FH         LINE#         21
+  C:0943H         LINE#         22
+  C:0946H         LINE#         23
+  C:094AH         LINE#         24
+  C:094DH         LINE#         25
+  C:0960H         LINE#         27
+  -------         ENDPROC       MAIN
+  -------         ENDMOD        7SEG00TO99BY2IC74LS47CHUNGPORT2
+
+  -------         MODULE        ?C?SIDIV
+  C:088CH         PUBLIC        ?C?SIDIV
+  -------         ENDMOD        ?C?SIDIV
+
+  -------         MODULE        ?C?UIDIV
+  C:08C2H         PUBLIC        ?C?UIDIV
+  -------         ENDMOD        ?C?UIDIV
+
+******************************************************************************
+* RESTRICTED VERSION WITH 0800H BYTE CODE SIZE LIMIT; USED: 0089H BYTE ( 6%) *
+******************************************************************************
+
+Program Size: data=37.0 xdata=0 code=420
+LINK/LOCATE RUN COMPLETE.  0 WARNING(S),  0 ERROR(S)

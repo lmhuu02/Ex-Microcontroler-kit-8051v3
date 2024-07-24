@@ -1,0 +1,428 @@
+BL51 BANKED LINKER/LOCATER V6.22                                                        03/01/2023  23:55:15  PAGE 1
+
+
+BL51 BANKED LINKER/LOCATER V6.22, INVOKED BY:
+C:\KEIL_V5\C51\BIN\BL51.EXE .\Objects\bai6_ne555_hien_thi_xung_lcd.obj TO .\Objects\bai6_ne555_hien_thi_xung_lcd PRINT (
+>> .\Listings\bai6_ne555_hien_thi_xung_lcd.m51)
+
+
+MEMORY MODEL: SMALL WITH FLOATING POINT ARITHMETIC
+
+
+INPUT MODULES INCLUDED:
+  .\Objects\bai6_ne555_hien_thi_xung_lcd.obj (BAI6_NE555_HIEN_THI_XUNG_LCD)
+  C:\KEIL_V5\C51\LIB\C51FPS.LIB (?C?FPDIV)
+  C:\KEIL_V5\C51\LIB\C51FPS.LIB (?C?FCAST)
+  C:\KEIL_V5\C51\LIB\C51FPS.LIB (PRINTF)
+  C:\KEIL_V5\C51\LIB\C51FPS.LIB (?C?FPGETOPN)
+  C:\KEIL_V5\C51\LIB\C51FPS.LIB (?C?FPROUND)
+  C:\KEIL_V5\C51\LIB\C51FPS.LIB (?C?FPCONVERT)
+  C:\KEIL_V5\C51\LIB\C51FPS.LIB (?C?FPADD)
+  C:\KEIL_V5\C51\LIB\C51FPS.LIB (?C?FPMUL)
+  C:\KEIL_V5\C51\LIB\C51FPS.LIB (?C?FTNPWR)
+  C:\KEIL_V5\C51\LIB\C51S.LIB (?C_STARTUP)
+  C:\KEIL_V5\C51\LIB\C51S.LIB (?C?CLDPTR)
+  C:\KEIL_V5\C51\LIB\C51S.LIB (?C?CLDOPTR)
+  C:\KEIL_V5\C51\LIB\C51S.LIB (?C?CSTPTR)
+  C:\KEIL_V5\C51\LIB\C51S.LIB (?C?LMUL)
+  C:\KEIL_V5\C51\LIB\C51S.LIB (?C?LNEG)
+  C:\KEIL_V5\C51\LIB\C51S.LIB (?C?LSHL)
+  C:\KEIL_V5\C51\LIB\C51S.LIB (?C?PLDIIDATA)
+  C:\KEIL_V5\C51\LIB\C51S.LIB (?C?CCASE)
+  C:\KEIL_V5\C51\LIB\C51S.LIB (PUTCHAR)
+
+
+LINK MAP OF MODULE:  .\Objects\bai6_ne555_hien_thi_xung_lcd (BAI6_NE555_HIEN_THI_XUNG_LCD)
+
+
+            TYPE    BASE      LENGTH    RELOCATION   SEGMENT NAME
+            -----------------------------------------------------
+
+            * * * * * * *   D A T A   M E M O R Y   * * * * * * *
+            REG     0000H     0008H     ABSOLUTE     "REG BANK 0"
+                    0008H     0018H                  *** GAP ***
+            BIT     0020H.0   0001H.1   UNIT         _BIT_GROUP_
+                    0021H.1   0000H.7                *** GAP ***
+            DATA    0022H     001CH     UNIT         ?DT?BAI6_NE555_HIEN_THI_XUNG_LCD
+            DATA    003EH     001CH     UNIT         _DATA_GROUP_
+            IDATA   005AH     0001H     UNIT         ?STACK
+
+            * * * * * * *   C O D E   M E M O R Y   * * * * * * *
+            CODE    0000H     0003H     ABSOLUTE     
+                    0003H     0008H                  *** GAP ***
+            CODE    000BH     0003H     ABSOLUTE     
+                    000EH     07F2H                  *** GAP ***
+            CODE    0800H     05C6H     UNIT         ?C?LIB_CODE
+            CODE    0DC6H     046FH     UNIT         ?PR?PRINTF?PRINTF
+            CODE    1235H     010FH     UNIT         ?PR?MAIN?BAI6_NE555_HIEN_THI_XUNG_LCD
+            CODE    1344H     003EH     UNIT         ?PR?LCD1602_INIT?BAI6_NE555_HIEN_THI_XUNG_LCD
+            CODE    1382H     0032H     UNIT         ?CO?BAI6_NE555_HIEN_THI_XUNG_LCD
+            CODE    13B4H     0028H     UNIT         ?PR?_LCD1602_GOTOXY?BAI6_NE555_HIEN_THI_XUNG_LCD
+            CODE    13DCH     0027H     UNIT         ?PR?_LCD1602_PUTS?BAI6_NE555_HIEN_THI_XUNG_LCD
+BL51 BANKED LINKER/LOCATER V6.22                                                      03/01/2023  23:55:15  PAGE 2
+
+
+            CODE    1403H     0027H     UNIT         ?PR?PUTCHAR?PUTCHAR
+            CODE    142AH     0020H     UNIT         ?PR?_DELAY_MS?BAI6_NE555_HIEN_THI_XUNG_LCD
+            CODE    144AH     0020H     UNIT         ?PR?_DELAY_US?BAI6_NE555_HIEN_THI_XUNG_LCD
+            CODE    146AH     001FH     UNIT         ?PR?NGAT_TIMER_0?BAI6_NE555_HIEN_THI_XUNG_LCD
+            CODE    1489H     001CH     UNIT         ?PR?_LCD1602_SEND_4BIT_DATA?BAI6_NE555_HIEN_THI_XUNG_LCD
+            CODE    14A5H     0013H     UNIT         ?PR?LCD1602_ENABLE?BAI6_NE555_HIEN_THI_XUNG_LCD
+            CODE    14B8H     0012H     UNIT         ?PR?_LCD1602_SEND_COMMAND?BAI6_NE555_HIEN_THI_XUNG_LCD
+            CODE    14CAH     000CH     UNIT         ?C_C51STARTUP
+            CODE    14D6H     0008H     UNIT         ?PR?_LCD1602_PUTCHAR?BAI6_NE555_HIEN_THI_XUNG_LCD
+            CODE    14DEH     0005H     UNIT         ?PR?LCD1602_CLEAR?BAI6_NE555_HIEN_THI_XUNG_LCD
+
+
+
+OVERLAY MAP OF MODULE:   .\Objects\bai6_ne555_hien_thi_xung_lcd (BAI6_NE555_HIEN_THI_XUNG_LCD)
+
+
+SEGMENT                                             BIT_GROUP          DATA_GROUP 
+  +--> CALLED SEGMENT                            START    LENGTH     START    LENGTH
+------------------------------------------------------------------------------------
+?C_C51STARTUP                                    -----    -----      -----    -----
+  +--> ?PR?MAIN?BAI6_NE555_HIEN_THI_XUNG_LCD
+
+?PR?MAIN?BAI6_NE555_HIEN_THI_XUNG_LCD            -----    -----      -----    -----
+  +--> ?PR?LCD1602_INIT?BAI6_NE555_HIEN_THI_...
+  +--> ?PR?_LCD1602_GOTOXY?BAI6_NE555_HIEN_T...
+  +--> ?CO?BAI6_NE555_HIEN_THI_XUNG_LCD
+  +--> ?PR?_LCD1602_PUTS?BAI6_NE555_HIEN_THI...
+  +--> ?PR?_DELAY_MS?BAI6_NE555_HIEN_THI_XUN...
+  +--> ?PR?PRINTF?PRINTF
+
+?PR?LCD1602_INIT?BAI6_NE555_HIEN_THI_...         -----    -----      -----    -----
+  +--> ?PR?_LCD1602_SEND_4BIT_DATA?BAI6_NE55...
+  +--> ?PR?_DELAY_MS?BAI6_NE555_HIEN_THI_XUN...
+  +--> ?PR?LCD1602_ENABLE?BAI6_NE555_HIEN_TH...
+  +--> ?PR?_LCD1602_SEND_COMMAND?BAI6_NE555_...
+
+?PR?LCD1602_ENABLE?BAI6_NE555_HIEN_TH...         -----    -----      -----    -----
+  +--> ?PR?_LCD1602_SEND_4BIT_DATA?BAI6_NE55...
+  +--> ?PR?_DELAY_US?BAI6_NE555_HIEN_THI_XUN...
+
+?PR?_LCD1602_SEND_COMMAND?BAI6_NE555_...         -----    -----      -----    -----
+  +--> ?PR?LCD1602_ENABLE?BAI6_NE555_HIEN_TH...
+  +--> ?PR?_LCD1602_SEND_4BIT_DATA?BAI6_NE55...
+
+?PR?_LCD1602_GOTOXY?BAI6_NE555_HIEN_T...         -----    -----      003EH    0001H
+  +--> ?PR?LCD1602_CLEAR?BAI6_NE555_HIEN_THI...
+  +--> ?PR?_DELAY_MS?BAI6_NE555_HIEN_THI_XUN...
+  +--> ?PR?_LCD1602_SEND_COMMAND?BAI6_NE555_...
+
+?PR?LCD1602_CLEAR?BAI6_NE555_HIEN_THI...         -----    -----      -----    -----
+  +--> ?PR?_LCD1602_SEND_COMMAND?BAI6_NE555_...
+
+?PR?_LCD1602_PUTS?BAI6_NE555_HIEN_THI...         -----    -----      003EH    0003H
+  +--> ?PR?_LCD1602_PUTCHAR?BAI6_NE555_HIEN_...
+
+?PR?_LCD1602_PUTCHAR?BAI6_NE555_HIEN_...         -----    -----      -----    -----
+  +--> ?PR?_LCD1602_SEND_COMMAND?BAI6_NE555_...
+BL51 BANKED LINKER/LOCATER V6.22                                                      03/01/2023  23:55:15  PAGE 3
+
+
+
+?PR?PRINTF?PRINTF                                0020H.0  0001H.1    003EH    001CH
+  +--> ?PR?PUTCHAR?PUTCHAR
+
+
+
+SYMBOL TABLE OF MODULE:  .\Objects\bai6_ne555_hien_thi_xung_lcd (BAI6_NE555_HIEN_THI_XUNG_LCD)
+
+  VALUE           TYPE          NAME
+  ----------------------------------
+
+  -------         MODULE        BAI6_NE555_HIEN_THI_XUNG_LCD
+  C:0000H         SYMBOL        _ICE_DUMMY_
+  B:00A8H.7       PUBLIC        EA
+  C:13BAH         PUBLIC        _lcd1602_gotoxy
+  B:00A0H.2       PUBLIC        P2_2
+  B:0080H.4       PUBLIC        P0_4
+  B:00A0H.3       PUBLIC        P2_3
+  B:0080H.5       PUBLIC        P0_5
+  C:1344H         PUBLIC        lcd1602_init
+  B:00A0H.4       PUBLIC        P2_4
+  B:0080H.6       PUBLIC        P0_6
+  B:0080H.7       PUBLIC        P0_7
+  B:00B0H.2       PUBLIC        INT0
+  C:1235H         PUBLIC        main
+  C:13DCH         PUBLIC        _lcd1602_puts
+  D:0089H         PUBLIC        TMOD
+  C:146AH         PUBLIC        ngat_timer_0
+  B:00A8H.1       PUBLIC        ET0
+  C:14A8H         PUBLIC        lcd1602_enable
+  D:008CH         PUBLIC        TH0
+  C:14B8H         PUBLIC        _lcd1602_send_command
+  D:008AH         PUBLIC        TL0
+  C:142AH         PUBLIC        _delay_ms
+  D:0022H         PUBLIC        value_timer0
+  B:0088H.4       PUBLIC        TR0
+  C:144AH         PUBLIC        _delay_us
+  C:14D6H         PUBLIC        _lcd1602_putchar
+  C:1489H         PUBLIC        _lcd1602_send_4bit_data
+  D:0026H         PUBLIC        f
+  C:14DEH         PUBLIC        lcd1602_clear
+  D:002AH         PUBLIC        t
+  D:002EH         PUBLIC        Lcd_Buff
+  -------         PROC          _DELAY_MS
+  D:0006H         SYMBOL        Time
+  -------         DO            
+  D:0004H         SYMBOL        i
+  D:0002H         SYMBOL        j
+  D:0006H         SYMBOL        t
+  -------         ENDDO         
+  C:142AH         LINE#         33
+  C:142AH         LINE#         34
+  C:142AH         LINE#         36
+  C:142AH         LINE#         37
+  C:1434H         LINE#         38
+  C:1434H         LINE#         39
+  C:1442H         LINE#         40
+BL51 BANKED LINKER/LOCATER V6.22                                                      03/01/2023  23:55:15  PAGE 4
+
+
+  C:1449H         LINE#         41
+  -------         ENDPROC       _DELAY_MS
+  -------         PROC          _DELAY_US
+  D:0006H         SYMBOL        Time
+  -------         DO            
+  D:0004H         SYMBOL        i
+  D:0002H         SYMBOL        j
+  -------         ENDDO         
+  C:144AH         LINE#         42
+  C:144AH         LINE#         43
+  C:144AH         LINE#         45
+  C:1454H         LINE#         46
+  C:1454H         LINE#         47
+  C:1462H         LINE#         48
+  C:1469H         LINE#         49
+  -------         ENDPROC       _DELAY_US
+  -------         PROC          L?0041
+  -------         ENDPROC       L?0041
+  -------         PROC          LCD1602_ENABLE
+  C:14A8H         LINE#         51
+  C:14A8H         LINE#         52
+  C:14A8H         LINE#         53
+  C:14AAH         LINE#         54
+  C:14B1H         LINE#         55
+  C:14B3H         LINE#         56
+  -------         ENDPROC       LCD1602_ENABLE
+  -------         PROC          _LCD1602_SEND_4BIT_DATA
+  D:0007H         SYMBOL        cX
+  C:1489H         LINE#         60
+  C:1489H         LINE#         61
+  C:1489H         LINE#         62
+  C:148DH         LINE#         63
+  C:1493H         LINE#         64
+  C:149BH         LINE#         65
+  C:14A4H         LINE#         66
+  -------         ENDPROC       _LCD1602_SEND_4BIT_DATA
+  -------         PROC          _LCD1602_SEND_COMMAND
+  D:0001H         SYMBOL        cX
+  C:14B8H         LINE#         70
+  C:14BAH         LINE#         71
+  C:14BAH         LINE#         72
+  C:14BFH         LINE#         73
+  C:14C2H         LINE#         74
+  C:14C7H         LINE#         75
+  -------         ENDPROC       _LCD1602_SEND_COMMAND
+  -------         PROC          LCD1602_INIT
+  C:1344H         LINE#         80
+  C:1344H         LINE#         81
+  C:1344H         LINE#         82
+  C:1349H         LINE#         83
+  C:1350H         LINE#         85
+  C:1352H         LINE#         86
+  C:1354H         LINE#         87
+  C:1356H         LINE#         89
+  C:1358H         LINE#         90
+  C:135BH         LINE#         91
+  C:135EH         LINE#         92
+BL51 BANKED LINKER/LOCATER V6.22                                                      03/01/2023  23:55:15  PAGE 5
+
+
+  C:1361H         LINE#         93
+  C:1366H         LINE#         94
+  C:1369H         LINE#         96
+  C:136EH         LINE#         97
+  C:1373H         LINE#         98
+  C:1378H         LINE#         99
+  C:137DH         LINE#         100
+  -------         ENDPROC       LCD1602_INIT
+  -------         PROC          L?0042
+  -------         ENDPROC       L?0042
+  -------         PROC          _LCD1602_GOTOXY
+  D:0007H         SYMBOL        x
+  D:0005H         SYMBOL        y
+  -------         DO            
+  D:003EH         SYMBOL        address
+  -------         ENDDO         
+  C:13BAH         LINE#         105
+  C:13BAH         LINE#         106
+  C:13BAH         LINE#         108
+  C:13BDH         LINE#         109
+  C:13C4H         LINE#         111
+  C:13C9H         LINE#         112
+  C:13D0H         LINE#         113
+  C:13D5H         LINE#         114
+  -------         ENDPROC       _LCD1602_GOTOXY
+  -------         PROC          LCD1602_CLEAR
+  C:14DEH         LINE#         119
+  C:14DEH         LINE#         120
+  C:14DEH         LINE#         121
+  -------         ENDPROC       LCD1602_CLEAR
+  -------         PROC          _LCD1602_PUTCHAR
+  D:0006H         SYMBOL        cX
+  C:14D6H         LINE#         127
+  C:14D6H         LINE#         128
+  C:14D6H         LINE#         129
+  C:14D8H         LINE#         130
+  C:14DBH         LINE#         131
+  C:14DDH         LINE#         132
+  -------         ENDPROC       _LCD1602_PUTCHAR
+  -------         PROC          _LCD1602_PUTS
+  D:003EH         SYMBOL        s
+  C:13DCH         LINE#         136
+  C:13E2H         LINE#         137
+  C:13E2H         LINE#         138
+  C:13EEH         LINE#         139
+  C:13EEH         LINE#         140
+  C:13F5H         LINE#         141
+  C:1400H         LINE#         142
+  C:1402H         LINE#         143
+  -------         ENDPROC       _LCD1602_PUTS
+  -------         PROC          NGAT_TIMER_0
+  C:146AH         LINE#         16
+  C:146EH         LINE#         18
+  C:1484H         LINE#         19
+  -------         ENDPROC       NGAT_TIMER_0
+  -------         PROC          MAIN
+  C:1235H         LINE#         22
+BL51 BANKED LINKER/LOCATER V6.22                                                      03/01/2023  23:55:15  PAGE 6
+
+
+  C:1235H         LINE#         23
+  C:1238H         LINE#         24
+  C:1238H         LINE#         25
+  C:123BH         LINE#         26
+  C:1244H         LINE#         27
+  C:124BH         LINE#         28
+  C:1252H         LINE#         29
+  C:125BH         LINE#         30
+  C:1262H         LINE#         31
+  C:1262H         LINE#         32
+  C:1265H         LINE#         33
+  C:126EH         LINE#         34
+  C:1271H         LINE#         35
+  C:1273H         LINE#         36
+  C:1275H         LINE#         37
+  C:1275H         LINE#         38
+  C:1275H         LINE#         39
+  C:1278H         LINE#         40
+  C:127AH         LINE#         42
+  C:127DH         LINE#         43
+  C:1280H         LINE#         44
+  C:1282H         LINE#         45
+  C:1285H         LINE#         46
+  C:1287H         LINE#         48
+  C:1292H         LINE#         49
+  C:12A5H         LINE#         50
+  C:12B8H         LINE#         51
+  C:12D0H         LINE#         52
+  C:12D9H         LINE#         53
+  C:12F1H         LINE#         54
+  C:1310H         LINE#         55
+  C:132AH         LINE#         56
+  C:1331H         LINE#         57
+  C:133AH         LINE#         58
+  C:1341H         LINE#         59
+  -------         ENDPROC       MAIN
+  -------         ENDMOD        BAI6_NE555_HIEN_THI_XUNG_LCD
+
+  -------         MODULE        ?C?FPDIV
+  C:0803H         PUBLIC        ?C?FPDIV
+  -------         ENDMOD        ?C?FPDIV
+
+  -------         MODULE        ?C?FCAST
+  C:08AAH         PUBLIC        ?C?FCASTC
+  C:08A5H         PUBLIC        ?C?FCASTI
+  C:08A0H         PUBLIC        ?C?FCASTL
+  -------         ENDMOD        ?C?FCAST
+
+  -------         MODULE        PRINTF
+  D:003EH         PUBLIC        ?_PRINTF?BYTE
+  D:003EH         PUBLIC        ?_SPRINTF?BYTE
+  C:0E28H         PUBLIC        _PRINTF
+  C:0E22H         PUBLIC        _SPRINTF
+  -------         ENDMOD        PRINTF
+
+  -------         MODULE        ?C?FPROUND
+  C:0928H         PUBLIC        ?C?FPROUND
+BL51 BANKED LINKER/LOCATER V6.22                                                      03/01/2023  23:55:15  PAGE 7
+
+
+  -------         ENDMOD        ?C?FPROUND
+
+  -------         MODULE        ?C?FPCONVERT
+  C:0957H         PUBLIC        ?C?FPCONVERT
+  -------         ENDMOD        ?C?FPCONVERT
+
+  -------         MODULE        ?C?FPADD
+  C:0A61H         PUBLIC        ?C?FPADD
+  C:0A5DH         PUBLIC        ?C?FPSUB
+  -------         ENDMOD        ?C?FPADD
+
+  -------         MODULE        ?C?FPMUL
+  C:0B52H         PUBLIC        ?C?FPMUL
+  -------         ENDMOD        ?C?FPMUL
+
+  -------         MODULE        ?C?FTNPWR
+  C:0C88H         PUBLIC        ?C?FTNPWR
+  -------         ENDMOD        ?C?FTNPWR
+
+  -------         MODULE        ?C?CLDPTR
+  C:0CC8H         PUBLIC        ?C?CLDPTR
+  -------         ENDMOD        ?C?CLDPTR
+
+  -------         MODULE        ?C?CLDOPTR
+  C:0CE1H         PUBLIC        ?C?CLDOPTR
+  -------         ENDMOD        ?C?CLDOPTR
+
+  -------         MODULE        ?C?CSTPTR
+  C:0D0EH         PUBLIC        ?C?CSTPTR
+  -------         ENDMOD        ?C?CSTPTR
+
+  -------         MODULE        ?C?LMUL
+  C:0D20H         PUBLIC        ?C?LMUL
+  -------         ENDMOD        ?C?LMUL
+
+  -------         MODULE        ?C?LNEG
+  C:0D6FH         PUBLIC        ?C?LNEG
+  -------         ENDMOD        ?C?LNEG
+
+  -------         MODULE        ?C?LSHL
+  C:0D7DH         PUBLIC        ?C?LSHL
+  -------         ENDMOD        ?C?LSHL
+
+  -------         MODULE        ?C?PLDIIDATA
+  C:0D90H         PUBLIC        ?C?PLDIIDATA
+  -------         ENDMOD        ?C?PLDIIDATA
+
+  -------         MODULE        ?C?CCASE
+  C:0DA0H         PUBLIC        ?C?CCASE
+  -------         ENDMOD        ?C?CCASE
+
+  -------         MODULE        PUTCHAR
+  C:1403H         PUBLIC        _PUTCHAR
+  -------         ENDMOD        PUTCHAR
+
+******************************************************************************
+* RESTRICTED VERSION WITH 0800H BYTE CODE SIZE LIMIT; USED: 027EH BYTE (31%) *
+BL51 BANKED LINKER/LOCATER V6.22                                                      03/01/2023  23:55:15  PAGE 8
+
+
+******************************************************************************
+
+Program Size: data=66.1 xdata=0 code=3305
+LINK/LOCATE RUN COMPLETE.  0 WARNING(S),  0 ERROR(S)

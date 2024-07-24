@@ -1,0 +1,48 @@
+<html>
+<body>
+<pre>
+<h1>µVision Build Log</h1>
+<h2>Project:</h2>
+D:\TU HOC code project LeHuu\Project_vdk_8051_LeHuu\temp_fileLCD\temp_fileLCD.uvproj
+Project File Date:  03/19/2022
+
+<h2>Output:</h2>
+Build target 'Target 1'
+linking...
+*** WARNING L15: MULTIPLE CALL TO SEGMENT
+    SEGMENT: ?PR?_LCD_PUTS?TEMP_FILELCD
+    CALLER1: ?PR?NGATPIR?TEMP_FILELCD
+    CALLER2: ?C_C51STARTUP
+Program Size: data=19.0 xdata=0 code=677
+creating hex file from "temp_fileLCD"...
+"temp_fileLCD" - 0 Error(s), 1 Warning(s).
+Rebuild target 'Target 1'
+compiling temp_fileLCD.c...
+linking...
+*** WARNING L15: MULTIPLE CALL TO SEGMENT
+    SEGMENT: ?PR?_LCD_PUTS?TEMP_FILELCD
+    CALLER1: ?PR?NGATPIR?TEMP_FILELCD
+    CALLER2: ?C_C51STARTUP
+Program Size: data=19.0 xdata=0 code=677
+creating hex file from "temp_fileLCD"...
+"temp_fileLCD" - 0 Error(s), 1 Warning(s).
+Build target 'Target 1'
+compiling temp_fileLCD.c...
+linking...
+*** WARNING L15: MULTIPLE CALL TO SEGMENT
+    SEGMENT: ?PR?_LCD_PUTS?TEMP_FILELCD
+    CALLER1: ?PR?NGATPIR?TEMP_FILELCD
+    CALLER2: ?C_C51STARTUP
+Program Size: data=19.0 xdata=0 code=674
+creating hex file from "temp_fileLCD"...
+"temp_fileLCD" - 0 Error(s), 1 Warning(s).
+Rebuild target 'Target 1'
+compiling temp_fileLCD.c...
+linking...
+*** WARNING L15: MULTIPLE CALL TO SEGMENT
+    SEGMENT: ?PR?_LCD_PUTS?TEMP_FILELCD
+    CALLER1: ?PR?NGATPIR?TEMP_FILELCD
+    CALLER2: ?C_C51STARTUP
+Program Size: data=19.0 xdata=0 code=674
+creating hex file from "temp_fileLCD"...
+"temp_fileLCD" - 0 Error(s), 1 Warning(s).

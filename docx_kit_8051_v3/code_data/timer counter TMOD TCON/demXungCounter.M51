@@ -1,0 +1,147 @@
+BL51 BANKED LINKER/LOCATER V6.22                                                        02/26/2022  00:03:21  PAGE 1
+
+
+BL51 BANKED LINKER/LOCATER V6.22, INVOKED BY:
+C:\KEIL\C51\BIN\BL51.EXE demXungCounter.obj TO demXungCounter RAMSIZE (256)
+
+
+MEMORY MODEL: SMALL
+
+
+INPUT MODULES INCLUDED:
+  demXungCounter.obj (DEMXUNGCOUNTER)
+  C:\KEIL\C51\LIB\C51S.LIB (?C_STARTUP)
+  C:\KEIL\C51\LIB\C51S.LIB (?C?UIDIV)
+  C:\KEIL\C51\LIB\C51S.LIB (?C_INIT)
+
+
+LINK MAP OF MODULE:  demXungCounter (DEMXUNGCOUNTER)
+
+
+            TYPE    BASE      LENGTH    RELOCATION   SEGMENT NAME
+            -----------------------------------------------------
+
+            * * * * * * *   D A T A   M E M O R Y   * * * * * * *
+            REG     0000H     0008H     ABSOLUTE     "REG BANK 0"
+            DATA    0008H     0014H     UNIT         ?DT?DEMXUNGCOUNTER
+            DATA    001CH     0004H     UNIT         _DATA_GROUP_
+            IDATA   0020H     0001H     UNIT         ?STACK
+
+            * * * * * * *   C O D E   M E M O R Y   * * * * * * *
+            CODE    0000H     0003H     ABSOLUTE     
+                    0003H     07FDH                  *** GAP ***
+            CODE    0800H     00B0H     UNIT         ?PR?_HIENTHI?DEMXUNGCOUNTER
+            CODE    08B0H     008CH     UNIT         ?C_C51STARTUP
+            CODE    093CH     0055H     UNIT         ?C?LIB_CODE
+            CODE    0991H     001FH     UNIT         ?PR?MAIN?DEMXUNGCOUNTER
+            CODE    09B0H     0013H     UNIT         ?PR?_DELAY?DEMXUNGCOUNTER
+            CODE    09C3H     000DH     UNIT         ?C_INITSEG
+
+
+
+OVERLAY MAP OF MODULE:   demXungCounter (DEMXUNGCOUNTER)
+
+
+SEGMENT                               DATA_GROUP 
+  +--> CALLED SEGMENT               START    LENGTH
+---------------------------------------------------
+?C_C51STARTUP                       -----    -----
+  +--> ?PR?MAIN?DEMXUNGCOUNTER
+  +--> ?C_INITSEG
+
+?PR?MAIN?DEMXUNGCOUNTER             001CH    0004H
+  +--> ?PR?_HIENTHI?DEMXUNGCOUNTER
+
+?PR?_HIENTHI?DEMXUNGCOUNTER         -----    -----
+  +--> ?PR?_DELAY?DEMXUNGCOUNTER
+
+
+
+SYMBOL TABLE OF MODULE:  demXungCounter (DEMXUNGCOUNTER)
+
+BL51 BANKED LINKER/LOCATER V6.22                                                      02/26/2022  00:03:21  PAGE 2
+
+
+  VALUE           TYPE          NAME
+  ----------------------------------
+
+  -------         MODULE        DEMXUNGCOUNTER
+  C:0000H         SYMBOL        _ICE_DUMMY_
+  D:0080H         PUBLIC        P0
+  D:0008H         PUBLIC        soHienThi
+  C:09B8H         PUBLIC        _delay
+  B:00A0H.0       PUBLIC        P2_0
+  B:00A0H.1       PUBLIC        P2_1
+  B:00A0H.2       PUBLIC        P2_2
+  B:00A0H.3       PUBLIC        P2_3
+  B:00A0H.4       PUBLIC        P2_4
+  D:0012H         PUBLIC        nghin
+  D:0014H         PUBLIC        chuc
+  C:0991H         PUBLIC        main
+  D:0089H         PUBLIC        TMOD
+  D:0016H         PUBLIC        tram
+  D:008CH         PUBLIC        TH0
+  C:0800H         PUBLIC        _hienThi
+  D:008AH         PUBLIC        TL0
+  B:0088H.4       PUBLIC        TR0
+  D:0018H         PUBLIC        dv
+  D:001AH         PUBLIC        cNghin
+  C:09B0H         SYMBOL        L?0010
+  -------         PROC          L?0009
+  -------         ENDPROC       L?0009
+  C:09B0H         SYMBOL        L?0010
+  -------         PROC          _DELAY
+  D:0006H         SYMBOL        time
+  C:09B8H         LINE#         14
+  C:09B8H         LINE#         15
+  C:09C2H         LINE#         16
+  -------         ENDPROC       _DELAY
+  -------         PROC          _HIENTHI
+  D:0002H         SYMBOL        so
+  C:0800H         LINE#         18
+  C:0804H         LINE#         21
+  C:081EH         LINE#         22
+  C:083CH         LINE#         23
+  C:085AH         LINE#         24
+  C:0869H         LINE#         25
+  C:0878H         LINE#         34
+  C:0883H         LINE#         35
+  C:088EH         LINE#         36
+  C:0899H         LINE#         37
+  C:08A4H         LINE#         38
+  C:08AFH         LINE#         40
+  -------         ENDPROC       _HIENTHI
+  -------         PROC          MAIN
+  -------         DO            
+  D:001CH         SYMBOL        high
+  D:001EH         SYMBOL        low
+  D:0082H         SYMBOL        dem
+  -------         ENDDO         
+  C:0991H         LINE#         42
+  C:0991H         LINE#         44
+BL51 BANKED LINKER/LOCATER V6.22                                                      02/26/2022  00:03:21  PAGE 3
+
+
+  C:0994H         LINE#         45
+  C:0997H         LINE#         46
+  C:0999H         LINE#         47
+  C:0999H         LINE#         48
+  C:09A0H         LINE#         49
+  C:09A7H         LINE#         50
+  C:09A7H         LINE#         51
+  C:09A7H         LINE#         52
+  C:09A7H         LINE#         53
+  C:09AEH         LINE#         54
+  -------         ENDPROC       MAIN
+  -------         ENDMOD        DEMXUNGCOUNTER
+
+  -------         MODULE        ?C?UIDIV
+  C:093CH         PUBLIC        ?C?UIDIV
+  -------         ENDMOD        ?C?UIDIV
+
+******************************************************************************
+* RESTRICTED VERSION WITH 0800H BYTE CODE SIZE LIMIT; USED: 00EEH BYTE (11%) *
+******************************************************************************
+
+Program Size: data=33.0 xdata=0 code=467
+LINK/LOCATE RUN COMPLETE.  0 WARNING(S),  0 ERROR(S)

@@ -1,0 +1,219 @@
+BL51 BANKED LINKER/LOCATER V6.22                                                        02/22/2023  22:07:22  PAGE 1
+
+
+BL51 BANKED LINKER/LOCATER V6.22, INVOKED BY:
+C:\KEIL_V5\C51\BIN\BL51.EXE .\Objects\bai5_lcd_16x2_128x64_8051.obj TO .\Objects\bai5_lcd_16x2_128x64_8051 PRINT (.\List
+>> ings\bai5_lcd_16x2_128x64_8051.m51)
+
+
+MEMORY MODEL: SMALL
+
+
+INPUT MODULES INCLUDED:
+  .\Objects\bai5_lcd_16x2_128x64_8051.obj (BAI5_LCD_16X2_128X64_8051)
+  C:\KEIL_V5\C51\LIB\C51S.LIB (?C_STARTUP)
+  C:\KEIL_V5\C51\LIB\C51S.LIB (?C?CLDOPTR)
+  C:\KEIL_V5\C51\LIB\C51S.LIB (?C_INIT)
+
+
+LINK MAP OF MODULE:  .\Objects\bai5_lcd_16x2_128x64_8051 (BAI5_LCD_16X2_128X64_8051)
+
+
+            TYPE    BASE      LENGTH    RELOCATION   SEGMENT NAME
+            -----------------------------------------------------
+
+            * * * * * * *   D A T A   M E M O R Y   * * * * * * *
+            REG     0000H     0008H     ABSOLUTE     "REG BANK 0"
+            DATA    0008H     002AH     UNIT         ?DT?BAI5_LCD_16X2_128X64_8051
+            DATA    0032H     0005H     UNIT         _DATA_GROUP_
+            IDATA   0037H     0001H     UNIT         ?STACK
+
+            * * * * * * *   C O D E   M E M O R Y   * * * * * * *
+            CODE    0000H     0003H     ABSOLUTE     
+                    0003H     07FDH                  *** GAP ***
+            CODE    0800H     008CH     UNIT         ?C_C51STARTUP
+            CODE    088CH     0080H     UNIT         ?PR?MAIN?BAI5_LCD_16X2_128X64_8051
+            CODE    090CH     0039H     UNIT         ?C_INITSEG
+            CODE    0945H     0038H     UNIT         ?PR?_GLCD_DISPLAYCHAR?BAI5_LCD_16X2_128X64_8051
+            CODE    097DH     002DH     UNIT         ?C?LIB_CODE
+            CODE    09AAH     0020H     UNIT         ?PR?_DELAY?BAI5_LCD_16X2_128X64_8051
+            CODE    09CAH     0010H     UNIT         ?PR?_GLCD_CMDWRITE?BAI5_LCD_16X2_128X64_8051
+            CODE    09DAH     0010H     UNIT         ?PR?_GLCD_DATAWRITE?BAI5_LCD_16X2_128X64_8051
+            CODE    09EAH     0005H     UNIT         ?PR?GLCD_SELECTPAGE0?BAI5_LCD_16X2_128X64_8051
+            CODE    09EFH     0005H     UNIT         ?PR?GLCD_SELECTPAGE1?BAI5_LCD_16X2_128X64_8051
+
+
+
+OVERLAY MAP OF MODULE:   .\Objects\bai5_lcd_16x2_128x64_8051 (BAI5_LCD_16X2_128X64_8051)
+
+
+SEGMENT                                            DATA_GROUP 
+  +--> CALLED SEGMENT                            START    LENGTH
+----------------------------------------------------------------
+?C_C51STARTUP                                    -----    -----
+  +--> ?PR?MAIN?BAI5_LCD_16X2_128X64_8051
+  +--> ?C_INITSEG
+
+?PR?MAIN?BAI5_LCD_16X2_128X64_8051               -----    -----
+  +--> ?PR?GLCD_SELECTPAGE0?BAI5_LCD_16X2_12...
+  +--> ?PR?_GLCD_CMDWRITE?BAI5_LCD_16X2_128X...
+  +--> ?PR?GLCD_SELECTPAGE1?BAI5_LCD_16X2_12...
+  +--> ?PR?_DELAY?BAI5_LCD_16X2_128X64_8051
+BL51 BANKED LINKER/LOCATER V6.22                                                      02/22/2023  22:07:22  PAGE 2
+
+
+  +--> ?PR?_GLCD_DISPLAYCHAR?BAI5_LCD_16X2_1...
+
+?PR?_GLCD_CMDWRITE?BAI5_LCD_16X2_128X...         -----    -----
+  +--> ?PR?_DELAY?BAI5_LCD_16X2_128X64_8051
+
+?PR?_GLCD_DISPLAYCHAR?BAI5_LCD_16X2_1...         0032H    0005H
+  +--> ?PR?_GLCD_DATAWRITE?BAI5_LCD_16X2_128...
+
+?PR?_GLCD_DATAWRITE?BAI5_LCD_16X2_128...         -----    -----
+  +--> ?PR?_DELAY?BAI5_LCD_16X2_128X64_8051
+
+
+
+SYMBOL TABLE OF MODULE:  .\Objects\bai5_lcd_16x2_128x64_8051 (BAI5_LCD_16X2_128X64_8051)
+
+  VALUE           TYPE          NAME
+  ----------------------------------
+
+  -------         MODULE        BAI5_LCD_16X2_128X64_8051
+  C:0000H         SYMBOL        _ICE_DUMMY_
+  D:0080H         PUBLIC        P0
+  C:09CAH         PUBLIC        _Glcd_CmdWrite
+  D:00A0H         PUBLIC        P2
+  C:09B2H         PUBLIC        _delay
+  B:00A0H.4       PUBLIC        EN
+  B:00A0H.2       PUBLIC        RS
+  C:088CH         PUBLIC        main
+  B:00A0H.3       PUBLIC        RW
+  C:094BH         PUBLIC        _Glcd_DisplayChar
+  D:0008H         PUBLIC        D
+  D:000EH         PUBLIC        E
+  D:0014H         PUBLIC        H
+  B:00A0H.5       PUBLIC        CS1
+  B:00A0H.6       PUBLIC        CS2
+  D:001AH         PUBLIC        L
+  D:0020H         PUBLIC        O
+  D:0026H         PUBLIC        R
+  D:002CH         PUBLIC        W
+  C:09DAH         PUBLIC        _Glcd_DataWrite
+  C:09EAH         PUBLIC        Glcd_SelectPage0
+  C:09EFH         PUBLIC        Glcd_SelectPage1
+  C:09AEH         SYMBOL        L?0019
+  -------         PROC          L?0018
+  -------         ENDPROC       L?0018
+  C:09AEH         SYMBOL        L?0019
+  -------         PROC          _DELAY
+  D:0006H         SYMBOL        cnt
+  -------         DO            
+  D:0004H         SYMBOL        i
+  -------         ENDDO         
+  C:09B2H         LINE#         39
+  C:09B2H         LINE#         40
+  C:09B2H         LINE#         42
+  C:09C9H         LINE#         43
+  -------         ENDPROC       _DELAY
+  -------         PROC          GLCD_SELECTPAGE0
+  C:09EAH         LINE#         46
+BL51 BANKED LINKER/LOCATER V6.22                                                      02/22/2023  22:07:22  PAGE 3
+
+
+  C:09EAH         LINE#         47
+  C:09EAH         LINE#         48
+  C:09ECH         LINE#         49
+  C:09EEH         LINE#         50
+  -------         ENDPROC       GLCD_SELECTPAGE0
+  -------         PROC          GLCD_SELECTPAGE1
+  C:09EFH         LINE#         52
+  C:09EFH         LINE#         53
+  C:09EFH         LINE#         54
+  C:09F1H         LINE#         55
+  C:09F3H         LINE#         56
+  -------         ENDPROC       GLCD_SELECTPAGE1
+  -------         PROC          _GLCD_CMDWRITE
+  D:0007H         SYMBOL        cmd
+  C:09CAH         LINE#         59
+  C:09CAH         LINE#         60
+  C:09CAH         LINE#         61
+  C:09CCH         LINE#         62
+  C:09CEH         LINE#         63
+  C:09CEH         LINE#         64
+  C:09CEH         LINE#         65
+  C:09D1H         LINE#         66
+  C:09D3H         LINE#         68
+  -------         ENDPROC       _GLCD_CMDWRITE
+  -------         PROC          _GLCD_DATAWRITE
+  D:0007H         SYMBOL        dat
+  C:09DAH         LINE#         72
+  C:09DAH         LINE#         73
+  C:09DAH         LINE#         74
+  C:09DCH         LINE#         75
+  C:09DEH         LINE#         76
+  C:09DEH         LINE#         77
+  C:09DEH         LINE#         78
+  C:09E1H         LINE#         79
+  C:09E3H         LINE#         81
+  -------         ENDPROC       _GLCD_DATAWRITE
+  C:0945H         SYMBOL        L?0021
+  -------         PROC          L?0020
+  -------         ENDPROC       L?0020
+  C:0945H         SYMBOL        L?0021
+  -------         PROC          _GLCD_DISPLAYCHAR
+  D:0032H         SYMBOL        ptr_array
+  -------         DO            
+  D:0035H         SYMBOL        i
+  -------         ENDDO         
+  C:094BH         LINE#         84
+  C:0951H         LINE#         85
+  C:0951H         LINE#         87
+  C:0956H         LINE#         88
+  C:097CH         LINE#         89
+  -------         ENDPROC       _GLCD_DISPLAYCHAR
+  -------         PROC          MAIN
+  C:088CH         LINE#         92
+  C:088CH         LINE#         93
+  C:088CH         LINE#         95
+  C:088FH         LINE#         96
+  C:0894H         LINE#         97
+BL51 BANKED LINKER/LOCATER V6.22                                                      02/22/2023  22:07:22  PAGE 4
+
+
+  C:0897H         LINE#         98
+  C:089CH         LINE#         99
+  C:089FH         LINE#         102
+  C:08A2H         LINE#         103
+  C:08A7H         LINE#         104
+  C:08AAH         LINE#         105
+  C:08AFH         LINE#         106
+  C:08B2H         LINE#         108
+  C:08B5H         LINE#         109
+  C:08BAH         LINE#         110
+  C:08C3H         LINE#         111
+  C:08CCH         LINE#         112
+  C:08CFH         LINE#         113
+  C:08D2H         LINE#         114
+  C:08DBH         LINE#         116
+  C:08DEH         LINE#         117
+  C:08E3H         LINE#         118
+  C:08ECH         LINE#         119
+  C:08F5H         LINE#         120
+  C:08FEH         LINE#         121
+  C:0901H         LINE#         122
+  C:090AH         LINE#         124
+  -------         ENDPROC       MAIN
+  -------         ENDMOD        BAI5_LCD_16X2_128X64_8051
+
+  -------         MODULE        ?C?CLDOPTR
+  C:097DH         PUBLIC        ?C?CLDOPTR
+  -------         ENDMOD        ?C?CLDOPTR
+
+******************************************************************************
+* RESTRICTED VERSION WITH 0800H BYTE CODE SIZE LIMIT; USED: 013AH BYTE (15%) *
+******************************************************************************
+
+Program Size: data=56.0 xdata=0 code=503
+LINK/LOCATE RUN COMPLETE.  0 WARNING(S),  0 ERROR(S)

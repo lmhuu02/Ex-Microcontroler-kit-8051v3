@@ -1,0 +1,95 @@
+BL51 BANKED LINKER/LOCATER V6.22                                                        03/18/2022  09:11:36  PAGE 1
+
+
+BL51 BANKED LINKER/LOCATER V6.22, INVOKED BY:
+C:\KEIL\C51\BIN\BL51.EXE counter0DemXungTuIc555.obj TO counter0DemXungTuIc555 RAMSIZE (256)
+
+
+MEMORY MODEL: SMALL
+
+
+INPUT MODULES INCLUDED:
+  counter0DemXungTuIc555.obj (COUNTER0DEMXUNGTUIC555)
+  C:\KEIL\C51\LIB\C51S.LIB (?C_STARTUP)
+  C:\KEIL\C51\LIB\C51S.LIB (?C_INIT)
+
+
+LINK MAP OF MODULE:  counter0DemXungTuIc555 (COUNTER0DEMXUNGTUIC555)
+
+
+            TYPE    BASE      LENGTH    RELOCATION   SEGMENT NAME
+            -----------------------------------------------------
+
+            * * * * * * *   D A T A   M E M O R Y   * * * * * * *
+            REG     0000H     0008H     ABSOLUTE     "REG BANK 0"
+            DATA    0008H     000CH     UNIT         ?DT?COUNTER0DEMXUNGTUIC555
+            IDATA   0014H     0001H     UNIT         ?STACK
+
+            * * * * * * *   C O D E   M E M O R Y   * * * * * * *
+            CODE    0000H     0003H     ABSOLUTE     
+            CODE    0003H     008CH     UNIT         ?C_C51STARTUP
+            CODE    008FH     0035H     UNIT         ?PR?MAIN?COUNTER0DEMXUNGTUIC555
+            CODE    00C4H     0011H     UNIT         ?C_INITSEG
+            CODE    00D5H     000BH     UNIT         ?PR?_DELAY?COUNTER0DEMXUNGTUIC555
+
+
+
+OVERLAY MAP OF MODULE:   counter0DemXungTuIc555 (COUNTER0DEMXUNGTUIC555)
+
+
+SEGMENT
+  +--> CALLED SEGMENT
+---------------------
+?C_C51STARTUP
+  +--> ?PR?MAIN?COUNTER0DEMXUNGTUIC555
+  +--> ?C_INITSEG
+
+?PR?MAIN?COUNTER0DEMXUNGTUIC555
+  +--> ?PR?_DELAY?COUNTER0DEMXUNGTUIC555
+
+
+
+SYMBOL TABLE OF MODULE:  counter0DemXungTuIc555 (COUNTER0DEMXUNGTUIC555)
+
+  VALUE           TYPE          NAME
+  ----------------------------------
+
+  -------         MODULE        COUNTER0DEMXUNGTUIC555
+  C:0000H         SYMBOL        _ICE_DUMMY_
+  D:0080H         PUBLIC        P0
+  C:00D5H         PUBLIC        _delay
+  C:008FH         PUBLIC        main
+BL51 BANKED LINKER/LOCATER V6.22                                                      03/18/2022  09:11:36  PAGE 2
+
+
+  D:0008H         PUBLIC        count
+  D:0089H         PUBLIC        TMOD
+  D:008CH         PUBLIC        TH0
+  D:008AH         PUBLIC        TL0
+  B:0088H.4       PUBLIC        TR0
+  D:000AH         PUBLIC        so
+  -------         PROC          _DELAY
+  D:0006H         SYMBOL        time
+  C:00D5H         LINE#         8
+  C:00D5H         LINE#         9
+  C:00DFH         LINE#         10
+  -------         ENDPROC       _DELAY
+  -------         PROC          MAIN
+  C:008FH         LINE#         12
+  C:008FH         LINE#         13
+  C:0092H         LINE#         14
+  C:0095H         LINE#         15
+  C:0098H         LINE#         16
+  C:009AH         LINE#         17
+  C:009CH         LINE#         18
+  C:009FH         LINE#         19
+  C:009FH         LINE#         20
+  C:00A9H         LINE#         21
+  C:00AFH         LINE#         22
+  C:00B6H         LINE#         23
+  C:00C2H         LINE#         24
+  -------         ENDPROC       MAIN
+  -------         ENDMOD        COUNTER0DEMXUNGTUIC555
+
+Program Size: data=21.0 xdata=0 code=224
+LINK/LOCATE RUN COMPLETE.  0 WARNING(S),  0 ERROR(S)

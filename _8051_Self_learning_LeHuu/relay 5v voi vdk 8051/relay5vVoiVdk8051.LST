@@ -1,0 +1,50 @@
+C51 COMPILER V9.52.0.0   RELAY5VVOIVDK8051                                                 01/10/2022 14:06:01 PAGE 1   
+
+
+C51 COMPILER V9.52.0.0, COMPILATION OF MODULE RELAY5VVOIVDK8051
+OBJECT MODULE PLACED IN relay5vVoiVdk8051.OBJ
+COMPILER INVOKED BY: C:\Keil\C51\BIN\C51.EXE relay5vVoiVdk8051.c BROWSE DEBUG OBJECTEXTEND TABS(2)
+
+line level    source
+
+   1          /*
+   2          POWER BY LE MINH HUU
+   3          3/1/2022
+   4          khong the noi truc tiep nguon dien 5v tu vi dieu khien 8051 cho relay duoc vi:
+   5                      relay can nguon cong suat lon hon nhieu so voi cong suat cua vdk cung cap
+   6                    vi the vdk se chi cap tin hieu co transistor pnp de noi voi mot nguon dien khac.
+   7                    NOTE: co the dung transistor npn cap nguon cho relay NEU vdk hoat dong tich cuc o muc cao (khong an t
+             -oan).
+   8                    de chuan hon thi phai noi button vao chan ngat ngoai INT0 hoac ngat ngoai INT1: P3_2, p3_3 ==> NGAT T
+             -HEO SUON
+   9          */
+  10          //DAY LA KIEU NGAT THEO MUC
+  11          #include <REGX52.H>
+  12          
+  13          void delay(int time){
+  14   1          while(time--);
+  15   1      }
+  16          
+  17          void main(){
+  18   1          while(1){
+  19   2              if(P1_4 == 0){  //nhan button
+  20   3                  delay(100); //delay de tao do on dinh, kiem tra xem co thuc su nhan button khong
+  21   3                  if(P1_4 == 0);
+  22   3                    P2_0 = ~P2_0; //dao chieu tin hieu dau noi ra relay
+  23   3              }
+  24   2          }
+  25   1      }
+
+
+MODULE INFORMATION:   STATIC OVERLAYABLE
+   CODE SIZE        =     25    ----
+   CONSTANT SIZE    =   ----    ----
+   XDATA SIZE       =   ----    ----
+   PDATA SIZE       =   ----    ----
+   DATA SIZE        =   ----    ----
+   IDATA SIZE       =   ----    ----
+   BIT SIZE         =   ----    ----
+END OF MODULE INFORMATION.
+
+
+C51 COMPILATION COMPLETE.  0 WARNING(S),  0 ERROR(S)

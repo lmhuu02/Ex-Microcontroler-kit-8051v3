@@ -1,0 +1,69 @@
+BL51 BANKED LINKER/LOCATER V6.22                                                        03/01/2023  21:30:16  PAGE 1
+
+
+BL51 BANKED LINKER/LOCATER V6.22, INVOKED BY:
+C:\KEIL_V5\C51\BIN\BL51.EXE .\Objects\bai5_show_lcd_128x64.obj TO .\Objects\bai5_show_lcd_128x64 PRINT (.\Listings\bai5_
+>> show_lcd_128x64.m51) RAMSIZE (256)
+
+
+MEMORY MODEL: SMALL
+
+
+INPUT MODULES INCLUDED:
+  .\Objects\bai5_show_lcd_128x64.obj (BAI5_SHOW_LCD_128X64)
+  C:\KEIL_V5\C51\LIB\C51S.LIB (?C_STARTUP)
+
+
+LINK MAP OF MODULE:  .\Objects\bai5_show_lcd_128x64 (BAI5_SHOW_LCD_128X64)
+
+
+            TYPE    BASE      LENGTH    RELOCATION   SEGMENT NAME
+            -----------------------------------------------------
+
+            * * * * * * *   D A T A   M E M O R Y   * * * * * * *
+            REG     0000H     0008H     ABSOLUTE     "REG BANK 0"
+            DATA    0008H     0004H     UNIT         ?DT?BAI5_SHOW_LCD_128X64
+            IDATA   000CH     0001H     UNIT         ?STACK
+
+            * * * * * * *   C O D E   M E M O R Y   * * * * * * *
+            CODE    0000H     0003H     ABSOLUTE     
+            CODE    0003H     000CH     UNIT         ?C_C51STARTUP
+            CODE    000FH     0002H     UNIT         ?PR?MAIN?BAI5_SHOW_LCD_128X64
+
+
+
+OVERLAY MAP OF MODULE:   .\Objects\bai5_show_lcd_128x64 (BAI5_SHOW_LCD_128X64)
+
+
+SEGMENT
+  +--> CALLED SEGMENT
+---------------------
+?C_C51STARTUP
+  +--> ?PR?MAIN?BAI5_SHOW_LCD_128X64
+
+
+
+SYMBOL TABLE OF MODULE:  .\Objects\bai5_show_lcd_128x64 (BAI5_SHOW_LCD_128X64)
+
+  VALUE           TYPE          NAME
+  ----------------------------------
+
+  -------         MODULE        BAI5_SHOW_LCD_128X64
+  C:0000H         SYMBOL        _ICE_DUMMY_
+  D:0008H         PUBLIC        Nhiet_Do
+  C:000FH         PUBLIC        main
+  -------         PROC          MAIN
+  C:000FH         LINE#         13
+  C:000FH         LINE#         15
+  -------         ENDPROC       MAIN
+  -------         ENDMOD        BAI5_SHOW_LCD_128X64
+
+******************************************************************************
+BL51 BANKED LINKER/LOCATER V6.22                                                      03/01/2023  21:30:16  PAGE 2
+
+
+* RESTRICTED VERSION WITH 0800H BYTE CODE SIZE LIMIT; USED: 0002H BYTE ( 0%) *
+******************************************************************************
+
+Program Size: data=13.0 xdata=0 code=17
+LINK/LOCATE RUN COMPLETE.  0 WARNING(S),  0 ERROR(S)

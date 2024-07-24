@@ -1,0 +1,154 @@
+C51 COMPILER V9.52.0.0   LAPTRINHGIAOTIEPLCD1602CD4BIT                                     03/05/2022 21:13:22 PAGE 1   
+
+
+C51 COMPILER V9.52.0.0, COMPILATION OF MODULE LAPTRINHGIAOTIEPLCD1602CD4BIT
+OBJECT MODULE PLACED IN lapTrinhGiaoTiepLcd1602Cd4Bit.OBJ
+COMPILER INVOKED BY: C:\Keil\C51\BIN\C51.EXE lapTrinhGiaoTiepLcd1602Cd4Bit.c BROWSE DEBUG OBJECTEXTEND TABS(2)
+
+line level    source
+
+   1          //power by le minh huu 5/3/2022
+   2          #include <REGX52.H>
+   3          #include <stdio.h>
+   4          
+   5          //khai bao chan
+   6          #define lcd_rs P0_0
+   7          #define lcd_rw P0_1
+   8          #define lcd_en P0_2
+   9          #define lcd_d4 P0_4
+  10          #define lcd_d5 P0_5
+  11          #define lcd_d6 P0_6
+  12          #define lcd_d7 P0_7
+  13          
+  14            char chu[16];
+  15            int so;
+  16            so = 256;
+  17          
+  18          //ham delay us
+  19          void delay_us(unsigned int time){
+  20   1        unsigned int i;
+  21   1        for(i = 0; i < time; i++);
+  22   1      }
+  23          //ham delay ms
+  24          void delay_ms(unsigned int time){
+  25   1        unsigned int i,j;
+  26   1        for(i = 0; i  < time; i ++)
+  27   1          for(j = 0; j < 125; j ++);
+  28   1      }
+  29          //giao tiep lcd 4 bit . gui xung kich hoat lcd
+  30          void lcd_enable(void){
+  31   1        lcd_en = 1;
+  32   1        delay_us(3);
+  33   1        lcd_en = 0;
+  34   1        delay_us(50);
+  35   1      }
+  36          
+  37          ////ham gui du lieu 4 bit ra lcd- ham nay bi loi
+  38          //void lcd_sen4bit(unsigned char dulieu){
+  39          //  lcd_d4 = dulieu & 0x01;
+  40          //  lcd_d5 = (dulieu >>1)&1;
+  41          //  lcd_d6 = (dulieu >>2)&1;
+  42          //  lcd_d7 = (dulieu >>3)&1;
+  43          //}
+  44          
+  45          //Ham Gui 4 Bit Du Lieu Ra LCD
+  46          void LCD_Send4Bit(unsigned char Data){
+  47   1        lcd_d4=Data & 0x01;
+  48   1        lcd_d5=(Data>>1)&1;
+  49   1        lcd_d6=(Data>>2)&1;
+  50   1        lcd_d7=(Data>>3)&1;
+  51   1        }
+  52          
+  53          
+  54          //ham gui lenh cho lcd  che do 4 bit
+  55          void lcd_sendCommand(unsigned char command){
+C51 COMPILER V9.52.0.0   LAPTRINHGIAOTIEPLCD1602CD4BIT                                     03/05/2022 21:13:22 PAGE 2   
+
+  56   1        LCD_Send4Bit(command >>4);  //gui 4 bit cao
+  57   1        lcd_enable();
+  58   1        LCD_Send4Bit(command);//gui 4 bit du lieu thap. khong can dich 4 bit
+  59   1        lcd_enable();
+  60   1      }
+  61          //ham xoa man hinh lcd
+  62          void lcd_clear(){
+  63   1        lcd_sendCommand(0x01);  //0x01 lenh xoa man hinh lcd
+  64   1        delay_us(10);
+  65   1      }
+  66          //ham khoi tao lcd
+  67          void lcd_init(){
+  68   1        LCD_Send4Bit(0x00); //bat lcd
+  69   1        delay_ms(20);
+  70   1        lcd_rs = 0;
+  71   1        lcd_rw = 0;
+  72   1        LCD_Send4Bit(0x03); //function setting
+  73   1        lcd_enable();
+  74   1        delay_ms(5);
+  75   1        lcd_enable();
+  76   1        delay_us(100);
+  77   1        lcd_enable();
+  78   1        LCD_Send4Bit(0x02); //di chuyen con tro ve dau dong 
+  79   1        lcd_enable();
+  80   1        lcd_sendCommand(0x28);  //che do 4 bit
+  81   1        lcd_sendCommand(0x0c);  //bat hien thi va tat con tro
+  82   1        lcd_sendCommand(0x06);
+  83   1        lcd_sendCommand(0x01);
+  84   1      }
+  85          //ham toa do lcd
+  86          void lcd_gotoxy(unsigned char x, unsigned char y){
+  87   1        unsigned char address;
+  88   1        if(!y) address = (0x80 + x);
+  89   1        else  address = (0xc0 + x);
+  90   1        delay_us(1000);
+  91   1        lcd_sendCommand(address);
+  92   1        delay_us(50);
+  93   1      }
+  94          //ham viet mot ky tu len lcd
+  95          void lcd_putChar(unsigned char Data){
+  96   1        lcd_rs = 1;
+  97   1        lcd_sendCommand(Data);
+  98   1        lcd_rs = 0;
+  99   1      }
+ 100            
+ 101          //ham viet mot chuoi ky tu len lcd
+ 102          void lcd_puts(char *s){
+ 103   1        while(*s){
+ 104   2          lcd_putChar(*s);
+ 105   2          s++;
+ 106   2        }
+ 107   1      }
+ 108          //ham main chinh
+ 109          void main(){
+ 110   1        lcd_init();
+ 111   1        delay_ms(20);
+ 112   1        lcd_puts("hello");
+ 113   1        delay_ms(1000);
+ 114   1        lcd_clear();
+ 115   1        lcd_gotoxy(0,0);
+ 116   1        lcd_puts("LINUX EMBEDDED");
+ 117   1        delay_ms(3000);
+C51 COMPILER V9.52.0.0   LAPTRINHGIAOTIEPLCD1602CD4BIT                                     03/05/2022 21:13:22 PAGE 3   
+
+ 118   1        lcd_gotoxy(0,1);
+ 119   1        lcd_puts("TAP TRUNG VAO");
+ 120   1      
+ 121   1        //lenh chuyen doi tu dang so sang dang chuoi bang lenh sprintf() trong thu vien stdio.h
+ 122   1        lcd_gotoxy(0,1);
+ 123   1        sprintf(&chu[0],"%d",so);
+ 124   1        lcd_puts(&chu[0]);
+ 125   1        
+ 126   1        while(1){}
+ 127   1      }
+
+
+MODULE INFORMATION:   STATIC OVERLAYABLE
+   CODE SIZE        =    380    ----
+   CONSTANT SIZE    =     38    ----
+   XDATA SIZE       =   ----    ----
+   PDATA SIZE       =   ----    ----
+   DATA SIZE        =     18       3
+   IDATA SIZE       =   ----    ----
+   BIT SIZE         =   ----    ----
+END OF MODULE INFORMATION.
+
+
+C51 COMPILATION COMPLETE.  0 WARNING(S),  0 ERROR(S)

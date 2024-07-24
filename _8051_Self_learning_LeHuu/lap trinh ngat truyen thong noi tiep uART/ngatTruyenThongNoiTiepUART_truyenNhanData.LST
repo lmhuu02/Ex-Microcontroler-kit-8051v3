@@ -1,0 +1,72 @@
+C51 COMPILER V9.52.0.0   NGATTRUYENTHONGNOITIEPUART_TRUYENNHANDATA                         03/08/2022 15:02:35 PAGE 1   
+
+
+C51 COMPILER V9.52.0.0, COMPILATION OF MODULE NGATTRUYENTHONGNOITIEPUART_TRUYENNHANDATA
+OBJECT MODULE PLACED IN ngatTruyenThongNoiTiepUART_truyenNhanData.OBJ
+COMPILER INVOKED BY: C:\Keil\C51\BIN\C51.EXE ngatTruyenThongNoiTiepUART_truyenNhanData.c BROWSE DEBUG OBJECTEXTEND TABS(
+                    -2)
+
+line level    source
+
+   1          //power by le minh huu 8/3/2022
+   2          // truyen nhan du lieu qua uart dieu khien led bat tat
+   3          #include <REGX52.H>
+   4          #include <string.h>
+   5          
+   6          //gui mot ky tu di
+   7          void send(unsigned char a){
+   8   1        SBUF = a;
+   9   1        while(TI == 0){}
+  10   1        TI = 0;
+  11   1      }
+  12          
+  13          //nhan mot ky tu
+  14          unsigned char Receiver(){
+  15   1        unsigned char c;
+  16   1        while(RI == 0){}
+  17   1        c = SBUF;
+  18   1        RI = 0;
+  19   1        return c; //tra ve gia tri vua nhan
+  20   1      }
+  21          
+  22          //ham chinh
+  23          void main(){
+  24   1        unsigned char i;
+  25   1        TMOD = 0x20;  //timer 1 che do 2
+  26   1        PCON = 0x80;  // bit SMOD = 1; nhan doi toc do baud
+  27   1        SCON = 0x50;  //che do 1; SM0 = 0, SM1 = 1, REN = 1;
+  28   1        TH1 = 0xfa;   //  
+  29   1        TR1 = 1;  //khoi dong bo dinh thoi
+  30   1        while(1){
+  31   2          i = Receiver(); //nhan gia tri
+  32   2          send(i);  //truyen gia tri di
+  33   2          switch(i){
+  34   3            case '1':{
+  35   4                P2 = ~P2;
+  36   4              break;
+  37   4            }
+  38   3          }
+  39   2        }
+  40   1      }
+  41          
+  42          /*
+  43          tinh gia tri TH1 = 256 - (2*crystal / 12*32)/baud
+  44          TH1 = 256 - (2*11059200 / 12*32) /9600
+  45          TH1 = 250 --> 0xfa;
+  46          */
+
+
+MODULE INFORMATION:   STATIC OVERLAYABLE
+   CODE SIZE        =     48    ----
+   CONSTANT SIZE    =   ----    ----
+   XDATA SIZE       =   ----    ----
+   PDATA SIZE       =   ----    ----
+   DATA SIZE        =   ----    ----
+C51 COMPILER V9.52.0.0   NGATTRUYENTHONGNOITIEPUART_TRUYENNHANDATA                         03/08/2022 15:02:35 PAGE 2   
+
+   IDATA SIZE       =   ----    ----
+   BIT SIZE         =   ----    ----
+END OF MODULE INFORMATION.
+
+
+C51 COMPILATION COMPLETE.  0 WARNING(S),  0 ERROR(S)

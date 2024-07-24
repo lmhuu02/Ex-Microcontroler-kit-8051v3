@@ -1,0 +1,3 @@
+".\Objects\bai12_cam_bien_ds18b20.obj" 
+TO ".\Objects\bai12_cam_bien_ds18b20" 
+PRINT(".\Listings\bai12_cam_bien_ds18b20.m51") RAMSIZE(256) 

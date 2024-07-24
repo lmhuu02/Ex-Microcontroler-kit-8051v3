@@ -1,0 +1,78 @@
+C51 COMPILER V9.52.0.0   DEMSINHVIENQUACAMBIEN                                             02/18/2022 21:09:34 PAGE 1   
+
+
+C51 COMPILER V9.52.0.0, COMPILATION OF MODULE DEMSINHVIENQUACAMBIEN
+OBJECT MODULE PLACED IN demSinhVienQuaCamBien.OBJ
+COMPILER INVOKED BY: C:\Keil\C51\BIN\C51.EXE demSinhVienQuaCamBien.c BROWSE DEBUG OBJECTEXTEND TABS(2)
+
+line level    source
+
+   1          //power by le minh huu 18/2/2022
+   2          //lap trinh dem so sinh vien trong lop hoc, cong vao thi tang, cong ra thi giam so dem
+   3          /*
+   4          
+   5          */
+   6          #include <REGX52.H>
+   7          
+   8          //gan chan p1_0 cho button 1 va P1_2 cho button 2
+   9          #define button1 P1_0
+  10          #define button2 P1_2
+  11          
+  12          //khai bao va khoi tao mang
+  13          char Chuc[] = {0x00,0x01,0x02,0x03,0x04,0x05,0x06,0x07,0x08,0x09};
+  14          char DonVi[] ={0x00,0x10,0x20,0x30,0x40,0x50,0x60,0x70,0x80,0x90};
+  15          int state1, state2, i, j, ch, dv;
+  16          
+  17          //ham delay
+  18          void delay(int time){
+  19   1        while(time--);
+  20   1      }
+  21          
+  22          void main(){
+  23   1        //gan gia tri ban dau i = 0, tat cac led
+  24   1        P2 = 1;   i = 0;
+  25   1        button1 = button2 = 1;
+  26   1        while(1){
+  27   2          //cho vong for chay tu 0 den 99 lien tuc, bien chay khac voi bien chia don vi va chuc
+  28   2           for(j = 0; j < 100; j++){
+  29   3              //khi co sinh vien vao thi tang len 1 (nhan cong tac 1)
+  30   3              if(button1 ==0){
+  31   4                delay(100);
+  32   4                if(button1 == 0 && state1 ==1){
+  33   5                  j = i; i++; //gan bien chay cho bien chia don vi chuc, //xac nhan nut bam 1 thi tang bien i len
+  34   5                }
+  35   4              }
+  36   3              state1 = button1;
+  37   3            //khi co sinh vien ra ngoai giam di 1: (nhan cong tac 2) 
+  38   3                if(button2 == 0){
+  39   4                  delay(100);
+  40   4                    if(button2 == 0 && state2 ==1){
+  41   5                      j = i; i--; //gan bien chay cho i //giam i di 1 don vi            
+  42   5                    }
+  43   4                state2 = button2;
+  44   4                }
+  45   3              }
+  46   2              //thuc hien hien thi so ra led 7 thanh, 
+  47   2              //khong de hien thi trong luc kiem tra dieu kien vi luc day: chi khi cong tac duoc nhan thi led 7 than
+             -h moi hien
+  48   2          ch=i/10; dv=i%10;   
+  49   2          P2=Chuc[ch]+DonVi[dv];delay(100);
+  50   2        }
+  51   1      }
+  52          
+
+
+C51 COMPILER V9.52.0.0   DEMSINHVIENQUACAMBIEN                                             02/18/2022 21:09:34 PAGE 2   
+
+MODULE INFORMATION:   STATIC OVERLAYABLE
+   CODE SIZE        =    183    ----
+   CONSTANT SIZE    =   ----    ----
+   XDATA SIZE       =   ----    ----
+   PDATA SIZE       =   ----    ----
+   DATA SIZE        =     32    ----
+   IDATA SIZE       =   ----    ----
+   BIT SIZE         =   ----    ----
+END OF MODULE INFORMATION.
+
+
+C51 COMPILATION COMPLETE.  0 WARNING(S),  0 ERROR(S)

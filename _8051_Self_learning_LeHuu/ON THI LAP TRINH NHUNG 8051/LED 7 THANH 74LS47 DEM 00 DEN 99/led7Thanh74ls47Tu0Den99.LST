@@ -1,0 +1,111 @@
+C51 COMPILER V9.52.0.0   LED7THANH74LS47TU0DEN99                                           05/18/2022 23:55:17 PAGE 1   
+
+
+C51 COMPILER V9.52.0.0, COMPILATION OF MODULE LED7THANH74LS47TU0DEN99
+OBJECT MODULE PLACED IN led7Thanh74ls47Tu0Den99.OBJ
+COMPILER INVOKED BY: C:\Keil\C51\BIN\C51.EXE led7Thanh74ls47Tu0Den99.c BROWSE DEBUG OBJECTEXTEND TABS(2)
+
+line level    source
+
+   1          /*
+   2          power by Le Minh Huu 2k2 @copyright 18/5/2022
+   3          thuc hien dem led 7 thanh tuong tu nhu binh thuong
+   4          khac: + vi 2 led dieu khien su dung transistor nguoc npn
+   5          ( cap vao chan b dien ap cao hon thi se cho dong c - e. ma c lai cap duong) 
+   6          --> co the noi ma khong dung tran.
+   7                + va doi lai ma hex.
+   8          con thong thuong se dung tran thuan pnp de dieu khien 2 7seg --> dung cong not
+   9          */
+  10          /*
+  11          power by Le MInh Huu 2k2 @copyright 18/5/2022
+  12          1. dem tu  0 den 99
+  13          2. dem tu 99 ve 0
+  14          3. dem cac so chan/le
+  15          4. dem cac so nguyen to
+  16          5. dem cac so chia het cho 3 va 5
+  17          6. dem cac so nho hon 30 va lon hon 50
+  18          7. 
+  19          */
+  20          #include <REGX52.H>
+  21          #define led1 P3_0
+  22          #define led2 P3_1
+  23          #define on 0
+  24          #define off 1
+  25          //ma hex cua bai binh thuong khong dung ic 74ls47
+  26          //char sox[] = {0x40, 0x79, 0x24, 0x30, 0x19, 0x12, 0x02, 0x78, 0x00, 0x10};
+  27          char so[] = {0x00, 0x01, 0x02, 0x03, 0x04, 0x05, 0x06, 0x07, 0x08, 0x09};
+  28          
+  29          void delay(int time){
+  30   1      while(time--){}
+  31   1      }
+  32          void hienThi(int i){
+  33   1      int  chuc, donvi, j;
+  34   1          chuc = i / 10;
+  35   1          donvi = i % 10;
+  36   1          for(j = 0; j < 20; j++){
+  37   2            led1 = on; P2 = so[donvi]; delay(5000);  led1 = off;
+  38   2            led2 = on; P2 = so[chuc]; delay(5000);  led2 = off;
+  39   2          }
+  40   1      }
+  41          void dem0Den99(){
+  42   1        int i;
+  43   1        for(i = 0; i < 100; i++){
+  44   2          hienThi(i);
+  45   2        }
+  46   1      }
+  47          void dem99ve0(){
+  48   1        int i;
+  49   1        for(i = 99; i >= 0; i--){
+  50   2          hienThi(i);
+  51   2        }
+  52   1      }
+  53          void demChan(){
+  54   1      int i;
+  55   1        for(i = 0; i < 100; i++){
+C51 COMPILER V9.52.0.0   LED7THANH74LS47TU0DEN99                                           05/18/2022 23:55:17 PAGE 2   
+
+  56   2          if(i % 2 == 0){
+  57   3              hienThi(i);
+  58   3          }
+  59   2        }
+  60   1      }
+  61          void demNho30Lon50(){
+  62   1      int i;
+  63   1        for(i = 0; i < 100; i++){
+  64   2          if(i < 30 || i > 50){
+  65   3              hienThi(i);
+  66   3          }
+  67   2        }
+  68   1      }
+  69          void demSNT(){
+  70   1      int i, j, dem;
+  71   1        for(i = 0; i < 100; i++){
+  72   2          dem = 0;
+  73   2          for(j = 1; j <= i; j++){
+  74   3            if(i % j == 0){
+  75   4              dem++;
+  76   4            }
+  77   3          }
+  78   2          if(dem == 2)    hienThi(i);
+  79   2        }
+  80   1      }
+  81          void main(){
+  82   1        while(1){
+  83   2          //demSNT();
+  84   2        dem0Den99();
+  85   2        }
+  86   1      }
+
+
+MODULE INFORMATION:   STATIC OVERLAYABLE
+   CODE SIZE        =    340    ----
+   CONSTANT SIZE    =   ----    ----
+   XDATA SIZE       =   ----    ----
+   PDATA SIZE       =   ----    ----
+   DATA SIZE        =     10      12
+   IDATA SIZE       =   ----    ----
+   BIT SIZE         =   ----    ----
+END OF MODULE INFORMATION.
+
+
+C51 COMPILATION COMPLETE.  0 WARNING(S),  0 ERROR(S)

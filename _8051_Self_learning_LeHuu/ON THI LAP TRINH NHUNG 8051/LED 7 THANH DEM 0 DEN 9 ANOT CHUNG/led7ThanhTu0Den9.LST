@@ -1,0 +1,108 @@
+C51 COMPILER V9.52.0.0   LED7THANHTU0DEN9                                                  05/18/2022 23:04:23 PAGE 1   
+
+
+C51 COMPILER V9.52.0.0, COMPILATION OF MODULE LED7THANHTU0DEN9
+OBJECT MODULE PLACED IN led7ThanhTu0Den9.OBJ
+COMPILER INVOKED BY: C:\Keil\C51\BIN\C51.EXE led7ThanhTu0Den9.c BROWSE DEBUG OBJECTEXTEND TABS(2)
+
+line level    source
+
+   1          /*
+   2          DEM LED 7 THANH TU 0 DEN 9 CHUNG ANOT KET NOI BINH THUONG 7_, 6-g, 5-f, 4-e, 3-d, 2-c, 1-b, 0-a;
+   3          power by Le Minh Huu 2k2 @copyright 18/5/2022
+   4          1. dem 0 den 9
+   5          2. dem 9 den  0
+   6          3. dem so chan
+   7          4. dem so le
+   8          5. dem so chia het cho 3
+   9          6. dem so nguyen to
+  10          7. dem so lon hon 6, dem so nho hon 5
+  11          8. dem so tu 4 den 8
+  12          9. dem so hon hon 3 hoac lon hon 7
+  13          */
+  14          #include <REGX52.H>
+  15          
+  16          char so[] = {0x40, 0x79, 0x24, 0x30, 0x19, 0x12, 0x02, 0x78, 0x00, 0x10};
+  17          
+  18          void delay(int time){
+  19   1      while(time--){}
+  20   1      }
+  21          
+  22          void dem0To9(){
+  23   1        int i; 
+  24   1        for(i = 0; i < 10; i++){
+  25   2          P2 = so[i]; delay(50000);
+  26   2        }
+  27   1      }
+  28          void dem9ve0(){
+  29   1      int i;
+  30   1        for(i = 9; i >= 0; i--){
+  31   2          P2 = so[i]; delay(50000);
+  32   2        }
+  33   1      }
+  34          void demchan(){
+  35   1      int i;
+  36   1        for(i = 0; i < 10; i++){
+  37   2          if( i % 2 == 0){
+  38   3            P2 = so[i]; delay(50000);
+  39   3          }
+  40   2        }
+  41   1      }
+  42          void demle(){
+  43   1      int i;
+  44   1        for(i = 0; i < 10; i++){
+  45   2          if (i % 2 == 1){
+  46   3            P2 = so[i]; delay(50000);
+  47   3          }
+  48   2        }
+  49   1      }
+  50          void demNho3Lon7(){
+  51   1      int i;
+  52   1        for(i = 0; i < 10; i++){
+  53   2          if(i < 3 || i > 7){
+  54   3            P2 = so[i]; delay(50000);     
+  55   3          }
+C51 COMPILER V9.52.0.0   LED7THANHTU0DEN9                                                  05/18/2022 23:04:23 PAGE 2   
+
+  56   2        }
+  57   1      }
+  58          void dem4den8(){
+  59   1      int i;
+  60   1        for(i = 4; i < 9; i++){
+  61   2            P2 = so[i]; delay(50000);     
+  62   2        }
+  63   1      }
+  64          void demSNT(){
+  65   1      int dem, i, j;
+  66   1        for(i = 0; i < 10; i++){
+  67   2          dem = 0;
+  68   2          for(j = 1; j <= i; j++){
+  69   3              if(i % j == 0)   dem++;
+  70   3          }
+  71   2          if(dem == 2){
+  72   3            P2 = so[i]; delay(50000);   
+  73   3          }
+  74   2        }
+  75   1      }
+  76          void main(){
+  77   1        P2 = 0xff;
+  78   1        while(1){
+  79   2          //dem0To9();
+  80   2          //dem9ve0();
+  81   2          demSNT();
+  82   2        }
+  83   1      }
+
+
+MODULE INFORMATION:   STATIC OVERLAYABLE
+   CODE SIZE        =    269    ----
+   CONSTANT SIZE    =   ----    ----
+   XDATA SIZE       =   ----    ----
+   PDATA SIZE       =   ----    ----
+   DATA SIZE        =     10       2
+   IDATA SIZE       =   ----    ----
+   BIT SIZE         =   ----    ----
+END OF MODULE INFORMATION.
+
+
+C51 COMPILATION COMPLETE.  0 WARNING(S),  0 ERROR(S)

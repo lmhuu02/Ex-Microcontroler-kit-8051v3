@@ -1,0 +1,168 @@
+BL51 BANKED LINKER/LOCATER V6.22                                                        01/03/2022  07:52:22  PAGE 1
+
+
+BL51 BANKED LINKER/LOCATER V6.22, INVOKED BY:
+C:\KEIL\C51\BIN\BL51.EXE blink_8_led.obj TO blink_8_led RAMSIZE (256)
+
+
+MEMORY MODEL: SMALL
+
+
+INPUT MODULES INCLUDED:
+  blink_8_led.obj (BLINK_8_LED)
+  C:\KEIL\C51\LIB\C51S.LIB (?C_STARTUP)
+  C:\KEIL\C51\LIB\C51S.LIB (?C_INIT)
+
+
+LINK MAP OF MODULE:  blink_8_led (BLINK_8_LED)
+
+
+            TYPE    BASE      LENGTH    RELOCATION   SEGMENT NAME
+            -----------------------------------------------------
+
+            * * * * * * *   D A T A   M E M O R Y   * * * * * * *
+            REG     0000H     0008H     ABSOLUTE     "REG BANK 0"
+            DATA    0008H     0002H     UNIT         ?DT?BLINK_8_LED
+            DATA    000AH     0002H     UNIT         _DATA_GROUP_
+            IDATA   000CH     0001H     UNIT         ?STACK
+
+            * * * * * * *   C O D E   M E M O R Y   * * * * * * *
+            CODE    0000H     0003H     ABSOLUTE     
+                    0003H     07FDH                  *** GAP ***
+            CODE    0800H     0095H     UNIT         ?PR?XINNHANTRAI?BLINK_8_LED
+            CODE    0895H     008CH     UNIT         ?C_C51STARTUP
+            CODE    0921H     0068H     UNIT         ?PR?_XINNHANPHAI?BLINK_8_LED
+            CODE    0989H     000FH     UNIT         ?PR?_DELAY?BLINK_8_LED
+            CODE    0998H     0005H     UNIT         ?C_INITSEG
+            CODE    099DH     0002H     UNIT         ?PR?MAIN?BLINK_8_LED
+
+
+
+OVERLAY MAP OF MODULE:   blink_8_led (BLINK_8_LED)
+
+
+SEGMENT                                DATA_GROUP 
+  +--> CALLED SEGMENT                START    LENGTH
+----------------------------------------------------
+?C_C51STARTUP                        -----    -----
+  +--> ?PR?MAIN?BLINK_8_LED
+  +--> ?C_INITSEG
+
+?PR?MAIN?BLINK_8_LED                 000AH    0002H
+
+
+
+SYMBOL TABLE OF MODULE:  blink_8_led (BLINK_8_LED)
+
+  VALUE           TYPE          NAME
+  ----------------------------------
+
+  -------         MODULE        BLINK_8_LED
+  C:0000H         SYMBOL        _ICE_DUMMY_
+BL51 BANKED LINKER/LOCATER V6.22                                                      01/03/2022  07:52:22  PAGE 2
+
+
+  D:0080H         PUBLIC        P0
+  D:00A0H         PUBLIC        P2
+  C:098DH         PUBLIC        _delay
+  B:0090H.1       PUBLIC        P1_1
+  B:00A0H.0       PUBLIC        led11
+  B:00A0H.1       PUBLIC        led22
+  B:00A0H.2       PUBLIC        led33
+  C:0921H         PUBLIC        _xinnhanphai
+  B:00A0H.3       PUBLIC        led44
+  B:00A0H.4       PUBLIC        led55
+  B:00A0H.5       PUBLIC        led66
+  B:00A0H.6       PUBLIC        led77
+  C:099DH         PUBLIC        main
+  B:00A0H.7       PUBLIC        led88
+  C:0800H         PUBLIC        xinnhantrai
+  D:0008H         PUBLIC        demphai
+  B:0080H.0       PUBLIC        led1
+  B:0080H.1       PUBLIC        led2
+  B:0080H.2       PUBLIC        led3
+  B:0080H.3       PUBLIC        led4
+  B:0080H.4       PUBLIC        led5
+  B:0080H.5       PUBLIC        led6
+  B:0080H.6       PUBLIC        led7
+  B:0080H.7       PUBLIC        led8
+  C:0989H         SYMBOL        L?0020
+  -------         PROC          L?0019
+  -------         ENDPROC       L?0019
+  C:0989H         SYMBOL        L?0020
+  -------         PROC          _DELAY
+  D:0006H         SYMBOL        time
+  C:098DH         LINE#         27
+  C:098DH         LINE#         28
+  C:0997H         LINE#         29
+  -------         ENDPROC       _DELAY
+  -------         PROC          _XINNHANPHAI
+  D:0002H         SYMBOL        lan
+  C:0921H         LINE#         31
+  C:0925H         LINE#         32
+  C:092FH         LINE#         33
+  C:0938H         LINE#         34
+  C:0941H         LINE#         35
+  C:094AH         LINE#         36
+  C:0953H         LINE#         37
+  C:095CH         LINE#         38
+  C:0965H         LINE#         39
+  C:096AH         LINE#         40
+  C:0973H         LINE#         41
+  C:0983H         LINE#         42
+  C:0986H         LINE#         43
+  C:0988H         LINE#         44
+  -------         ENDPROC       _XINNHANPHAI
+  -------         PROC          XINNHANTRAI
+  -------         DO            
+  D:0002H         SYMBOL        demtrai
+  -------         ENDDO         
+  C:0800H         LINE#         46
+  C:0800H         LINE#         47
+BL51 BANKED LINKER/LOCATER V6.22                                                      01/03/2022  07:52:22  PAGE 3
+
+
+  C:0804H         LINE#         48
+  C:0807H         LINE#         49
+  C:0810H         LINE#         50
+  C:0819H         LINE#         51
+  C:0822H         LINE#         52
+  C:082BH         LINE#         53
+  C:0834H         LINE#         54
+  C:083DH         LINE#         55
+  C:0842H         LINE#         56
+  C:084BH         LINE#         57
+  C:085BH         LINE#         59
+  C:085EH         LINE#         60
+  C:0865H         LINE#         61
+  C:0868H         LINE#         62
+  C:086DH         LINE#         63
+  C:0874H         LINE#         64
+  C:0874H         LINE#         65
+  C:087AH         LINE#         66
+  C:087DH         LINE#         67
+  C:0884H         LINE#         68
+  C:0894H         LINE#         70
+  -------         ENDPROC       XINNHANTRAI
+  -------         PROC          MAIN
+  -------         DO            
+  D:000AH         SYMBOL        lan
+  -------         ENDDO         
+  C:099DH         LINE#         72
+  C:099DH         LINE#         74
+  C:099DH         LINE#         77
+  -------         ENDPROC       MAIN
+  -------         ENDMOD        BLINK_8_LED
+
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?_XINNHANPHAI?BLINK_8_LED
+
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?XINNHANTRAI?BLINK_8_LED
+
+******************************************************************************
+* RESTRICTED VERSION WITH 0800H BYTE CODE SIZE LIMIT; USED: 0112H BYTE (13%) *
+******************************************************************************
+
+Program Size: data=13.0 xdata=0 code=418
+LINK/LOCATE RUN COMPLETE.  2 WARNING(S),  0 ERROR(S)

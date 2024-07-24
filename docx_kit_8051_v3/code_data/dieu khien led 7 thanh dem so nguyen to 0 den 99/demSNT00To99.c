@@ -1,0 +1,22 @@
+#include <REGX52.H>
+
+char Chuc[] = {0x00,0x01,0x02,0x03,0x04,0x05,0x06,0x07,0x08,0x09};
+char DonVi[] ={0x00,0x10,0x20,0x30,0x40,0x50,0x60,0x70,0x80,0x90};
+	
+void delay(int time){
+	while(time--);
+}
+void main(){
+	int i,ch,dv;
+	while(1){
+	// dem tien 
+	for(i=0;i<100;i++)	
+	{
+	ch=i/10;
+   dv=i%10;		
+	P2=Chuc[ch]+DonVi[dv];delay(100000);
+	}
+	// dem so nguyen to
+	
+	
+}	}

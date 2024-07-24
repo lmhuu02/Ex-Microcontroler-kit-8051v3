@@ -1,0 +1,176 @@
+C51 COMPILER V9.52.0.0   TEMP_FILELCD                                                      05/14/2022 13:06:54 PAGE 1   
+
+
+C51 COMPILER V9.52.0.0, COMPILATION OF MODULE TEMP_FILELCD
+OBJECT MODULE PLACED IN temp_fileLCD.OBJ
+COMPILER INVOKED BY: C:\Keil\C51\BIN\C51.EXE temp_fileLCD.c BROWSE DEBUG OBJECTEXTEND TABS(2)
+
+line level    source
+
+   1          //power by le minh huu 21/3/2022
+   2          //nhom Le Minh Huu - Le Thanh Lam - Duong Van Nam
+   3          //code vdk 8051 mach canh bao an ninh 
+   4          #include <REGX52.H>
+   5          
+   6          /********Khai bao chan giao tiep************/
+   7          #define LCD_RS P0_0
+   8          #define LCD_RW P0_1
+   9          #define LCD_EN P0_2
+  10          #define LCD_D4 P0_4
+  11          #define LCD_D5 P0_5
+  12          #define LCD_D6 P0_6
+  13          #define LCD_D7 P0_7
+  14          #define on 0
+  15          #define off 1
+  16          /************************************/
+  17          //khai bao chan chuc nang
+  18          sbit led_green = P2^1;  //led bao trang thai an toan
+  19          sbit led_red = P2^2;  //led bao trang thai xam nhap
+  20          sbit buzzer = P2^0;     //chan noi voi coi chip
+  21          sbit input_data = P1^7;  //chan tin hieu vao tu pir rs 505
+  22          /************************************/
+  23          void delay_us(unsigned int t){
+  24   1              unsigned int i;
+  25   1              for(i=0;i<t;i++);
+  26   1      }
+  27          void delay_ms(unsigned int t){
+  28   1              unsigned int i,j;
+  29   1              for(i=0;i<t;i++)
+  30   1              for(j=0;j<125;j++);
+  31   1      }
+  32          /**************Ctr giao tiep LCD 16x2 4bit**********************/
+  33          void LCD_Enable(void){
+  34   1              LCD_EN =1;
+  35   1              delay_us(3);
+  36   1              LCD_EN=0;
+  37   1              delay_us(50);
+  38   1      }
+  39          //Ham Gui 4 Bit Du Lieu Ra LCD
+  40          void LCD_Send4Bit(unsigned char Data){
+  41   1              LCD_D4=Data & 0x01;
+  42   1              LCD_D5=(Data>>1)&1;
+  43   1              LCD_D6=(Data>>2)&1;
+  44   1              LCD_D7=(Data>>3)&1;
+  45   1      }
+  46          // Ham Gui 1 Lenh Cho LCD
+  47          void LCD_SendCommand(unsigned char command){
+  48   1              LCD_Send4Bit(command >>4);/* Gui 4 bit cao */
+  49   1              LCD_Enable();
+  50   1              LCD_Send4Bit(command); /* Gui 4 bit thap*/
+  51   1              LCD_Enable();
+  52   1      }
+  53          void LCD_Clear(){// Ham Xoa Man Hinh LCD
+  54   1              LCD_SendCommand(0x01);
+  55   1              delay_us(10);
+C51 COMPILER V9.52.0.0   TEMP_FILELCD                                                      05/14/2022 13:06:54 PAGE 2   
+
+  56   1      }
+  57          // Ham Khoi Tao LCD
+  58          void LCD_Init(){
+  59   1              LCD_Send4Bit(0x00);
+  60   1              delay_ms(20);
+  61   1              LCD_RS=0;
+  62   1              LCD_RW=0;
+  63   1              LCD_Send4Bit(0x03);
+  64   1              LCD_Enable();
+  65   1              delay_ms(5);
+  66   1              LCD_Enable();
+  67   1              delay_us(100);
+  68   1              LCD_Enable();
+  69   1              LCD_Send4Bit(0x02);
+  70   1              LCD_Enable();
+  71   1              LCD_SendCommand( 0x28 ); // giao thuc 4 bit, hien thi 2 hang, ki tu 5x8
+  72   1              LCD_SendCommand( 0x0c); // cho phep hien thi man hinh
+  73   1              LCD_SendCommand( 0x06 ); // tang ID, khong dich khung hinh
+  74   1              LCD_SendCommand(0x01); // xoa toan bo khung hinh
+  75   1      }
+  76          void LCD_Gotoxy(unsigned char x, unsigned char y){
+  77   1              unsigned char address;
+  78   1              if(!y)address=(0x80+x);
+  79   1              else address=(0xc0+x);
+  80   1              delay_us(1000);
+  81   1              LCD_SendCommand(address);
+  82   1              delay_us(50);
+  83   1      }
+  84          void LCD_PutChar(unsigned char Data){//Ham Gui 1 Ki Tu
+  85   1              LCD_RS=1;
+  86   1              LCD_SendCommand(Data);
+  87   1              LCD_RS=0 ;
+  88   1      }
+  89          void LCD_Puts (char *s){//Ham gui 1 chuoi ky tu
+  90   1              while (*s){
+  91   2                      LCD_PutChar(*s);
+  92   2                      s++;
+  93   2              }
+  94   1      }
+  95          //============================================================
+  96          //ham thuc hien ngat
+  97          void ngatPir(void) interrupt 2{ //ngat ngoai 1
+  98   1        int b = 9999, a = 2000;
+  99   1        LCD_Clear();
+ 100   1        LCD_Gotoxy(0,0);
+ 101   1        LCD_Puts("   BI XAM NHAP ! ");
+ 102   1        LCD_Gotoxy(0,1);
+ 103   1        LCD_Puts(" -- WARINGING --");
+ 104   1        LCD_Gotoxy(0,0);
+ 105   1        LCD_Puts("   BI XAM NHAP ! ");
+ 106   1        P2_2 = 0; //bat led trang sang lien tuc
+ 107   1        while(a--){}
+ 108   1        P2_0 = 0; //bat led do va coi chip
+ 109   1        P2_1 = 1; //tat xanh do chan 2.1
+ 110   1        while(b--){}
+ 111   1          P2_0 = 1; //tat led do va coi chip
+ 112   1      }
+ 113          //============================================================
+ 114          //kiem tra dkien led
+ 115          void antoan(){
+ 116   1          delay_ms(100);
+ 117   1          led_green = on; //bat den xanh
+C51 COMPILER V9.52.0.0   TEMP_FILELCD                                                      05/14/2022 13:06:54 PAGE 3   
+
+ 118   1          buzzer = led_red = off; //bat den do, coii
+ 119   1          LCD_Clear();  //xoa man hinh lcd
+ 120   1          LCD_Gotoxy(0,0);  //in ra chuoi tai hang 1 vi tri bat dau thu 0
+ 121   1          LCD_Puts("NGAY MOI VUI VE");
+ 122   1          LCD_Gotoxy(0,1);//in ra chuoi tai hang 2 vi tri bat dau thu 0
+ 123   1          LCD_Puts("HE THONG AN TOAN");
+ 124   1          delay_ms(1000);
+ 125   1          P2_2 = 1; //tat xanh do chan 2.1
+ 126   1      }
+ 127          
+ 128          
+ 129          /******************Ctr chinh**************************/
+ 130          //==========================================================
+ 131          void main(){
+ 132   1        IE = 0x84;  //1 0 0 0   0 1 0 0//khoi tao ngat ngoai 1
+ 133   1        IT1 = 0;  //ngat ngoai 1 chan p3.3 INT1. IT1 = 0 ngat theo muc , IT =  1 ngat theo suon
+ 134   1        LCD_Init();//Khoi tao LCD
+ 135   1        delay_ms(1000);
+ 136   1        LCD_Puts("HUU - LAM - NAM");//Gui chuoi len LCD
+ 137   1        delay_ms(1000);
+ 138   1        LCD_Clear();  //xoa man hinh lcd
+ 139   1        LCD_Gotoxy(0,0);
+ 140   1        LCD_Puts("LOP KTMT K19A");
+ 141   1        LCD_Gotoxy(0,1);
+ 142   1        LCD_Puts("XIN CHAO");
+ 143   1        delay_ms(5000);
+ 144   1        P2_2 = 1; //bat led xanh chan 2.2
+ 145   1        while(1){   
+ 146   2          antoan(); //goi ham an toan 
+ 147   2          }
+ 148   1      }
+ 149          //THE END
+
+
+MODULE INFORMATION:   STATIC OVERLAYABLE
+   CODE SIZE        =    524    ----
+   CONSTANT SIZE    =    107    ----
+   XDATA SIZE       =   ----    ----
+   PDATA SIZE       =   ----    ----
+   DATA SIZE        =   ----       7
+   IDATA SIZE       =   ----    ----
+   BIT SIZE         =   ----    ----
+END OF MODULE INFORMATION.
+
+
+C51 COMPILATION COMPLETE.  0 WARNING(S),  0 ERROR(S)

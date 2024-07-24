@@ -1,0 +1,145 @@
+BL51 BANKED LINKER/LOCATER V6.22                                                        05/19/2022  07:46:35  PAGE 1
+
+
+BL51 BANKED LINKER/LOCATER V6.22, INVOKED BY:
+C:\KEIL\C51\BIN\BL51.EXE truyenThongNoiTiepUART.obj TO truyenThongNoiTiepUART RAMSIZE (256)
+
+
+MEMORY MODEL: SMALL
+
+
+INPUT MODULES INCLUDED:
+  truyenThongNoiTiepUART.obj (TRUYENTHONGNOITIEPUART)
+  C:\KEIL\C51\LIB\C51S.LIB (?C_STARTUP)
+  C:\KEIL\C51\LIB\C51S.LIB (?C?CLDOPTR)
+  C:\KEIL\C51\LIB\C51S.LIB (STRLEN)
+  C:\KEIL\C51\LIB\C51S.LIB (?C?CLDPTR)
+
+
+LINK MAP OF MODULE:  truyenThongNoiTiepUART (TRUYENTHONGNOITIEPUART)
+
+
+            TYPE    BASE      LENGTH    RELOCATION   SEGMENT NAME
+            -----------------------------------------------------
+
+            * * * * * * *   D A T A   M E M O R Y   * * * * * * *
+            REG     0000H     0008H     ABSOLUTE     "REG BANK 0"
+            DATA    0008H     0006H     UNIT         _DATA_GROUP_
+            IDATA   000EH     0001H     UNIT         ?STACK
+
+            * * * * * * *   C O D E   M E M O R Y   * * * * * * *
+            CODE    0000H     0003H     ABSOLUTE     
+            CODE    0003H     0046H     UNIT         ?C?LIB_CODE
+            CODE    0049H     0038H     UNIT         ?PR?_SENDCHAR?TRUYENTHONGNOITIEPUART
+            CODE    0081H     002FH     UNIT         ?PR?MAIN?TRUYENTHONGNOITIEPUART
+            CODE    00B0H     0015H     UNIT         ?PR?_STRLEN?STRLEN
+            CODE    00C5H     000CH     UNIT         ?C_C51STARTUP
+            CODE    00D1H     000BH     UNIT         ?PR?_DELAY?TRUYENTHONGNOITIEPUART
+            CODE    00DCH     0008H     UNIT         ?PR?_SEND?TRUYENTHONGNOITIEPUART
+            CODE    00E4H     0006H     UNIT         ?CO?TRUYENTHONGNOITIEPUART
+
+
+
+OVERLAY MAP OF MODULE:   truyenThongNoiTiepUART (TRUYENTHONGNOITIEPUART)
+
+
+SEGMENT                                        DATA_GROUP 
+  +--> CALLED SEGMENT                        START    LENGTH
+------------------------------------------------------------
+?C_C51STARTUP                                -----    -----
+  +--> ?PR?MAIN?TRUYENTHONGNOITIEPUART
+
+?PR?MAIN?TRUYENTHONGNOITIEPUART              0008H    0001H
+  +--> ?PR?_SEND?TRUYENTHONGNOITIEPUART
+  +--> ?PR?_DELAY?TRUYENTHONGNOITIEPUART
+  +--> ?CO?TRUYENTHONGNOITIEPUART
+  +--> ?PR?_SENDCHAR?TRUYENTHONGNOITIEPUART
+
+?PR?_SENDCHAR?TRUYENTHONGNOITIEPUART         0009H    0005H
+  +--> ?PR?_STRLEN?STRLEN
+  +--> ?PR?_SEND?TRUYENTHONGNOITIEPUART
+
+BL51 BANKED LINKER/LOCATER V6.22                                                      05/19/2022  07:46:35  PAGE 2
+
+
+
+
+SYMBOL TABLE OF MODULE:  truyenThongNoiTiepUART (TRUYENTHONGNOITIEPUART)
+
+  VALUE           TYPE          NAME
+  ----------------------------------
+
+  -------         MODULE        TRUYENTHONGNOITIEPUART
+  C:0000H         SYMBOL        _ICE_DUMMY_
+  C:00D1H         PUBLIC        _delay
+  B:0098H.1       PUBLIC        TI
+  C:0081H         PUBLIC        main
+  C:00DCH         PUBLIC        _send
+  C:0049H         PUBLIC        _sendChar
+  D:0099H         PUBLIC        SBUF
+  D:0098H         PUBLIC        SCON
+  D:0089H         PUBLIC        TMOD
+  D:008DH         PUBLIC        TH1
+  B:0088H.6       PUBLIC        TR1
+  -------         PROC          _DELAY
+  D:0006H         SYMBOL        time
+  C:00D1H         LINE#         11
+  C:00D1H         LINE#         12
+  C:00DBH         LINE#         13
+  -------         ENDPROC       _DELAY
+  -------         PROC          _SEND
+  D:0007H         SYMBOL        a
+  C:00DCH         LINE#         15
+  C:00DCH         LINE#         16
+  C:00DEH         LINE#         17
+  C:00E1H         LINE#         18
+  C:00E3H         LINE#         19
+  -------         ENDPROC       _SEND
+  -------         PROC          _SENDCHAR
+  D:0009H         SYMBOL        a
+  -------         DO            
+  D:000CH         SYMBOL        x
+  D:0004H         SYMBOL        i
+  -------         ENDDO         
+  C:0049H         LINE#         20
+  C:004FH         LINE#         21
+  C:0056H         LINE#         23
+  C:0068H         LINE#         24
+  C:0079H         LINE#         25
+  C:0080H         LINE#         26
+  -------         ENDPROC       _SENDCHAR
+  -------         PROC          MAIN
+  -------         DO            
+  D:0004H         SYMBOL        ii
+  D:0008H         SYMBOL        a
+  -------         ENDDO         
+  C:0081H         LINE#         27
+  C:0081H         LINE#         30
+  C:0084H         LINE#         31
+  C:0087H         LINE#         32
+  C:0089H         LINE#         33
+  C:008CH         LINE#         35
+BL51 BANKED LINKER/LOCATER V6.22                                                      05/19/2022  07:46:35  PAGE 3
+
+
+  C:0090H         LINE#         36
+  C:0095H         LINE#         37
+  C:00A0H         LINE#         38
+  C:00A7H         LINE#         39
+  -------         ENDPROC       MAIN
+  -------         ENDMOD        TRUYENTHONGNOITIEPUART
+
+  -------         MODULE        ?C?CLDOPTR
+  C:0003H         PUBLIC        ?C?CLDOPTR
+  -------         ENDMOD        ?C?CLDOPTR
+
+  -------         MODULE        STRLEN
+  C:00B0H         PUBLIC        _STRLEN
+  -------         ENDMOD        STRLEN
+
+  -------         MODULE        ?C?CLDPTR
+  C:0030H         PUBLIC        ?C?CLDPTR
+  -------         ENDMOD        ?C?CLDPTR
+
+Program Size: data=15.0 xdata=0 code=234
+LINK/LOCATE RUN COMPLETE.  0 WARNING(S),  0 ERROR(S)

@@ -1,0 +1,36 @@
+C51 COMPILER V9.52.0.0   BAI1MOPHONGLEDBANGVDK8051                                         11/07/2021 20:09:13 PAGE 1   
+
+
+C51 COMPILER V9.52.0.0, COMPILATION OF MODULE BAI1MOPHONGLEDBANGVDK8051
+OBJECT MODULE PLACED IN bai1MoPhongLedBangVdk8051.OBJ
+COMPILER INVOKED BY: C:\Keil\C51\BIN\C51.EXE bai1MoPhongLedBangVdk8051.c BROWSE DEBUG OBJECTEXTEND TABS(2)
+
+line level    source
+
+   1          #include <REGX51.H>
+   2          
+   3          void delay(int time){
+   4   1        while(time--);
+   5   1      }
+   6          
+   7          void main(){
+   8   1        P2_0 = 0;   //bat led
+   9   1        delay(10000);
+  10   1        P2_0 = 1;   //tat led
+  11   1        delay(10000); 
+  12   1      
+  13   1      }
+
+
+MODULE INFORMATION:   STATIC OVERLAYABLE
+   CODE SIZE        =     29    ----
+   CONSTANT SIZE    =   ----    ----
+   XDATA SIZE       =   ----    ----
+   PDATA SIZE       =   ----    ----
+   DATA SIZE        =   ----    ----
+   IDATA SIZE       =   ----    ----
+   BIT SIZE         =   ----    ----
+END OF MODULE INFORMATION.
+
+
+C51 COMPILATION COMPLETE.  0 WARNING(S),  0 ERROR(S)

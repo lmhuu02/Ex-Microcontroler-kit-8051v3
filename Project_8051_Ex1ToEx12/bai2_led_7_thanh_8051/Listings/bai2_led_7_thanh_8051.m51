@@ -1,0 +1,145 @@
+BL51 BANKED LINKER/LOCATER V6.22                                                        02/20/2023  17:32:47  PAGE 1
+
+
+BL51 BANKED LINKER/LOCATER V6.22, INVOKED BY:
+C:\KEIL_V5\C51\BIN\BL51.EXE .\Objects\bai2_led_7_thanh_8051.obj TO .\Objects\bai2_led_7_thanh_8051 PRINT (.\Listings\bai
+>> 2_led_7_thanh_8051.m51)
+
+
+MEMORY MODEL: SMALL
+
+
+INPUT MODULES INCLUDED:
+  .\Objects\bai2_led_7_thanh_8051.obj (BAI2_LED_7_THANH_8051)
+  C:\KEIL_V5\C51\LIB\C51S.LIB (?C_STARTUP)
+  C:\KEIL_V5\C51\LIB\C51S.LIB (?C?ULDIV)
+  C:\KEIL_V5\C51\LIB\C51S.LIB (?C_INIT)
+
+
+LINK MAP OF MODULE:  .\Objects\bai2_led_7_thanh_8051 (BAI2_LED_7_THANH_8051)
+
+
+            TYPE    BASE      LENGTH    RELOCATION   SEGMENT NAME
+            -----------------------------------------------------
+
+            * * * * * * *   D A T A   M E M O R Y   * * * * * * *
+            REG     0000H     0008H     ABSOLUTE     "REG BANK 0"
+            DATA    0008H     001EH     UNIT         ?DT?BAI2_LED_7_THANH_8051
+            DATA    0026H     0008H     UNIT         _DATA_GROUP_
+            IDATA   002EH     0001H     UNIT         ?STACK
+
+            * * * * * * *   C O D E   M E M O R Y   * * * * * * *
+            CODE    0000H     0003H     ABSOLUTE     
+                    0003H     07FDH                  *** GAP ***
+            CODE    0800H     00CEH     UNIT         ?C?LIB_CODE
+            CODE    08CEH     008CH     UNIT         ?C_C51STARTUP
+            CODE    095AH     005CH     UNIT         ?PR?_TACHCHUSO?BAI2_LED_7_THANH_8051
+            CODE    09B6H     004DH     UNIT         ?PR?_QUETLED?BAI2_LED_7_THANH_8051
+            CODE    0A03H     0037H     UNIT         ?PR?MAIN?BAI2_LED_7_THANH_8051
+            CODE    0A3AH     0017H     UNIT         ?C_INITSEG
+            CODE    0A51H     000BH     UNIT         ?PR?_DELAY1?BAI2_LED_7_THANH_8051
+
+
+
+OVERLAY MAP OF MODULE:   .\Objects\bai2_led_7_thanh_8051 (BAI2_LED_7_THANH_8051)
+
+
+SEGMENT                                        DATA_GROUP 
+  +--> CALLED SEGMENT                        START    LENGTH
+------------------------------------------------------------
+?C_C51STARTUP                                -----    -----
+  +--> ?PR?MAIN?BAI2_LED_7_THANH_8051
+  +--> ?C_INITSEG
+
+?PR?MAIN?BAI2_LED_7_THANH_8051               -----    -----
+  +--> ?PR?_TACHCHUSO?BAI2_LED_7_THANH_8051
+  +--> ?PR?_QUETLED?BAI2_LED_7_THANH_8051
+
+?PR?_TACHCHUSO?BAI2_LED_7_THANH_8051         0026H    0008H
+
+?PR?_QUETLED?BAI2_LED_7_THANH_8051           0026H    0002H
+  +--> ?PR?_DELAY1?BAI2_LED_7_THANH_8051
+BL51 BANKED LINKER/LOCATER V6.22                                                      02/20/2023  17:32:47  PAGE 2
+
+
+
+
+
+SYMBOL TABLE OF MODULE:  .\Objects\bai2_led_7_thanh_8051 (BAI2_LED_7_THANH_8051)
+
+  VALUE           TYPE          NAME
+  ----------------------------------
+
+  -------         MODULE        BAI2_LED_7_THANH_8051
+  C:0000H         SYMBOL        _ICE_DUMMY_
+  D:0080H         PUBLIC        P0
+  D:00A0H         PUBLIC        P2
+  C:095AH         PUBLIC        _tachChuSo
+  D:0008H         PUBLIC        soHienThi
+  C:0A03H         PUBLIC        main
+  D:0012H         PUBLIC        chuSoThu
+  D:001AH         PUBLIC        quetSoThu
+  C:0A51H         PUBLIC        _delay1
+  C:09B6H         PUBLIC        _quetLed
+  D:0022H         PUBLIC        i
+  D:0024H         PUBLIC        demSo
+  -------         PROC          _DELAY1
+  D:0006H         SYMBOL        time
+  C:0A51H         LINE#         19
+  C:0A51H         LINE#         20
+  C:0A5BH         LINE#         21
+  -------         ENDPROC       _DELAY1
+  -------         PROC          _TACHCHUSO
+  D:0026H         SYMBOL        temp
+  D:002AH         SYMBOL        soLed
+  -------         DO            
+  D:002CH         SYMBOL        i
+  -------         ENDDO         
+  C:095AH         LINE#         23
+  C:0962H         LINE#         25
+  C:0978H         LINE#         26
+  C:0992H         LINE#         27
+  C:09ABH         LINE#         28
+  C:09B5H         LINE#         29
+  -------         ENDPROC       _TACHCHUSO
+  -------         PROC          _QUETLED
+  D:0026H         SYMBOL        soLed
+  -------         DO            
+  D:0002H         SYMBOL        i
+  D:0082H         SYMBOL        j
+  -------         ENDDO         
+  C:09B6H         LINE#         32
+  C:09BAH         LINE#         34
+  C:09BDH         LINE#         35
+  C:09D1H         LINE#         36
+  C:09DEH         LINE#         37
+  C:09EAH         LINE#         38
+  C:09F1H         LINE#         39
+  C:09F4H         LINE#         40
+  C:09F7H         LINE#         41
+  C:0A02H         LINE#         42
+  -------         ENDPROC       _QUETLED
+BL51 BANKED LINKER/LOCATER V6.22                                                      02/20/2023  17:32:47  PAGE 3
+
+
+  -------         PROC          MAIN
+  C:0A03H         LINE#         44
+  C:0A03H         LINE#         45
+  C:0A06H         LINE#         46
+  C:0A06H         LINE#         49
+  C:0A0BH         LINE#         50
+  C:0A1EH         LINE#         51
+  C:0A25H         LINE#         52
+  -------         ENDPROC       MAIN
+  -------         ENDMOD        BAI2_LED_7_THANH_8051
+
+  -------         MODULE        ?C?ULDIV
+  C:083CH         PUBLIC        ?C?ULDIV
+  -------         ENDMOD        ?C?ULDIV
+
+******************************************************************************
+* RESTRICTED VERSION WITH 0800H BYTE CODE SIZE LIMIT; USED: 0101H BYTE (12%) *
+******************************************************************************
+
+Program Size: data=47.0 xdata=0 code=607
+LINK/LOCATE RUN COMPLETE.  0 WARNING(S),  0 ERROR(S)

@@ -1,0 +1,360 @@
+BL51 BANKED LINKER/LOCATER V6.22                                                        03/07/2022  21:52:43  PAGE 1
+
+
+BL51 BANKED LINKER/LOCATER V6.22, INVOKED BY:
+C:\KEIL\C51\BIN\BL51.EXE backupMachCanhBaoAnNinh8051.obj TO backupMachCanhBaoAnNinh8051 RAMSIZE (256)
+
+
+MEMORY MODEL: SMALL
+
+
+INPUT MODULES INCLUDED:
+  backupMachCanhBaoAnNinh8051.obj (BACKUPMACHCANHBAOANNINH8051)
+  C:\KEIL\C51\LIB\C51S.LIB (?C_STARTUP)
+  C:\KEIL\C51\LIB\C51S.LIB (?C?CLDPTR)
+
+
+LINK MAP OF MODULE:  backupMachCanhBaoAnNinh8051 (BACKUPMACHCANHBAOANNINH8051)
+
+
+            TYPE    BASE      LENGTH    RELOCATION   SEGMENT NAME
+            -----------------------------------------------------
+
+            * * * * * * *   D A T A   M E M O R Y   * * * * * * *
+            REG     0000H     0008H     ABSOLUTE     "REG BANK 0"
+            DATA    0008H     0006H     UNIT         _DATA_GROUP_
+            IDATA   000EH     0001H     UNIT         ?STACK
+
+            * * * * * * *   C O D E   M E M O R Y   * * * * * * *
+            CODE    0000H     0003H     ABSOLUTE     
+                    0003H     0010H                  *** GAP ***
+            CODE    0013H     0003H     ABSOLUTE     
+                    0016H     07EAH                  *** GAP ***
+            CODE    0800H     0073H     UNIT         ?PR?NGATPIR?BACKUPMACHCANHBAOANNINH8051
+            CODE    0873H     0045H     UNIT         ?PR?LCD_INIT?BACKUPMACHCANHBAOANNINH8051
+            CODE    08B8H     0044H     UNIT         ?CO?BACKUPMACHCANHBAOANNINH8051
+            CODE    08FCH     0038H     UNIT         ?PR?MAIN?BACKUPMACHCANHBAOANNINH8051
+            CODE    0934H     0026H     UNIT         ?PR?_LCD_GOTOXY?BACKUPMACHCANHBAOANNINH8051
+            CODE    095AH     0023H     UNIT         ?PR?_LCD_PUTS?BACKUPMACHCANHBAOANNINH8051
+            CODE    097DH     0021H     UNIT         ?PR?ANTOAN?BACKUPMACHCANHBAOANNINH8051
+            CODE    099EH     0020H     UNIT         ?PR?_DELAY_MS?BACKUPMACHCANHBAOANNINH8051
+            CODE    09BEH     001FH     UNIT         ?PR?_DELAY_TIMER?BACKUPMACHCANHBAOANNINH8051
+            CODE    09DDH     001CH     UNIT         ?PR?_LCD_SEND4BIT?BACKUPMACHCANHBAOANNINH8051
+            CODE    09F9H     0019H     UNIT         ?C?LIB_CODE
+            CODE    0A12H     0013H     UNIT         ?PR?LCD_ENABLE?BACKUPMACHCANHBAOANNINH8051
+            CODE    0A25H     0012H     UNIT         ?PR?_DELAY_US?BACKUPMACHCANHBAOANNINH8051
+            CODE    0A37H     0012H     UNIT         ?PR?_LCD_SENDCOMMAND?BACKUPMACHCANHBAOANNINH8051
+            CODE    0A49H     000CH     UNIT         ?PR?LCD_CLEAR?BACKUPMACHCANHBAOANNINH8051
+            CODE    0A55H     000CH     UNIT         ?C_C51STARTUP
+            CODE    0A61H     000BH     UNIT         ?PR?_DELAY?BACKUPMACHCANHBAOANNINH8051
+            CODE    0A6CH     0008H     UNIT         ?PR?_LCD_PUTCHAR?BACKUPMACHCANHBAOANNINH8051
+
+
+
+OVERLAY MAP OF MODULE:   backupMachCanhBaoAnNinh8051 (BACKUPMACHCANHBAOANNINH8051)
+
+
+SEGMENT                                            DATA_GROUP 
+  +--> CALLED SEGMENT                            START    LENGTH
+----------------------------------------------------------------
+?PR?NGATPIR?BACKUPMACHCANHBAOANNINH8051          -----    -----
+  +--> ?PR?_DELAY_US?BACKUPMACHCANHBAOANNINH...
+BL51 BANKED LINKER/LOCATER V6.22                                                      03/07/2022  21:52:43  PAGE 2
+
+
+  +--> ?PR?_LCD_GOTOXY?BACKUPMACHCANHBAOANNI...
+  +--> ?CO?BACKUPMACHCANHBAOANNINH8051
+  +--> ?PR?_LCD_PUTS?BACKUPMACHCANHBAOANNINH...
+
+?PR?_LCD_GOTOXY?BACKUPMACHCANHBAOANNI...         -----    -----
+  +--> ?PR?LCD_CLEAR?BACKUPMACHCANHBAOANNINH...
+  +--> ?PR?_DELAY_US?BACKUPMACHCANHBAOANNINH...
+  +--> ?PR?_LCD_SENDCOMMAND?BACKUPMACHCANHBA...
+
+?PR?LCD_CLEAR?BACKUPMACHCANHBAOANNINH...         -----    -----
+  +--> ?PR?_LCD_SENDCOMMAND?BACKUPMACHCANHBA...
+  +--> ?PR?_DELAY_US?BACKUPMACHCANHBAOANNINH...
+
+?PR?_LCD_SENDCOMMAND?BACKUPMACHCANHBA...         -----    -----
+  +--> ?PR?LCD_ENABLE?BACKUPMACHCANHBAOANNIN...
+  +--> ?PR?_LCD_SEND4BIT?BACKUPMACHCANHBAOAN...
+
+?PR?LCD_ENABLE?BACKUPMACHCANHBAOANNIN...         -----    -----
+  +--> ?PR?_LCD_SEND4BIT?BACKUPMACHCANHBAOAN...
+  +--> ?PR?_DELAY_US?BACKUPMACHCANHBAOANNINH...
+
+?PR?_LCD_PUTS?BACKUPMACHCANHBAOANNINH...         000BH    0003H
+  +--> ?PR?_LCD_PUTCHAR?BACKUPMACHCANHBAOANN...
+
+?PR?_LCD_PUTCHAR?BACKUPMACHCANHBAOANN...         -----    -----
+  +--> ?PR?_LCD_SENDCOMMAND?BACKUPMACHCANHBA...
+
+*** NEW ROOT ***************************************************
+
+?C_C51STARTUP                                    -----    -----
+  +--> ?PR?MAIN?BACKUPMACHCANHBAOANNINH8051
+
+?PR?MAIN?BACKUPMACHCANHBAOANNINH8051             -----    -----
+  +--> ?PR?LCD_INIT?BACKUPMACHCANHBAOANNINH8051
+  +--> ?PR?ANTOAN?BACKUPMACHCANHBAOANNINH8051
+  +--> ?PR?_LCD_GOTOXY?BACKUPMACHCANHBAOANNI...
+  +--> ?CO?BACKUPMACHCANHBAOANNINH8051
+  +--> ?PR?_LCD_PUTS?BACKUPMACHCANHBAOANNINH...
+  +--> ?PR?_DELAY_TIMER?BACKUPMACHCANHBAOANN...
+
+?PR?LCD_INIT?BACKUPMACHCANHBAOANNINH8051         -----    -----
+  +--> ?PR?_LCD_SEND4BIT?BACKUPMACHCANHBAOAN...
+  +--> ?PR?_DELAY_MS?BACKUPMACHCANHBAOANNINH...
+  +--> ?PR?LCD_ENABLE?BACKUPMACHCANHBAOANNIN...
+  +--> ?PR?_DELAY_US?BACKUPMACHCANHBAOANNINH...
+  +--> ?PR?_LCD_SENDCOMMAND?BACKUPMACHCANHBA...
+
+?PR?ANTOAN?BACKUPMACHCANHBAOANNINH8051           -----    -----
+  +--> ?PR?_DELAY?BACKUPMACHCANHBAOANNINH8051
+
+
+
+SYMBOL TABLE OF MODULE:  backupMachCanhBaoAnNinh8051 (BACKUPMACHCANHBAOANNINH8051)
+
+  VALUE           TYPE          NAME
+  ----------------------------------
+
+BL51 BANKED LINKER/LOCATER V6.22                                                      03/07/2022  21:52:43  PAGE 3
+
+
+  -------         MODULE        BACKUPMACHCANHBAOANNINH8051
+  C:0000H         SYMBOL        _ICE_DUMMY_
+  C:0A15H         PUBLIC        lcd_enable
+  D:00A0H         PUBLIC        P2
+  C:097DH         PUBLIC        antoan
+  C:0A37H         PUBLIC        _lcd_sendCommand
+  D:00A8H         PUBLIC        IE
+  B:0080H.0       PUBLIC        P0_0
+  B:0080H.1       PUBLIC        P0_1
+  C:0A61H         PUBLIC        _delay
+  B:0080H.2       PUBLIC        P0_2
+  B:0080H.4       PUBLIC        P0_4
+  B:0080H.5       PUBLIC        P0_5
+  C:09DDH         PUBLIC        _LCD_Send4Bit
+  B:0080H.6       PUBLIC        P0_6
+  C:09BEH         PUBLIC        _delay_timer
+  B:0080H.7       PUBLIC        P0_7
+  C:0A49H         PUBLIC        lcd_clear
+  B:00A0H.1       PUBLIC        buzzer
+  C:08FCH         PUBLIC        main
+  B:00A0H.4       PUBLIC        led_green
+  B:00A0H.7       PUBLIC        input_data
+  D:0089H         PUBLIC        TMOD
+  B:00A0H.6       PUBLIC        led_white
+  C:093AH         PUBLIC        _lcd_gotoxy
+  B:0088H.5       PUBLIC        TF0
+  C:0873H         PUBLIC        lcd_init
+  D:008CH         PUBLIC        TH0
+  B:0088H.2       PUBLIC        IT1
+  D:008AH         PUBLIC        TL0
+  C:099EH         PUBLIC        _delay_ms
+  B:00A0H.5       PUBLIC        led_red
+  B:0088H.4       PUBLIC        TR0
+  C:0800H         PUBLIC        ngatPir
+  C:0A25H         PUBLIC        _delay_us
+  C:095AH         PUBLIC        _lcd_puts
+  C:0A6CH         PUBLIC        _lcd_putChar
+  -------         PROC          _DELAY
+  D:0006H         SYMBOL        time
+  C:0A61H         LINE#         28
+  C:0A61H         LINE#         29
+  C:0A6BH         LINE#         30
+  -------         ENDPROC       _DELAY
+  -------         PROC          _DELAY_TIMER
+  D:0006H         SYMBOL        timer
+  C:09BEH         LINE#         33
+  C:09BEH         LINE#         34
+  C:09C8H         LINE#         35
+  C:09CBH         LINE#         36
+  C:09CEH         LINE#         37
+  C:09D1H         LINE#         38
+  C:09D3H         LINE#         39
+  C:09D6H         LINE#         40
+  C:09D8H         LINE#         41
+  C:09DAH         LINE#         42
+  C:09DCH         LINE#         43
+  -------         ENDPROC       _DELAY_TIMER
+BL51 BANKED LINKER/LOCATER V6.22                                                      03/07/2022  21:52:43  PAGE 4
+
+
+  -------         PROC          _DELAY_US
+  D:0006H         SYMBOL        time
+  -------         DO            
+  D:0004H         SYMBOL        i
+  -------         ENDDO         
+  C:0A25H         LINE#         46
+  C:0A25H         LINE#         48
+  C:0A36H         LINE#         49
+  -------         ENDPROC       _DELAY_US
+  -------         PROC          _DELAY_MS
+  D:0006H         SYMBOL        time
+  -------         DO            
+  D:0004H         SYMBOL        i
+  D:0002H         SYMBOL        j
+  -------         ENDDO         
+  C:099EH         LINE#         51
+  C:099EH         LINE#         53
+  C:09A8H         LINE#         54
+  C:09BDH         LINE#         55
+  -------         ENDPROC       _DELAY_MS
+  -------         PROC          L?0046
+  -------         ENDPROC       L?0046
+  -------         PROC          LCD_ENABLE
+  C:0A15H         LINE#         57
+  C:0A15H         LINE#         58
+  C:0A17H         LINE#         59
+  C:0A1EH         LINE#         60
+  C:0A20H         LINE#         61
+  -------         ENDPROC       LCD_ENABLE
+  -------         PROC          _LCD_SEND4BIT
+  D:0007H         SYMBOL        Data
+  C:09DDH         LINE#         65
+  C:09DDH         LINE#         66
+  C:09E1H         LINE#         67
+  C:09E7H         LINE#         68
+  C:09EFH         LINE#         69
+  C:09F8H         LINE#         70
+  -------         ENDPROC       _LCD_SEND4BIT
+  -------         PROC          _LCD_SENDCOMMAND
+  D:0003H         SYMBOL        command
+  C:0A37H         LINE#         74
+  C:0A39H         LINE#         75
+  C:0A3EH         LINE#         76
+  C:0A41H         LINE#         77
+  C:0A46H         LINE#         78
+  -------         ENDPROC       _LCD_SENDCOMMAND
+  -------         PROC          LCD_CLEAR
+  C:0A49H         LINE#         81
+  C:0A49H         LINE#         82
+  C:0A4EH         LINE#         83
+  -------         ENDPROC       LCD_CLEAR
+  -------         PROC          LCD_INIT
+  C:0873H         LINE#         86
+  C:0873H         LINE#         87
+  C:0878H         LINE#         88
+  C:087FH         LINE#         89
+  C:0881H         LINE#         90
+BL51 BANKED LINKER/LOCATER V6.22                                                      03/07/2022  21:52:43  PAGE 5
+
+
+  C:0883H         LINE#         91
+  C:0885H         LINE#         92
+  C:0888H         LINE#         93
+  C:088FH         LINE#         94
+  C:0892H         LINE#         95
+  C:0899H         LINE#         96
+  C:089CH         LINE#         97
+  C:08A1H         LINE#         98
+  C:08A4H         LINE#         99
+  C:08A9H         LINE#         100
+  C:08AEH         LINE#         101
+  C:08B3H         LINE#         102
+  -------         ENDPROC       LCD_INIT
+  -------         PROC          L?0047
+  -------         ENDPROC       L?0047
+  -------         PROC          _LCD_GOTOXY
+  D:0007H         SYMBOL        x
+  D:0005H         SYMBOL        y
+  -------         DO            
+  D:0002H         SYMBOL        address
+  -------         ENDDO         
+  C:093AH         LINE#         105
+  C:093AH         LINE#         107
+  C:0943H         LINE#         108
+  C:0947H         LINE#         109
+  C:094EH         LINE#         110
+  C:0953H         LINE#         111
+  -------         ENDPROC       _LCD_GOTOXY
+  -------         PROC          _LCD_PUTCHAR
+  D:0007H         SYMBOL        Data
+  C:0A6CH         LINE#         114
+  C:0A6CH         LINE#         115
+  C:0A6EH         LINE#         116
+  C:0A71H         LINE#         117
+  C:0A73H         LINE#         118
+  -------         ENDPROC       _LCD_PUTCHAR
+  -------         PROC          _LCD_PUTS
+  D:000BH         SYMBOL        s
+  C:095AH         LINE#         121
+  C:0960H         LINE#         122
+  C:096CH         LINE#         123
+  C:096FH         LINE#         124
+  C:097AH         LINE#         125
+  C:097CH         LINE#         126
+  -------         ENDPROC       _LCD_PUTS
+  -------         PROC          NGATPIR
+  C:0800H         LINE#         129
+  C:0819H         LINE#         130
+  C:081CH         LINE#         131
+  C:0823H         LINE#         132
+  C:0825H         LINE#         133
+  C:0829H         LINE#         134
+  C:0829H         LINE#         135
+  C:082CH         LINE#         136
+  C:082EH         LINE#         137
+  C:0832H         LINE#         138
+  C:0832H         LINE#         139
+BL51 BANKED LINKER/LOCATER V6.22                                                      03/07/2022  21:52:43  PAGE 6
+
+
+  C:0832H         LINE#         140
+  C:0835H         LINE#         141
+  C:083EH         LINE#         142
+  C:0845H         LINE#         143
+  C:084CH         LINE#         144
+  C:0855H         LINE#         145
+  C:085CH         LINE#         146
+  -------         ENDPROC       NGATPIR
+  -------         PROC          ANTOAN
+  C:097DH         LINE#         149
+  C:097DH         LINE#         150
+  C:0980H         LINE#         151
+  C:0987H         LINE#         152
+  C:0989H         LINE#         153
+  C:098DH         LINE#         154
+  C:098DH         LINE#         155
+  C:0990H         LINE#         156
+  C:0997H         LINE#         157
+  C:0999H         LINE#         158
+  C:099DH         LINE#         159
+  C:099DH         LINE#         160
+  -------         ENDPROC       ANTOAN
+  -------         PROC          MAIN
+  C:08FCH         LINE#         163
+  C:08FCH         LINE#         164
+  C:0902H         LINE#         165
+  C:0904H         LINE#         166
+  C:0907H         LINE#         167
+  C:0909H         LINE#         168
+  C:090CH         LINE#         169
+  C:090CH         LINE#         170
+  C:090FH         LINE#         171
+  C:090FH         LINE#         172
+  C:0912H         LINE#         173
+  C:091BH         LINE#         174
+  C:0922H         LINE#         175
+  C:092BH         LINE#         176
+  C:0932H         LINE#         177
+  -------         ENDPROC       MAIN
+  -------         ENDMOD        BACKUPMACHCANHBAOANNINH8051
+
+  -------         MODULE        ?C?CLDPTR
+  C:09F9H         PUBLIC        ?C?CLDPTR
+  -------         ENDMOD        ?C?CLDPTR
+
+*** WARNING L15: MULTIPLE CALL TO SEGMENT
+    SEGMENT: ?PR?_LCD_PUTS?BACKUPMACHCANHBAOANNINH8051
+    CALLER1: ?PR?NGATPIR?BACKUPMACHCANHBAOANNINH8051
+    CALLER2: ?C_C51STARTUP
+
+******************************************************************************
+* RESTRICTED VERSION WITH 0800H BYTE CODE SIZE LIMIT; USED: 0252H BYTE (29%) *
+******************************************************************************
+
+Program Size: data=15.0 xdata=0 code=634
+LINK/LOCATE RUN COMPLETE.  1 WARNING(S),  0 ERROR(S)

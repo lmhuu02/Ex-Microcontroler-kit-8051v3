@@ -1,0 +1,121 @@
+BL51 BANKED LINKER/LOCATER V6.22                                                        02/11/2022  10:46:00  PAGE 1
+
+
+BL51 BANKED LINKER/LOCATER V6.22, INVOKED BY:
+C:\KEIL\C51\BIN\BL51.EXE led7ThanhTu00Den99Ic74ls47.obj TO led7ThanhTu00Den99Ic74ls47 RAMSIZE (256)
+
+
+MEMORY MODEL: SMALL
+
+
+INPUT MODULES INCLUDED:
+  led7ThanhTu00Den99Ic74ls47.obj (LED7THANHTU00DEN99IC74LS47)
+  C:\KEIL\C51\LIB\C51S.LIB (?C_STARTUP)
+  C:\KEIL\C51\LIB\C51S.LIB (?C?SIDIV)
+  C:\KEIL\C51\LIB\C51S.LIB (?C_INIT)
+  C:\KEIL\C51\LIB\C51S.LIB (?C?UIDIV)
+
+
+LINK MAP OF MODULE:  led7ThanhTu00Den99Ic74ls47 (LED7THANHTU00DEN99IC74LS47)
+
+
+            TYPE    BASE      LENGTH    RELOCATION   SEGMENT NAME
+            -----------------------------------------------------
+
+            * * * * * * *   D A T A   M E M O R Y   * * * * * * *
+            REG     0000H     0008H     ABSOLUTE     "REG BANK 0"
+            DATA    0008H     001CH     UNIT         ?DT?LED7THANHTU00DEN99IC74LS47
+            IDATA   0024H     0001H     UNIT         ?STACK
+
+            * * * * * * *   C O D E   M E M O R Y   * * * * * * *
+            CODE    0000H     0003H     ABSOLUTE     
+                    0003H     07FDH                  *** GAP ***
+            CODE    0800H     008CH     UNIT         ?C_C51STARTUP
+            CODE    088CH     008BH     UNIT         ?C?LIB_CODE
+            CODE    0917H     006EH     UNIT         ?PR?MAIN?LED7THANHTU00DEN99IC74LS47
+            CODE    0985H     0019H     UNIT         ?PR?_DELAY?LED7THANHTU00DEN99IC74LS47
+            CODE    099EH     0017H     UNIT         ?C_INITSEG
+
+
+
+OVERLAY MAP OF MODULE:   led7ThanhTu00Den99Ic74ls47 (LED7THANHTU00DEN99IC74LS47)
+
+
+SEGMENT
+  +--> CALLED SEGMENT
+---------------------
+?C_C51STARTUP
+  +--> ?PR?MAIN?LED7THANHTU00DEN99IC74LS47
+  +--> ?C_INITSEG
+
+?PR?MAIN?LED7THANHTU00DEN99IC74LS47
+  +--> ?PR?_DELAY?LED7THANHTU00DEN99IC74LS47
+
+
+
+SYMBOL TABLE OF MODULE:  led7ThanhTu00Den99Ic74ls47 (LED7THANHTU00DEN99IC74LS47)
+
+  VALUE           TYPE          NAME
+  ----------------------------------
+
+  -------         MODULE        LED7THANHTU00DEN99IC74LS47
+BL51 BANKED LINKER/LOCATER V6.22                                                      02/11/2022  10:46:00  PAGE 2
+
+
+  C:0000H         SYMBOL        _ICE_DUMMY_
+  D:00A0H         PUBLIC        P2
+  D:0008H         PUBLIC        donVi
+  C:0992H         PUBLIC        _delay
+  B:00B0H.0       PUBLIC        P3_0
+  B:00B0H.1       PUBLIC        P3_1
+  D:000AH         PUBLIC        chuc
+  C:0917H         PUBLIC        main
+  D:000CH         PUBLIC        so
+  D:0020H         PUBLIC        i
+  D:0022H         PUBLIC        j
+  -------         PROC          L?0016
+  -------         ENDPROC       L?0016
+  -------         PROC          _DELAY
+  D:0006H         SYMBOL        time
+  C:0992H         LINE#         18
+  C:0992H         LINE#         19
+  C:0996H         LINE#         20
+  C:099BH         LINE#         21
+  C:099DH         LINE#         22
+  -------         ENDPROC       _DELAY
+  -------         PROC          MAIN
+  C:0917H         LINE#         25
+  C:0917H         LINE#         26
+  C:091BH         LINE#         27
+  C:091BH         LINE#         30
+  C:0920H         LINE#         32
+  C:092FH         LINE#         33
+  C:093EH         LINE#         35
+  C:0943H         LINE#         36
+  C:0945H         LINE#         37
+  C:0947H         LINE#         38
+  C:094AH         LINE#         39
+  C:094CH         LINE#         41
+  C:094EH         LINE#         42
+  C:0950H         LINE#         43
+  C:0953H         LINE#         44
+  C:0955H         LINE#         45
+  C:095CH         LINE#         46
+  C:096FH         LINE#         49
+  -------         ENDPROC       MAIN
+  -------         ENDMOD        LED7THANHTU00DEN99IC74LS47
+
+  -------         MODULE        ?C?SIDIV
+  C:088CH         PUBLIC        ?C?SIDIV
+  -------         ENDMOD        ?C?SIDIV
+
+  -------         MODULE        ?C?UIDIV
+  C:08C2H         PUBLIC        ?C?UIDIV
+  -------         ENDMOD        ?C?UIDIV
+
+******************************************************************************
+* RESTRICTED VERSION WITH 0800H BYTE CODE SIZE LIMIT; USED: 009DH BYTE ( 7%) *
+******************************************************************************
+
+Program Size: data=37.0 xdata=0 code=440
+LINK/LOCATE RUN COMPLETE.  0 WARNING(S),  0 ERROR(S)

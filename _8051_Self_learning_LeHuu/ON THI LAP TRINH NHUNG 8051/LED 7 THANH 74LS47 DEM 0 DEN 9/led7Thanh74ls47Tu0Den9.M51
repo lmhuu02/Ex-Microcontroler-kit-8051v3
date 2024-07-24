@@ -1,0 +1,133 @@
+BL51 BANKED LINKER/LOCATER V6.22                                                        05/18/2022  23:11:49  PAGE 1
+
+
+BL51 BANKED LINKER/LOCATER V6.22, INVOKED BY:
+C:\KEIL\C51\BIN\BL51.EXE led7Thanh74ls47Tu0Den9.obj TO led7Thanh74ls47Tu0Den9 RAMSIZE (256)
+
+
+MEMORY MODEL: SMALL
+
+
+INPUT MODULES INCLUDED:
+  led7Thanh74ls47Tu0Den9.obj (LED7THANH74LS47TU0DEN9)
+  C:\KEIL\C51\LIB\C51S.LIB (?C_STARTUP)
+  C:\KEIL\C51\LIB\C51S.LIB (?C?SIDIV)
+  C:\KEIL\C51\LIB\C51S.LIB (?C_INIT)
+  C:\KEIL\C51\LIB\C51S.LIB (?C?UIDIV)
+
+
+LINK MAP OF MODULE:  led7Thanh74ls47Tu0Den9 (LED7THANH74LS47TU0DEN9)
+
+
+            TYPE    BASE      LENGTH    RELOCATION   SEGMENT NAME
+            -----------------------------------------------------
+
+            * * * * * * *   D A T A   M E M O R Y   * * * * * * *
+            REG     0000H     0008H     ABSOLUTE     "REG BANK 0"
+            DATA    0008H     000AH     UNIT         ?DT?LED7THANH74LS47TU0DEN9
+            IDATA   0012H     0001H     UNIT         ?STACK
+
+            * * * * * * *   C O D E   M E M O R Y   * * * * * * *
+            CODE    0000H     0003H     ABSOLUTE     
+            CODE    0003H     008CH     UNIT         ?C_C51STARTUP
+            CODE    008FH     008BH     UNIT         ?C?LIB_CODE
+            CODE    011AH     0023H     UNIT         ?PR?DEMLETIEN?LED7THANH74LS47TU0DEN9
+            CODE    013DH     0022H     UNIT         ?PR?DEMLELUI?LED7THANH74LS47TU0DEN9
+            CODE    015FH     0016H     UNIT         ?PR?_DELAY?LED7THANH74LS47TU0DEN9
+            CODE    0175H     000DH     UNIT         ?C_INITSEG
+            CODE    0182H     0008H     UNIT         ?PR?MAIN?LED7THANH74LS47TU0DEN9
+
+
+
+OVERLAY MAP OF MODULE:   led7Thanh74ls47Tu0Den9 (LED7THANH74LS47TU0DEN9)
+
+
+SEGMENT
+  +--> CALLED SEGMENT
+---------------------
+?C_C51STARTUP
+  +--> ?PR?MAIN?LED7THANH74LS47TU0DEN9
+  +--> ?C_INITSEG
+
+?PR?MAIN?LED7THANH74LS47TU0DEN9
+  +--> ?PR?DEMLELUI?LED7THANH74LS47TU0DEN9
+  +--> ?PR?DEMLETIEN?LED7THANH74LS47TU0DEN9
+
+?PR?DEMLELUI?LED7THANH74LS47TU0DEN9
+  +--> ?PR?_DELAY?LED7THANH74LS47TU0DEN9
+
+?PR?DEMLETIEN?LED7THANH74LS47TU0DEN9
+  +--> ?PR?_DELAY?LED7THANH74LS47TU0DEN9
+
+BL51 BANKED LINKER/LOCATER V6.22                                                      05/18/2022  23:11:49  PAGE 2
+
+
+
+
+SYMBOL TABLE OF MODULE:  led7Thanh74ls47Tu0Den9 (LED7THANH74LS47TU0DEN9)
+
+  VALUE           TYPE          NAME
+  ----------------------------------
+
+  -------         MODULE        LED7THANH74LS47TU0DEN9
+  C:0000H         SYMBOL        _ICE_DUMMY_
+  D:00A0H         PUBLIC        P2
+  C:016AH         PUBLIC        _delay
+  C:013DH         PUBLIC        demLeLui
+  C:0182H         PUBLIC        main
+  D:0008H         PUBLIC        so
+  C:011AH         PUBLIC        demLeTien
+  -------         PROC          L?0020
+  -------         ENDPROC       L?0020
+  -------         PROC          _DELAY
+  D:0006H         SYMBOL        time
+  C:016AH         LINE#         9
+  C:016AH         LINE#         10
+  C:0174H         LINE#         11
+  -------         ENDPROC       _DELAY
+  -------         PROC          DEMLELUI
+  -------         DO            
+  D:0002H         SYMBOL        i
+  -------         ENDDO         
+  C:013DH         LINE#         12
+  C:013DH         LINE#         14
+  C:0141H         LINE#         15
+  C:0152H         LINE#         16
+  C:0155H         LINE#         17
+  C:0155H         LINE#         18
+  C:015EH         LINE#         19
+  -------         ENDPROC       DEMLELUI
+  -------         PROC          DEMLETIEN
+  -------         DO            
+  D:0002H         SYMBOL        i
+  -------         ENDDO         
+  C:011AH         LINE#         20
+  C:011AH         LINE#         22
+  C:011DH         LINE#         23
+  C:012EH         LINE#         24
+  C:0131H         LINE#         25
+  C:0131H         LINE#         26
+  C:013CH         LINE#         27
+  -------         ENDPROC       DEMLETIEN
+  -------         PROC          MAIN
+  C:0182H         LINE#         28
+  C:0182H         LINE#         30
+  C:0182H         LINE#         31
+  C:0185H         LINE#         32
+  C:0188H         LINE#         33
+  -------         ENDPROC       MAIN
+  -------         ENDMOD        LED7THANH74LS47TU0DEN9
+
+  -------         MODULE        ?C?SIDIV
+BL51 BANKED LINKER/LOCATER V6.22                                                      05/18/2022  23:11:49  PAGE 3
+
+
+  C:008FH         PUBLIC        ?C?SIDIV
+  -------         ENDMOD        ?C?SIDIV
+
+  -------         MODULE        ?C?UIDIV
+  C:00C5H         PUBLIC        ?C?UIDIV
+  -------         ENDMOD        ?C?UIDIV
+
+Program Size: data=19.0 xdata=0 code=394
+LINK/LOCATE RUN COMPLETE.  0 WARNING(S),  0 ERROR(S)

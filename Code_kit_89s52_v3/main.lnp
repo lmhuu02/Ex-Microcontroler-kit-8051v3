@@ -1,0 +1,13 @@
+"main.obj",
+"delay.obj",
+"ds18b20.obj",
+"lcd1602.obj",
+"mtp4x4.obj",
+"uart.obj",
+"key.obj",
+"ds1307.obj",
+"24c08.obj",
+"PCF8591.obj",
+"timer.obj" 
+TO "main" 
+RAMSIZE(256) 

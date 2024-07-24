@@ -1,0 +1,3 @@
+".\Objects\bai5_glcd_128x64.obj" 
+TO ".\Objects\bai5_glcd_128x64" 
+PRINT(".\Listings\bai5_glcd_128x64.m51")

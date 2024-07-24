@@ -1,0 +1,108 @@
+BL51 BANKED LINKER/LOCATER V6.22                                                        02/18/2022  06:25:17  PAGE 1
+
+
+BL51 BANKED LINKER/LOCATER V6.22, INVOKED BY:
+C:\KEIL\C51\BIN\BL51.EXE demSNT00To99.obj TO demSNT00To99 RAMSIZE (256)
+
+
+MEMORY MODEL: SMALL
+
+
+INPUT MODULES INCLUDED:
+  demSNT00To99.obj (DEMSNT00TO99)
+  C:\KEIL\C51\LIB\C51S.LIB (?C_STARTUP)
+  C:\KEIL\C51\LIB\C51S.LIB (?C?SIDIV)
+  C:\KEIL\C51\LIB\C51S.LIB (?C_INIT)
+  C:\KEIL\C51\LIB\C51S.LIB (?C?UIDIV)
+
+
+LINK MAP OF MODULE:  demSNT00To99 (DEMSNT00TO99)
+
+
+            TYPE    BASE      LENGTH    RELOCATION   SEGMENT NAME
+            -----------------------------------------------------
+
+            * * * * * * *   D A T A   M E M O R Y   * * * * * * *
+            REG     0000H     0008H     ABSOLUTE     "REG BANK 0"
+            DATA    0008H     0014H     UNIT         ?DT?DEMSNT00TO99
+            DATA    001CH     0002H     UNIT         _DATA_GROUP_
+            IDATA   001EH     0001H     UNIT         ?STACK
+
+            * * * * * * *   C O D E   M E M O R Y   * * * * * * *
+            CODE    0000H     0003H     ABSOLUTE     
+                    0003H     07FDH                  *** GAP ***
+            CODE    0800H     008CH     UNIT         ?C_C51STARTUP
+            CODE    088CH     008BH     UNIT         ?C?LIB_CODE
+            CODE    0917H     0045H     UNIT         ?PR?MAIN?DEMSNT00TO99
+            CODE    095CH     0019H     UNIT         ?C_INITSEG
+            CODE    0975H     000BH     UNIT         ?PR?_DELAY?DEMSNT00TO99
+
+
+
+OVERLAY MAP OF MODULE:   demSNT00To99 (DEMSNT00TO99)
+
+
+SEGMENT                           DATA_GROUP 
+  +--> CALLED SEGMENT           START    LENGTH
+-----------------------------------------------
+?C_C51STARTUP                   -----    -----
+  +--> ?PR?MAIN?DEMSNT00TO99
+  +--> ?C_INITSEG
+
+?PR?MAIN?DEMSNT00TO99           001CH    0002H
+  +--> ?PR?_DELAY?DEMSNT00TO99
+
+
+
+SYMBOL TABLE OF MODULE:  demSNT00To99 (DEMSNT00TO99)
+
+  VALUE           TYPE          NAME
+  ----------------------------------
+
+BL51 BANKED LINKER/LOCATER V6.22                                                      02/18/2022  06:25:17  PAGE 2
+
+
+  -------         MODULE        DEMSNT00TO99
+  C:0000H         SYMBOL        _ICE_DUMMY_
+  D:00A0H         PUBLIC        P2
+  D:0008H         PUBLIC        Chuc
+  C:0975H         PUBLIC        _delay
+  C:0917H         PUBLIC        main
+  D:0012H         PUBLIC        DonVi
+  -------         PROC          _DELAY
+  D:0006H         SYMBOL        time
+  C:0975H         LINE#         6
+  C:0975H         LINE#         7
+  C:097FH         LINE#         8
+  -------         ENDPROC       _DELAY
+  -------         PROC          MAIN
+  -------         DO            
+  D:0002H         SYMBOL        i
+  D:001CH         SYMBOL        ch
+  D:0082H         SYMBOL        dv
+  -------         ENDDO         
+  C:0917H         LINE#         9
+  C:0917H         LINE#         11
+  C:0917H         LINE#         13
+  C:091AH         LINE#         14
+  C:091AH         LINE#         15
+  C:0929H         LINE#         16
+  C:0938H         LINE#         17
+  C:094FH         LINE#         18
+  -------         ENDPROC       MAIN
+  -------         ENDMOD        DEMSNT00TO99
+
+  -------         MODULE        ?C?SIDIV
+  C:088CH         PUBLIC        ?C?SIDIV
+  -------         ENDMOD        ?C?SIDIV
+
+  -------         MODULE        ?C?UIDIV
+  C:08C2H         PUBLIC        ?C?UIDIV
+  -------         ENDMOD        ?C?UIDIV
+
+******************************************************************************
+* RESTRICTED VERSION WITH 0800H BYTE CODE SIZE LIMIT; USED: 0068H BYTE ( 5%) *
+******************************************************************************
+
+Program Size: data=31.0 xdata=0 code=387
+LINK/LOCATE RUN COMPLETE.  0 WARNING(S),  0 ERROR(S)

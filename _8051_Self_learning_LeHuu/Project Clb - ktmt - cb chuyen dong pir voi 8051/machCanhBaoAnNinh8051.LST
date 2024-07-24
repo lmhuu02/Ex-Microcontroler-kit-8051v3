@@ -1,0 +1,208 @@
+C51 COMPILER V9.52.0.0   MACHCANHBAOANNINH8051                                             03/06/2022 03:04:20 PAGE 1   
+
+
+C51 COMPILER V9.52.0.0, COMPILATION OF MODULE MACHCANHBAOANNINH8051
+OBJECT MODULE PLACED IN machCanhBaoAnNinh8051.OBJ
+COMPILER INVOKED BY: C:\Keil\C51\BIN\C51.EXE machCanhBaoAnNinh8051.c BROWSE DEBUG OBJECTEXTEND TABS(2)
+
+line level    source
+
+   1          //POWER BY LE MINH HUU 1/3/2022 
+   2          //Project KT VXL ung dung - nhom CLB Dien Tu: Le Minh Huu, Le Thanh Lam, Duong Van Nam
+   3          //Project mach canh bao an ninh dung 8051
+   4          
+   5          #include <REGX52.H>
+   6          #include <stdio.h>  //lay ham chuyen doi number sang string
+   7          
+   8          // gan chan lcd
+   9          #define lcd_rs P0_0
+  10          #define lcd_rw P0_1
+  11          #define lcd_en P0_2
+  12          #define lcd_d4 P0_4
+  13          #define lcd_d5 P0_5
+  14          #define lcd_d6 P0_6
+  15          #define lcd_d7 P0_7
+  16          
+  17          //khai bao chan chuc nang
+  18          sbit nut = P2^3;
+  19          sbit led_green = P2^4;  //led bao trang thai an toan
+  20          sbit led_red = P2^5;  //led bao trang thai xam nhap
+  21          sbit led_white = P2^6;  //led bao he thong hoat dong
+  22          //sbit led_blink = P2^2;  //led nhap nhay khi canh bao bat
+  23          sbit buzzer = P2^1;     //chan noi voi coi chip
+  24          sbit input_data = P3^2;  //chan tin hieu vao tu pir rs 505
+  25          bit button_state;   
+  26          
+  27          //timer delay 
+  28          void delay_timer(int timer){
+  29   1        while(timer--){
+  30   2          TMOD = 0x01;  //timer 0 che do 1
+  31   2          TH0 = 0xfc;
+  32   2          TL0 = 0x18;
+  33   2          TR0 = 1;
+  34   2          while(!TF0);
+  35   2          TR0 = 0;
+  36   2          TF0 = 0;
+  37   2        }
+  38   1      }
+  39          
+  40          //ham delay us
+  41          void delay_us(unsigned int time){
+  42   1        unsigned int i;
+  43   1        for(i = 0; i < time; i++);
+  44   1      }
+  45          //ham delay ms
+  46          void delay_ms(unsigned int time){
+  47   1        unsigned int i,j;
+  48   1        for(i = 0; i  < time; i ++)
+  49   1          for(j = 0; j < 125; j ++);
+  50   1      }
+  51          //giao tiep lcd 4 bit . gui xung kich hoat lcd
+  52          void lcd_enable(void){
+  53   1        lcd_en = 1;
+  54   1        delay_us(3);
+  55   1        lcd_en = 0;
+C51 COMPILER V9.52.0.0   MACHCANHBAOANNINH8051                                             03/06/2022 03:04:20 PAGE 2   
+
+  56   1        delay_us(50);
+  57   1      }
+  58          
+  59          //Ham Gui 4 Bit Du Lieu Ra LCD
+  60          void LCD_Send4Bit(unsigned char Data){
+  61   1        lcd_d4=Data & 0x01;
+  62   1        lcd_d5=(Data>>1)&1;
+  63   1        lcd_d6=(Data>>2)&1;
+  64   1        lcd_d7=(Data>>3)&1;
+  65   1        }
+  66          
+  67          
+  68          //ham gui lenh cho lcd  che do 4 bit
+  69          void lcd_sendCommand(unsigned char command){
+  70   1        LCD_Send4Bit(command >>4);  //gui 4 bit cao
+  71   1        lcd_enable();
+  72   1        LCD_Send4Bit(command);//gui 4 bit du lieu thap. khong can dich 4 bit
+  73   1        lcd_enable();
+  74   1      }
+  75          //ham xoa man hinh lcd
+  76          void lcd_clear(){
+  77   1        lcd_sendCommand(0x01);  //0x01 lenh xoa man hinh lcd
+  78   1        delay_us(10);
+  79   1      }
+  80          //ham khoi tao lcd
+  81          void lcd_init(){
+  82   1        LCD_Send4Bit(0x00); //bat lcd
+  83   1        delay_ms(20);
+  84   1        lcd_rs = 0;
+  85   1        lcd_rw = 0;
+  86   1        LCD_Send4Bit(0x03); //function setting
+  87   1        lcd_enable();
+  88   1        delay_ms(5);
+  89   1        lcd_enable();
+  90   1        delay_us(100);
+  91   1        lcd_enable();
+  92   1        LCD_Send4Bit(0x02); //di chuyen con tro ve dau dong 
+  93   1        lcd_enable();
+  94   1        lcd_sendCommand(0x28);  //che do 4 bit
+  95   1        lcd_sendCommand(0x0c);  //bat hien thi va tat con tro
+  96   1        lcd_sendCommand(0x06);
+  97   1        lcd_sendCommand(0x01);
+  98   1      }
+  99          //ham toa do lcd
+ 100          void lcd_gotoxy(unsigned char x, unsigned char y){
+ 101   1        unsigned char address;
+ 102   1        if(!y) address = (0x80 + x);
+ 103   1        else  address = (0xc0 + x);
+ 104   1        delay_us(1000);
+ 105   1        lcd_sendCommand(address);
+ 106   1        delay_us(50);
+ 107   1      }
+ 108          //ham viet mot ky tu len lcd
+ 109          void lcd_putChar(unsigned char Data){
+ 110   1        lcd_rs = 1;
+ 111   1        lcd_sendCommand(Data);
+ 112   1        lcd_rs = 0;
+ 113   1      }
+ 114            
+ 115          //ham viet mot chuoi ky tu len lcd
+ 116          void lcd_puts(char *s){
+ 117   1        while(*s){
+C51 COMPILER V9.52.0.0   MACHCANHBAOANNINH8051                                             03/06/2022 03:04:20 PAGE 3   
+
+ 118   2          lcd_putChar(*s);
+ 119   2          s++;
+ 120   2        }
+ 121   1      }
+ 122          
+ 123          //ham ngat khi co tin hieu pir
+ 124          void ngatPir(void) interrupt 2{ //ngat ngoai 1
+ 125   1        led_green = 1;
+ 126   1        led_red = led_green  = buzzer =  0;
+ 127   1      
+ 128   1        lcd_clear();
+ 129   1        lcd_gotoxy(0,0);
+ 130   1        lcd_puts(" -- WARINGING --");
+ 131   1        delay_us(30000);
+ 132   1        lcd_gotoxy(0,1);
+ 133   1        lcd_puts("   BI XAM NHAP ! ");
+ 134   1        delay_us(30000);
+ 135   1      }
+ 136          
+ 137          /*
+ 138          -ham main luon  cho led green va yellow sang, lcd hien thi he thong an toan
+ 139          tat led red coi buzzer
+ 140          - khi co ngat tai chan p3.2 thi thuc hien tat led green va bat led red coi buzzer
+ 141          hien thi len chu canh bao xam nhap
+ 142          */
+ 143          
+ 144          //ham main chinh
+ 145          void main(){
+ 146   1        led_red = led_green  = buzzer =  1; //khoi tao tat cac chan
+ 147   1        led_white = 0;  //khoii tao bat led
+ 148   1        //khoi tao ngat ngoai 1
+ 149   1        IE = 0x84;  //1 0 0 0   0 1 0 0
+ 150   1        IT1 = 0;  //ngat ngoai 1 chan p3.3 INT1 ngat theo suon di xuong thi it = 0, theo muc it = 1
+ 151   1        //khoi tao giao tiep lcd
+ 152   1        lcd_init();
+ 153   1        input_data = 1; //gan chan tin hieu ban dau = 1
+ 154   1        
+ 155   1        /*
+ 156   1        delay_ms(20);
+ 157   1        lcd_puts("hello");
+ 158   1        delay_ms(1000);
+ 159   1        lcd_clear();
+ 160   1        lcd_gotoxy(0,0);
+ 161   1        lcd_puts("LINUX EMBEDDED");
+ 162   1        delay_ms(3000);
+ 163   1        lcd_gotoxy(0,1);
+ 164   1        lcd_puts("TAP TRUNG VAO");
+ 165   1        */
+ 166   1      
+ 167   1        while(1){
+ 168   2          led_green = 0;
+ 169   2          led_red = led_green  = buzzer =  1;
+ 170   2          lcd_clear();
+ 171   2          //delay_ms(1000);
+ 172   2          lcd_gotoxy(0,0);
+ 173   2          lcd_puts("NGAY MOI VUI VE");
+ 174   2          //delay_timer(1000);
+ 175   2          lcd_gotoxy(0,1);
+ 176   2          lcd_puts("HE THONG AN TOAN");
+ 177   2          delay_timer(1000);
+ 178   2        }
+ 179   1      }
+C51 COMPILER V9.52.0.0   MACHCANHBAOANNINH8051                                             03/06/2022 03:04:20 PAGE 4   
+
+
+
+MODULE INFORMATION:   STATIC OVERLAYABLE
+   CODE SIZE        =    469    ----
+   CONSTANT SIZE    =     68    ----
+   XDATA SIZE       =   ----    ----
+   PDATA SIZE       =   ----    ----
+   DATA SIZE        =   ----       3
+   IDATA SIZE       =   ----    ----
+   BIT SIZE         =      1    ----
+END OF MODULE INFORMATION.
+
+
+C51 COMPILATION COMPLETE.  0 WARNING(S),  0 ERROR(S)

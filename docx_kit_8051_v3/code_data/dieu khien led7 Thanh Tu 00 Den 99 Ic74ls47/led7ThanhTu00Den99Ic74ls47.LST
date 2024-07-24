@@ -1,0 +1,76 @@
+C51 COMPILER V9.52.0.0   LED7THANHTU00DEN99IC74LS47                                        02/11/2022 10:46:00 PAGE 1   
+
+
+C51 COMPILER V9.52.0.0, COMPILATION OF MODULE LED7THANHTU00DEN99IC74LS47
+OBJECT MODULE PLACED IN led7ThanhTu00Den99Ic74ls47.OBJ
+COMPILER INVOKED BY: C:\Keil\C51\BIN\C51.EXE led7ThanhTu00Den99Ic74ls47.c BROWSE DEBUG OBJECTEXTEND TABS(2)
+
+line level    source
+
+   1          //POWER BY LE MINH HUU - 10/2/2022 @copyright
+   2          #include <REGX52.H>
+   3          
+   4          #define led1  P3_0
+   5          #define led2  P3_1
+   6          
+   7          #define sang 0
+   8          #define tat 1
+   9          
+  10          //led 7 thanh chung annot, quet 2 led 7 thanh bang cach: sang lan luot hang chuc va don vi
+  11          //dieu kien chan chung annot va phuong phap chia lay du va lay nguyen de xac dinh hang chuc va hang don vi
+  12          //vd so = 78 --> chuc = so / 10 = 7; donvi = so % 10 = 8 ;
+  13          
+  14          //char so[] = {0x40, 0x79, 0x24, 0x30, 0x19, 0x12, 0x02, 0x78, 0x00, 0x10};
+  15          so[]={0x00,0x01,0x02,0x03,0x04,0x05,0x06,0x07,0x08,0x09};
+  16          int i, j, chuc, donVi;
+  17          
+  18          void delay(int time){
+  19   1        while(time){
+  20   2          time--;
+  21   2        }
+  22   1      }
+  23          
+  24          //POWER BY LE MINH HUU - 10/2/2022 @copyright
+  25          void main(){
+  26   1        led1 = led2 = tat;
+  27   1        while(1){
+  28   2          //led1 = sang; P2 = 0xf9; delay(10000);
+  29   2          //cho so chay tu 0 den 99
+  30   2          for(i = 0; i <= 99; i ++){
+  31   3            // tinh so hang chuc va hang don vi
+  32   3            chuc = i /10;
+  33   3            donVi = i % 10;
+  34   3            //vong for nay co tac dung hien thi j lan cho tung so, lam cho nhin ro hon
+  35   3              for(j = 0; j < 20; j++){
+  36   4                led1 = sang;  //cho led1 sang 
+  37   4                P2 = so[chuc];      //sang dung so ma hang chuc da chia o tren
+  38   4                delay(5000);  //delay 1 khoang de mat nhin thay roi chuyen trang thai tat
+  39   4                led1 = tat;
+  40   4      
+  41   4                led2 = sang;  //cho led 2 sang
+  42   4                P2 = so[ donVi];
+  43   4                delay(5000);  //delay 1 khoang de mat nhin thay roi chuyen trang thai tat
+  44   4                led2 = tat;
+  45   4                delay(1000);
+  46   4              } 
+  47   3              //POWER BY LE MINH HUU - 10/2/2022 @copyright
+  48   3            // lap lai cho den 99 roi lai quay lai
+  49   3          }
+  50   2        }
+  51   1      }
+
+
+MODULE INFORMATION:   STATIC OVERLAYABLE
+   CODE SIZE        =    135    ----
+C51 COMPILER V9.52.0.0   LED7THANHTU00DEN99IC74LS47                                        02/11/2022 10:46:00 PAGE 2   
+
+   CONSTANT SIZE    =   ----    ----
+   XDATA SIZE       =   ----    ----
+   PDATA SIZE       =   ----    ----
+   DATA SIZE        =     28    ----
+   IDATA SIZE       =   ----    ----
+   BIT SIZE         =   ----    ----
+END OF MODULE INFORMATION.
+
+
+C51 COMPILATION COMPLETE.  0 WARNING(S),  0 ERROR(S)

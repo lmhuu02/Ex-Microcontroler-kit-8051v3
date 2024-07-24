@@ -1,0 +1,45 @@
+C51 COMPILER V9.52.0.0   DIEUKHIENLED7THANH                                                02/10/2022 03:39:59 PAGE 1   
+
+
+C51 COMPILER V9.52.0.0, COMPILATION OF MODULE DIEUKHIENLED7THANH
+OBJECT MODULE PLACED IN dieuKhienLed7Thanh.OBJ
+COMPILER INVOKED BY: C:\Keil\C51\BIN\C51.EXE dieuKhienLed7Thanh.c BROWSE DEBUG OBJECTEXTEND TABS(2)
+
+line level    source
+
+   1          #include <REGX52.H>
+   2          
+   3          #define sang 0;
+   4          #define tat 1;
+   5          
+   6          //led 7 thanh chung annot
+   7          char so[] = {0x40, 0x79, 0x24, 0x30, 0x19, 0x12, 0x02, 0x78, 0x00, 0x10};
+   8          int i;
+   9          
+  10          void delay(int time){
+  11   1        while(time--);
+  12   1      }
+  13          
+  14          void main(){
+  15   1        P2 = tat;
+  16   1        while(1){
+  17   2          for(i = 0; i < 10; i++){
+  18   3            P2 = so[i]; 
+  19   3            delay(100000);
+  20   3          }
+  21   2        }
+  22   1      }
+
+
+MODULE INFORMATION:   STATIC OVERLAYABLE
+   CODE SIZE        =     55    ----
+   CONSTANT SIZE    =   ----    ----
+   XDATA SIZE       =   ----    ----
+   PDATA SIZE       =   ----    ----
+   DATA SIZE        =     12    ----
+   IDATA SIZE       =   ----    ----
+   BIT SIZE         =   ----    ----
+END OF MODULE INFORMATION.
+
+
+C51 COMPILATION COMPLETE.  0 WARNING(S),  0 ERROR(S)

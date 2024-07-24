@@ -1,0 +1,18 @@
+<html>
+<body>
+<pre>
+<h1>µVision Build Log</h1>
+<h2>Project:</h2>
+D:\HOC TAP-  NAM 2  ( 2021 - 2022)\Lap_trinh_nhung_co_ban_8051\Bai tap code and project\dieu khien LCD 16x2\hienThiLcd16x2.uvproj
+Project File Date:  02/18/2022
+
+<h2>Output:</h2>
+Rebuild target 'Target 1'
+compiling hienThiLcd16x2.c...
+hienThiLcd16x2.c(17): warning C280: 't': unreferenced local variable
+linking...
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?_DELAY?HIENTHILCD16X2
+Program Size: data=12.0 xdata=0 code=589
+creating hex file from "hienThiLcd16x2"...
+"hienThiLcd16x2" - 0 Error(s), 2 Warning(s).

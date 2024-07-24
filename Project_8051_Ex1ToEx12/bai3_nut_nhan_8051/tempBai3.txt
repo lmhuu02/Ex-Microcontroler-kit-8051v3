@@ -1,0 +1,44 @@
+//POWER BY LE MINH HUU - 24/2/2022 @Copyright
+
+#include <REGX52.H>
+
+#define sang 0
+#define tat 1
+
+#define led1 P2_0
+#define led2 P2_1
+
+int i, j, chuc, donVi;
+char so[] = {0x40, 0x79, 0x24, 0x30, 0x19, 0x12, 0x02, 0x78, 0x00, 0x10};
+
+void delay(int time){
+	while(time--);
+}
+//thuc hien dem lan luot tu 00 den 99
+void dem00Toi99(unsigned int i){
+		//xac dinh so hang chuc va hang don vi
+				chuc = i /10;
+				donVi = i % 10;
+				//thuc hien lap lai 1 so 10 lan
+					led2 = sang;
+					P0 = so[donVi];
+					delay(10000);
+					led2 = tat;
+								
+					led1 = sang;
+					P0 = so[ chuc];
+					delay(10000);
+					led1 = tat;
+	if(i == 100) i = 0;
+}
+void main(){
+	TMOD &= 0xf0;
+	TMOD |= 0x50;
+	TL1 = 0x00;
+	TH1 = 0x00;
+	P3_5 = 1;
+	TR1 = 1;
+	while(1){	
+		dem00Toi99(TL1);
+	}
+}

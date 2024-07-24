@@ -1,0 +1,10 @@
+VERSION:3 SOURCE_TIMESTAMP:41686C77
+NODE:I LEVEL:0 LINE:35 "D:\MINHHA\Code Test\Code  Test AVR V3\Code test AVR V3\Code  Test\ds1302\ds1302.h"
+NODE:F LEVEL:0 LINE:36 "DS1302_WriteByte(uint8_t Data)"
+NODE:F LEVEL:0 LINE:50 "DS1302_Write(uint8_t Addr,uint8_t Data)"
+NODE:F LEVEL:0 LINE:58 "DS1302_Read(uint8_t cmd)"
+NODE:F LEVEL:0 LINE:79 "DS1302_Init(void)"
+NODE:F LEVEL:0 LINE:92 "DS1302_SetTime(uint8_t hour,uint8_t minute,uint8_t second)"
+NODE:F LEVEL:0 LINE:98 "DS1302_SetDate(uint8_t day,uint8_t date,uint8_t month,uint8_t year)"
+NODE:F LEVEL:0 LINE:105 "DS1302_GetTime(uint8_t * hour,uint8_t * minute,uint8_t * second)"
+NODE:F LEVEL:0 LINE:111 "DS1302_GetDate(uint8_t * day,uint8_t * date,uint8_t * month,uint8_t * year)"

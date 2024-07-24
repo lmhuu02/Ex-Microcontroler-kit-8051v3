@@ -1,0 +1,12 @@
+# Writing all output to: D:\HOC TAP-  NAM 2  ( 2021 - 2022)\Ky_Thuat_vxl_Ung_Dung\Bai tap code and project\DE TAI TIEU LUAN MACH CANH BAO AN NINH\backupMachCanhBaoAnNinh8051.log
+set pad_wire_necking on
+bus diagonal
+fanout 5
+route 50
+clean 2
+route 50 16
+clean 2
+filter 5
+recorner diagonal
+status_file
+

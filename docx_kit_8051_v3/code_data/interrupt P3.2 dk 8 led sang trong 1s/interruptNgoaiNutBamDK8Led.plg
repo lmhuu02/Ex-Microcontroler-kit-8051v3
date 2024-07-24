@@ -1,0 +1,24 @@
+<html>
+<body>
+<pre>
+<h1>µVision Build Log</h1>
+<h2>Project:</h2>
+D:\HOC TAP-  NAM 2  ( 2021 - 2022)\Lap_trinh_nhung_co_ban_8051\Bai tap code and project\interrupt P3.2 dk 8 led sang trong 1s\interruptNgoaiNutBamDK8Led.uvproj
+Project File Date:  03/18/2022
+
+<h2>Output:</h2>
+Rebuild target 'Target 1'
+compiling interruptNgoaiNutBamDK8Led.c...
+linking...
+*** WARNING L10: CANNOT DETERMINE ROOT SEGMENT
+Program Size: data=0.0 xdata=0 code=0
+creating hex file from "interruptNgoaiNutBamDK8Led"...
+"interruptNgoaiNutBamDK8Led" - 0 Error(s), 1 Warning(s).
+Rebuild target 'Target 1'
+compiling interruptNgoaiNutBamDK8Led.c...
+linking...
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?_DELAY?INTERRUPTNGOAINUTBAMDK8LED
+Program Size: data=9.0 xdata=0 code=80
+creating hex file from "interruptNgoaiNutBamDK8Led"...
+"interruptNgoaiNutBamDK8Led" - 0 Error(s), 1 Warning(s).

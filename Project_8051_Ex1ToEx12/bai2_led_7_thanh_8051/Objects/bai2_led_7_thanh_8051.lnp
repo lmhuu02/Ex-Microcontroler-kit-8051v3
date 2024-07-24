@@ -1,0 +1,3 @@
+".\Objects\bai2_led_7_thanh_8051.obj" 
+TO ".\Objects\bai2_led_7_thanh_8051" 
+PRINT(".\Listings\bai2_led_7_thanh_8051.m51")

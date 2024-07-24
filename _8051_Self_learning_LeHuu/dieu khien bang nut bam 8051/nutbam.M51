@@ -1,0 +1,97 @@
+BL51 BANKED LINKER/LOCATER V6.22                                                        11/26/2021  20:53:21  PAGE 1
+
+
+BL51 BANKED LINKER/LOCATER V6.22, INVOKED BY:
+C:\KEIL\C51\BIN\BL51.EXE nutbam.obj TO nutbam RAMSIZE (256)
+
+
+MEMORY MODEL: SMALL
+
+
+INPUT MODULES INCLUDED:
+  nutbam.obj (NUTBAM)
+  C:\KEIL\C51\LIB\C51S.LIB (?C_STARTUP)
+
+
+LINK MAP OF MODULE:  nutbam (NUTBAM)
+
+
+            TYPE    BASE      LENGTH    RELOCATION   SEGMENT NAME
+            -----------------------------------------------------
+
+            * * * * * * *   D A T A   M E M O R Y   * * * * * * *
+            REG     0000H     0008H     ABSOLUTE     "REG BANK 0"
+            DATA    0008H     0002H     UNIT         ?DT?NUTBAM
+            IDATA   000AH     0001H     UNIT         ?STACK
+
+            * * * * * * *   C O D E   M E M O R Y   * * * * * * *
+            CODE    0000H     0003H     ABSOLUTE     
+                    0003H     07FDH                  *** GAP ***
+            CODE    0800H     0057H     UNIT         ?PR?MAIN?NUTBAM
+            CODE    0857H     000CH     UNIT         ?C_C51STARTUP
+            CODE    0863H     000BH     UNIT         ?PR?_DELAY?NUTBAM
+
+
+
+OVERLAY MAP OF MODULE:   nutbam (NUTBAM)
+
+
+SEGMENT
+  +--> CALLED SEGMENT
+---------------------
+?C_C51STARTUP
+  +--> ?PR?MAIN?NUTBAM
+
+?PR?MAIN?NUTBAM
+  +--> ?PR?_DELAY?NUTBAM
+
+
+
+SYMBOL TABLE OF MODULE:  nutbam (NUTBAM)
+
+  VALUE           TYPE          NAME
+  ----------------------------------
+
+  -------         MODULE        NUTBAM
+  C:0000H         SYMBOL        _ICE_DUMMY_
+  C:0863H         PUBLIC        _delay
+  B:0090H.1       PUBLIC        P1_1
+  B:0090H.5       PUBLIC        P1_5
+  B:0090H.6       PUBLIC        P1_6
+  B:0090H.7       PUBLIC        P1_7
+BL51 BANKED LINKER/LOCATER V6.22                                                      11/26/2021  20:53:21  PAGE 2
+
+
+  C:0800H         PUBLIC        main
+  D:0008H         PUBLIC        dem
+  -------         PROC          _DELAY
+  D:0006H         SYMBOL        time
+  C:0863H         LINE#         5
+  C:0863H         LINE#         6
+  C:086DH         LINE#         7
+  -------         ENDPROC       _DELAY
+  -------         PROC          MAIN
+  C:0800H         LINE#         9
+  C:0800H         LINE#         10
+  C:0804H         LINE#         12
+  C:0804H         LINE#         27
+  C:0807H         LINE#         28
+  C:080EH         LINE#         29
+  C:0819H         LINE#         30
+  C:082BH         LINE#         31
+  C:082BH         LINE#         32
+  C:0833H         LINE#         33
+  C:083DH         LINE#         34
+  C:0847H         LINE#         35
+  C:084FH         LINE#         36
+  C:0855H         LINE#         37
+  C:0855H         LINE#         39
+  -------         ENDPROC       MAIN
+  -------         ENDMOD        NUTBAM
+
+******************************************************************************
+* RESTRICTED VERSION WITH 0800H BYTE CODE SIZE LIMIT; USED: 0062H BYTE ( 4%) *
+******************************************************************************
+
+Program Size: data=11.0 xdata=0 code=113
+LINK/LOCATE RUN COMPLETE.  0 WARNING(S),  0 ERROR(S)

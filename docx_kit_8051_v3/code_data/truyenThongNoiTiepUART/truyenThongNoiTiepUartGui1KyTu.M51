@@ -1,0 +1,145 @@
+BL51 BANKED LINKER/LOCATER V6.22                                                        03/25/2022  07:57:23  PAGE 1
+
+
+BL51 BANKED LINKER/LOCATER V6.22, INVOKED BY:
+C:\KEIL\C51\BIN\BL51.EXE truyenThongNoiTiepUartGui1KyTu.obj TO truyenThongNoiTiepUartGui1KyTu RAMSIZE (256)
+
+
+MEMORY MODEL: SMALL
+
+
+INPUT MODULES INCLUDED:
+  truyenThongNoiTiepUartGui1KyTu.obj (TRUYENTHONGNOITIEPUARTGUI1KYTU)
+  C:\KEIL\C51\LIB\C51S.LIB (?C_STARTUP)
+  C:\KEIL\C51\LIB\C51S.LIB (?C?CLDPTR)
+  C:\KEIL\C51\LIB\C51S.LIB (?C?CLDOPTR)
+  C:\KEIL\C51\LIB\C51S.LIB (STRLEN)
+
+
+LINK MAP OF MODULE:  truyenThongNoiTiepUartGui1KyTu (TRUYENTHONGNOITIEPUARTGUI1KYTU)
+
+
+            TYPE    BASE      LENGTH    RELOCATION   SEGMENT NAME
+            -----------------------------------------------------
+
+            * * * * * * *   D A T A   M E M O R Y   * * * * * * *
+            REG     0000H     0008H     ABSOLUTE     "REG BANK 0"
+            DATA    0008H     0005H     UNIT         _DATA_GROUP_
+            IDATA   000DH     0001H     UNIT         ?STACK
+
+            * * * * * * *   C O D E   M E M O R Y   * * * * * * *
+            CODE    0000H     0003H     ABSOLUTE     
+            CODE    0003H     0046H     UNIT         ?C?LIB_CODE
+            CODE    0049H     0038H     UNIT         ?PR?_SEND_CHAR?TRUYENTHONGNOITIEPUARTGUI1KYTU
+            CODE    0081H     0019H     UNIT         ?PR?MAIN?TRUYENTHONGNOITIEPUARTGUI1KYTU
+            CODE    009AH     0015H     UNIT         ?PR?_STRLEN?STRLEN
+            CODE    00AFH     0013H     UNIT         ?PR?_SEND_CHAR1?TRUYENTHONGNOITIEPUARTGUI1KYTU
+            CODE    00C2H     0012H     UNIT         ?CO?TRUYENTHONGNOITIEPUARTGUI1KYTU
+            CODE    00D4H     000CH     UNIT         ?C_C51STARTUP
+            CODE    00E0H     0008H     UNIT         ?PR?_SEND_A?TRUYENTHONGNOITIEPUARTGUI1KYTU
+
+
+
+OVERLAY MAP OF MODULE:   truyenThongNoiTiepUartGui1KyTu (TRUYENTHONGNOITIEPUARTGUI1KYTU)
+
+
+SEGMENT                                            DATA_GROUP 
+  +--> CALLED SEGMENT                            START    LENGTH
+----------------------------------------------------------------
+?C_C51STARTUP                                    -----    -----
+  +--> ?PR?MAIN?TRUYENTHONGNOITIEPUARTGUI1KYTU
+
+?PR?MAIN?TRUYENTHONGNOITIEPUARTGUI1KYTU          -----    -----
+  +--> ?CO?TRUYENTHONGNOITIEPUARTGUI1KYTU
+  +--> ?PR?_SEND_CHAR?TRUYENTHONGNOITIEPUART...
+
+?PR?_SEND_CHAR?TRUYENTHONGNOITIEPUART...         0008H    0005H
+  +--> ?PR?_STRLEN?STRLEN
+  +--> ?PR?_SEND_A?TRUYENTHONGNOITIEPUARTGUI...
+
+
+
+BL51 BANKED LINKER/LOCATER V6.22                                                      03/25/2022  07:57:23  PAGE 2
+
+
+SYMBOL TABLE OF MODULE:  truyenThongNoiTiepUartGui1KyTu (TRUYENTHONGNOITIEPUARTGUI1KYTU)
+
+  VALUE           TYPE          NAME
+  ----------------------------------
+
+  -------         MODULE        TRUYENTHONGNOITIEPUARTGUI1KYTU
+  C:0000H         SYMBOL        _ICE_DUMMY_
+  B:0098H.1       PUBLIC        TI
+  C:0081H         PUBLIC        main
+  C:0049H         PUBLIC        _send_char
+  D:0099H         PUBLIC        SBUF
+  D:0098H         PUBLIC        SCON
+  D:0089H         PUBLIC        TMOD
+  D:008DH         PUBLIC        TH1
+  D:008BH         PUBLIC        TL1
+  B:0088H.6       PUBLIC        TR1
+  C:00AFH         PUBLIC        _send_char1
+  C:00E0H         PUBLIC        _send_a
+  -------         PROC          _SEND_A
+  D:0007H         SYMBOL        a
+  C:00E0H         LINE#         33
+  C:00E0H         LINE#         34
+  C:00E2H         LINE#         35
+  C:00E5H         LINE#         36
+  C:00E7H         LINE#         37
+  -------         ENDPROC       _SEND_A
+  -------         PROC          _SEND_CHAR
+  D:0008H         SYMBOL        a
+  -------         DO            
+  D:0004H         SYMBOL        i
+  D:000BH         SYMBOL        n
+  -------         ENDDO         
+  C:0049H         LINE#         39
+  C:004FH         LINE#         41
+  C:0056H         LINE#         42
+  C:0068H         LINE#         43
+  C:0079H         LINE#         44
+  C:0080H         LINE#         45
+  -------         ENDPROC       _SEND_CHAR
+  -------         PROC          _SEND_CHAR1
+  D:0001H         SYMBOL        a
+  C:00AFH         LINE#         47
+  C:00AFH         LINE#         48
+  C:00B5H         LINE#         49
+  C:00B8H         LINE#         50
+  C:00BFH         LINE#         51
+  C:00C1H         LINE#         52
+  -------         ENDPROC       _SEND_CHAR1
+  -------         PROC          MAIN
+  C:0081H         LINE#         54
+  C:0081H         LINE#         55
+  C:0084H         LINE#         58
+  C:0087H         LINE#         59
+  C:008AH         LINE#         60
+  C:008CH         LINE#         61
+  C:008FH         LINE#         62
+  C:008FH         LINE#         63
+BL51 BANKED LINKER/LOCATER V6.22                                                      03/25/2022  07:57:23  PAGE 3
+
+
+  C:0098H         LINE#         65
+  -------         ENDPROC       MAIN
+  -------         ENDMOD        TRUYENTHONGNOITIEPUARTGUI1KYTU
+
+  -------         MODULE        ?C?CLDPTR
+  C:0003H         PUBLIC        ?C?CLDPTR
+  -------         ENDMOD        ?C?CLDPTR
+
+  -------         MODULE        ?C?CLDOPTR
+  C:001CH         PUBLIC        ?C?CLDOPTR
+  -------         ENDMOD        ?C?CLDOPTR
+
+  -------         MODULE        STRLEN
+  C:009AH         PUBLIC        _STRLEN
+  -------         ENDMOD        STRLEN
+
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?_SEND_CHAR1?TRUYENTHONGNOITIEPUARTGUI1KYTU
+
+Program Size: data=14.0 xdata=0 code=232
+LINK/LOCATE RUN COMPLETE.  1 WARNING(S),  0 ERROR(S)

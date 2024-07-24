@@ -1,0 +1,45 @@
+C51 COMPILER V9.52.0.0   DEMSNT00TO99                                                      02/18/2022 06:25:17 PAGE 1   
+
+
+C51 COMPILER V9.52.0.0, COMPILATION OF MODULE DEMSNT00TO99
+OBJECT MODULE PLACED IN demSNT00To99.OBJ
+COMPILER INVOKED BY: C:\Keil\C51\BIN\C51.EXE demSNT00To99.c BROWSE DEBUG OBJECTEXTEND TABS(2)
+
+line level    source
+
+   1          #include <REGX52.H>
+   2          
+   3          char Chuc[] = {0x00,0x01,0x02,0x03,0x04,0x05,0x06,0x07,0x08,0x09};
+   4          char DonVi[] ={0x00,0x10,0x20,0x30,0x40,0x50,0x60,0x70,0x80,0x90};
+   5            
+   6          void delay(int time){
+   7   1        while(time--);
+   8   1      }
+   9          void main(){
+  10   1        int i,ch,dv;
+  11   1        while(1){
+  12   2        // dem tien 
+  13   2        for(i=0;i<100;i++)  
+  14   2        {
+  15   3        ch=i/10;
+  16   3         dv=i%10;   
+  17   3        P2=Chuc[ch]+DonVi[dv];delay(100000);
+  18   3        }
+  19   2        // dem so nguyen to
+  20   2        
+  21   2        
+  22   2      } }
+
+
+MODULE INFORMATION:   STATIC OVERLAYABLE
+   CODE SIZE        =     80    ----
+   CONSTANT SIZE    =   ----    ----
+   XDATA SIZE       =   ----    ----
+   PDATA SIZE       =   ----    ----
+   DATA SIZE        =     20       2
+   IDATA SIZE       =   ----    ----
+   BIT SIZE         =   ----    ----
+END OF MODULE INFORMATION.
+
+
+C51 COMPILATION COMPLETE.  0 WARNING(S),  0 ERROR(S)

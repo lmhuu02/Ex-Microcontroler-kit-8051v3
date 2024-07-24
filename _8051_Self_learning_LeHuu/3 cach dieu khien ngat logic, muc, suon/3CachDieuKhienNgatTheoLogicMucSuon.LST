@@ -1,0 +1,124 @@
+C51 COMPILER V9.52.0.0   3CACHDIEUKHIENNGATTHEOLOGICMUCSUON                                01/15/2022 00:21:37 PAGE 1   
+
+
+C51 COMPILER V9.52.0.0, COMPILATION OF MODULE 3CACHDIEUKHIENNGATTHEOLOGICMUCSUON
+OBJECT MODULE PLACED IN 3CachDieuKhienNgatTheoLogicMucSuon.OBJ
+COMPILER INVOKED BY: C:\Keil\C51\BIN\C51.EXE 3CachDieuKhienNgatTheoLogicMucSuon.c BROWSE DEBUG OBJECTEXTEND TABS(2)
+
+line level    source
+
+   1          //POWER BY LE MINH HUU - 14/1/2022
+   2          
+   3          /*
+   4          //dieu khien ngat theo kieu logic ngat theo muc
+   5          //neu dieu khien kieu nay thi se bi doi phim ==> KHONG NEN DUNG CACH NAY DE DIEU KHIEN NUT BAM
+   6          #include <REGX52.H>
+   7          
+   8          sbit led = P2^4;  //khai bao can P2.4 la led
+   9          
+  10          void delay(int time){ //ham tao tre don gian
+  11            while(time--);
+  12          }
+  13          
+  14          void main(){
+  15            led = 1;  //ban dau khoi tao led = 1 ==> led tat vi vdk hoat dong tich cuc o muc 0
+  16            while(1){
+  17                if(P1_4 == 0){  //khiem tra neu nhan nut thi thuc hien
+  18                  delay(120);   //delay 1 khoang thoi gian ngan
+  19                  if(P1_4 == 0){  //sau khoang thoi gian delay ma van thay nhan nut thi thuc hien
+  20                    P1_7 = ~ P1_7;  //doi chieu hien co cua chan p1.7
+  21                    led = ~ led;    //doi chieu cua chan led (p1.4)
+  22                  }
+  23                }
+  24                delay(200);
+  25            }
+  26          }
+  27          */
+  28          
+  29          
+  30          /*
+  31          //dieu khien ngat theo kieu vong lap while ngat 
+  32          //han che duoc viec bi doi phim lam loan chuong trinh
+  33          //co the dung de dieu khien duoc
+  34          
+  35          #include <REGX52.H>
+  36          
+  37          //khai bao cac chan cua vdk, co the dung truc tiep chan  vd: p1_4, P1_7,...
+  38          sbit button = P1^4;
+  39          sbit led = P2^3;
+  40          sbit relay = P1^7;
+  41          
+  42          //ham tao tre don gian
+  43          void delay(int time){ 
+  44            while(time--);
+  45          }
+  46          
+  47          void main(){
+  48            led = 1;    //gan cho led = 1 ==> khong sang vi vdk hoat dong tich cuc muc 0
+  49            relay = 1;  //gan cho relay = 1 ==> khong sang vi vdk hoat dong tich cuc muc 0, muc thap
+  50            while(1){
+  51              if(button == 0){  //khi nhan cong tac thi thuc hien
+  52                while(button == 0){}  //vi vong while se lap lai khi dieu kien dung. ma dieu kien la button == 0 ==> se 
+             -thuc hien vong lap ({}: la khong lam gi ca) cho den khi khong nhan nua, khac phuc duoc tinh trang giu nut bam lam loan c
+             -huong trinh nhu cach bam o tren
+  53                  led = ~led;   //khi tha nut bam thi se thuc hien dao chieu led
+C51 COMPILER V9.52.0.0   3CACHDIEUKHIENNGATTHEOLOGICMUCSUON                                01/15/2022 00:21:37 PAGE 2   
+
+  54                  relay = !relay; //khi tha nut bam thi se thuc hien dao chieu led
+  55              }
+  56            }
+  57          }
+  58          */
+  59          
+  60          //dieu khien cong tac theo suon
+  61          //NOTE: NEN DUNG CACH NAY HOAC CACH TREN, KHONG NEN DUNG CACH DAU TIEN
+  62          
+  63          #include <REGX52.H>
+  64          
+  65          //khai bao cac chan cua vdk, co the dung truc tiep chan  vd: p1_4, P1_7,...
+  66          sbit button = P1^4;
+  67          sbit led = P2^3;
+  68          sbit relay = P1^7;
+  69          bit button_state; //khai bao, button: la nut bam, state: la trang thai
+  70          
+  71          //ham tao tre don gian
+  72          void delay(int time){ 
+  73   1        while(time--);
+  74   1      }
+  75          
+  76          void main(){
+  77   1        led = 1;    //gan cho led = 1 ==> khong sang vi vdk hoat dong tich cuc muc 0
+  78   1        relay = 1;  //gan cho relay = 1 ==> khong sang vi vdk hoat dong tich cuc muc 0, muc thap
+  79   1        while(1){   //van nhu binh thuong lap di lap lai
+  80   2          if(button == 0){  //neu nut button (chan P1_4) duoc bam thi se thuc hien trong nhay kep khong thi se chuy
+             -en xuong lenh gan gia tri button_state = button ma button la chan P1_4 luon duoc treo len dien ap cao tuong duong voi mu
+             -c 1 (luc khong duoc nhan)
+  81   3            delay(100);
+  82   3            if(button == 0 && button_state == 1){ //kiem tra neu button duoc nhan (button = 0) VA DONG THOI gia tri
+             - button_state = 1 thi moi thuc hien dao chieu. TUC LA so sanh 2 gia tri cua nut bam luc truoc sau voi hien tai: binh thu
+             -ong nut bam se luon  = 1 nhung khi bam se bang =0, ==> so sanh trang thai dang bam neu = 0 va dong thoi trang thai cua b
+             -utton_state = 1 thi moi THOA MAN DIEU KIEN. tom lai: SO SANH NUT KHI DANG BAM = 0 VA TRANG THAI LUC TRUOC HOAC SAU = 1 T
+             -HI MOI THUC HIEN DAO CHIEU
+  83   4              led = !led;
+  84   4              relay = ~relay;
+  85   4            }
+  86   3          }
+  87   2          button_state = button;  //gan gia tri cua button_state = gia tri cua button luon = 1, = muc cao (tru truo
+             -ng hop dang bam nut)
+  88   2          delay(100);
+  89   2        }
+  90   1      }
+
+
+MODULE INFORMATION:   STATIC OVERLAYABLE
+   CODE SIZE        =     48    ----
+   CONSTANT SIZE    =   ----    ----
+   XDATA SIZE       =   ----    ----
+   PDATA SIZE       =   ----    ----
+   DATA SIZE        =   ----    ----
+   IDATA SIZE       =   ----    ----
+   BIT SIZE         =      1    ----
+END OF MODULE INFORMATION.
+
+
+C51 COMPILATION COMPLETE.  0 WARNING(S),  0 ERROR(S)

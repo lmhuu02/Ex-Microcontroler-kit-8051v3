@@ -1,0 +1,93 @@
+C51 COMPILER V9.52.0.0   BAI3_NUT_NHAN_8051                                                03/01/2023 21:53:22 PAGE 1   
+
+
+C51 COMPILER V9.52.0.0, COMPILATION OF MODULE BAI3_NUT_NHAN_8051
+OBJECT MODULE PLACED IN .\Objects\bai3_nut_nhan_8051.obj
+COMPILER INVOKED BY: C:\Keil_v5\C51\BIN\C51.EXE bai3_nut_nhan_8051.c OPTIMIZE(8,SPEED) BROWSE DEBUG OBJECTEXTEND PRINT(.
+                    -\Listings\bai3_nut_nhan_8051.lst) TABS(2) OBJECT(.\Objects\bai3_nut_nhan_8051.obj)
+
+line level    source
+
+   1          /*
+   2          DO AN TOT NGHIEP: KIT 8051 V3.
+   3          NAME: BUTTON CONTROL AND 7SEG in chip 8051.
+   4          TIME: 3/2023  - ICTU.
+   5          */
+   6          /*---------------------------INCLUDE AND DEFINE-----------------------------------*/
+   7          #include <REGX51.H>
+   8          
+   9          #define cdv P2_7
+  10          #define cchuc P2_6
+  11          #define ctram P2_5
+  12          #define cnghin P2_4
+  13          
+  14          #define on 0
+  15          #define off 1
+  16          
+  17          char soHienThi[] = {0x40, 0x79, 0x24, 0x30, 0x19, 0x12, 0x02, 0x78, 0x00, 0x10};
+  18          unsigned int cNghin, nghin, tram, chuc, dv;
+  19          unsigned int dem = 0;
+  20          
+  21          /*------------------------------- FUNCTION-------------------------------*/
+  22          //function delay
+  23          void delay(int time){
+  24   1        while(time--);
+  25   1      }
+  26          
+  27          //function show data
+  28          void hienThi(unsigned int so){
+  29   1      
+  30   1        //su dung cach cua thay 
+  31   1        cNghin = so / 10000;  so = so % 10000;  //so chuc nghin = so chia lay nguyen cho 10 000, so = so ban dau ch
+             -ia lay du cho 10 000
+  32   1        nghin = so / 1000;  so = so % 1000; // so nghin = so chia nguyen cho 1000, roi so = so chia lay du cho 100
+             -0
+  33   1        tram = so / 100; so = so % 100; //so tram = so chia nguyen cho 100
+  34   1        chuc = so / 10; //so chuc = so chia nguyen cho 10
+  35   1        dv = so % 10; //so dv = so da chia lay du o hang chuc
+  36   1      
+  37   1        cdv = on; P0 = soHienThi[dv]; delay(500); cdv = off;
+  38   1        cchuc = on; P0 = soHienThi[chuc]; delay(500); cchuc = off;
+  39   1        ctram = on; P0 = soHienThi[tram]; delay(500); ctram = off;
+  40   1        cnghin = on; P0 = soHienThi[nghin]; delay(500); cnghin = off;
+  41   1      }
+  42          
+  43          //function button control data
+  44          void button(){
+  45   1        if(P3_5 == 0){    
+  46   2          while(P3_5 ==0){
+  47   3            hienThi(dem);
+  48   3          }
+  49   2          dem++;
+  50   2        }
+  51   1        hienThi(dem); //call function hienThi()
+  52   1      }
+C51 COMPILER V9.52.0.0   BAI3_NUT_NHAN_8051                                                03/01/2023 21:53:22 PAGE 2   
+
+  53          /*-------------------------------MAIN FUNCTION-------------------------------*/
+  54          void main(){
+  55   1        TMOD &= 0xf0;
+  56   1        TMOD |= 0x50;
+  57   1        TL1 = 0x00;
+  58   1        TH1 = 0x00;
+  59   1        P3_5 = 1;
+  60   1        TR1 = 1;
+  61   1        while(1){
+  62   2          //hienThi(TL1);
+  63   2          button();
+  64   2        }
+  65   1      }
+
+
+MODULE INFORMATION:   STATIC OVERLAYABLE
+   CODE SIZE        =    234    ----
+   CONSTANT SIZE    =   ----    ----
+   XDATA SIZE       =   ----    ----
+   PDATA SIZE       =   ----    ----
+   DATA SIZE        =     22    ----
+   IDATA SIZE       =   ----    ----
+   BIT SIZE         =   ----    ----
+END OF MODULE INFORMATION.
+
+
+C51 COMPILATION COMPLETE.  0 WARNING(S),  0 ERROR(S)

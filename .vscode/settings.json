@@ -1,0 +1,18 @@
+{
+    "files.associations": {
+        "uart.h": "c",
+        "main.h": "c",
+        "led7.h": "c",
+        "LED7.H": "cpp",
+        "var.h": "c",
+        "VAR.H": "cpp",
+        "lcd.h": "c",
+        "stdutils.h": "c",
+        "glcd.h": "c",
+        "delay.h": "c",
+        "stdarg.h": "c",
+        "GLCD.H": "cpp",
+        "FONT.C": "cpp",
+        "24c08.h": "c"
+    }
+}

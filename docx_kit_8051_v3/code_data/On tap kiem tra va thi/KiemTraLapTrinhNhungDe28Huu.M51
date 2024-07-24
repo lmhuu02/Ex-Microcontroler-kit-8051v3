@@ -1,0 +1,148 @@
+BL51 BANKED LINKER/LOCATER V6.22                                                        05/19/2022  14:48:22  PAGE 1
+
+
+BL51 BANKED LINKER/LOCATER V6.22, INVOKED BY:
+C:\KEIL\C51\BIN\BL51.EXE KiemTraLapTrinhNhungDe28Huu.obj TO KiemTraLapTrinhNhungDe28Huu RAMSIZE (256)
+
+
+MEMORY MODEL: SMALL
+
+
+INPUT MODULES INCLUDED:
+  KiemTraLapTrinhNhungDe28Huu.obj (KIEMTRALAPTRINHNHUNGDE28HUU)
+  C:\KEIL\C51\LIB\C51S.LIB (?C_STARTUP)
+  C:\KEIL\C51\LIB\C51S.LIB (?C?CLDOPTR)
+  C:\KEIL\C51\LIB\C51S.LIB (STRLEN)
+  C:\KEIL\C51\LIB\C51S.LIB (?C?CLDPTR)
+
+
+LINK MAP OF MODULE:  KiemTraLapTrinhNhungDe28Huu (KIEMTRALAPTRINHNHUNGDE28HUU)
+
+
+            TYPE    BASE      LENGTH    RELOCATION   SEGMENT NAME
+            -----------------------------------------------------
+
+            * * * * * * *   D A T A   M E M O R Y   * * * * * * *
+            REG     0000H     0008H     ABSOLUTE     "REG BANK 0"
+            DATA    0008H     0005H     UNIT         _DATA_GROUP_
+            IDATA   000DH     0001H     UNIT         ?STACK
+
+            * * * * * * *   C O D E   M E M O R Y   * * * * * * *
+            CODE    0000H     0003H     ABSOLUTE     
+            CODE    0003H     0046H     UNIT         ?C?LIB_CODE
+            CODE    0049H     0038H     UNIT         ?PR?_SENDCHAR?KIEMTRALAPTRINHNHUNGDE28HUU
+            CODE    0081H     002DH     UNIT         ?PR?MAIN?KIEMTRALAPTRINHNHUNGDE28HUU
+            CODE    00AEH     0020H     UNIT         ?CO?KIEMTRALAPTRINHNHUNGDE28HUU
+            CODE    00CEH     0015H     UNIT         ?PR?_STRLEN?STRLEN
+            CODE    00E3H     000CH     UNIT         ?C_C51STARTUP
+            CODE    00EFH     000BH     UNIT         ?PR?_DELAY?KIEMTRALAPTRINHNHUNGDE28HUU
+            CODE    00FAH     0008H     UNIT         ?PR?_SEND?KIEMTRALAPTRINHNHUNGDE28HUU
+
+
+
+OVERLAY MAP OF MODULE:   KiemTraLapTrinhNhungDe28Huu (KIEMTRALAPTRINHNHUNGDE28HUU)
+
+
+SEGMENT                                            DATA_GROUP 
+  +--> CALLED SEGMENT                            START    LENGTH
+----------------------------------------------------------------
+?C_C51STARTUP                                    -----    -----
+  +--> ?PR?MAIN?KIEMTRALAPTRINHNHUNGDE28HUU
+
+?PR?MAIN?KIEMTRALAPTRINHNHUNGDE28HUU             -----    -----
+  +--> ?CO?KIEMTRALAPTRINHNHUNGDE28HUU
+  +--> ?PR?_SENDCHAR?KIEMTRALAPTRINHNHUNGDE2...
+  +--> ?PR?_SEND?KIEMTRALAPTRINHNHUNGDE28HUU
+
+?PR?_SENDCHAR?KIEMTRALAPTRINHNHUNGDE2...         0008H    0005H
+  +--> ?PR?_STRLEN?STRLEN
+  +--> ?PR?_SEND?KIEMTRALAPTRINHNHUNGDE28HUU
+
+
+BL51 BANKED LINKER/LOCATER V6.22                                                      05/19/2022  14:48:22  PAGE 2
+
+
+
+SYMBOL TABLE OF MODULE:  KiemTraLapTrinhNhungDe28Huu (KIEMTRALAPTRINHNHUNGDE28HUU)
+
+  VALUE           TYPE          NAME
+  ----------------------------------
+
+  -------         MODULE        KIEMTRALAPTRINHNHUNGDE28HUU
+  C:0000H         SYMBOL        _ICE_DUMMY_
+  C:00EFH         PUBLIC        _delay
+  B:0098H.1       PUBLIC        TI
+  C:0081H         PUBLIC        main
+  C:00FAH         PUBLIC        _send
+  C:0049H         PUBLIC        _sendChar
+  D:0099H         PUBLIC        SBUF
+  D:0087H         PUBLIC        PCON
+  D:0098H         PUBLIC        SCON
+  D:0089H         PUBLIC        TMOD
+  D:008DH         PUBLIC        TH1
+  B:0088H.6       PUBLIC        TR1
+  -------         PROC          _DELAY
+  D:0006H         SYMBOL        time
+  C:00EFH         LINE#         14
+  C:00EFH         LINE#         15
+  C:00F9H         LINE#         16
+  -------         ENDPROC       _DELAY
+  -------         PROC          _SEND
+  D:0007H         SYMBOL        a
+  C:00FAH         LINE#         18
+  C:00FAH         LINE#         19
+  C:00FCH         LINE#         20
+  C:00FFH         LINE#         21
+  C:0101H         LINE#         22
+  -------         ENDPROC       _SEND
+  -------         PROC          _SENDCHAR
+  D:0008H         SYMBOL        a
+  -------         DO            
+  D:0004H         SYMBOL        i
+  D:000BH         SYMBOL        x
+  -------         ENDDO         
+  C:0049H         LINE#         24
+  C:004FH         LINE#         26
+  C:0056H         LINE#         27
+  C:0068H         LINE#         28
+  C:0079H         LINE#         29
+  C:0080H         LINE#         30
+  -------         ENDPROC       _SENDCHAR
+  -------         PROC          MAIN
+  -------         DO            
+  D:0004H         SYMBOL        i
+  -------         ENDDO         
+  C:0081H         LINE#         39
+  C:0081H         LINE#         41
+  C:0084H         LINE#         42
+  C:0087H         LINE#         43
+  C:008AH         LINE#         44
+  C:008DH         LINE#         45
+  C:008FH         LINE#         46
+BL51 BANKED LINKER/LOCATER V6.22                                                      05/19/2022  14:48:22  PAGE 3
+
+
+  C:0098H         LINE#         47
+  C:009CH         LINE#         48
+  C:00A1H         LINE#         49
+  C:00ACH         LINE#         50
+  -------         ENDPROC       MAIN
+  -------         ENDMOD        KIEMTRALAPTRINHNHUNGDE28HUU
+
+  -------         MODULE        ?C?CLDOPTR
+  C:0003H         PUBLIC        ?C?CLDOPTR
+  -------         ENDMOD        ?C?CLDOPTR
+
+  -------         MODULE        STRLEN
+  C:00CEH         PUBLIC        _STRLEN
+  -------         ENDMOD        STRLEN
+
+  -------         MODULE        ?C?CLDPTR
+  C:0030H         PUBLIC        ?C?CLDPTR
+  -------         ENDMOD        ?C?CLDPTR
+
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?_DELAY?KIEMTRALAPTRINHNHUNGDE28HUU
+
+Program Size: data=14.0 xdata=0 code=258
+LINK/LOCATE RUN COMPLETE.  1 WARNING(S),  0 ERROR(S)

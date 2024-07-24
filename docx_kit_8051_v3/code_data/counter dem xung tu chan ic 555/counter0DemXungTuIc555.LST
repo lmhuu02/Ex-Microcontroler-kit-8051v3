@@ -1,0 +1,49 @@
+C51 COMPILER V9.52.0.0   COUNTER0DEMXUNGTUIC555                                            03/18/2022 09:11:36 PAGE 1   
+
+
+C51 COMPILER V9.52.0.0, COMPILATION OF MODULE COUNTER0DEMXUNGTUIC555
+OBJECT MODULE PLACED IN counter0DemXungTuIc555.OBJ
+COMPILER INVOKED BY: C:\Keil\C51\BIN\C51.EXE counter0DemXungTuIc555.c BROWSE DEBUG OBJECTEXTEND TABS(2)
+
+line level    source
+
+   1          //dem xung tu ic 555 bang counter 0 chan P3.2. INT0
+   2          //power by le minh huu 18/3/2022
+   3          #include <REGX52.H>
+   4          
+   5          char so[] = {0x40, 0x79, 0x24, 0x30, 0x19, 0x12, 0x02, 0x78, 0x00, 0x10};
+   6          unsigned int count = 0;
+   7          
+   8          void delay(unsigned int time){
+   9   1        while(time--);
+  10   1      }
+  11          
+  12          void main(){
+  13   1        TMOD = TMOD & 0x0f;
+  14   1        TMOD = TMOD | 0x05;   //counter 0 --> 0 0 0 0   0 1 0 1 //counter 0 che do 1
+  15   1        TH0 = 0x00;
+  16   1        TL0 = 0x00;
+  17   1        TR0 = 1;  //bat bo dinh thoi
+  18   1        P0 = 1;
+  19   1        while(1){
+  20   2          count = TL0 | TH0 << 8; //bien count la gia tri cua thanh ghi th + tl va dich trai 8 bit de dam bao doc 
+             -tu thanh ghi muc thap tl
+  21   2          P0 = so[count]; //hien thi led 7 doan chung anot cho chan p0. noi chan a -> g lan luot tu chan 0 den 6 
+  22   2          delay(10000);
+  23   2          if(count == 10) count = 0;
+  24   2        }
+  25   1      }
+
+
+MODULE INFORMATION:   STATIC OVERLAYABLE
+   CODE SIZE        =     64    ----
+   CONSTANT SIZE    =   ----    ----
+   XDATA SIZE       =   ----    ----
+   PDATA SIZE       =   ----    ----
+   DATA SIZE        =     12    ----
+   IDATA SIZE       =   ----    ----
+   BIT SIZE         =   ----    ----
+END OF MODULE INFORMATION.
+
+
+C51 COMPILATION COMPLETE.  0 WARNING(S),  0 ERROR(S)

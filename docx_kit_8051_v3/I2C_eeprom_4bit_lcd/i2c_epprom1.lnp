@@ -1,0 +1,4 @@
+"i2c_epprom1.obj",
+"lcd.obj" 
+TO "i2c_epprom1" 
+RAMSIZE(256) 

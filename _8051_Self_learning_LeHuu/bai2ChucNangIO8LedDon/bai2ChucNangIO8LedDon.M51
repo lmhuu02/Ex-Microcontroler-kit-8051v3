@@ -1,0 +1,257 @@
+BL51 BANKED LINKER/LOCATER V6.22                                                        10/30/2021  01:48:13  PAGE 1
+
+
+BL51 BANKED LINKER/LOCATER V6.22, INVOKED BY:
+C:\KEIL\C51\BIN\BL51.EXE bai2ChucNangIO8LedDon.obj TO bai2ChucNangIO8LedDon RAMSIZE (256)
+
+
+MEMORY MODEL: SMALL
+
+
+INPUT MODULES INCLUDED:
+  bai2ChucNangIO8LedDon.obj (BAI2CHUCNANGIO8LEDDON)
+  C:\KEIL\C51\LIB\C51S.LIB (?C_STARTUP)
+
+
+LINK MAP OF MODULE:  bai2ChucNangIO8LedDon (BAI2CHUCNANGIO8LEDDON)
+
+
+            TYPE    BASE      LENGTH    RELOCATION   SEGMENT NAME
+            -----------------------------------------------------
+
+            * * * * * * *   D A T A   M E M O R Y   * * * * * * *
+            REG     0000H     0008H     ABSOLUTE     "REG BANK 0"
+            DATA    0008H     0002H     UNIT         _DATA_GROUP_
+            IDATA   000AH     0001H     UNIT         ?STACK
+
+            * * * * * * *   C O D E   M E M O R Y   * * * * * * *
+            CODE    0000H     0003H     ABSOLUTE     
+                    0003H     07FDH                  *** GAP ***
+            CODE    0800H     006AH     UNIT         ?PR?_NHAYTANGDANTOCDO?BAI2CHUCNANGIO8LEDDON
+            CODE    086AH     0052H     UNIT         ?PR?_TRAISANGPHAI?BAI2CHUCNANGIO8LEDDON
+            CODE    08BCH     0052H     UNIT         ?PR?_PHAISANGTRAI?BAI2CHUCNANGIO8LEDDON
+            CODE    090EH     0041H     UNIT         ?PR?_NHAYTOANBO?BAI2CHUCNANGIO8LEDDON
+            CODE    094FH     0041H     UNIT         ?PR?_SANGNGOAIVAOTRONG?BAI2CHUCNANGIO8LEDDON
+            CODE    0990H     003EH     UNIT         ?PR?_SANGTRONGRANGOAI?BAI2CHUCNANGIO8LEDDON
+            CODE    09CEH     002CH     UNIT         ?PR?MAIN?BAI2CHUCNANGIO8LEDDON
+            CODE    09FAH     001EH     UNIT         ?PR?_DELAY?BAI2CHUCNANGIO8LEDDON
+            CODE    0A18H     000CH     UNIT         ?C_C51STARTUP
+
+
+
+OVERLAY MAP OF MODULE:   bai2ChucNangIO8LedDon (BAI2CHUCNANGIO8LEDDON)
+
+
+SEGMENT                                            DATA_GROUP 
+  +--> CALLED SEGMENT                            START    LENGTH
+----------------------------------------------------------------
+?C_C51STARTUP                                    -----    -----
+  +--> ?PR?MAIN?BAI2CHUCNANGIO8LEDDON
+
+?PR?MAIN?BAI2CHUCNANGIO8LEDDON                   -----    -----
+  +--> ?PR?_NHAYTANGDANTOCDO?BAI2CHUCNANGIO8...
+  +--> ?PR?_SANGTRONGRANGOAI?BAI2CHUCNANGIO8...
+  +--> ?PR?_SANGNGOAIVAOTRONG?BAI2CHUCNANGIO...
+  +--> ?PR?_NHAYTOANBO?BAI2CHUCNANGIO8LEDDON
+  +--> ?PR?_TRAISANGPHAI?BAI2CHUCNANGIO8LEDDON
+  +--> ?PR?_PHAISANGTRAI?BAI2CHUCNANGIO8LEDDON
+
+?PR?_NHAYTANGDANTOCDO?BAI2CHUCNANGIO8...         0008H    0002H
+  +--> ?PR?_DELAY?BAI2CHUCNANGIO8LEDDON
+
+BL51 BANKED LINKER/LOCATER V6.22                                                      10/30/2021  01:48:13  PAGE 2
+
+
+?PR?_SANGTRONGRANGOAI?BAI2CHUCNANGIO8...         -----    -----
+  +--> ?PR?_DELAY?BAI2CHUCNANGIO8LEDDON
+
+?PR?_SANGNGOAIVAOTRONG?BAI2CHUCNANGIO...         -----    -----
+  +--> ?PR?_DELAY?BAI2CHUCNANGIO8LEDDON
+
+?PR?_NHAYTOANBO?BAI2CHUCNANGIO8LEDDON            -----    -----
+  +--> ?PR?_DELAY?BAI2CHUCNANGIO8LEDDON
+
+?PR?_TRAISANGPHAI?BAI2CHUCNANGIO8LEDDON          -----    -----
+  +--> ?PR?_DELAY?BAI2CHUCNANGIO8LEDDON
+
+?PR?_PHAISANGTRAI?BAI2CHUCNANGIO8LEDDON          -----    -----
+  +--> ?PR?_DELAY?BAI2CHUCNANGIO8LEDDON
+
+
+
+SYMBOL TABLE OF MODULE:  bai2ChucNangIO8LedDon (BAI2CHUCNANGIO8LEDDON)
+
+  VALUE           TYPE          NAME
+  ----------------------------------
+
+  -------         MODULE        BAI2CHUCNANGIO8LEDDON
+  C:0000H         SYMBOL        _ICE_DUMMY_
+  C:0A0DH         PUBLIC        _delay
+  B:00A0H.0       PUBLIC        P2_0
+  B:00A0H.1       PUBLIC        P2_1
+  B:00A0H.2       PUBLIC        P2_2
+  B:00A0H.3       PUBLIC        P2_3
+  B:00A0H.4       PUBLIC        P2_4
+  B:00A0H.5       PUBLIC        P2_5
+  B:00A0H.6       PUBLIC        P2_6
+  B:00A0H.7       PUBLIC        P2_7
+  C:09CEH         PUBLIC        main
+  C:0800H         PUBLIC        _nhayTangDanTocDo
+  C:08BCH         PUBLIC        _phaiSangTrai
+  C:086AH         PUBLIC        _traiSangPhai
+  C:094FH         PUBLIC        _sangNgoaiVaoTrong
+  C:0990H         PUBLIC        _sangTrongRaNgoai
+  C:090EH         PUBLIC        _nhayToanBo
+  C:0A09H         SYMBOL        L?0036
+  -------         PROC          L?0035
+  -------         ENDPROC       L?0035
+  C:0A09H         SYMBOL        L?0036
+  -------         PROC          _DELAY
+  D:0006H         SYMBOL        time
+  C:0A0DH         LINE#         3
+  C:0A0DH         LINE#         4
+  C:0A17H         LINE#         5
+  -------         ENDPROC       _DELAY
+  -------         PROC          _TRAISANGPHAI
+  D:0002H         SYMBOL        soLan
+  -------         DO            
+  D:0082H         SYMBOL        i
+  -------         ENDDO         
+  C:086AH         LINE#         9
+  C:086EH         LINE#         11
+BL51 BANKED LINKER/LOCATER V6.22                                                      10/30/2021  01:48:13  PAGE 3
+
+
+  C:0880H         LINE#         12
+  C:0887H         LINE#         13
+  C:088EH         LINE#         14
+  C:0895H         LINE#         15
+  C:089CH         LINE#         16
+  C:08A3H         LINE#         17
+  C:08AAH         LINE#         18
+  C:08B1H         LINE#         19
+  C:08B8H         LINE#         20
+  C:08BBH         LINE#         21
+  -------         ENDPROC       _TRAISANGPHAI
+  -------         PROC          _PHAISANGTRAI
+  D:0002H         SYMBOL        soLan
+  -------         DO            
+  D:0082H         SYMBOL        i
+  -------         ENDDO         
+  C:08BCH         LINE#         24
+  C:08C0H         LINE#         26
+  C:08D2H         LINE#         27
+  C:08D9H         LINE#         28
+  C:08E0H         LINE#         29
+  C:08E7H         LINE#         30
+  C:08EEH         LINE#         31
+  C:08F5H         LINE#         32
+  C:08FCH         LINE#         33
+  C:0903H         LINE#         34
+  C:090AH         LINE#         35
+  C:090DH         LINE#         36
+  -------         ENDPROC       _PHAISANGTRAI
+  -------         PROC          _NHAYTOANBO
+  D:0002H         SYMBOL        soLan
+  -------         DO            
+  D:0082H         SYMBOL        i
+  -------         ENDDO         
+  C:090EH         LINE#         38
+  C:0912H         LINE#         40
+  C:0924H         LINE#         41
+  C:0934H         LINE#         42
+  C:093BH         LINE#         43
+  C:094BH         LINE#         44
+  C:094EH         LINE#         45
+  -------         ENDPROC       _NHAYTOANBO
+  -------         PROC          _NHAYTANGDANTOCDO
+  D:0008H         SYMBOL        soLan
+  -------         DO            
+  D:0002H         SYMBOL        i
+  D:0082H         SYMBOL        j
+  -------         ENDDO         
+  C:0800H         LINE#         47
+  C:0804H         LINE#         49
+  C:0816H         LINE#         50
+  C:0819H         LINE#         51
+  C:0826H         LINE#         52
+  C:082DH         LINE#         53
+  C:083DH         LINE#         54
+  C:0844H         LINE#         55
+  C:0854H         LINE#         56
+BL51 BANKED LINKER/LOCATER V6.22                                                      10/30/2021  01:48:13  PAGE 4
+
+
+  C:0860H         LINE#         57
+  C:0862H         LINE#         58
+  C:0869H         LINE#         59
+  -------         ENDPROC       _NHAYTANGDANTOCDO
+  -------         PROC          _SANGTRONGRANGOAI
+  D:0002H         SYMBOL        soLan
+  -------         DO            
+  D:0082H         SYMBOL        i
+  -------         ENDDO         
+  C:0990H         LINE#         61
+  C:0994H         LINE#         63
+  C:09A6H         LINE#         64
+  C:09AAH         LINE#         65
+  C:09ADH         LINE#         66
+  C:09B1H         LINE#         67
+  C:09B5H         LINE#         68
+  C:09B8H         LINE#         69
+  C:09BCH         LINE#         70
+  C:09C0H         LINE#         71
+  C:09C3H         LINE#         72
+  C:09C7H         LINE#         73
+  C:09C7H         LINE#         74
+  C:09C7H         LINE#         75
+  C:09C7H         LINE#         76
+  C:09CAH         LINE#         77
+  C:09CDH         LINE#         78
+  -------         ENDPROC       _SANGTRONGRANGOAI
+  -------         PROC          _SANGNGOAIVAOTRONG
+  D:0002H         SYMBOL        soLan
+  -------         DO            
+  D:0082H         SYMBOL        i
+  -------         ENDDO         
+  C:094FH         LINE#         80
+  C:0953H         LINE#         82
+  C:0965H         LINE#         83
+  C:0965H         LINE#         84
+  C:0965H         LINE#         85
+  C:0965H         LINE#         86
+  C:0968H         LINE#         87
+  C:096CH         LINE#         88
+  C:096FH         LINE#         89
+  C:0973H         LINE#         90
+  C:0977H         LINE#         91
+  C:097AH         LINE#         92
+  C:097EH         LINE#         93
+  C:0982H         LINE#         94
+  C:0985H         LINE#         95
+  C:0989H         LINE#         96
+  C:098CH         LINE#         98
+  C:098FH         LINE#         99
+  -------         ENDPROC       _SANGNGOAIVAOTRONG
+  -------         PROC          MAIN
+  C:09CEH         LINE#         101
+  C:09CEH         LINE#         102
+  C:09CEH         LINE#         103
+  C:09D5H         LINE#         104
+  C:09DCH         LINE#         105
+BL51 BANKED LINKER/LOCATER V6.22                                                      10/30/2021  01:48:13  PAGE 5
+
+
+  C:09E3H         LINE#         106
+  C:09EAH         LINE#         107
+  C:09F1H         LINE#         108
+  C:09F8H         LINE#         109
+  -------         ENDPROC       MAIN
+  -------         ENDMOD        BAI2CHUCNANGIO8LEDDON
+
+******************************************************************************
+* RESTRICTED VERSION WITH 0800H BYTE CODE SIZE LIMIT; USED: 0218H BYTE (26%) *
+******************************************************************************
+
+Program Size: data=11.0 xdata=0 code=551
+LINK/LOCATE RUN COMPLETE.  0 WARNING(S),  0 ERROR(S)

@@ -1,0 +1,392 @@
+C51 COMPILER V9.01   MAIN                                                                  10/13/2014 09:05:30 PAGE 1   
+
+
+C51 COMPILER V9.01, COMPILATION OF MODULE MAIN
+OBJECT MODULE PLACED IN main.OBJ
+COMPILER INVOKED BY: C:\Keil\C51\BIN\C51.EXE main.c BROWSE DEBUG OBJECTEXTEND TABS(2)
+
+line level    source
+
+   1          /**
+   2            ******************************************************************************
+   3            * Ten Tep   :     main.h
+   4            * Tac Gia   :     LE ANH QUANG
+   5            * Cong Ty   :     MinhHaGroup
+   6            * Website   :     MinhHaGroup.com
+   7            * Phien Ban :     V1.0.0
+   8            * Ngay      :     19-10-2012
+   9            * Tom Tat   :     Chuong trinh chinh, thuc hien cac chuc nang cua KIT89s52 V3
+  10            *           
+  11            *
+  12            ******************************************************************************
+  13            * Chu Y   :
+  14            *              
+  15            ******************************************************************************
+  16            */
+  17            
+  18          
+  19          #include <main.h> 
+  20          #include <var.h>
+  21          
+  22          void main()
+  23          {
+  24   1        unsigned char hour,min,sec,date,month,year;
+  25   1        i2c_init();
+  26   1        EEP_24CXX_Init();
+  27   1        lcd1602_init();
+  28   1        lcd1602_clear();
+  29   1        lcd1602_gotoxy(0,0);
+  30   1        lcd1602_puts("  MINHHAGROUP");
+  31   1        lcd1602_gotoxy(0,1);
+  32   1        lcd1602_puts(" TEST KIT 89S52");
+  33   1        EA=0;       //cam ngat
+  34   1        ET0=0;
+  35   1        COI = 0;
+  36   1        RELAY=0;
+  37   1      while(1)
+  38   1      {
+  39   2        KEY = mtp_quetphim();
+  40   2        //KEY='F';
+  41   2      // AN BT1: TEST MA TRAN BAN PHIM ==============================================
+  42   2        if(KEY=='0')  
+  43   2        {
+  44   3          lcd1602_init();
+  45   3          lcd1602_clear();
+  46   3          lcd1602_gotoxy(0,0);
+  47   3          lcd1602_puts("TEST KEY MATRIX");
+  48   3          lcd1602_gotoxy(0,1);
+  49   3          while(1)
+  50   3          {
+  51   4            KEY = mtp_quetphim();
+  52   4            if(KEY)
+  53   4            {
+  54   5              lcd1602_putchar(KEY);
+  55   5            }
+C51 COMPILER V9.01   MAIN                                                                  10/13/2014 09:05:30 PAGE 2   
+
+  56   4          }
+  57   3        }
+  58   2        
+  59   2      // AN BT2: TEST MA TRAN BAN PHIM ==============================================
+  60   2      if(KEY=='1')
+  61   2      {
+  62   3        unsigned int k;
+  63   3        sprintf(Lcd_Buff,"TEST SINGLE KEY");
+  64   3        lcd1602_clear();
+  65   3        lcd1602_gotoxy(0,0);
+  66   3          lcd1602_puts(Lcd_Buff);
+  67   3          while(1)
+  68   3          {
+  69   4              k=get_key();
+  70   4              if(k)
+  71   4              {
+  72   5                  sprintf(Lcd_Buff,"KEY=%2u",k);
+  73   5                  lcd1602_gotoxy(0,1);
+  74   5                  lcd1602_puts(Lcd_Buff);
+  75   5              }
+  76   4          }
+  77   3      }
+  78   2      
+  79   2      // AN BT3: TEST LED DON ========================================================  
+  80   2        if(KEY=='2')  // SW1: TEST LED DON
+  81   2        {
+  82   3          lcd1602_clear();
+  83   3          lcd1602_gotoxy(0,0);
+  84   3          lcd1602_puts("TEST LED DON");
+  85   3          while(1)
+  86   3          {
+  87   4          for (i=0;i<8;i++)
+  88   4          {
+  89   5            LED_DON = ~(0x80>>i);
+  90   5            delay_ms(300);
+  91   5          }
+  92   4          }
+  93   3        }
+  94   2        
+  95   2      // AN BT4: TEST LED7 THANH ====================================================== 
+  96   2        if(KEY=='3')  
+  97   2        {
+  98   3          lcd1602_clear();
+  99   3          lcd1602_gotoxy(0,0);
+ 100   3          lcd1602_puts("TEST LED 7 THANH");
+ 101   3            while(1)
+ 102   3            {
+ 103   4            LED7_DATA=0;
+ 104   4            for (i=0;i<4;i++)
+ 105   4            {
+ 106   5              LED7_SEG= ~(0x10<<i);
+ 107   5              delay_ms(300);
+ 108   5            }
+ 109   4            for (i=0;i<4;i++)
+ 110   4            {
+ 111   5              LED7_SEG= ~(0x01<<i);
+ 112   5              delay_ms(300);
+ 113   5            }
+ 114   4            LED7_SEG=0;
+ 115   4            for (i=0;i<8;i++)
+ 116   4            {
+ 117   5              LED7_DATA= ~(0x01<<i);
+C51 COMPILER V9.01   MAIN                                                                  10/13/2014 09:05:30 PAGE 3   
+
+ 118   5              delay_ms(300);
+ 119   5            }
+ 120   4              }
+ 121   3        }
+ 122   2      
+ 123   2      // AN BT5: TEST COI CHIP & RELAY ================================================     
+ 124   2        if(KEY=='4')  
+ 125   2        {
+ 126   3          COI = 0;
+ 127   3          RELAY = 0;
+ 128   3          lcd1602_clear();
+ 129   3          lcd1602_gotoxy(0,0);
+ 130   3          lcd1602_puts("TEST COI-ROLE");
+ 131   3          while(1)
+ 132   3          {
+ 133   4            if(!KEY0)   // AN SW16
+ 134   4            {
+ 135   5              delay_ms(10);
+ 136   5              KEY0 = 1;
+ 137   5              if(!KEY0)
+ 138   5              {
+ 139   6                while(!KEY0);
+ 140   6                COI=~COI;
+ 141   6                RELAY =~RELAY ;
+ 142   6              }
+ 143   5            }
+ 144   4          }
+ 145   3        }
+ 146   2        
+ 147   2      //  TEST DS18B20 =========================================================  
+ 148   2        if(KEY=='5')  
+ 149   2        {
+ 150   3          lcd1602_clear();
+ 151   3          lcd1602_gotoxy(0,0);
+ 152   3          lcd1602_puts("TEST DS18B20");
+ 153   3          while(1)
+ 154   3          {
+ 155   4            Nhiet_Do = ds18b20_readtemp();    
+ 156   4            sprintf(Lcd_Buff," TEMP: %2.2f^C",Nhiet_Do);
+ 157   4            lcd1602_gotoxy(0,1);
+ 158   4            lcd1602_puts(Lcd_Buff);
+ 159   4            delay_ms(300);
+ 160   4          }
+ 161   3        }
+ 162   2        
+ 163   2      
+ 164   2      
+ 165   2      // TEST UART =============================================================      
+ 166   2        if(KEY=='6')  
+ 167   2        {
+ 168   3            UART_Init();
+ 169   3            lcd1602_clear();
+ 170   3            lcd1602_gotoxy(0,0);
+ 171   3            lcd1602_puts("TEST UART");
+ 172   3            EA=1;
+ 173   3            UART_Puts("banlinhkien.vn");
+ 174   3            
+ 175   3            while(1)
+ 176   3            {
+ 177   4              Uart_char = UART_GetChar();
+ 178   4              if(Uart_char)
+ 179   4              {
+C51 COMPILER V9.01   MAIN                                                                  10/13/2014 09:05:30 PAGE 4   
+
+ 180   5              //UART_PutChar(Uart_char);
+ 181   5              lcd1602_gotoxy(0,1);
+ 182   5              lcd1602_puts("RECEIVER:");
+ 183   5              lcd1602_gotoxy(10,1);
+ 184   5              lcd1602_putchar(Uart_char);
+ 185   5              }
+ 186   4            }
+ 187   3        }
+ 188   2        
+ 189   2      //=============================================================================   
+ 190   2        if(KEY=='7')  // TEST DS1307
+ 191   2        {   
+ 192   3          
+ 193   3          lcd1602_clear();
+ 194   3          lcd1602_gotoxy(0,0);
+ 195   3          lcd1602_puts("TEST DS1307");
+ 196   3          delay_ms(1000);
+ 197   3          lcd1602_clear();
+ 198   3          DS1307_Write(SEC,0);
+ 199   3          DS1307_Write(MIN,30);
+ 200   3          DS1307_Write(HOUR,9);
+ 201   3          DS1307_Write(DATE,22);
+ 202   3          DS1307_Write(MONTH,10);
+ 203   3          DS1307_Write(YEAR,14);
+ 204   3          while(1)
+ 205   3            {  
+ 206   4              hour=DS1307_get(HOUR);
+ 207   4              min=DS1307_get(MIN);
+ 208   4              sec=DS1307_get(SEC);
+ 209   4              date=DS1307_get(DATE);
+ 210   4              month=DS1307_get(MONTH);
+ 211   4              year=DS1307_get(YEAR);
+ 212   4              sprintf(Lcd_Buff,"%bu:%bu:%bu ",hour,min,sec);
+ 213   4              lcd1602_gotoxy(0,0);
+ 214   4              lcd1602_puts("TIME:");
+ 215   4              lcd1602_puts(Lcd_Buff);
+ 216   4              sprintf(Lcd_Buff,"DATE:%bu:%bu:20%bu ",date,month,year);
+ 217   4              lcd1602_gotoxy(0,1);
+ 218   4              lcd1602_puts(Lcd_Buff);
+ 219   4            } 
+ 220   3          }
+ 221   2          ///////////////////////////
+ 222   2          //TEST EPPROM
+ 223   2          if(KEY=='8')  
+ 224   2          {
+ 225   3          lcd1602_clear();
+ 226   3          lcd1602_gotoxy(0,0);
+ 227   3          lcd1602_puts("TEST AT24C08");
+ 228   3          sprintf(Lcd_Buff,"banlinhkien.vn ");
+ 229   3          EEP_24CXX_WriteS(0x20,Lcd_Buff);
+ 230   3          delay_ms(10);
+ 231   3          EEPROM_24CXX_ReadS(0x20,14,Lcd_Buff);
+ 232   3          lcd1602_gotoxy(0,1);
+ 233   3          lcd1602_puts(Lcd_Buff);
+ 234   3          while(1)
+ 235   3            {
+ 236   4            }
+ 237   3          }
+ 238   2          //////////////////////////////////
+ 239   2          //TEST ADC
+ 240   2          if(KEY=='9')  
+ 241   2          {
+C51 COMPILER V9.01   MAIN                                                                  10/13/2014 09:05:30 PAGE 5   
+
+ 242   3          lcd1602_clear();
+ 243   3          lcd1602_gotoxy(0,0);
+ 244   3          lcd1602_puts("TEST ADC PCF8591");
+ 245   3          PCF8591_Init();
+ 246   3          while(1)
+ 247   3            {
+ 248   4            adc_value=PCF8591_Read(0);
+ 249   4            sprintf(Lcd_Buff,"ADC0= %bu  ",adc_value);
+ 250   4            lcd1602_gotoxy(0,1);
+ 251   4            lcd1602_puts(Lcd_Buff);
+ 252   4            delay_ms(300);
+ 253   4            }
+ 254   3          }
+ 255   2          //////////////////////////////////
+ 256   2          //TEST DAC
+ 257   2          if(KEY=='A')
+ 258   2            {
+ 259   3              lcd1602_clear();
+ 260   3              lcd1602_gotoxy(0,0);
+ 261   3              lcd1602_puts("TEST DAC PCF8591");
+ 262   3              PCF8591_Init();
+ 263   3              while(1)
+ 264   3                {
+ 265   4                    if(!KEY1)   // AN KEY1
+ 266   4                    {
+ 267   5                      delay_ms(10);
+ 268   5                      KEY1 = 1;
+ 269   5                      if(!KEY1)
+ 270   5                        {
+ 271   6                        while(!KEY1);
+ 272   6                        dac_value+=5;
+ 273   6                        PCF8591_Write(dac_value);
+ 274   6                        }
+ 275   5                    }
+ 276   4                }
+ 277   3              }
+ 278   2          //////////////////////////////////
+ 279   2          //DO NHIET DO BANG LM35   
+ 280   2          if(KEY=='B')
+ 281   2            {
+ 282   3              lcd1602_clear();
+ 283   3              lcd1602_gotoxy(0,0);
+ 284   3              lcd1602_puts("TEST LM35");
+ 285   3              PCF8591_Init();
+ 286   3              while(1)
+ 287   3                {
+ 288   4                  adc_value=PCF8591_Read(1);
+ 289   4                  value_lm35=(float)adc_value*5000;
+ 290   4                  value_lm35=(float)value_lm35/2550;
+ 291   4                  sprintf(Lcd_Buff,"Temp= %.2f  ",value_lm35);
+ 292   4                  lcd1602_gotoxy(0,1);
+ 293   4                  lcd1602_puts(Lcd_Buff);
+ 294   4                  delay_ms(300);
+ 295   4                }
+ 296   3              }
+ 297   2            //////////////////////////////////
+ 298   2           //TEST IR
+ 299   2            if(KEY=='C')
+ 300   2            {
+ 301   3              lcd1602_clear();
+ 302   3              lcd1602_gotoxy(0,0);
+ 303   3              lcd1602_puts("TEST IR");
+C51 COMPILER V9.01   MAIN                                                                  10/13/2014 09:05:30 PAGE 6   
+
+ 304   3              TMOD=0x01;  //Timer0, che do 1
+ 305   3              while(1)
+ 306   3                {
+ 307   4                  Code=INFR_GetCode(); 
+ 308   4                  if(Code)
+ 309   4                    {
+ 310   5                      sprintf(Lcd_Buff,"Ma Phim: %lu ",Code);
+ 311   5                      lcd1602_gotoxy(0,1);
+ 312   5                      lcd1602_puts(Lcd_Buff);
+ 313   5                    }
+ 314   4                }
+ 315   3              }
+ 316   2            //////////////////////////////////
+ 317   2           //DO TAN SO  
+ 318   2            if(KEY=='D')
+ 319   2              {
+ 320   3              lcd1602_clear();
+ 321   3              lcd1602_gotoxy(0,0);
+ 322   3              lcd1602_puts("DO TAN SO");
+ 323   3              TMOD=0x01;
+ 324   3              EA=1;
+ 325   3              ET0=1;
+ 326   3              while(1)
+ 327   3                {
+ 328   4                TH0 = 0;
+ 329   4                TL0 = 0;
+ 330   4          
+ 331   4                while(INT0);  // Bo qua muc 1 dau tien
+ 332   4                while(!INT0);   // Bo qua muc 0
+ 333   4                TR0 = 1;
+ 334   4                while(INT0);
+ 335   4                TR0 = 0;
+ 336   4      
+ 337   4                t = TH0;
+ 338   4                t <<= 8;
+ 339   4                t |= TL0;
+ 340   4                t=t+value_timer0;
+ 341   4                value_timer0=0;
+ 342   4                t*=2; 
+ 343   4                f=(float)1000000/t;
+ 344   4                sprintf(Lcd_Buff,"F=%.2f Hz",f);
+ 345   4                lcd1602_gotoxy(0,1);
+ 346   4                lcd1602_puts(Lcd_Buff);
+ 347   4                delay_ms(500);
+ 348   4                }
+ 349   3              }
+ 350   2            
+ 351   2          
+ 352   2      }
+ 353   1      }
+ 354          void ngat_timer_0 () interrupt 1
+ 355          {
+ 356   1        value_timer0+=0xffff;
+ 357   1      }
+
+
+MODULE INFORMATION:   STATIC OVERLAYABLE
+   CODE SIZE        =   1535    ----
+   CONSTANT SIZE    =    368    ----
+   XDATA SIZE       =   ----    ----
+   PDATA SIZE       =   ----    ----
+   DATA SIZE        =     43       8
+C51 COMPILER V9.01   MAIN                                                                  10/13/2014 09:05:30 PAGE 7   
+
+   IDATA SIZE       =   ----    ----
+   BIT SIZE         =   ----    ----
+END OF MODULE INFORMATION.
+
+
+C51 COMPILATION COMPLETE.  0 WARNING(S),  0 ERROR(S)

@@ -1,0 +1,139 @@
+BL51 BANKED LINKER/LOCATER V6.22                                                        03/06/2022  12:49:18  PAGE 1
+
+
+BL51 BANKED LINKER/LOCATER V6.22, INVOKED BY:
+C:\KEIL\C51\BIN\BL51.EXE ngatTimerDieuKhienLedBatTat.obj TO ngatTimerDieuKhienLedBatTat RAMSIZE (256)
+
+
+MEMORY MODEL: SMALL
+
+
+INPUT MODULES INCLUDED:
+  ngatTimerDieuKhienLedBatTat.obj (NGATTIMERDIEUKHIENLEDBATTAT)
+  C:\KEIL\C51\LIB\C51S.LIB (?C_STARTUP)
+  C:\KEIL\C51\LIB\C51S.LIB (?C?LLDIIDATA)
+  C:\KEIL\C51\LIB\C51S.LIB (?C_INIT)
+
+
+LINK MAP OF MODULE:  ngatTimerDieuKhienLedBatTat (NGATTIMERDIEUKHIENLEDBATTAT)
+
+
+            TYPE    BASE      LENGTH    RELOCATION   SEGMENT NAME
+            -----------------------------------------------------
+
+            * * * * * * *   D A T A   M E M O R Y   * * * * * * *
+            REG     0000H     0008H     ABSOLUTE     "REG BANK 0"
+            DATA    0008H     0004H     UNIT         _DATA_GROUP_
+            DATA    000CH     0002H     UNIT         ?DT?NGATTIMERDIEUKHIENLEDBATTAT
+            IDATA   000EH     0001H     UNIT         ?STACK
+
+            * * * * * * *   C O D E   M E M O R Y   * * * * * * *
+            CODE    0000H     0003H     ABSOLUTE     
+                    0003H     0018H                  *** GAP ***
+            CODE    001BH     0003H     ABSOLUTE     
+                    001EH     07E2H                  *** GAP ***
+            CODE    0800H     008CH     UNIT         ?C_C51STARTUP
+            CODE    088CH     0063H     UNIT         ?PR?NGAT?NGATTIMERDIEUKHIENLEDBATTAT
+            CODE    08EFH     0020H     UNIT         ?C?LIB_CODE
+            CODE    090FH     001FH     UNIT         ?PR?MAIN?NGATTIMERDIEUKHIENLEDBATTAT
+            CODE    092EH     000BH     UNIT         ?PR?_DELAY?NGATTIMERDIEUKHIENLEDBATTAT
+            CODE    0939H     0005H     UNIT         ?C_INITSEG
+
+
+
+OVERLAY MAP OF MODULE:   ngatTimerDieuKhienLedBatTat (NGATTIMERDIEUKHIENLEDBATTAT)
+
+
+SEGMENT                                          DATA_GROUP 
+  +--> CALLED SEGMENT                          START    LENGTH
+--------------------------------------------------------------
+?PR?NGAT?NGATTIMERDIEUKHIENLEDBATTAT           0008H    0004H
+
+*** NEW ROOT ***************************************************
+
+?C_C51STARTUP                                  -----    -----
+  +--> ?PR?MAIN?NGATTIMERDIEUKHIENLEDBATTAT
+  +--> ?C_INITSEG
+
+?PR?MAIN?NGATTIMERDIEUKHIENLEDBATTAT           -----    -----
+  +--> ?PR?_DELAY?NGATTIMERDIEUKHIENLEDBATTAT
+
+
+BL51 BANKED LINKER/LOCATER V6.22                                                      03/06/2022  12:49:18  PAGE 2
+
+
+
+SYMBOL TABLE OF MODULE:  ngatTimerDieuKhienLedBatTat (NGATTIMERDIEUKHIENLEDBATTAT)
+
+  VALUE           TYPE          NAME
+  ----------------------------------
+
+  -------         MODULE        NGATTIMERDIEUKHIENLEDBATTAT
+  C:0000H         SYMBOL        _ICE_DUMMY_
+  D:00A0H         PUBLIC        P2
+  B:00A8H.7       PUBLIC        EA
+  C:092EH         PUBLIC        _delay
+  B:0090H.3       PUBLIC        P1_3
+  C:090FH         PUBLIC        main
+  C:088CH         PUBLIC        ngat
+  D:0089H         PUBLIC        TMOD
+  B:00A8H.3       PUBLIC        ET1
+  D:008DH         PUBLIC        TH1
+  D:008BH         PUBLIC        TL1
+  B:0088H.6       PUBLIC        TR1
+  D:000CH         PUBLIC        t
+  -------         PROC          _DELAY
+  D:0006H         SYMBOL        time
+  C:092EH         LINE#         54
+  C:092EH         LINE#         55
+  C:0938H         LINE#         56
+  -------         ENDPROC       _DELAY
+  -------         PROC          NGAT
+  -------         DO            
+  D:0008H         SYMBOL        time
+  -------         ENDDO         
+  C:088CH         LINE#         59
+  C:089DH         LINE#         60
+  C:08A9H         LINE#         61
+  C:08B1H         LINE#         62
+  C:08B4H         LINE#         63
+  C:08B7H         LINE#         64
+  C:08B9H         LINE#         66
+  C:08C6H         LINE#         67
+  C:08CCH         LINE#         68
+  C:08CEH         LINE#         69
+  C:08DBH         LINE#         70
+  C:08DEH         LINE#         71
+  C:08E0H         LINE#         73
+  C:08E0H         LINE#         74
+  -------         ENDPROC       NGAT
+  -------         PROC          MAIN
+  C:090FH         LINE#         76
+  C:090FH         LINE#         78
+  C:0912H         LINE#         79
+  C:0914H         LINE#         80
+  C:0916H         LINE#         81
+  C:0918H         LINE#         82
+  C:0918H         LINE#         83
+  C:091BH         LINE#         84
+  C:0922H         LINE#         85
+  C:0925H         LINE#         86
+  C:092CH         LINE#         88
+BL51 BANKED LINKER/LOCATER V6.22                                                      03/06/2022  12:49:18  PAGE 3
+
+
+  -------         ENDPROC       MAIN
+  -------         ENDMOD        NGATTIMERDIEUKHIENLEDBATTAT
+
+  -------         MODULE        ?C?LLDIIDATA
+  C:08F8H         PUBLIC        ?C?LLDIIDATA
+  C:08EFH         PUBLIC        ?C?LLDIIDATA1
+  C:08F1H         PUBLIC        ?C?LLDIIDATA8
+  -------         ENDMOD        ?C?LLDIIDATA
+
+******************************************************************************
+* RESTRICTED VERSION WITH 0800H BYTE CODE SIZE LIMIT; USED: 0094H BYTE ( 7%) *
+******************************************************************************
+
+Program Size: data=15.0 xdata=0 code=324
+LINK/LOCATE RUN COMPLETE.  0 WARNING(S),  0 ERROR(S)

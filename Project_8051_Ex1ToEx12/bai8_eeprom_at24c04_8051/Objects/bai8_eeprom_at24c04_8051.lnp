@@ -1,0 +1,3 @@
+".\Objects\bai8_eeprom_at24c04_8051.obj" 
+TO ".\Objects\bai8_eeprom_at24c04_8051" 
+PRINT(".\Listings\bai8_eeprom_at24c04_8051.m51") RAMSIZE(256) 

@@ -1,0 +1,369 @@
+BL51 BANKED LINKER/LOCATER V6.22                                                        03/01/2023  21:44:07  PAGE 1
+
+
+BL51 BANKED LINKER/LOCATER V6.22, INVOKED BY:
+C:\KEIL_V5\C51\BIN\BL51.EXE .\Objects\bai4_phim_4x4_8051.obj TO .\Objects\bai4_phim_4x4_8051 PRINT (.\Listings\bai4_phim
+>> _4x4_8051.m51)
+
+
+MEMORY MODEL: SMALL
+
+
+INPUT MODULES INCLUDED:
+  .\Objects\bai4_phim_4x4_8051.obj (BAI4_PHIM_4X4_8051)
+  C:\KEIL_V5\C51\LIB\C51S.LIB (?C_STARTUP)
+  C:\KEIL_V5\C51\LIB\C51S.LIB (?C?CLDPTR)
+
+
+LINK MAP OF MODULE:  .\Objects\bai4_phim_4x4_8051 (BAI4_PHIM_4X4_8051)
+
+
+            TYPE    BASE      LENGTH    RELOCATION   SEGMENT NAME
+            -----------------------------------------------------
+
+            * * * * * * *   D A T A   M E M O R Y   * * * * * * *
+            REG     0000H     0008H     ABSOLUTE     "REG BANK 0"
+            DATA    0008H     0004H     UNIT         _DATA_GROUP_
+            IDATA   000CH     0001H     UNIT         ?STACK
+
+            * * * * * * *   C O D E   M E M O R Y   * * * * * * *
+            CODE    0000H     0003H     ABSOLUTE     
+                    0003H     07FDH                  *** GAP ***
+            CODE    0800H     0054H     UNIT         ?PR?MAIN?BAI4_PHIM_4X4_8051
+            CODE    0854H     0045H     UNIT         ?PR?LCD_INIT?BAI4_PHIM_4X4_8051
+            CODE    0899H     0044H     UNIT         ?CO?BAI4_PHIM_4X4_8051
+            CODE    08DDH     0035H     UNIT         ?PR?_LCD_PUTS?BAI4_PHIM_4X4_8051
+            CODE    0912H     0030H     UNIT         ?PR?GET_KEY?BAI4_PHIM_4X4_8051
+            CODE    0942H     0020H     UNIT         ?PR?_DELAY_MS?BAI4_PHIM_4X4_8051
+            CODE    0962H     0020H     UNIT         ?PR?_LCD_GOTOXY?BAI4_PHIM_4X4_8051
+            CODE    0982H     0020H     UNIT         ?PR?_SCAN_ROW?BAI4_PHIM_4X4_8051
+            CODE    09A2H     001CH     UNIT         ?PR?_LCD_SEND4BIT?BAI4_PHIM_4X4_8051
+            CODE    09BEH     001CH     UNIT         ?PR?CHECK_COL?BAI4_PHIM_4X4_8051
+            CODE    09DAH     001AH     UNIT         ?PR?CHECK_BUT?BAI4_PHIM_4X4_8051
+            CODE    09F4H     0019H     UNIT         ?C?LIB_CODE
+            CODE    0A0DH     0015H     UNIT         ?PR?_SHOW_BUTTON?BAI4_PHIM_4X4_8051
+            CODE    0A22H     0013H     UNIT         ?PR?LCD_ENABLE?BAI4_PHIM_4X4_8051
+            CODE    0A35H     0012H     UNIT         ?PR?_DELAY_US?BAI4_PHIM_4X4_8051
+            CODE    0A47H     0012H     UNIT         ?PR?_LCD_SENDCOMMAND?BAI4_PHIM_4X4_8051
+            CODE    0A59H     000CH     UNIT         ?PR?LCD_CLEAR?BAI4_PHIM_4X4_8051
+            CODE    0A65H     000CH     UNIT         ?C_C51STARTUP
+            CODE    0A71H     0008H     UNIT         ?PR?_LCD_PUTCHAR?BAI4_PHIM_4X4_8051
+
+
+
+OVERLAY MAP OF MODULE:   .\Objects\bai4_phim_4x4_8051 (BAI4_PHIM_4X4_8051)
+
+
+SEGMENT                                           DATA_GROUP 
+  +--> CALLED SEGMENT                           START    LENGTH
+---------------------------------------------------------------
+?C_C51STARTUP                                   -----    -----
+  +--> ?PR?MAIN?BAI4_PHIM_4X4_8051
+BL51 BANKED LINKER/LOCATER V6.22                                                      03/01/2023  21:44:07  PAGE 2
+
+
+
+?PR?MAIN?BAI4_PHIM_4X4_8051                     -----    -----
+  +--> ?PR?LCD_INIT?BAI4_PHIM_4X4_8051
+  +--> ?PR?_DELAY_MS?BAI4_PHIM_4X4_8051
+  +--> ?CO?BAI4_PHIM_4X4_8051
+  +--> ?PR?_LCD_PUTS?BAI4_PHIM_4X4_8051
+  +--> ?PR?_LCD_GOTOXY?BAI4_PHIM_4X4_8051
+  +--> ?PR?GET_KEY?BAI4_PHIM_4X4_8051
+  +--> ?PR?_SHOW_BUTTON?BAI4_PHIM_4X4_8051
+
+?PR?LCD_INIT?BAI4_PHIM_4X4_8051                 -----    -----
+  +--> ?PR?_LCD_SEND4BIT?BAI4_PHIM_4X4_8051
+  +--> ?PR?_DELAY_MS?BAI4_PHIM_4X4_8051
+  +--> ?PR?LCD_ENABLE?BAI4_PHIM_4X4_8051
+  +--> ?PR?_DELAY_US?BAI4_PHIM_4X4_8051
+  +--> ?PR?_LCD_SENDCOMMAND?BAI4_PHIM_4X4_8051
+
+?PR?LCD_ENABLE?BAI4_PHIM_4X4_8051               -----    -----
+  +--> ?PR?_LCD_SEND4BIT?BAI4_PHIM_4X4_8051
+  +--> ?PR?_DELAY_US?BAI4_PHIM_4X4_8051
+
+?PR?_LCD_SENDCOMMAND?BAI4_PHIM_4X4_8051         -----    -----
+  +--> ?PR?LCD_ENABLE?BAI4_PHIM_4X4_8051
+  +--> ?PR?_LCD_SEND4BIT?BAI4_PHIM_4X4_8051
+
+?PR?_LCD_PUTS?BAI4_PHIM_4X4_8051                0009H    0003H
+  +--> ?PR?_DELAY_MS?BAI4_PHIM_4X4_8051
+  +--> ?PR?LCD_CLEAR?BAI4_PHIM_4X4_8051
+  +--> ?PR?_LCD_GOTOXY?BAI4_PHIM_4X4_8051
+  +--> ?CO?BAI4_PHIM_4X4_8051
+  +--> ?PR?_LCD_PUTCHAR?BAI4_PHIM_4X4_8051
+
+?PR?LCD_CLEAR?BAI4_PHIM_4X4_8051                -----    -----
+  +--> ?PR?_LCD_SENDCOMMAND?BAI4_PHIM_4X4_8051
+  +--> ?PR?_DELAY_US?BAI4_PHIM_4X4_8051
+
+?PR?_LCD_GOTOXY?BAI4_PHIM_4X4_8051              -----    -----
+  +--> ?PR?_DELAY_US?BAI4_PHIM_4X4_8051
+  +--> ?PR?_LCD_SENDCOMMAND?BAI4_PHIM_4X4_8051
+
+?PR?_LCD_PUTCHAR?BAI4_PHIM_4X4_8051             -----    -----
+  +--> ?PR?_LCD_SENDCOMMAND?BAI4_PHIM_4X4_8051
+
+?PR?GET_KEY?BAI4_PHIM_4X4_8051                  -----    -----
+  +--> ?PR?CHECK_BUT?BAI4_PHIM_4X4_8051
+  +--> ?PR?_DELAY_MS?BAI4_PHIM_4X4_8051
+  +--> ?PR?_SCAN_ROW?BAI4_PHIM_4X4_8051
+  +--> ?PR?CHECK_COL?BAI4_PHIM_4X4_8051
+
+?PR?_SHOW_BUTTON?BAI4_PHIM_4X4_8051             0008H    0001H
+  +--> ?CO?BAI4_PHIM_4X4_8051
+  +--> ?PR?_LCD_PUTS?BAI4_PHIM_4X4_8051
+  +--> ?PR?_LCD_PUTCHAR?BAI4_PHIM_4X4_8051
+
+
+
+SYMBOL TABLE OF MODULE:  .\Objects\bai4_phim_4x4_8051 (BAI4_PHIM_4X4_8051)
+BL51 BANKED LINKER/LOCATER V6.22                                                      03/01/2023  21:44:07  PAGE 3
+
+
+
+  VALUE           TYPE          NAME
+  ----------------------------------
+
+  -------         MODULE        BAI4_PHIM_4X4_8051
+  C:0000H         SYMBOL        _ICE_DUMMY_
+  C:0A25H         PUBLIC        LCD_Enable
+  C:0A47H         PUBLIC        _LCD_SendCommand
+  C:08CDH         PUBLIC        ma_nut
+  B:0090H.0       PUBLIC        P1_0
+  B:0090H.1       PUBLIC        P1_1
+  B:0090H.2       PUBLIC        P1_2
+  B:00A0H.2       PUBLIC        P2_2
+  B:0090H.3       PUBLIC        P1_3
+  B:0080H.4       PUBLIC        P0_4
+  B:00A0H.3       PUBLIC        P2_3
+  B:0090H.4       PUBLIC        P1_4
+  B:0080H.5       PUBLIC        P0_5
+  C:09A2H         PUBLIC        _LCD_Send4Bit
+  B:00A0H.4       PUBLIC        P2_4
+  B:0090H.5       PUBLIC        P1_5
+  B:0080H.6       PUBLIC        P0_6
+  B:0090H.6       PUBLIC        P1_6
+  B:0080H.7       PUBLIC        P0_7
+  B:0090H.7       PUBLIC        P1_7
+  C:0A59H         PUBLIC        LCD_Clear
+  C:09BEH         PUBLIC        check_col
+  C:0800H         PUBLIC        main
+  C:09DAH         PUBLIC        check_but
+  C:0962H         PUBLIC        _LCD_Gotoxy
+  C:0A0DH         PUBLIC        _show_button
+  C:0854H         PUBLIC        LCD_Init
+  C:0942H         PUBLIC        _delay_ms
+  C:0A35H         PUBLIC        _delay_us
+  C:0982H         PUBLIC        _scan_row
+  C:08EFH         PUBLIC        _LCD_Puts
+  C:0912H         PUBLIC        get_key
+  C:0A71H         PUBLIC        _LCD_PutChar
+  -------         PROC          _DELAY_US
+  D:0006H         SYMBOL        t
+  -------         DO            
+  D:0004H         SYMBOL        i
+  -------         ENDDO         
+  C:0A35H         LINE#         13
+  C:0A35H         LINE#         15
+  C:0A46H         LINE#         16
+  -------         ENDPROC       _DELAY_US
+  -------         PROC          _DELAY_MS
+  D:0006H         SYMBOL        t
+  -------         DO            
+  D:0004H         SYMBOL        i
+  D:0002H         SYMBOL        j
+  -------         ENDDO         
+  C:0942H         LINE#         17
+  C:0942H         LINE#         19
+  C:094CH         LINE#         20
+  C:0961H         LINE#         21
+BL51 BANKED LINKER/LOCATER V6.22                                                      03/01/2023  21:44:07  PAGE 4
+
+
+  -------         ENDPROC       _DELAY_MS
+  -------         PROC          L?0059
+  -------         ENDPROC       L?0059
+  -------         PROC          LCD_ENABLE
+  C:0A25H         LINE#         24
+  C:0A25H         LINE#         25
+  C:0A27H         LINE#         26
+  C:0A2EH         LINE#         27
+  C:0A30H         LINE#         28
+  -------         ENDPROC       LCD_ENABLE
+  -------         PROC          _LCD_SEND4BIT
+  D:0007H         SYMBOL        Data
+  C:09A2H         LINE#         31
+  C:09A2H         LINE#         32
+  C:09A6H         LINE#         33
+  C:09ACH         LINE#         34
+  C:09B4H         LINE#         35
+  C:09BDH         LINE#         36
+  -------         ENDPROC       _LCD_SEND4BIT
+  -------         PROC          _LCD_SENDCOMMAND
+  D:0003H         SYMBOL        command
+  C:0A47H         LINE#         38
+  C:0A49H         LINE#         39
+  C:0A4EH         LINE#         40
+  C:0A51H         LINE#         41
+  C:0A56H         LINE#         42
+  -------         ENDPROC       _LCD_SENDCOMMAND
+  -------         PROC          LCD_CLEAR
+  C:0A59H         LINE#         44
+  C:0A59H         LINE#         45
+  C:0A5EH         LINE#         46
+  -------         ENDPROC       LCD_CLEAR
+  -------         PROC          LCD_INIT
+  C:0854H         LINE#         49
+  C:0854H         LINE#         50
+  C:0859H         LINE#         51
+  C:0860H         LINE#         52
+  C:0862H         LINE#         53
+  C:0864H         LINE#         54
+  C:0866H         LINE#         55
+  C:0869H         LINE#         56
+  C:0870H         LINE#         57
+  C:0873H         LINE#         58
+  C:087AH         LINE#         59
+  C:087DH         LINE#         60
+  C:0882H         LINE#         61
+  C:0885H         LINE#         62
+  C:088AH         LINE#         63
+  C:088FH         LINE#         64
+  C:0894H         LINE#         65
+  -------         ENDPROC       LCD_INIT
+  -------         PROC          _LCD_GOTOXY
+  D:0007H         SYMBOL        x
+  D:0005H         SYMBOL        y
+  -------         DO            
+  D:0002H         SYMBOL        address
+  -------         ENDDO         
+BL51 BANKED LINKER/LOCATER V6.22                                                      03/01/2023  21:44:07  PAGE 5
+
+
+  C:0962H         LINE#         67
+  C:0962H         LINE#         69
+  C:096BH         LINE#         70
+  C:096FH         LINE#         71
+  C:0976H         LINE#         72
+  C:097BH         LINE#         73
+  -------         ENDPROC       _LCD_GOTOXY
+  -------         PROC          _LCD_PUTCHAR
+  D:0007H         SYMBOL        Data
+  C:0A71H         LINE#         75
+  C:0A71H         LINE#         76
+  C:0A73H         LINE#         77
+  C:0A76H         LINE#         78
+  C:0A78H         LINE#         79
+  -------         ENDPROC       _LCD_PUTCHAR
+  -------         PROC          L?0058
+  -------         ENDPROC       L?0058
+  -------         PROC          _LCD_PUTS
+  D:0009H         SYMBOL        s
+  C:08EFH         LINE#         80
+  C:08F5H         LINE#         81
+  C:0901H         LINE#         82
+  C:0904H         LINE#         83
+  C:090FH         LINE#         84
+  C:0911H         LINE#         85
+  -------         ENDPROC       _LCD_PUTS
+  -------         PROC          CHECK_BUT
+  C:09DAH         LINE#         13
+  C:09DAH         LINE#         14
+  C:09E2H         LINE#         15
+  C:09F1H         LINE#         16
+  C:09F3H         LINE#         17
+  -------         ENDPROC       CHECK_BUT
+  -------         PROC          _SCAN_ROW
+  D:0007H         SYMBOL        r
+  C:0982H         LINE#         18
+  C:0982H         LINE#         19
+  C:098AH         LINE#         20
+  C:0990H         LINE#         21
+  C:0996H         LINE#         22
+  C:099CH         LINE#         23
+  C:09A1H         LINE#         24
+  -------         ENDPROC       _SCAN_ROW
+  -------         PROC          CHECK_COL
+  -------         DO            
+  D:0007H         SYMBOL        c
+  -------         ENDDO         
+  C:09BEH         LINE#         25
+  C:09BEH         LINE#         26
+  C:09C0H         LINE#         27
+  C:09C6H         LINE#         28
+  C:09CDH         LINE#         29
+  C:09D4H         LINE#         30
+  C:09D9H         LINE#         31
+  C:09D9H         LINE#         32
+  -------         ENDPROC       CHECK_COL
+  -------         PROC          GET_KEY
+BL51 BANKED LINKER/LOCATER V6.22                                                      03/01/2023  21:44:07  PAGE 6
+
+
+  -------         DO            
+  D:0006H         SYMBOL        row
+  D:0007H         SYMBOL        col
+  -------         ENDDO         
+  C:0912H         LINE#         33
+  C:0912H         LINE#         35
+  C:0918H         LINE#         36
+  C:091FH         LINE#         37
+  C:0925H         LINE#         38
+  C:0925H         LINE#         39
+  C:092AH         LINE#         40
+  C:092DH         LINE#         41
+  C:093BH         LINE#         42
+  C:093FH         LINE#         43
+  C:093FH         LINE#         44
+  C:093FH         LINE#         45
+  C:0941H         LINE#         46
+  -------         ENDPROC       GET_KEY
+  -------         PROC          _SHOW_BUTTON
+  D:0008H         SYMBOL        key
+  C:0A0DH         LINE#         56
+  C:0A0FH         LINE#         57
+  C:0A18H         LINE#         58
+  -------         ENDPROC       _SHOW_BUTTON
+  -------         PROC          MAIN
+  -------         DO            
+  D:0007H         SYMBOL        but
+  -------         ENDDO         
+  C:0800H         LINE#         17
+  C:0800H         LINE#         19
+  C:0803H         LINE#         20
+  C:080AH         LINE#         21
+  C:0813H         LINE#         22
+  C:0817H         LINE#         23
+  C:0817H         LINE#         24
+  C:0817H         LINE#         25
+  C:081AH         LINE#         26
+  C:0821H         LINE#         27
+  C:0828H         LINE#         28
+  C:0831H         LINE#         29
+  C:0835H         LINE#         30
+  C:0835H         LINE#         31
+  C:0835H         LINE#         32
+  C:0838H         LINE#         33
+  C:0838H         LINE#         34
+  C:083FH         LINE#         35
+  C:0842H         LINE#         36
+  C:084BH         LINE#         38
+  C:0852H         LINE#         39
+  -------         ENDPROC       MAIN
+  -------         ENDMOD        BAI4_PHIM_4X4_8051
+
+  -------         MODULE        ?C?CLDPTR
+  C:09F4H         PUBLIC        ?C?CLDPTR
+  -------         ENDMOD        ?C?CLDPTR
+
+******************************************************************************
+BL51 BANKED LINKER/LOCATER V6.22                                                      03/01/2023  21:44:07  PAGE 7
+
+
+* RESTRICTED VERSION WITH 0800H BYTE CODE SIZE LIMIT; USED: 0254H BYTE (29%) *
+******************************************************************************
+
+Program Size: data=13.0 xdata=0 code=636
+LINK/LOCATE RUN COMPLETE.  0 WARNING(S),  0 ERROR(S)

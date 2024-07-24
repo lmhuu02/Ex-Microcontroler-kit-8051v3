@@ -1,0 +1,142 @@
+BL51 BANKED LINKER/LOCATER V6.22                                                        04/01/2022  08:54:21  PAGE 1
+
+
+BL51 BANKED LINKER/LOCATER V6.22, INVOKED BY:
+C:\KEIL\C51\BIN\BL51.EXE nhanTInHieuGiaoTiepUART.obj TO nhanTInHieuGiaoTiepUART RAMSIZE (256)
+
+
+MEMORY MODEL: SMALL
+
+
+INPUT MODULES INCLUDED:
+  nhanTInHieuGiaoTiepUART.obj (NHANTINHIEUGIAOTIEPUART)
+  C:\KEIL\C51\LIB\C51S.LIB (?C_STARTUP)
+  C:\KEIL\C51\LIB\C51S.LIB (?C?CLDPTR)
+
+
+LINK MAP OF MODULE:  nhanTInHieuGiaoTiepUART (NHANTINHIEUGIAOTIEPUART)
+
+
+            TYPE    BASE      LENGTH    RELOCATION   SEGMENT NAME
+            -----------------------------------------------------
+
+            * * * * * * *   D A T A   M E M O R Y   * * * * * * *
+            REG     0000H     0008H     ABSOLUTE     "REG BANK 0"
+            DATA    0008H     0001H     UNIT         ?DT?NHANTINHIEUGIAOTIEPUART
+            IDATA   0009H     0001H     UNIT         ?STACK
+
+            * * * * * * *   C O D E   M E M O R Y   * * * * * * *
+            CODE    0000H     0003H     ABSOLUTE     
+            CODE    0003H     003AH     UNIT         ?PR?MAIN?NHANTINHIEUGIAOTIEPUART
+            CODE    003DH     0019H     UNIT         ?C?LIB_CODE
+            CODE    0056H     0014H     UNIT         ?PR?_UARTWRITETEXT?NHANTINHIEUGIAOTIEPUART
+            CODE    006AH     000FH     UNIT         ?PR?INITUART?NHANTINHIEUGIAOTIEPUART
+            CODE    0079H     000CH     UNIT         ?C_C51STARTUP
+            CODE    0085H     0008H     UNIT         ?PR?_UARTWRITE?NHANTINHIEUGIAOTIEPUART
+            CODE    008DH     0005H     UNIT         ?PR?UARTREAD?NHANTINHIEUGIAOTIEPUART
+
+
+
+OVERLAY MAP OF MODULE:   nhanTInHieuGiaoTiepUART (NHANTINHIEUGIAOTIEPUART)
+
+
+SEGMENT
+  +--> CALLED SEGMENT
+---------------------
+?C_C51STARTUP
+  +--> ?PR?MAIN?NHANTINHIEUGIAOTIEPUART
+
+?PR?MAIN?NHANTINHIEUGIAOTIEPUART
+  +--> ?PR?INITUART?NHANTINHIEUGIAOTIEPUART
+  +--> ?PR?UARTREAD?NHANTINHIEUGIAOTIEPUART
+
+
+
+SYMBOL TABLE OF MODULE:  nhanTInHieuGiaoTiepUART (NHANTINHIEUGIAOTIEPUART)
+
+  VALUE           TYPE          NAME
+  ----------------------------------
+
+  -------         MODULE        NHANTINHIEUGIAOTIEPUART
+  C:0000H         SYMBOL        _ICE_DUMMY_
+BL51 BANKED LINKER/LOCATER V6.22                                                      04/01/2022  08:54:21  PAGE 2
+
+
+  D:0090H         PUBLIC        P1
+  B:0090H.0       PUBLIC        P1_0
+  B:0090H.1       PUBLIC        P1_1
+  B:0098H.0       PUBLIC        RI
+  B:0098H.1       PUBLIC        TI
+  C:0003H         PUBLIC        main
+  D:0099H         PUBLIC        SBUF
+  D:0098H         PUBLIC        SCON
+  D:0089H         PUBLIC        TMOD
+  C:008DH         PUBLIC        uartRead
+  C:0085H         PUBLIC        _uartWrite
+  D:008DH         PUBLIC        TH1
+  D:0008H         PUBLIC        kytu
+  D:008BH         PUBLIC        TL1
+  B:0088H.6       PUBLIC        TR1
+  C:006AH         PUBLIC        initUART
+  C:0056H         PUBLIC        _uartWriteText
+  -------         PROC          INITUART
+  C:006AH         LINE#         5
+  C:006AH         LINE#         6
+  C:006DH         LINE#         7
+  C:0070H         LINE#         8
+  C:0073H         LINE#         9
+  C:0075H         LINE#         10
+  C:0078H         LINE#         12
+  -------         ENDPROC       INITUART
+  -------         PROC          _UARTWRITE
+  D:0007H         SYMBOL        a
+  C:0085H         LINE#         14
+  C:0085H         LINE#         15
+  C:0088H         LINE#         16
+  C:008AH         LINE#         17
+  C:008CH         LINE#         18
+  -------         ENDPROC       _UARTWRITE
+  -------         PROC          UARTREAD
+  C:008DH         LINE#         20
+  C:008DH         LINE#         21
+  C:008FH         LINE#         22
+  C:0091H         LINE#         23
+  -------         ENDPROC       UARTREAD
+  -------         PROC          _UARTWRITETEXT
+  D:0001H         SYMBOL        str
+  C:0056H         LINE#         25
+  C:0056H         LINE#         26
+  C:005BH         LINE#         27
+  C:0060H         LINE#         28
+  C:0067H         LINE#         29
+  C:0069H         LINE#         30
+  -------         ENDPROC       _UARTWRITETEXT
+  -------         PROC          MAIN
+  C:0003H         LINE#         32
+  C:0003H         LINE#         33
+  C:0006H         LINE#         34
+  C:0009H         LINE#         35
+  C:000EH         LINE#         36
+  C:000EH         LINE#         37
+  C:0011H         LINE#         39
+BL51 BANKED LINKER/LOCATER V6.22                                                      04/01/2022  08:54:21  PAGE 3
+
+
+  C:0019H         LINE#         40
+  C:0021H         LINE#         41
+  C:0029H         LINE#         42
+  C:0031H         LINE#         43
+  C:003BH         LINE#         45
+  C:003BH         LINE#         46
+  -------         ENDPROC       MAIN
+  -------         ENDMOD        NHANTINHIEUGIAOTIEPUART
+
+  -------         MODULE        ?C?CLDPTR
+  C:003DH         PUBLIC        ?C?CLDPTR
+  -------         ENDMOD        ?C?CLDPTR
+
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?_UARTWRITETEXT?NHANTINHIEUGIAOTIEPUART
+
+Program Size: data=10.0 xdata=0 code=146
+LINK/LOCATE RUN COMPLETE.  1 WARNING(S),  0 ERROR(S)

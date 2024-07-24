@@ -1,0 +1,96 @@
+A51 MACRO ASSEMBLER  MAIN                                                                 02/12/2017 12:41:12 PAGE     1
+
+
+MACRO ASSEMBLER A51 V8.02
+OBJECT MODULE PLACED IN main.OBJ
+ASSEMBLER INVOKED BY: C:\Keil\C51\BIN\A51.EXE main.asm SET(SMALL) DEBUG EP
+
+LOC  OBJ            LINE     SOURCE
+
+                       1     ; NGUYEN NGOC NGAN _ DH GTVT TP HCM
+                       2     ; Xtal = 11.0592MHz
+0000                   3     org     00h
+                       4     
+0000                   5     INIT:
+0000 758920            6             mov             TMOD,#20h       ; timer 1 mode 2
+0003 759852            7             mov             SCON,#52h       ; UART mode 1 
+0006 758DFD            8             mov             TH1,#(-3)       ; baudrate =9600
+0009 758BFD            9             mov             TL1,#(-3)
+000C D28E             10             setb    TR1
+000E                  11     MAIN:
+000E 900057           12             mov             DPTR,#string1
+0011 112A             13             acall   out_string
+0013 740D             14             mov             A,#13                   ; ma ASCII cua ky tu xuong dong
+0015 1134             15             acall   out_char
+0017 90003C           16             mov             DPTR,#string0
+001A 112A             17             acall   out_string
+001C 740D             18             mov             A,#13                   ; ma ASCII cua ky tu xuong dong
+001E 1134             19             acall   out_char
+0020 7441             20             mov             A,#'A'
+0022                  21     next:
+0022 1134             22             acall   out_char
+0024 04               23             inc             A
+0025 B45BFA           24             cjne    A,#'Z'+1,next
+0028 80FE             25             sjmp    $
+                      26     ; chuong trinh con
+                      27     ;**** xuat chuoi ky tu*******
+002A                  28     out_string:
+002A                  29     next_char:
+002A E4               30             clr             A
+002B 93               31             movc    A,@A+DPTR
+002C 6005             32             jz              end_string
+002E A3               33             inc             DPTR
+002F 1134             34             acall   out_char
+0031 80F7             35             sjmp    next_char
+0033                  36     end_string:
+0033 22               37     ret
+                      38     ;****** xuat 1 ky tu*********
+0034                  39     out_char:
+0034 3099FD           40             jnb             TI,$
+0037 C299             41             clr             TI
+0039 F599             42             mov             SBUF,A
+003B 22               43     ret
+003C                  44     string0:
+003C 6E676F63         45     DB              "ngocnganblog.wordpress.com",0
+0040 6E67616E                
+0044 626C6F67                
+0048 2E776F72                
+004C 64707265                
+0050 73732E63                
+0054 6F6D00                  
+0057                  46     string1:
+0057 48656C6C         47     DB              "Hello World",0
+005B 6F20576F                
+005F 726C6400                
+                      48     
+                      49      end
+A51 MACRO ASSEMBLER  MAIN                                                                 02/12/2017 12:41:12 PAGE     2
+
+SYMBOL TABLE LISTING
+------ ----- -------
+
+
+N A M E             T Y P E  V A L U E   ATTRIBUTES
+
+END_STRING . . . .  C ADDR   0033H   A   
+INIT . . . . . . .  C ADDR   0000H   A   
+MAIN . . . . . . .  C ADDR   000EH   A   
+NEXT . . . . . . .  C ADDR   0022H   A   
+NEXT_CHAR. . . . .  C ADDR   002AH   A   
+OUT_CHAR . . . . .  C ADDR   0034H   A   
+OUT_STRING . . . .  C ADDR   002AH   A   
+SBUF . . . . . . .  D ADDR   0099H   A   
+SCON . . . . . . .  D ADDR   0098H   A   
+STRING0. . . . . .  C ADDR   003CH   A   
+STRING1. . . . . .  C ADDR   0057H   A   
+TH1. . . . . . . .  D ADDR   008DH   A   
+TI . . . . . . . .  B ADDR   0098H.1 A   
+TL1. . . . . . . .  D ADDR   008BH   A   
+TMOD . . . . . . .  D ADDR   0089H   A   
+TR1. . . . . . . .  B ADDR   0088H.6 A   
+
+
+REGISTER BANK(S) USED: 0 
+
+
+ASSEMBLY COMPLETE.  0 WARNING(S), 0 ERROR(S)

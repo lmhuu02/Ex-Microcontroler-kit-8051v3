@@ -1,0 +1,62 @@
+<html>
+<body>
+<pre>
+<h1>µVision Build Log</h1>
+<h2>Project:</h2>
+D:\TU HOC code project LeHuu\Project_vdk_8051_LeHuu\lap trinh hien thi lcd 16 02\lapTrinhGiaoTiepLcd1602Cd4Bit.uvproj
+Project File Date:  03/05/2022
+
+<h2>Output:</h2>
+Rebuild target 'Target 1'
+compiling lapTrinhGiaoTiepLcd1602Cd4Bit.c...
+lapTrinhGiaoTiepLcd1602Cd4Bit.c(116): error C141: syntax error near 'char'
+lapTrinhGiaoTiepLcd1602Cd4Bit.c(116): error C202: 'chu': undefined identifier
+lapTrinhGiaoTiepLcd1602Cd4Bit.c(117): error C141: syntax error near 'int'
+lapTrinhGiaoTiepLcd1602Cd4Bit.c(117): error C202: 'so': undefined identifier
+lapTrinhGiaoTiepLcd1602Cd4Bit.c(118): error C202: 'so': undefined identifier
+lapTrinhGiaoTiepLcd1602Cd4Bit.c(120): error C202: 'chu': undefined identifier
+lapTrinhGiaoTiepLcd1602Cd4Bit.c(120): error C141: syntax error near ''
+lapTrinhGiaoTiepLcd1602Cd4Bit.c(120): error C141: syntax error near ')'
+Target not created
+Rebuild target 'Target 1'
+compiling lapTrinhGiaoTiepLcd1602Cd4Bit.c...
+lapTrinhGiaoTiepLcd1602Cd4Bit.c(116): error C141: syntax error near 'char'
+lapTrinhGiaoTiepLcd1602Cd4Bit.c(116): error C202: 'chu': undefined identifier
+lapTrinhGiaoTiepLcd1602Cd4Bit.c(117): error C141: syntax error near 'int'
+lapTrinhGiaoTiepLcd1602Cd4Bit.c(117): error C202: 'so': undefined identifier
+lapTrinhGiaoTiepLcd1602Cd4Bit.c(118): error C202: 'so': undefined identifier
+lapTrinhGiaoTiepLcd1602Cd4Bit.c(120): error C202: 'chu': undefined identifier
+lapTrinhGiaoTiepLcd1602Cd4Bit.c(120): error C141: syntax error near ''
+lapTrinhGiaoTiepLcd1602Cd4Bit.c(120): error C141: syntax error near ')'
+Target not created
+Rebuild target 'Target 1'
+compiling lapTrinhGiaoTiepLcd1602Cd4Bit.c...
+lapTrinhGiaoTiepLcd1602Cd4Bit.c(116): error C141: syntax error near 'char'
+lapTrinhGiaoTiepLcd1602Cd4Bit.c(116): error C202: 'chu': undefined identifier
+lapTrinhGiaoTiepLcd1602Cd4Bit.c(117): error C141: syntax error near 'int'
+lapTrinhGiaoTiepLcd1602Cd4Bit.c(117): error C202: 'so': undefined identifier
+lapTrinhGiaoTiepLcd1602Cd4Bit.c(118): error C202: 'so': undefined identifier
+lapTrinhGiaoTiepLcd1602Cd4Bit.c(120): error C141: syntax error near ']'
+Target not created
+Rebuild target 'Target 1'
+compiling lapTrinhGiaoTiepLcd1602Cd4Bit.c...
+lapTrinhGiaoTiepLcd1602Cd4Bit.c(116): error C141: syntax error near 'char'
+lapTrinhGiaoTiepLcd1602Cd4Bit.c(116): error C202: 'chu': undefined identifier
+lapTrinhGiaoTiepLcd1602Cd4Bit.c(117): error C141: syntax error near 'int'
+lapTrinhGiaoTiepLcd1602Cd4Bit.c(117): error C202: 'so': undefined identifier
+lapTrinhGiaoTiepLcd1602Cd4Bit.c(118): error C202: 'so': undefined identifier
+lapTrinhGiaoTiepLcd1602Cd4Bit.c(120): error C202: 'chu': undefined identifier
+lapTrinhGiaoTiepLcd1602Cd4Bit.c(121): error C202: 'chu': undefined identifier
+Target not created
+Rebuild target 'Target 1'
+compiling lapTrinhGiaoTiepLcd1602Cd4Bit.c...
+linking...
+Program Size: data=48.1 xdata=0 code=1607
+creating hex file from "lapTrinhGiaoTiepLcd1602Cd4Bit"...
+"lapTrinhGiaoTiepLcd1602Cd4Bit" - 0 Error(s), 0 Warning(s).
+Rebuild target 'Target 1'
+compiling lapTrinhGiaoTiepLcd1602Cd4Bit.c...
+linking...
+Program Size: data=48.1 xdata=0 code=1607
+creating hex file from "lapTrinhGiaoTiepLcd1602Cd4Bit"...
+"lapTrinhGiaoTiepLcd1602Cd4Bit" - 0 Error(s), 0 Warning(s).

@@ -1,0 +1,69 @@
+C51 COMPILER V9.52.0.0   BAI4_PHIM_4X4_8051                                                03/01/2023 21:44:07 PAGE 1   
+
+
+C51 COMPILER V9.52.0.0, COMPILATION OF MODULE BAI4_PHIM_4X4_8051
+OBJECT MODULE PLACED IN .\Objects\bai4_phim_4x4_8051.obj
+COMPILER INVOKED BY: C:\Keil_v5\C51\BIN\C51.EXE bai4_phim_4x4_8051.c OPTIMIZE(8,SPEED) BROWSE DEBUG OBJECTEXTEND PRINT(.
+                    -\Listings\bai4_phim_4x4_8051.lst) TABS(2) OBJECT(.\Objects\bai4_phim_4x4_8051.obj)
+
+line level    source
+
+   1          /*
+   2          DO AN TOT NGHIEP: KIT 8051 V3.
+   3          NAME: BUTTON MATRIX 4X4 SHOW DATA on lcd16x2 in chip 8051.
+   4          TIME: 2/2023  - ICTU.
+   5          *link: https://www.electronicwings.com/8051/glcd-128x64-interfacing-with-at89s51-microcontroller
+   6          *link2: https://exploreembedded.com/wiki/Interfacing_glcd_with_8051
+   7          */
+   8          /*---------------------------INCLUDE AND DEFINE-----------------------------------*/
+   9          #include <REGX51.H>
+  10          #include <lcd16x2.h>
+  11          #include <matrix_bt.h>
+  12          #include <stdio.h>  //su dung sprintf()
+  13          
+  14          
+  15          /*-------------------------------MAIN FUNCTION-------------------------------*/
+  16          
+  17          void main(){  //Chuong trinh chinh
+  18   1        unsigned char but;
+  19   1        LCD_Init();
+  20   1        delay_ms(200);
+  21   1        LCD_Puts("Quet phim 4x4..");
+  22   1        delay_ms(500);
+  23   1        LCD_Clear();
+  24   1        LCD_Gotoxy(0,0);
+  25   1        LCD_Puts("DO AN TOT NGHIEP");
+  26   1        delay_ms(1000);
+  27   1        LCD_Gotoxy(0,1);
+  28   1        LCD_Puts(" KIT 8051 V3");
+  29   1        delay_ms(1000);
+  30   1        LCD_Clear();
+  31   1        LCD_Gotoxy(0,0);
+  32   1        LCD_Puts("DO AN TOT NGHIEP");
+  33   1        while(1){
+  34   2           LCD_Gotoxy(0,1);
+  35   2           but=get_key();
+  36   2           if(but>0)show_button(but);
+  37   2           //else LCD_Puts("No key");
+  38   2           delay_ms(200);
+  39   2         }
+  40   1      
+  41   1      }
+  42          
+  43          
+
+
+MODULE INFORMATION:   STATIC OVERLAYABLE
+   CODE SIZE        =    528    ----
+   CONSTANT SIZE    =     68    ----
+   XDATA SIZE       =   ----    ----
+   PDATA SIZE       =   ----    ----
+   DATA SIZE        =   ----       4
+   IDATA SIZE       =   ----    ----
+   BIT SIZE         =   ----    ----
+END OF MODULE INFORMATION.
+
+C51 COMPILER V9.52.0.0   BAI4_PHIM_4X4_8051                                                03/01/2023 21:44:07 PAGE 2   
+
+
+C51 COMPILATION COMPLETE.  0 WARNING(S),  0 ERROR(S)

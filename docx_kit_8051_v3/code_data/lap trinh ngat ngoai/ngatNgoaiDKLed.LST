@@ -1,0 +1,73 @@
+C51 COMPILER V9.52.0.0   NGATNGOAIDKLED                                                    03/11/2022 08:59:12 PAGE 1   
+
+
+C51 COMPILER V9.52.0.0, COMPILATION OF MODULE NGATNGOAIDKLED
+OBJECT MODULE PLACED IN ngatNgoaiDKLed.OBJ
+COMPILER INVOKED BY: C:\Keil\C51\BIN\C51.EXE ngatNgoaiDKLed.c BROWSE DEBUG OBJECTEXTEND TABS(2)
+
+line level    source
+
+   1          //power by le minh huu 11/3/2022
+   2          //viet chuong trinh led cong P2 sang 1s va tat 1s, khi co ngat ngoai 0 chan P3_2 thi bat led P1_0
+   3          #include <REGX52.H>
+   4          
+   5          sbit button = P3^2; //khai bao button = chan ngat
+   6          bit state;
+   7          
+   8          char so[]= {0x00, 0x01, 0x02, 0x03, 0x04, 0x05, 0x06, 0x07, 0x08, 0x09};  //dem so the dau vao la ma bcd
+   9          int dem, i;
+  10          
+  11          //ham tre dung timer vi can thoi gian chinh xac
+  12          void delay(int time){
+  13   1        while(time--){
+  14   2          TMOD = 0x01;  //timer 0 che do 1
+  15   2          TH0 = 0xfc;   //tre trong 1 ms
+  16   2          TL0 = 0x18;
+  17   2          TR0 = 1;
+  18   2          while(!TF0){}
+  19   2          TR0 = 0;
+  20   2          TF0 = 0;
+  21   2        }
+  22   1      }
+  23          
+  24          //khai bao ngat ngoai
+  25          void ngatngoai() interrupt 0{ //ngat ngoai 0 thu tu 0
+  26   1        long a = 1000, b = 60;
+  27   1        P0_0 = 0;
+  28   1        //kiem tra ngat va tang so dem
+  29   1        if(button == 0){
+  30   2          while(button == 0){}  //cho den khi nao nut bam chuyen len muc 1
+  31   2            dem++;
+  32   2            if(dem == 10) {dem = 0;}  //neu dem = 10 thi quay lai 1
+  33   2        }
+  34   1        while(a--);
+  35   1        P0_0 = 1;
+  36   1      }
+  37          
+  38          void main(){
+  39   1        EX0 = 1; //cho phep ngat ngoai 0 chan P3_2. INT0
+  40   1        EA = 1; //bat thanh ghi ngat
+  41   1        IT0 = 0; //ngat theo muc
+  42   1        TR0 = 1;  //khoi dong bo dinh thoi
+  43   1        while(1){
+  44   2          P2 = ~P2;
+  45   2          delay(1000);  //do dau bai yeu cau thoi gian chinh xac nen can dung timer de dem thoi gian
+  46   2          P1 = so[dem];
+  47   2        }
+  48   1      }
+
+
+MODULE INFORMATION:   STATIC OVERLAYABLE
+   CODE SIZE        =    156    ----
+   CONSTANT SIZE    =   ----    ----
+   XDATA SIZE       =   ----    ----
+   PDATA SIZE       =   ----    ----
+C51 COMPILER V9.52.0.0   NGATNGOAIDKLED                                                    03/11/2022 08:59:12 PAGE 2   
+
+   DATA SIZE        =     14       8
+   IDATA SIZE       =   ----    ----
+   BIT SIZE         =      1    ----
+END OF MODULE INFORMATION.
+
+
+C51 COMPILATION COMPLETE.  0 WARNING(S),  0 ERROR(S)

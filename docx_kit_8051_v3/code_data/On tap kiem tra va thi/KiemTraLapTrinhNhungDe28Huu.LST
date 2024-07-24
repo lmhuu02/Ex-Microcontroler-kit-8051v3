@@ -1,0 +1,76 @@
+C51 COMPILER V9.52.0.0   KIEMTRALAPTRINHNHUNGDE28HUU                                       05/19/2022 14:48:22 PAGE 1   
+
+
+C51 COMPILER V9.52.0.0, COMPILATION OF MODULE KIEMTRALAPTRINHNHUNGDE28HUU
+OBJECT MODULE PLACED IN KiemTraLapTrinhNhungDe28Huu.OBJ
+COMPILER INVOKED BY: C:\Keil\C51\BIN\C51.EXE KiemTraLapTrinhNhungDe28Huu.c BROWSE DEBUG OBJECTEXTEND TABS(2)
+
+line level    source
+
+   1          /*
+   2          THI LAP TRINH NHUNG 8051 LE MINH HUU 30/10/2002 NGAY 19/5/2022
+   3          DE: LAP TRINH TRUYEN THONG UART CHUYEN CAC KY TU TU K DEN Z
+   4          tinh gia tri TH1 = 256 - (crystal /(12*32))/9600 = 256 - (11 059 200 / 384)/9600 = 256 - 3 = 253 = FD
+   5          SCON: sm0 sm1 sm2 ren tb8 rb8 ti ri. 0101 0000
+   6          TMOD: gate c/t m1 m0 gate c/t m1 m0 
+   7          PCON: SMOD _ _ .......
+   8          
+   9          */
+  10          
+  11          #include <REGX52.H>
+  12          #include <string.h>
+  13          //ham delay
+  14          void delay(int time){
+  15   1      while(time--){}
+  16   1      }
+  17          //ham gui mot ky tu
+  18          void send(unsigned char a){
+  19   1        SBUF = a;
+  20   1        while(!TI){}  //kiem tra nhan
+  21   1          TI = 0;
+  22   1      }
+  23          //ham gui chuoi ky tu
+  24          void sendChar(unsigned char *a){
+  25   1        int i,x;
+  26   1        x = strlen(a);
+  27   1        for(i = 0; i <= x; i++){
+  28   2            send(a[i]);
+  29   2        }
+  30   1      }
+  31          //ham nhan ky tu tu may tinh
+  32          //void reciver(){
+  33          //  unsigned char b;
+  34          //  while(!RI){}  //kiem tra truyen
+  35          //    b = SBUF;
+  36          //    RI = 0;
+  37          //    return b;
+  38          //}
+  39          void main(){
+  40   1        int i;
+  41   1        TMOD = 0x20;  //0010 000 timer 1 che do 2, m1 = 1, m0 = 0
+  42   1        SCON = 0x50;  //0101 0000 m1 = 1, m0 = 0, ren = 1  
+  43   1        TH1 = 0XFD; //tinh gia tri nap cho thanh ghi TH1
+  44   1        PCON = 0x80;
+  45   1        TR1 = 1;  //bat bo dinh thoi
+  46   1        sendChar("Le Minh Huu ktmt k19 xin chao\r\n");
+  47   1        for(i = 'k'; i <= 'z'; i++){  //gui ky tu tu k den z
+  48   2          send(i);
+  49   2        }
+  50   1        while(1){}
+  51   1      }
+
+
+MODULE INFORMATION:   STATIC OVERLAYABLE
+   CODE SIZE        =    120    ----
+C51 COMPILER V9.52.0.0   KIEMTRALAPTRINHNHUNGDE28HUU                                       05/19/2022 14:48:22 PAGE 2   
+
+   CONSTANT SIZE    =     32    ----
+   XDATA SIZE       =   ----    ----
+   PDATA SIZE       =   ----    ----
+   DATA SIZE        =   ----       5
+   IDATA SIZE       =   ----    ----
+   BIT SIZE         =   ----    ----
+END OF MODULE INFORMATION.
+
+
+C51 COMPILATION COMPLETE.  0 WARNING(S),  0 ERROR(S)

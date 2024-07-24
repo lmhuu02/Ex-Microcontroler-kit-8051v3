@@ -1,0 +1,87 @@
+C51 COMPILER V9.52.0.0   BAI6_NE555_HIEN_THI_XUNG_LCD                                      03/01/2023 23:55:15 PAGE 1   
+
+
+C51 COMPILER V9.52.0.0, COMPILATION OF MODULE BAI6_NE555_HIEN_THI_XUNG_LCD
+OBJECT MODULE PLACED IN .\Objects\bai6_ne555_hien_thi_xung_lcd.obj
+COMPILER INVOKED BY: C:\Keil_v5\C51\BIN\C51.EXE bai6_ne555_hien_thi_xung_lcd.c OPTIMIZE(8,SPEED) BROWSE DEBUG OBJECTEXTE
+                    -ND PRINT(.\Listings\bai6_ne555_hien_thi_xung_lcd.lst) TABS(2) OBJECT(.\Objects\bai6_ne555_hien_thi_xung_lcd.obj)
+
+line level    source
+
+   1          /*
+   2          DO AN TOT NGHIEP: KIT 8051 V3.
+   3          NAME: NE555 COUNT HZ SHOW LCD 16X2 in chip 8051.
+   4          TIME: 3/2023  - ICTU.
+   5          */
+   6          /*---------------------------INCLUDE AND DEFINE-----------------------------------*/
+   7          #include <REGX51.H>
+   8          #include <lcd16x2.h>
+   9          #include <stdio.h>  //su dung sprintf()
+  10          
+  11          typedef   unsigned  long   int  uint32_t;
+  12          float f;
+  13          uint32_t t, value_timer0;
+  14          
+  15          /*-------------------------------FUNCTION-------------------------------*/
+  16          void ngat_timer_0 () interrupt 1
+  17          {
+  18   1        value_timer0+=0xffff;
+  19   1      }
+  20          
+  21          /*-------------------------------MAIN FUNCTION-------------------------------*/
+  22          void main(){
+  23   1        lcd1602_init();
+  24   1        lcd1602_clear();
+  25   1        lcd1602_gotoxy(0,0);
+  26   1        lcd1602_puts("DO AN TOT NGHIEP");
+  27   1        delay_ms(1000);
+  28   1        lcd1602_gotoxy(0,1);
+  29   1        lcd1602_puts(" KIT 8051 V3");
+  30   1        delay_ms(1000);
+  31   1        lcd1602_clear();
+  32   1        lcd1602_gotoxy(0,0);
+  33   1        lcd1602_puts("DO TAN SO");
+  34   1        TMOD=0x01;
+  35   1        EA=1;
+  36   1        ET0=1;
+  37   1        while(1)
+  38   1        {
+  39   2        TH0 = 0;
+  40   2        TL0 = 0;
+  41   2      
+  42   2        while(INT0);  // Bo qua muc 1 dau tien
+  43   2        while(!INT0);   // Bo qua muc 0
+  44   2        TR0 = 1;
+  45   2        while(INT0);
+  46   2        TR0 = 0;
+  47   2      
+  48   2        t = TH0;
+  49   2        t <<= 8;
+  50   2        t |= TL0;
+  51   2        t=t+value_timer0;
+  52   2        value_timer0=0;
+  53   2        t*=2; 
+  54   2        f=(float)1000000/t;
+C51 COMPILER V9.52.0.0   BAI6_NE555_HIEN_THI_XUNG_LCD                                      03/01/2023 23:55:15 PAGE 2   
+
+  55   2        sprintf(Lcd_Buff,"F=%.2f Hz",f);
+  56   2        lcd1602_gotoxy(0,1);
+  57   2        lcd1602_puts(Lcd_Buff);
+  58   2        delay_ms(500);
+  59   2        }
+  60   1      }
+  61          /*------------------------------END FILE--------------------------------*/
+
+
+MODULE INFORMATION:   STATIC OVERLAYABLE
+   CODE SIZE        =    585    ----
+   CONSTANT SIZE    =     50    ----
+   XDATA SIZE       =   ----    ----
+   PDATA SIZE       =   ----    ----
+   DATA SIZE        =     28       4
+   IDATA SIZE       =   ----    ----
+   BIT SIZE         =   ----    ----
+END OF MODULE INFORMATION.
+
+
+C51 COMPILATION COMPLETE.  0 WARNING(S),  0 ERROR(S)

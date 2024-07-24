@@ -1,0 +1,170 @@
+C51 COMPILER V9.52.0.0   DIEUKHIEN8LEDDON                                                  01/05/2022 01:19:28 PAGE 1   
+
+
+C51 COMPILER V9.52.0.0, COMPILATION OF MODULE DIEUKHIEN8LEDDON
+OBJECT MODULE PLACED IN dieuKhien8LedDon.OBJ
+COMPILER INVOKED BY: C:\Keil\C51\BIN\C51.EXE dieuKhien8LedDon.c BROWSE DEBUG OBJECTEXTEND TABS(2)
+
+line level    source
+
+   1          //POWER BY LE MINH HUU
+   2          //3/1/2022
+   3          //lap trinh 8 led don tao hieu ung
+   4          //co the khai bao sbit = led1 thay cho P2_0, no tuong tu nhau.
+   5          // dung vong for de xac dinh chinh xac so lan lap
+   6          //tao ham delay bang cach cho vong while chay tu time den 0 se ket thuc
+   7          #include <REGX52.H>
+   8          
+   9          void delay(int time){
+  10   1          while(time){
+  11   2              time--;
+  12   2          }
+  13   1      }
+  14          
+  15          void traiPhai(int lan){
+  16   1        int i;  
+  17   1        for(i = 0; i < lan; i++){
+  18   2          P2_0 = 0; delay(9000);  
+  19   2          P2_1 = 0; delay(9000);
+  20   2          P2_2 = 0; delay(8000);
+  21   2          P2_3 = 0; delay(8000);
+  22   2          P2_4 = 0; delay(7000);
+  23   2          P2_5 = 0; delay(7000);
+  24   2          P2_6 = 0; delay(6000);
+  25   2          P2_7 = 0; delay(5000);
+  26   2          //khi cho led sang het o muc 0 thi se chuyen led ve trang thai tat o muc 1
+  27   2          //led hoat dong tich cuc o muc nao la do cach lap led tren mach cung
+  28   2          P2_0 = P2_1 = P2_2 = P2_3 = P2_4 = P2_5 = P2_6 = P2_7 = 1;
+  29   2          delay(10000);
+  30   2        }
+  31   1      }
+  32          
+  33          void phaiTrai(int lan){
+  34   1        int i;
+  35   1        for(i = 0; i < lan; i++){
+  36   2          P2_7 = 0; delay(9000);
+  37   2          P2_6 = 0; delay(9000);
+  38   2          P2_5 = 0; delay(8000);
+  39   2          P2_4 = 0; delay(8000);
+  40   2          P2_3 = 0; delay(7000);
+  41   2          P2_2 = 0; delay(7000);
+  42   2          P2_1 = 0; delay(6000);
+  43   2          P2_0 = 0; delay(6000);
+  44   2          P2_0 = P2_1 = P2_2 = P2_3 = P2_4 = P2_5 = P2_6 = P2_7 = 1;
+  45   2          delay(9000); 
+  46   2        }
+  47   1      }
+  48          
+  49          void giuaHaiBen(int lan){
+  50   1        int i;
+  51   1        for(i = 0; i < lan; i++){
+  52   2          P2_4 = P2_3 = 0; delay(9000);
+  53   2          P2_5 = P2_2 = 0; delay(9000);
+  54   2          P2_6 = P2_1 = 0; delay(8000);
+  55   2          P2_7 = P2_0 = 0; delay(8000);
+C51 COMPILER V9.52.0.0   DIEUKHIEN8LEDDON                                                  01/05/2022 01:19:28 PAGE 2   
+
+  56   2          P2_0 = P2_1 = P2_2 = P2_3 = P2_4 = P2_5 = P2_6 = P2_7 = 1;
+  57   2          delay(9000); 
+  58   2        }
+  59   1      }
+  60          
+  61          void haiBenGiua(int lan){
+  62   1        int i;
+  63   1        for(i = 0; i < lan; i++){
+  64   2          P2_7 = P2_0 = 0; delay(8000);
+  65   2          P2_6 = P2_1 = 0; delay(8000);
+  66   2          P2_5 = P2_2 = 0; delay(9000); 
+  67   2          P2_4 = P2_3 = 0; delay(9000);
+  68   2          P2_0 = P2_1 = P2_2 = P2_3 = P2_4 = P2_5 = P2_6 = P2_7 = 1;
+  69   2          delay(9000); 
+  70   2        }
+  71   1      }
+  72          
+  73          void donTraiPhai(int lan){
+  74   1          //trai phai
+  75   1        int i;
+  76   1        for(i = 0; i < lan; i++){
+  77   2          P2_0 = 0; delay(10000);
+  78   2          P2_0 = 1; delay(9000);
+  79   2          P2_1 = 0; delay(9000);
+  80   2          P2_1 = 1; delay(8000);
+  81   2          P2_2 = 0; delay(8000);
+  82   2          P2_2 = 1; delay(8000);
+  83   2          P2_3 = 0; delay(8000);
+  84   2          P2_3 = 1; delay(7000);
+  85   2          P2_4 = 0; delay(7000);
+  86   2          P2_4 = 1; delay(7000);
+  87   2          P2_5 = 0; delay(7000);
+  88   2          P2_5 = 1; delay(7000);
+  89   2          P2_6 = 0; delay(7000);
+  90   2          P2_6 = 1; delay(7000);
+  91   2          P2_7 = 0; delay(7000);
+  92   2          P2_7 = 1; delay(6000);
+  93   2        }
+  94   1      //power by Le Minh Huu
+  95   1      }
+  96          
+  97          void donPhaiTrai(int lan){
+  98   1        //phai trai
+  99   1        int i;
+ 100   1        for(i = 0; i < lan; i++){
+ 101   2          P2_7 = 0; delay(6000);
+ 102   2          P2_7 = 1; delay(6000);
+ 103   2          P2_6 = 0; delay(7000);
+ 104   2          P2_6 = 1; delay(7000);  
+ 105   2          P2_5 = 0; delay(7000);
+ 106   2          P2_5 = 1; delay(7000);
+ 107   2          P2_4 = 0; delay(8000);
+ 108   2          P2_4 = 1; delay(8000);
+ 109   2          P2_3 = 0; delay(8000);
+ 110   2          P2_3 = 1; delay(8000);
+ 111   2          P2_2 = 0; delay(8000);
+ 112   2          P2_2 = 1; delay(9000);
+ 113   2          P2_1 = 0; delay(9000);
+ 114   2          P2_1 = 1; delay(9000);    
+ 115   2          P2_0 = 0; delay(9000);
+ 116   2          P2_0 = 1; delay(9000);
+ 117   2        }
+C51 COMPILER V9.52.0.0   DIEUKHIEN8LEDDON                                                  01/05/2022 01:19:28 PAGE 3   
+
+ 118   1      }
+ 119          
+ 120          void xemKe(int lan){
+ 121   1        int i;
+ 122   1        for(i = 0; i < lan; i++){
+ 123   2          P2_0 = P2_2 = 0; delay(9000);
+ 124   2          P2_1 = P2_3 = 0; delay(9000);
+ 125   2          P2_4 = P2_6 = 0; delay(8000);
+ 126   2          P2_5 = P2_7 = 0; delay(8000);
+ 127   2          P2_0 = P2_1 = P2_2 = P2_3 = P2_4 = P2_5 = P2_6 = P2_7 = 1;
+ 128   2          delay(9000);
+ 129   2        }
+ 130   1      }
+ 131          
+ 132          void main(){
+ 133   1          while(1){
+ 134   2            donTraiPhai(2); delay(10000);
+ 135   2            donPhaiTrai(2); delay(10000);
+ 136   2            traiPhai(3);    delay(10000);
+ 137   2            phaiTrai(3);    delay(10000);
+ 138   2            giuaHaiBen(3);  delay(10000);
+ 139   2            haiBenGiua(3);  delay(10000);
+ 140   2            xemKe(2); delay(10000);
+ 141   2          }
+ 142   1      }
+ 143          
+
+
+MODULE INFORMATION:   STATIC OVERLAYABLE
+   CODE SIZE        =    854    ----
+   CONSTANT SIZE    =   ----    ----
+   XDATA SIZE       =   ----    ----
+   PDATA SIZE       =   ----    ----
+   DATA SIZE        =   ----    ----
+   IDATA SIZE       =   ----    ----
+   BIT SIZE         =   ----    ----
+END OF MODULE INFORMATION.
+
+
+C51 COMPILATION COMPLETE.  0 WARNING(S),  0 ERROR(S)

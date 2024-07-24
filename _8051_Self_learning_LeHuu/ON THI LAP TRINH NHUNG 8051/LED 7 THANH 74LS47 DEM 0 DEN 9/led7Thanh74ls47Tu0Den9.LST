@@ -1,0 +1,57 @@
+C51 COMPILER V9.52.0.0   LED7THANH74LS47TU0DEN9                                            05/18/2022 23:11:49 PAGE 1   
+
+
+C51 COMPILER V9.52.0.0, COMPILATION OF MODULE LED7THANH74LS47TU0DEN9
+OBJECT MODULE PLACED IN led7Thanh74ls47Tu0Den9.OBJ
+COMPILER INVOKED BY: C:\Keil\C51\BIN\C51.EXE led7Thanh74ls47Tu0Den9.c BROWSE DEBUG OBJECTEXTEND TABS(2)
+
+line level    source
+
+   1          /*
+   2          power by Le Minh Huu 2k2 @copyright 18/5/2022
+   3          lap trinh dem cac so chan le lui tu 9 ve 0 ic 74ls47
+   4          */
+   5          #include <REGX52.H>
+   6          
+   7          char so[] = {0x00, 0x01, 0x02, 0x03, 0x04, 0x05, 0x06, 0x07, 0x08, 0x09};
+   8          
+   9          void delay(int time){
+  10   1      while(time--){}
+  11   1      }
+  12          void demLeLui(){
+  13   1      int i;
+  14   1        for(i = 9; i > 0; i--){
+  15   2          if(i % 2 == 1){
+  16   3            P2 = so[i]; delay(50000);
+  17   3          }
+  18   2        }
+  19   1      }
+  20          void demLeTien(){
+  21   1      int i;
+  22   1        for(i = 0; i < 10; i++){
+  23   2          if(i % 2 == 1){
+  24   3            P2 = so[i]; delay(50000);
+  25   3          }
+  26   2        }
+  27   1      }
+  28          void main(){
+  29   1      
+  30   1        while(1){
+  31   2          demLeLui();
+  32   2          demLeTien();
+  33   2        }
+  34   1      }
+
+
+MODULE INFORMATION:   STATIC OVERLAYABLE
+   CODE SIZE        =     99    ----
+   CONSTANT SIZE    =   ----    ----
+   XDATA SIZE       =   ----    ----
+   PDATA SIZE       =   ----    ----
+   DATA SIZE        =     10    ----
+   IDATA SIZE       =   ----    ----
+   BIT SIZE         =   ----    ----
+END OF MODULE INFORMATION.
+
+
+C51 COMPILATION COMPLETE.  0 WARNING(S),  0 ERROR(S)

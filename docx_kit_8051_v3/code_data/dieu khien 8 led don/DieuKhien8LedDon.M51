@@ -1,0 +1,258 @@
+BL51 BANKED LINKER/LOCATER V6.22                                                        01/17/2022  15:36:20  PAGE 1
+
+
+BL51 BANKED LINKER/LOCATER V6.22, INVOKED BY:
+C:\KEIL\C51\BIN\BL51.EXE DieuKhien8LedDon.obj TO DieuKhien8LedDon RAMSIZE (256)
+
+
+MEMORY MODEL: SMALL
+
+
+INPUT MODULES INCLUDED:
+  DieuKhien8LedDon.obj (DIEUKHIEN8LEDDON)
+  C:\KEIL\C51\LIB\C51S.LIB (?C_STARTUP)
+  C:\KEIL\C51\LIB\C51S.LIB (?C?SIDIV)
+  C:\KEIL\C51\LIB\C51S.LIB (?C_INIT)
+  C:\KEIL\C51\LIB\C51S.LIB (?C?UIDIV)
+
+
+LINK MAP OF MODULE:  DieuKhien8LedDon (DIEUKHIEN8LEDDON)
+
+
+            TYPE    BASE      LENGTH    RELOCATION   SEGMENT NAME
+            -----------------------------------------------------
+
+            * * * * * * *   D A T A   M E M O R Y   * * * * * * *
+            REG     0000H     0008H     ABSOLUTE     "REG BANK 0"
+            DATA    0008H     0008H     UNIT         ?DT?DIEUKHIEN8LEDDON
+            DATA    0010H     0002H     UNIT         _DATA_GROUP_
+            IDATA   0012H     0001H     UNIT         ?STACK
+
+            * * * * * * *   C O D E   M E M O R Y   * * * * * * *
+            CODE    0000H     0003H     ABSOLUTE     
+                    0003H     07FDH                  *** GAP ***
+            CODE    0800H     008CH     UNIT         ?C_C51STARTUP
+            CODE    088CH     008BH     UNIT         ?C?LIB_CODE
+            CODE    0917H     0070H     UNIT         ?PR?_VONGFOR?DIEUKHIEN8LEDDON
+            CODE    0987H     0061H     UNIT         ?PR?_SANGTRAIPHAI?DIEUKHIEN8LEDDON
+            CODE    09E8H     0061H     UNIT         ?PR?_PHAISANGTRAI?DIEUKHIEN8LEDDON
+            CODE    0A49H     004AH     UNIT         ?PR?_GIUARAHAIBEN?DIEUKHIEN8LEDDON
+            CODE    0A93H     0040H     UNIT         ?PR?_BLINK?DIEUKHIEN8LEDDON
+            CODE    0AD3H     003EH     UNIT         ?PR?MAIN?DIEUKHIEN8LEDDON
+            CODE    0B11H     0021H     UNIT         ?PR?_DELAY?DIEUKHIEN8LEDDON
+            CODE    0B32H     0018H     UNIT         ?PR?_VONGFOR1?DIEUKHIEN8LEDDON
+            CODE    0B4AH     000BH     UNIT         ?C_INITSEG
+
+
+
+OVERLAY MAP OF MODULE:   DieuKhien8LedDon (DIEUKHIEN8LEDDON)
+
+
+SEGMENT                                      DATA_GROUP 
+  +--> CALLED SEGMENT                      START    LENGTH
+----------------------------------------------------------
+?C_C51STARTUP                              -----    -----
+  +--> ?PR?MAIN?DIEUKHIEN8LEDDON
+  +--> ?C_INITSEG
+
+?PR?MAIN?DIEUKHIEN8LEDDON                  -----    -----
+  +--> ?PR?_VONGFOR?DIEUKHIEN8LEDDON
+  +--> ?PR?_BLINK?DIEUKHIEN8LEDDON
+  +--> ?PR?_SANGTRAIPHAI?DIEUKHIEN8LEDDON
+BL51 BANKED LINKER/LOCATER V6.22                                                      01/17/2022  15:36:20  PAGE 2
+
+
+  +--> ?PR?_DELAY?DIEUKHIEN8LEDDON
+  +--> ?PR?_PHAISANGTRAI?DIEUKHIEN8LEDDON
+  +--> ?PR?_GIUARAHAIBEN?DIEUKHIEN8LEDDON
+
+?PR?_VONGFOR?DIEUKHIEN8LEDDON              0010H    0002H
+  +--> ?PR?_DELAY?DIEUKHIEN8LEDDON
+
+?PR?_BLINK?DIEUKHIEN8LEDDON                -----    -----
+  +--> ?PR?_DELAY?DIEUKHIEN8LEDDON
+
+?PR?_SANGTRAIPHAI?DIEUKHIEN8LEDDON         -----    -----
+  +--> ?PR?_DELAY?DIEUKHIEN8LEDDON
+
+?PR?_PHAISANGTRAI?DIEUKHIEN8LEDDON         -----    -----
+  +--> ?PR?_DELAY?DIEUKHIEN8LEDDON
+
+?PR?_GIUARAHAIBEN?DIEUKHIEN8LEDDON         -----    -----
+  +--> ?PR?_DELAY?DIEUKHIEN8LEDDON
+
+
+
+SYMBOL TABLE OF MODULE:  DieuKhien8LedDon (DIEUKHIEN8LEDDON)
+
+  VALUE           TYPE          NAME
+  ----------------------------------
+
+  -------         MODULE        DIEUKHIEN8LEDDON
+  C:0000H         SYMBOL        _ICE_DUMMY_
+  D:00A0H         PUBLIC        P2
+  C:0A49H         PUBLIC        _giuaRaHaiBen
+  C:0B27H         PUBLIC        _delay
+  C:0A93H         PUBLIC        _blink
+  C:0B32H         PUBLIC        _vongFor1
+  D:0008H         PUBLIC        ledd
+  C:0AD3H         PUBLIC        main
+  C:09E8H         PUBLIC        _phaiSangTrai
+  C:0987H         PUBLIC        _sangTraiPhai
+  B:00A0H.0       PUBLIC        Led1
+  B:00A0H.1       PUBLIC        Led2
+  B:00A0H.2       PUBLIC        Led3
+  B:00A0H.3       PUBLIC        Led4
+  B:00A0H.4       PUBLIC        Led5
+  B:00A0H.5       PUBLIC        Led6
+  B:00A0H.6       PUBLIC        Led7
+  B:00A0H.7       PUBLIC        Led8
+  C:0917H         PUBLIC        _vongFor
+  C:0B23H         SYMBOL        L?0043
+  -------         PROC          L?0042
+  -------         ENDPROC       L?0042
+  C:0B23H         SYMBOL        L?0043
+  -------         PROC          _DELAY
+  D:0006H         SYMBOL        time
+  C:0B27H         LINE#         19
+  C:0B27H         LINE#         20
+  C:0B31H         LINE#         21
+  -------         ENDPROC       _DELAY
+  -------         PROC          _VONGFOR
+BL51 BANKED LINKER/LOCATER V6.22                                                      01/17/2022  15:36:20  PAGE 3
+
+
+  D:0010H         SYMBOL        lan
+  -------         DO            
+  D:0002H         SYMBOL        i
+  D:0082H         SYMBOL        j
+  -------         ENDDO         
+  C:0917H         LINE#         23
+  C:091BH         LINE#         26
+  C:092DH         LINE#         27
+  C:0930H         LINE#         28
+  C:093FH         LINE#         29
+  C:094BH         LINE#         30
+  C:094BH         LINE#         31
+  C:0954H         LINE#         32
+  C:0959H         LINE#         33
+  C:096AH         LINE#         34
+  C:0976H         LINE#         35
+  C:0976H         LINE#         36
+  C:097FH         LINE#         37
+  C:0986H         LINE#         38
+  -------         ENDPROC       _VONGFOR
+  -------         PROC          _VONGFOR1
+  D:0006H         SYMBOL        lan
+  -------         DO            
+  D:0004H         SYMBOL        i
+  -------         ENDDO         
+  C:0B32H         LINE#         40
+  C:0B32H         LINE#         42
+  C:0B42H         LINE#         44
+  C:0B49H         LINE#         45
+  -------         ENDPROC       _VONGFOR1
+  -------         PROC          _SANGTRAIPHAI
+  D:0002H         SYMBOL        lan
+  -------         DO            
+  D:0082H         SYMBOL        i
+  -------         ENDDO         
+  C:0987H         LINE#         48
+  C:098BH         LINE#         50
+  C:099DH         LINE#         51
+  C:09A4H         LINE#         52
+  C:09A7H         LINE#         53
+  C:09B1H         LINE#         54
+  C:09BBH         LINE#         55
+  C:09C5H         LINE#         56
+  C:09CFH         LINE#         57
+  C:09D9H         LINE#         58
+  C:09E3H         LINE#         59
+  C:09E7H         LINE#         60
+  -------         ENDPROC       _SANGTRAIPHAI
+  -------         PROC          _PHAISANGTRAI
+  D:0002H         SYMBOL        lan
+  -------         DO            
+  D:0082H         SYMBOL        i
+  -------         ENDDO         
+  C:09E8H         LINE#         62
+  C:09ECH         LINE#         64
+  C:09FEH         LINE#         65
+  C:0A08H         LINE#         66
+BL51 BANKED LINKER/LOCATER V6.22                                                      01/17/2022  15:36:20  PAGE 4
+
+
+  C:0A12H         LINE#         67
+  C:0A1CH         LINE#         68
+  C:0A26H         LINE#         69
+  C:0A30H         LINE#         70
+  C:0A37H         LINE#         71
+  C:0A3AH         LINE#         72
+  C:0A44H         LINE#         73
+  C:0A48H         LINE#         74
+  -------         ENDPROC       _PHAISANGTRAI
+  -------         PROC          _BLINK
+  D:0002H         SYMBOL        lan
+  -------         DO            
+  D:0082H         SYMBOL        i
+  -------         ENDDO         
+  C:0A93H         LINE#         76
+  C:0A97H         LINE#         78
+  C:0AA9H         LINE#         79
+  C:0AB9H         LINE#         80
+  C:0ABCH         LINE#         81
+  C:0ACCH         LINE#         82
+  C:0ACFH         LINE#         83
+  C:0AD2H         LINE#         84
+  -------         ENDPROC       _BLINK
+  -------         PROC          _GIUARAHAIBEN
+  D:0002H         SYMBOL        lan
+  -------         DO            
+  D:0082H         SYMBOL        i
+  -------         ENDDO         
+  C:0A49H         LINE#         86
+  C:0A4DH         LINE#         88
+  C:0A5FH         LINE#         89
+  C:0A65H         LINE#         90
+  C:0A6BH         LINE#         91
+  C:0A71H         LINE#         92
+  C:0A77H         LINE#         93
+  C:0A7DH         LINE#         94
+  C:0A83H         LINE#         95
+  C:0A89H         LINE#         96
+  C:0A8FH         LINE#         98
+  C:0A92H         LINE#         99
+  -------         ENDPROC       _GIUARAHAIBEN
+  -------         PROC          MAIN
+  C:0AD3H         LINE#         101
+  C:0AD3H         LINE#         102
+  C:0AE3H         LINE#         103
+  C:0AE3H         LINE#         104
+  C:0AEAH         LINE#         105
+  C:0AF1H         LINE#         106
+  C:0AFBH         LINE#         107
+  C:0B05H         LINE#         108
+  C:0B0FH         LINE#         109
+  -------         ENDPROC       MAIN
+  -------         ENDMOD        DIEUKHIEN8LEDDON
+
+  -------         MODULE        ?C?SIDIV
+  C:088CH         PUBLIC        ?C?SIDIV
+  -------         ENDMOD        ?C?SIDIV
+BL51 BANKED LINKER/LOCATER V6.22                                                      01/17/2022  15:36:20  PAGE 5
+
+
+
+  -------         MODULE        ?C?UIDIV
+  C:08C2H         PUBLIC        ?C?UIDIV
+  -------         ENDMOD        ?C?UIDIV
+
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?_VONGFOR1?DIEUKHIEN8LEDDON
+
+******************************************************************************
+* RESTRICTED VERSION WITH 0800H BYTE CODE SIZE LIMIT; USED: 023DH BYTE (27%) *
+******************************************************************************
+
+Program Size: data=19.0 xdata=0 code=856
+LINK/LOCATE RUN COMPLETE.  1 WARNING(S),  0 ERROR(S)

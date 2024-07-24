@@ -1,0 +1,89 @@
+<html>
+<body>
+<pre>
+<h1>µVision Build Log</h1>
+<h2>Project:</h2>
+D:\TU HOC code project LeHuu\Project_vdk_8051_LeHuu\ON THI LAP TRINH NHUNG 8051\LAP TRINH TIMER COUNTER\timerDieuKhienLedDon.uvproj
+Project File Date:  05/19/2022
+
+<h2>Output:</h2>
+Rebuild target 'Target 1'
+compiling timerDieuKhienLedDon.c...
+timerDieuKhienLedDon.c(15): error C141: syntax error near '}'
+timerDieuKhienLedDon.c(24): error C141: syntax error near 'while'
+Target not created
+Rebuild target 'Target 1'
+compiling timerDieuKhienLedDon.c...
+timerDieuKhienLedDon.c(15): error C141: syntax error near '}'
+Target not created
+Rebuild target 'Target 1'
+compiling timerDieuKhienLedDon.c...
+linking...
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?_DELAY?TIMERDIEUKHIENLEDDON
+Program Size: data=9.0 xdata=0 code=69
+creating hex file from "timerDieuKhienLedDon"...
+"timerDieuKhienLedDon" - 0 Error(s), 1 Warning(s).
+Rebuild target 'Target 1'
+compiling timerDieuKhienLedDon.c...
+linking...
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?_DELAY?TIMERDIEUKHIENLEDDON
+Program Size: data=9.0 xdata=0 code=69
+creating hex file from "timerDieuKhienLedDon"...
+"timerDieuKhienLedDon" - 0 Error(s), 1 Warning(s).
+Rebuild target 'Target 1'
+compiling timerDieuKhienLedDon.c...
+linking...
+Program Size: data=9.0 xdata=0 code=58
+creating hex file from "timerDieuKhienLedDon"...
+"timerDieuKhienLedDon" - 0 Error(s), 0 Warning(s).
+Rebuild target 'Target 1'
+compiling timerDieuKhienLedDon.c...
+linking...
+Program Size: data=9.0 xdata=0 code=58
+creating hex file from "timerDieuKhienLedDon"...
+"timerDieuKhienLedDon" - 0 Error(s), 0 Warning(s).
+Rebuild target 'Target 1'
+compiling timerDieuKhienLedDon.c...
+linking...
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?_DELAY1?TIMERDIEUKHIENLEDDON
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?_DELAY3?TIMERDIEUKHIENLEDDON
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?_DELAY4?TIMERDIEUKHIENLEDDON
+Program Size: data=9.0 xdata=0 code=151
+creating hex file from "timerDieuKhienLedDon"...
+"timerDieuKhienLedDon" - 0 Error(s), 3 Warning(s).
+Rebuild target 'Target 1'
+compiling timerDieuKhienLedDon.c...
+linking...
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?_DELAY1?TIMERDIEUKHIENLEDDON
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?_DELAY3?TIMERDIEUKHIENLEDDON
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?_DELAY4?TIMERDIEUKHIENLEDDON
+Program Size: data=9.0 xdata=0 code=151
+creating hex file from "timerDieuKhienLedDon"...
+"timerDieuKhienLedDon" - 0 Error(s), 3 Warning(s).
+Rebuild target 'Target 1'
+compiling timerDieuKhienLedDon.c...
+timerDieuKhienLedDon.c(45): error C281: illegal hex constant
+timerDieuKhienLedDon.c(46): error C281: illegal hex constant
+timerDieuKhienLedDon.c(56): error C281: illegal hex constant
+timerDieuKhienLedDon.c(57): error C281: illegal hex constant
+Target not created
+Rebuild target 'Target 1'
+compiling timerDieuKhienLedDon.c...
+linking...
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?_DELAY1?TIMERDIEUKHIENLEDDON
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?_DELAY3?TIMERDIEUKHIENLEDDON
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?_DELAY4?TIMERDIEUKHIENLEDDON
+Program Size: data=9.0 xdata=0 code=149
+creating hex file from "timerDieuKhienLedDon"...
+"timerDieuKhienLedDon" - 0 Error(s), 3 Warning(s).

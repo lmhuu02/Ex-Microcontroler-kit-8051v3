@@ -1,0 +1,161 @@
+BL51 BANKED LINKER/LOCATER V6.22                                                        02/19/2022  00:22:40  PAGE 1
+
+
+BL51 BANKED LINKER/LOCATER V6.22, INVOKED BY:
+C:\KEIL\C51\BIN\BL51.EXE dongHoThoiGianThucTimer.obj TO dongHoThoiGianThucTimer RAMSIZE (256)
+
+
+MEMORY MODEL: SMALL
+
+
+INPUT MODULES INCLUDED:
+  dongHoThoiGianThucTimer.obj (DONGHOTHOIGIANTHUCTIMER)
+  C:\KEIL\C51\LIB\C51S.LIB (?C_STARTUP)
+  C:\KEIL\C51\LIB\C51S.LIB (?C_INIT)
+
+
+LINK MAP OF MODULE:  dongHoThoiGianThucTimer (DONGHOTHOIGIANTHUCTIMER)
+
+
+            TYPE    BASE      LENGTH    RELOCATION   SEGMENT NAME
+            -----------------------------------------------------
+
+            * * * * * * *   D A T A   M E M O R Y   * * * * * * *
+            REG     0000H     0008H     ABSOLUTE     "REG BANK 0"
+            DATA    0008H     000AH     UNIT         ?DT?DONGHOTHOIGIANTHUCTIMER
+            DATA    0012H     0005H     UNIT         _DATA_GROUP_
+            IDATA   0017H     0001H     UNIT         ?STACK
+
+            * * * * * * *   C O D E   M E M O R Y   * * * * * * *
+            CODE    0000H     0003H     ABSOLUTE     
+                    0003H     07FDH                  *** GAP ***
+            CODE    0800H     008CH     UNIT         ?C_C51STARTUP
+            CODE    088CH     0053H     UNIT         ?PR?_HIENTHI?DONGHOTHOIGIANTHUCTIMER
+            CODE    08DFH     004CH     UNIT         ?PR?MAIN?DONGHOTHOIGIANTHUCTIMER
+            CODE    092BH     002DH     UNIT         ?PR?_DELAY_MS?DONGHOTHOIGIANTHUCTIMER
+            CODE    0958H     000DH     UNIT         ?C_INITSEG
+
+
+
+OVERLAY MAP OF MODULE:   dongHoThoiGianThucTimer (DONGHOTHOIGIANTHUCTIMER)
+
+
+SEGMENT                                         DATA_GROUP 
+  +--> CALLED SEGMENT                         START    LENGTH
+-------------------------------------------------------------
+?C_C51STARTUP                                 -----    -----
+  +--> ?PR?MAIN?DONGHOTHOIGIANTHUCTIMER
+  +--> ?C_INITSEG
+
+?PR?MAIN?DONGHOTHOIGIANTHUCTIMER              0012H    0003H
+  +--> ?PR?_HIENTHI?DONGHOTHOIGIANTHUCTIMER
+
+?PR?_HIENTHI?DONGHOTHOIGIANTHUCTIMER          0015H    0002H
+  +--> ?PR?_DELAY_MS?DONGHOTHOIGIANTHUCTIMER
+
+
+
+SYMBOL TABLE OF MODULE:  dongHoThoiGianThucTimer (DONGHOTHOIGIANTHUCTIMER)
+
+  VALUE           TYPE          NAME
+  ----------------------------------
+BL51 BANKED LINKER/LOCATER V6.22                                                      02/19/2022  00:22:40  PAGE 2
+
+
+
+  -------         MODULE        DONGHOTHOIGIANTHUCTIMER
+  C:0000H         SYMBOL        _ICE_DUMMY_
+  D:0080H         PUBLIC        P0
+  B:00A0H.0       PUBLIC        P2_0
+  B:00A0H.1       PUBLIC        P2_1
+  B:00A0H.2       PUBLIC        P2_2
+  B:00A0H.3       PUBLIC        P2_3
+  B:00A0H.4       PUBLIC        P2_4
+  B:00A0H.5       PUBLIC        P2_5
+  B:00A0H.6       PUBLIC        P2_6
+  C:08DFH         PUBLIC        main
+  D:0089H         PUBLIC        TMOD
+  B:0088H.5       PUBLIC        TF0
+  D:008CH         PUBLIC        TH0
+  C:088CH         PUBLIC        _hienThi
+  D:008AH         PUBLIC        TL0
+  C:092FH         PUBLIC        _delay_ms
+  B:0088H.4       PUBLIC        TR0
+  D:0008H         PUBLIC        so
+  C:092BH         SYMBOL        L?0023
+  -------         PROC          L?0022
+  -------         ENDPROC       L?0022
+  C:092BH         SYMBOL        L?0023
+  -------         PROC          _DELAY_MS
+  D:0007H         SYMBOL        ms
+  -------         DO            
+  D:0004H         SYMBOL        j
+  -------         ENDDO         
+  C:092FH         LINE#         25
+  C:092FH         LINE#         27
+  C:093EH         LINE#         28
+  C:0941H         LINE#         29
+  C:0944H         LINE#         30
+  C:0947H         LINE#         32
+  C:0949H         LINE#         33
+  C:094CH         LINE#         34
+  C:094EH         LINE#         35
+  C:0950H         LINE#         36
+  C:0957H         LINE#         37
+  -------         ENDPROC       _DELAY_MS
+  -------         PROC          _HIENTHI
+  D:0007H         SYMBOL        gio
+  D:0005H         SYMBOL        phut
+  -------         DO            
+  D:0015H         SYMBOL        donVi0
+  D:0001H         SYMBOL        donVi1
+  D:0016H         SYMBOL        chuc0
+  D:0006H         SYMBOL        chuc1
+  D:0002H         SYMBOL        i
+  -------         ENDDO         
+  C:088CH         LINE#         39
+  C:088CH         LINE#         41
+  C:0894H         LINE#         42
+  C:089BH         LINE#         43
+  C:08A2H         LINE#         44
+  C:08A8H         LINE#         48
+BL51 BANKED LINKER/LOCATER V6.22                                                      02/19/2022  00:22:40  PAGE 3
+
+
+  C:08AAH         LINE#         49
+  C:08BBH         LINE#         50
+  C:08C6H         LINE#         51
+  C:08D0H         LINE#         52
+  C:08DAH         LINE#         53
+  C:08DEH         LINE#         54
+  -------         ENDPROC       _HIENTHI
+  -------         PROC          MAIN
+  -------         DO            
+  D:0012H         SYMBOL        gio
+  D:0013H         SYMBOL        phut
+  D:0014H         SYMBOL        giay
+  -------         ENDDO         
+  C:08DFH         LINE#         56
+  C:08DFH         LINE#         57
+  C:08E6H         LINE#         58
+  C:08E8H         LINE#         59
+  C:08E8H         LINE#         60
+  C:08EAH         LINE#         61
+  C:08ECH         LINE#         62
+  C:08F3H         LINE#         63
+  C:08FAH         LINE#         64
+  C:0901H         LINE#         65
+  C:0906H         LINE#         66
+  C:090BH         LINE#         67
+  C:0915H         LINE#         68
+  C:091FH         LINE#         69
+  C:0929H         LINE#         70
+  -------         ENDPROC       MAIN
+  -------         ENDMOD        DONGHOTHOIGIANTHUCTIMER
+
+******************************************************************************
+* RESTRICTED VERSION WITH 0800H BYTE CODE SIZE LIMIT; USED: 00D8H BYTE (10%) *
+******************************************************************************
+
+Program Size: data=24.0 xdata=0 code=360
+LINK/LOCATE RUN COMPLETE.  0 WARNING(S),  0 ERROR(S)

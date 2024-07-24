@@ -1,0 +1,163 @@
+C51 COMPILER V9.52.0.0   HIENTHILCD16X2                                                    03/03/2022 02:37:06 PAGE 1   
+
+
+C51 COMPILER V9.52.0.0, COMPILATION OF MODULE HIENTHILCD16X2
+OBJECT MODULE PLACED IN hienThiLcd16x2.OBJ
+COMPILER INVOKED BY: C:\Keil\C51\BIN\C51.EXE hienThiLcd16x2.c BROWSE DEBUG OBJECTEXTEND TABS(2)
+
+line level    source
+
+   1          #include <REGX52.H>
+   2          
+   3          #define LCD_RS P2_0 //chan RS chon thanh ghi
+   4          #define LCD_RW P2_1 //chan RW doc ghi du lieu
+   5          #define LCD_EN P2_2 //chan E cho phep chon mo dun
+   6          #define LCD_D4 P2_4 //chan tin hieu 2.4
+   7          #define LCD_D5 P2_5 //chan tin hieu 2.5
+   8          #define LCD_D6 P2_6 //chan tin hieu 2.6
+   9          #define LCD_D7 P2_7 //chan tin hieu 2.7
+  10          
+  11          //ham delay us giay
+  12          void delay_us(unsigned int t){
+  13   1      unsigned int i;
+  14   1      for (i=0;i<t;i++);  
+  15   1      }
+  16          //ham delay mili day
+  17          void delay_ms(unsigned int t){
+  18   1        unsigned int i,j;
+  19   1        for (i=0;i<j;i++)
+  20   1        for (j=0;j<125;j++);
+  21   1      }
+*** WARNING C280 IN LINE 17 OF hienThiLcd16x2.c: 't': unreferenced local variable
+  22          //ham delay thong thuong time--
+  23          void delay(int time){
+  24   1        while(time--);
+  25   1      }
+  26          
+  27          //timer delay 
+  28          void delay_timer(int timer){
+  29   1        while(timer--){
+  30   2          TMOD = 0x01;  //timer 0 che do 1
+  31   2          TH0 = 0xfc;
+  32   2          TL0 = 0x18;
+  33   2          TR0 = 1;
+  34   2          while(!TF0);
+  35   2          TR0 = 0;
+  36   2          TF0 = 0;
+  37   2        }
+  38   1      }
+  39          // Ham gui xung kich hoat LCD, gui den chan E
+  40          void LCD_Enable(void){
+  41   1      LCD_EN=1;
+  42   1      delay_us(3);
+  43   1      LCD_EN=0;
+  44   1      delay_us(50);
+  45   1      }
+  46          // ham gui 4 bit du lieu cao ra LCD qua chan bd4 den bd7
+  47          void LCD_Send4Bit(unsigned char Data){
+  48   1        LCD_D4=Data&0x01;
+  49   1        LCD_D5=Data>>1&1; //phep and & de giu trang thai
+  50   1        LCD_D6=Data>>2&1;
+  51   1        LCD_D7=Data>>3&1;
+  52   1      }
+  53          // Ham gui 1 lenh ra LCD
+  54          void LCD_SendCommand(unsigned char command ){
+C51 COMPILER V9.52.0.0   HIENTHILCD16X2                                                    03/03/2022 02:37:06 PAGE 2   
+
+  55   1        LCD_Send4Bit(command >>4);// gui 4 bit cao
+  56   1        LCD_Enable();
+  57   1        LCD_Send4Bit(command);// gui 4 bit thap
+  58   1        LCD_Enable();
+  59   1      }
+  60          // ham xoa man hinh LCD
+  61          void LCD_clear(){
+  62   1        LCD_SendCommand(0x01);// xoa man hinh 01
+  63   1        delay_us(10);
+  64   1      }
+  65          //Khoi tao LCD
+  66          void LCD_Init(){
+  67   1        LCD_Send4Bit(0x01);//turn on man hinh
+  68   1        delay_ms(20);
+  69   1        LCD_RS=0;
+  70   1        LCD_RW=0;
+  71   1        LCD_Send4Bit(0x03);//funtion seting
+  72   1        LCD_Enable();// gui xung kich hoat
+  73   1        delay_ms(5);
+  74   1        LCD_Enable();
+  75   1        delay_us(100);
+  76   1        LCD_Enable();
+  77   1        LCD_Send4Bit(0x02);//gui con tro ve dau man hinh
+  78   1        LCD_Enable();
+  79   1        LCD_SendCommand(0x28);// lua chon che do 4 bit
+  80   1        LCD_SendCommand(0x0C);// bat hien thi va tat con tro
+  81   1        LCD_SendCommand(0x06);//Tu dong chuyen con tro sang ky tu ke tiep
+  82   1        LCD_SendCommand(0x01);// xoa man hinh
+  83   1      }
+  84          // Ham go to x y
+  85          void LCD_gotoxy(unsigned char x, unsigned char y){
+  86   1        unsigned char address;
+  87   1        if(!y)address=(0x80+x); //0x80 bat con tro ve vi tri dau tien cua hang 1
+  88   1        else address=(0xc0+x);  //0x80 bat con tro ve vi tri dau tien cua hang 2
+  89   1        delay_us(1000);
+  90   1        LCD_SendCommand(address);
+  91   1        delay_us(1000); 
+  92   1      }
+  93          // Ham gui 1 ky tu ra man hinh
+  94          void LCD_putchar(unsigned char Data){
+  95   1      LCD_RS=1; //chon thanh ghi
+  96   1      LCD_SendCommand(Data);
+  97   1      LCD_RS=0; //chon thanh ghi
+  98   1      }
+  99          // ham noi ky tu
+ 100          void LCD_puts(char *s){
+ 101   1        while(*s){
+ 102   2          LCD_putchar(*s);
+ 103   2          s++;
+ 104   2        }
+ 105   1      }
+ 106          void main(){
+ 107   1        while(1){
+ 108   2        LCD_Init();
+ 109   2        LCD_puts(" hello");
+ 110   2        delay_ms(1000);
+ 111   2        LCD_clear();
+ 112   2        LCD_gotoxy(0,0);
+ 113   2        LCD_puts(" chao cac ban");
+ 114   2        delay_ms(1000);
+ 115   2        LCD_gotoxy(0,1);
+ 116   2        LCD_puts(" KTMT K19A");
+C51 COMPILER V9.52.0.0   HIENTHILCD16X2                                                    03/03/2022 02:37:06 PAGE 3   
+
+ 117   2        delay_ms(1000);
+ 118   2        LCD_gotoxy(0,1);
+ 119   2        LCD_puts("GOODBYE WORLD!");
+ 120   2        LCD_clear();
+ 121   2        delay_ms(100000);
+ 122   2        LCD_gotoxy(0,0);
+ 123   2        LCD_puts("LAP TRINH NHUNG");
+ 124   2        delay_ms(100000);
+ 125   2        LCD_gotoxy(0,1);
+ 126   2        LCD_puts("HE THONG IOT");
+ 127   2        LCD_clear();
+ 128   2        delay_timer(1000);
+ 129   2        //LCD_gotoxy(0,1);
+ 130   2        LCD_puts("HELLO WORLD");
+ 131   2        delay_timer(3000);
+ 132   2        //delay(800000);
+ 133   2        }
+ 134   1      }
+ 135          //Ðang hiê?n thi? 6716513377461525417.
+
+
+MODULE INFORMATION:   STATIC OVERLAYABLE
+   CODE SIZE        =    461    ----
+   CONSTANT SIZE    =     88    ----
+   XDATA SIZE       =   ----    ----
+   PDATA SIZE       =   ----    ----
+   DATA SIZE        =   ----       5
+   IDATA SIZE       =   ----    ----
+   BIT SIZE         =   ----    ----
+END OF MODULE INFORMATION.
+
+
+C51 COMPILATION COMPLETE.  1 WARNING(S),  0 ERROR(S)

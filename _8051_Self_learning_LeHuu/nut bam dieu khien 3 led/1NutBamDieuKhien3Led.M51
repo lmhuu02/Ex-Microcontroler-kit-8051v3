@@ -1,0 +1,153 @@
+BL51 BANKED LINKER/LOCATER V6.22                                                        01/06/2022  20:20:53  PAGE 1
+
+
+BL51 BANKED LINKER/LOCATER V6.22, INVOKED BY:
+C:\KEIL\C51\BIN\BL51.EXE 1NutBamDieuKhien3Led.obj TO 1NutBamDieuKhien3Led RAMSIZE (256)
+
+
+MEMORY MODEL: SMALL
+
+
+INPUT MODULES INCLUDED:
+  1NutBamDieuKhien3Led.obj (1NUTBAMDIEUKHIEN3LED)
+  C:\KEIL\C51\LIB\C51S.LIB (?C_STARTUP)
+
+
+LINK MAP OF MODULE:  1NutBamDieuKhien3Led (1NUTBAMDIEUKHIEN3LED)
+
+
+            TYPE    BASE      LENGTH    RELOCATION   SEGMENT NAME
+            -----------------------------------------------------
+
+            * * * * * * *   D A T A   M E M O R Y   * * * * * * *
+            REG     0000H     0008H     ABSOLUTE     "REG BANK 0"
+            IDATA   0008H     0001H     UNIT         ?STACK
+
+            * * * * * * *   C O D E   M E M O R Y   * * * * * * *
+            CODE    0000H     0003H     ABSOLUTE     
+                    0003H     07FDH                  *** GAP ***
+            CODE    0800H     0089H     UNIT         ?PR?MAIN?1NUTBAMDIEUKHIEN3LED
+            CODE    0889H     0040H     UNIT         ?PR?NHAYHIEUUNG?1NUTBAMDIEUKHIEN3LED
+            CODE    08C9H     0021H     UNIT         ?PR?_DELAY?1NUTBAMDIEUKHIEN3LED
+            CODE    08EAH     000CH     UNIT         ?C_C51STARTUP
+
+
+
+OVERLAY MAP OF MODULE:   1NutBamDieuKhien3Led (1NUTBAMDIEUKHIEN3LED)
+
+
+SEGMENT
+  +--> CALLED SEGMENT
+---------------------
+?C_C51STARTUP
+  +--> ?PR?MAIN?1NUTBAMDIEUKHIEN3LED
+
+?PR?MAIN?1NUTBAMDIEUKHIEN3LED
+  +--> ?PR?_DELAY?1NUTBAMDIEUKHIEN3LED
+  +--> ?PR?NHAYHIEUUNG?1NUTBAMDIEUKHIEN3LED
+
+?PR?NHAYHIEUUNG?1NUTBAMDIEUKHIEN3LED
+  +--> ?PR?_DELAY?1NUTBAMDIEUKHIEN3LED
+
+
+
+SYMBOL TABLE OF MODULE:  1NutBamDieuKhien3Led (1NUTBAMDIEUKHIEN3LED)
+
+  VALUE           TYPE          NAME
+  ----------------------------------
+
+  -------         MODULE        1NUTBAMDIEUKHIEN3LED
+  C:0000H         SYMBOL        _ICE_DUMMY_
+  C:08DFH         PUBLIC        _delay
+BL51 BANKED LINKER/LOCATER V6.22                                                      01/06/2022  20:20:53  PAGE 2
+
+
+  B:00A0H.3       PUBLIC        P2_3
+  B:00A0H.4       PUBLIC        P2_4
+  B:0090H.5       PUBLIC        P1_5
+  B:00A0H.5       PUBLIC        P2_5
+  C:0800H         PUBLIC        main
+  C:0889H         PUBLIC        nhayHieuUng
+  C:08D9H         SYMBOL        L?0019
+  C:08DBH         SYMBOL        L?0020
+  -------         PROC          L?0018
+  -------         ENDPROC       L?0018
+  C:08D9H         SYMBOL        L?0019
+  C:08DBH         SYMBOL        L?0020
+  -------         PROC          _DELAY
+  D:0006H         SYMBOL        time
+  C:08DFH         LINE#         15
+  C:08DFH         LINE#         16
+  C:08E9H         LINE#         17
+  -------         ENDPROC       _DELAY
+  -------         PROC          NHAYHIEUUNG
+  C:0889H         LINE#         19
+  C:0889H         LINE#         20
+  C:088EH         LINE#         21
+  C:0890H         LINE#         23
+  C:0890H         LINE#         24
+  C:0893H         LINE#         26
+  C:0898H         LINE#         27
+  C:089AH         LINE#         29
+  C:089AH         LINE#         30
+  C:089DH         LINE#         32
+  C:08A4H         LINE#         33
+  C:08ABH         LINE#         35
+  C:08B2H         LINE#         36
+  C:08B7H         LINE#         38
+  C:08BEH         LINE#         39
+  -------         ENDPROC       NHAYHIEUUNG
+  -------         PROC          MAIN
+  -------         DO            
+  D:0002H         SYMBOL        dem
+  -------         ENDDO         
+  C:0800H         LINE#         42
+  C:0800H         LINE#         43
+  C:0803H         LINE#         44
+  C:0809H         LINE#         45
+  C:0809H         LINE#         46
+  C:080CH         LINE#         47
+  C:0813H         LINE#         48
+  C:0816H         LINE#         49
+  C:081BH         LINE#         50
+  C:081BH         LINE#         51
+  C:081BH         LINE#         55
+  C:0821H         LINE#         56
+  C:0823H         LINE#         57
+  C:0827H         LINE#         58
+  C:0827H         LINE#         59
+  C:082EH         LINE#         60
+  C:0834H         LINE#         61
+  C:0836H         LINE#         62
+BL51 BANKED LINKER/LOCATER V6.22                                                      01/06/2022  20:20:53  PAGE 3
+
+
+  C:083AH         LINE#         63
+  C:083AH         LINE#         64
+  C:0841H         LINE#         65
+  C:0847H         LINE#         66
+  C:0849H         LINE#         67
+  C:084DH         LINE#         68
+  C:084DH         LINE#         69
+  C:0854H         LINE#         70
+  C:085AH         LINE#         71
+  C:0860H         LINE#         72
+  C:0860H         LINE#         73
+  C:0867H         LINE#         74
+  C:086DH         LINE#         76
+  C:0870H         LINE#         77
+  C:0870H         LINE#         78
+  C:0877H         LINE#         79
+  C:087DH         LINE#         80
+  C:0880H         LINE#         81
+  C:0880H         LINE#         82
+  C:0887H         LINE#         83
+  -------         ENDPROC       MAIN
+  -------         ENDMOD        1NUTBAMDIEUKHIEN3LED
+
+******************************************************************************
+* RESTRICTED VERSION WITH 0800H BYTE CODE SIZE LIMIT; USED: 00EAH BYTE (11%) *
+******************************************************************************
+
+Program Size: data=9.0 xdata=0 code=249
+LINK/LOCATE RUN COMPLETE.  0 WARNING(S),  0 ERROR(S)

@@ -1,0 +1,99 @@
+BL51 BANKED LINKER/LOCATER V6.22                                                        01/15/2022  00:21:37  PAGE 1
+
+
+BL51 BANKED LINKER/LOCATER V6.22, INVOKED BY:
+C:\KEIL\C51\BIN\BL51.EXE 3CachDieuKhienNgatTheoLogicMucSuon.obj TO 3CachDieuKhienNgatTheoLogicMucSuon RAMSIZE (256)
+
+
+MEMORY MODEL: SMALL
+
+
+INPUT MODULES INCLUDED:
+  3CachDieuKhienNgatTheoLogicMucSuon.obj (3CACHDIEUKHIENNGATTHEOLOGICMUCSUON)
+  C:\KEIL\C51\LIB\C51S.LIB (?C_STARTUP)
+
+
+LINK MAP OF MODULE:  3CachDieuKhienNgatTheoLogicMucSuon (3CACHDIEUKHIENNGATTHEOLOGICMUCSUON)
+
+
+            TYPE    BASE      LENGTH    RELOCATION   SEGMENT NAME
+            -----------------------------------------------------
+
+            * * * * * * *   D A T A   M E M O R Y   * * * * * * *
+            REG     0000H     0008H     ABSOLUTE     "REG BANK 0"
+                    0008H     0018H                  *** GAP ***
+            BIT     0020H.0   0000H.1   UNIT         ?BI?3CACHDIEUKHIENNGATTHEOLOGICMUCSUON
+                    0020H.1   0000H.7                *** GAP ***
+            IDATA   0021H     0001H     UNIT         ?STACK
+
+            * * * * * * *   C O D E   M E M O R Y   * * * * * * *
+            CODE    0000H     0003H     ABSOLUTE     
+                    0003H     07FDH                  *** GAP ***
+            CODE    0800H     0025H     UNIT         ?PR?MAIN?3CACHDIEUKHIENNGATTHEOLOGICMUCSUON
+            CODE    0825H     000CH     UNIT         ?C_C51STARTUP
+            CODE    0831H     000BH     UNIT         ?PR?_DELAY?3CACHDIEUKHIENNGATTHEOLOGICMUCSUON
+
+
+
+OVERLAY MAP OF MODULE:   3CachDieuKhienNgatTheoLogicMucSuon (3CACHDIEUKHIENNGATTHEOLOGICMUCSUON)
+
+
+SEGMENT
+  +--> CALLED SEGMENT
+---------------------
+?C_C51STARTUP
+  +--> ?PR?MAIN?3CACHDIEUKHIENNGATTHEOLOGICM...
+
+?PR?MAIN?3CACHDIEUKHIENNGATTHEOLOGICM...
+  +--> ?PR?_DELAY?3CACHDIEUKHIENNGATTHEOLOGI...
+
+
+
+SYMBOL TABLE OF MODULE:  3CachDieuKhienNgatTheoLogicMucSuon (3CACHDIEUKHIENNGATTHEOLOGICMUCSUON)
+
+  VALUE           TYPE          NAME
+  ----------------------------------
+
+  -------         MODULE        3CACHDIEUKHIENNGATTHEOLOGICMUCSUON
+  C:0000H         SYMBOL        _ICE_DUMMY_
+  D:0090H         PUBLIC        P1
+  D:00A0H         PUBLIC        P2
+  C:0831H         PUBLIC        _delay
+BL51 BANKED LINKER/LOCATER V6.22                                                      01/15/2022  00:21:37  PAGE 2
+
+
+  B:0090H.7       PUBLIC        relay
+  B:0090H.4       PUBLIC        button
+  B:0020H.0       PUBLIC        button_state
+  C:0800H         PUBLIC        main
+  B:00A0H.3       PUBLIC        led
+  -------         PROC          _DELAY
+  D:0006H         SYMBOL        time
+  C:0831H         LINE#         72
+  C:0831H         LINE#         73
+  C:083BH         LINE#         74
+  -------         ENDPROC       _DELAY
+  -------         PROC          MAIN
+  C:0800H         LINE#         76
+  C:0800H         LINE#         77
+  C:0802H         LINE#         78
+  C:0804H         LINE#         79
+  C:0804H         LINE#         80
+  C:0807H         LINE#         81
+  C:080EH         LINE#         82
+  C:0814H         LINE#         83
+  C:0816H         LINE#         84
+  C:0818H         LINE#         85
+  C:0818H         LINE#         86
+  C:0818H         LINE#         87
+  C:081CH         LINE#         88
+  C:0823H         LINE#         89
+  -------         ENDPROC       MAIN
+  -------         ENDMOD        3CACHDIEUKHIENNGATTHEOLOGICMUCSUON
+
+******************************************************************************
+* RESTRICTED VERSION WITH 0800H BYTE CODE SIZE LIMIT; USED: 0030H BYTE ( 2%) *
+******************************************************************************
+
+Program Size: data=9.1 xdata=0 code=63
+LINK/LOCATE RUN COMPLETE.  0 WARNING(S),  0 ERROR(S)

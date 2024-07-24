@@ -1,0 +1,101 @@
+C51 COMPILER V9.52.0.0   LED7THANHTU0DEN99                                                 05/18/2022 23:41:00 PAGE 1   
+
+
+C51 COMPILER V9.52.0.0, COMPILATION OF MODULE LED7THANHTU0DEN99
+OBJECT MODULE PLACED IN led7ThanhTu0Den99.OBJ
+COMPILER INVOKED BY: C:\Keil\C51\BIN\C51.EXE led7ThanhTu0Den99.c BROWSE DEBUG OBJECTEXTEND TABS(2)
+
+line level    source
+
+   1          /*
+   2          power by Le MInh Huu 2k2 @copyright 18/5/2022
+   3          1. dem tu  0 den 99
+   4          2. dem tu 99 ve 0
+   5          3. dem cac so chan/le
+   6          4. dem cac so nguyen to
+   7          5. dem cac so chia het cho 3 va 5
+   8          6. dem cac so nho hon 30 va lon hon 50
+   9          7. 
+  10          */
+  11          #include <REGX52.H>
+  12          #define led1 P3_1
+  13          #define led2 P3_0
+  14          #define on 0
+  15          #define off 1
+  16          
+  17          char so[] = {0x40, 0x79, 0x24, 0x30, 0x19, 0x12, 0x02, 0x78, 0x00, 0x10};
+  18          
+  19          void delay(int time){
+  20   1      while(time--){}
+  21   1      }
+  22          void hienThi(int i){
+  23   1      int  chuc, donvi, j;
+  24   1          chuc = i / 10;
+  25   1          donvi = i % 10;
+  26   1          for(j = 0; j < 17; j++){
+  27   2            led1 = on; P2 = so[donvi]; delay(1000);  led1 = off;
+  28   2            led2 = on; P2 = so[chuc]; delay(1000);  led2 = off;
+  29   2          }
+  30   1      }
+  31          void dem0Den99(){
+  32   1        int i;
+  33   1        for(i = 0; i < 100; i++){
+  34   2          hienThi(i);
+  35   2        }
+  36   1      }
+  37          void dem99ve0(){
+  38   1        int i;
+  39   1        for(i = 99; i >= 0; i--){
+  40   2          hienThi(i);
+  41   2        }
+  42   1      }
+  43          void demChan(){
+  44   1      int i;
+  45   1        for(i = 0; i < 100; i++){
+  46   2          if(i % 2 == 0){
+  47   3              hienThi(i);
+  48   3          }
+  49   2        }
+  50   1      }
+  51          void demNho30Lon50(){
+  52   1      int i;
+  53   1        for(i = 0; i < 100; i++){
+  54   2          if(i < 30 || i > 50){
+  55   3              hienThi(i);
+C51 COMPILER V9.52.0.0   LED7THANHTU0DEN99                                                 05/18/2022 23:41:00 PAGE 2   
+
+  56   3          }
+  57   2        }
+  58   1      }
+  59          void demSNT(){
+  60   1      int i, j, dem;
+  61   1        for(i = 0; i < 100; i++){
+  62   2          dem = 0;
+  63   2          for(j = 1; j <= i; j++){
+  64   3            if(i % j == 0){
+  65   4              dem++;
+  66   4            }
+  67   3          }
+  68   2          if(dem == 2)    hienThi(i);
+  69   2        }
+  70   1      }
+  71          void main(){
+  72   1        while(1){
+  73   2          demSNT();
+  74   2        dem0Den99();
+  75   2        }
+  76   1      }
+
+
+MODULE INFORMATION:   STATIC OVERLAYABLE
+   CODE SIZE        =    343    ----
+   CONSTANT SIZE    =   ----    ----
+   XDATA SIZE       =   ----    ----
+   PDATA SIZE       =   ----    ----
+   DATA SIZE        =     10      12
+   IDATA SIZE       =   ----    ----
+   BIT SIZE         =   ----    ----
+END OF MODULE INFORMATION.
+
+
+C51 COMPILATION COMPLETE.  0 WARNING(S),  0 ERROR(S)

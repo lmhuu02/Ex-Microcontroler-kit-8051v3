@@ -1,0 +1,113 @@
+BL51 BANKED LINKER/LOCATER V6.22                                                        03/04/2022  07:43:59  PAGE 1
+
+
+BL51 BANKED LINKER/LOCATER V6.22, INVOKED BY:
+C:\KEIL\C51\BIN\BL51.EXE kiemTraDieuKhienLedBlink.obj TO kiemTraDieuKhienLedBlink RAMSIZE (256)
+
+
+MEMORY MODEL: SMALL
+
+
+INPUT MODULES INCLUDED:
+  kiemTraDieuKhienLedBlink.obj (KIEMTRADIEUKHIENLEDBLINK)
+  C:\KEIL\C51\LIB\C51S.LIB (?C_STARTUP)
+
+
+LINK MAP OF MODULE:  kiemTraDieuKhienLedBlink (KIEMTRADIEUKHIENLEDBLINK)
+
+
+            TYPE    BASE      LENGTH    RELOCATION   SEGMENT NAME
+            -----------------------------------------------------
+
+            * * * * * * *   D A T A   M E M O R Y   * * * * * * *
+            REG     0000H     0008H     ABSOLUTE     "REG BANK 0"
+            IDATA   0008H     0001H     UNIT         ?STACK
+
+            * * * * * * *   C O D E   M E M O R Y   * * * * * * *
+            CODE    0000H     0003H     ABSOLUTE     
+                    0003H     07FDH                  *** GAP ***
+            CODE    0800H     0013H     UNIT         ?PR?DELAY_12MHZ?KIEMTRADIEUKHIENLEDBLINK
+            CODE    0813H     0013H     UNIT         ?PR?DELAY_20MHZ?KIEMTRADIEUKHIENLEDBLINK
+            CODE    0826H     000CH     UNIT         ?PR?MAIN?KIEMTRADIEUKHIENLEDBLINK
+            CODE    0832H     000CH     UNIT         ?C_C51STARTUP
+
+
+
+OVERLAY MAP OF MODULE:   kiemTraDieuKhienLedBlink (KIEMTRADIEUKHIENLEDBLINK)
+
+
+SEGMENT
+  +--> CALLED SEGMENT
+---------------------
+?C_C51STARTUP
+  +--> ?PR?MAIN?KIEMTRADIEUKHIENLEDBLINK
+
+?PR?MAIN?KIEMTRADIEUKHIENLEDBLINK
+  +--> ?PR?DELAY_12MHZ?KIEMTRADIEUKHIENLEDBLINK
+  +--> ?PR?DELAY_20MHZ?KIEMTRADIEUKHIENLEDBLINK
+
+
+
+SYMBOL TABLE OF MODULE:  kiemTraDieuKhienLedBlink (KIEMTRADIEUKHIENLEDBLINK)
+
+  VALUE           TYPE          NAME
+  ----------------------------------
+
+  -------         MODULE        KIEMTRADIEUKHIENLEDBLINK
+  C:0000H         SYMBOL        _ICE_DUMMY_
+  D:00A0H         PUBLIC        P2
+  C:0813H         PUBLIC        delay_20mhz
+  C:0826H         PUBLIC        main
+  C:0800H         PUBLIC        delay_12mhz
+BL51 BANKED LINKER/LOCATER V6.22                                                      03/04/2022  07:43:59  PAGE 2
+
+
+  D:0089H         PUBLIC        TMOD
+  B:00A0H.0       PUBLIC        led
+  B:0088H.5       PUBLIC        TF0
+  B:0088H.7       PUBLIC        TF1
+  D:008CH         PUBLIC        TH0
+  D:008DH         PUBLIC        TH1
+  D:008AH         PUBLIC        TL0
+  D:008BH         PUBLIC        TL1
+  B:0088H.4       PUBLIC        TR0
+  B:0088H.6       PUBLIC        TR1
+  -------         PROC          DELAY_12MHZ
+  C:0800H         LINE#         10
+  C:0800H         LINE#         11
+  C:0803H         LINE#         12
+  C:0806H         LINE#         13
+  C:0809H         LINE#         14
+  C:080BH         LINE#         15
+  C:080EH         LINE#         16
+  C:0810H         LINE#         17
+  C:0812H         LINE#         18
+  -------         ENDPROC       DELAY_12MHZ
+  -------         PROC          DELAY_20MHZ
+  C:0813H         LINE#         22
+  C:0813H         LINE#         23
+  C:0816H         LINE#         24
+  C:0819H         LINE#         25
+  C:081CH         LINE#         26
+  C:081EH         LINE#         27
+  C:0821H         LINE#         28
+  C:0823H         LINE#         29
+  C:0825H         LINE#         30
+  -------         ENDPROC       DELAY_20MHZ
+  -------         PROC          MAIN
+  C:0826H         LINE#         32
+  C:0826H         LINE#         33
+  C:0828H         LINE#         34
+  C:0828H         LINE#         35
+  C:082AH         LINE#         37
+  C:082DH         LINE#         39
+  C:0830H         LINE#         40
+  -------         ENDPROC       MAIN
+  -------         ENDMOD        KIEMTRADIEUKHIENLEDBLINK
+
+******************************************************************************
+* RESTRICTED VERSION WITH 0800H BYTE CODE SIZE LIMIT; USED: 0032H BYTE ( 2%) *
+******************************************************************************
+
+Program Size: data=9.0 xdata=0 code=65
+LINK/LOCATE RUN COMPLETE.  0 WARNING(S),  0 ERROR(S)

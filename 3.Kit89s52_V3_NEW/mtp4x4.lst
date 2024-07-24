@@ -1,0 +1,83 @@
+C51 COMPILER V9.01   MTP4X4                                                                10/13/2014 09:05:31 PAGE 1   
+
+
+C51 COMPILER V9.01, COMPILATION OF MODULE MTP4X4
+OBJECT MODULE PLACED IN mtp4x4.obj
+COMPILER INVOKED BY: C:\Keil\C51\BIN\C51.EXE MTP\mtp4x4.c BROWSE DEBUG OBJECTEXTEND PRINT(.\mtp4x4.lst) TABS(2) OBJECT(m
+                    -tp4x4.obj)
+
+line level    source
+
+   1          /**
+   2            ******************************************************************************
+   3            * Ten Tep   :     MTP4x4.c
+   4            * Tac Gia   :     LE ANH QUANG
+   5            * Cong Ty   :     MinhHaGroup
+   6            * Website   :     MinhHaGroup.com
+   7            * Phien Ban :     V1.0.0
+   8            * Ngay      :     19-9-2012
+   9            * Tom Tat   :     Dinh nghia cach thuc su dung trong ham MTP4x4.
+  10            *           
+  11            *
+  12            ******************************************************************************
+  13            * Chu Y   :
+  14            *              
+  15            ******************************************************************************
+  16            */
+  17            
+  18          #include <main.h>
+  19          
+  20          // Ban phim trong mo phong protues
+  21          static unsigned char code KEYS_PAD[4][4] ={'3','2','1','0', 
+  22                                                    '7','6','5','4', 
+  23                                                    'B','A','9','8', 
+  24                                                    'F','E','D','C'};   
+  25          
+  26          unsigned char mtp_quetphim()
+  27          { 
+  28   1        unsigned char r,c;
+  29   1        P1=0x0f;                                    
+  30   1        delay_us(2);
+  31   1        
+  32   1        if((P1&0x0f)!=0x0f)                   // Kiem tra xem co phim bat ky nao duoc bam hay khong?
+  33   1        { 
+  34   2          delay_us(100);                      // Chong nhieu 
+  35   2          if((P1&0x0f)!=0x0f)                 // Neu dung có phim duoc bam: Bat dau qua trinh quet phim
+  36   2          {
+  37   3            for(c=0;c<4;c++)                  // Quet theo cot
+  38   3            {
+  39   4              P1=~(0x01<<(4+c));              // Lan luot keo cac cot xuong muc logic 0
+  40   4              delay_ms(1);
+  41   4              for(r=0;r<4;r++)                // Kiem tra cac hang
+  42   4              {
+  43   5                  if((P1&(0x01<<r))==0)       // Neu hang nao co muc logic 0
+  44   5                  {
+  45   6                    while((P1&0x0f)!=0x0f);   // Cho den khi nut bam duoc tha ra
+  46   6                    return KEYS_PAD[r][c];    // Tra ve ma phim da duoc bam
+  47   6                  }
+  48   5              }
+  49   4            }
+  50   3          }
+  51   2        }
+  52   1        return 0;                           // Neu khong co phim nao duoc nhan: Tra ve gia tri 0
+  53   1      }
+  54          
+C51 COMPILER V9.01   MTP4X4                                                                10/13/2014 09:05:31 PAGE 2   
+
+  55          // ------------------END OF FILE--------------------
+  56          // -------------------------------------------------
+  57          
+
+
+MODULE INFORMATION:   STATIC OVERLAYABLE
+   CODE SIZE        =    142    ----
+   CONSTANT SIZE    =     16    ----
+   XDATA SIZE       =   ----    ----
+   PDATA SIZE       =   ----    ----
+   DATA SIZE        =   ----       1
+   IDATA SIZE       =   ----    ----
+   BIT SIZE         =   ----    ----
+END OF MODULE INFORMATION.
+
+
+C51 COMPILATION COMPLETE.  0 WARNING(S),  0 ERROR(S)

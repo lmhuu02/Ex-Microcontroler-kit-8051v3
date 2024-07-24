@@ -1,0 +1,232 @@
+C51 COMPILER V9.52.0.0   LED7THANHTU00DEN99                                                02/12/2022 10:17:00 PAGE 1   
+
+
+C51 COMPILER V9.52.0.0, COMPILATION OF MODULE LED7THANHTU00DEN99
+OBJECT MODULE PLACED IN led7ThanhTu00Den99.OBJ
+COMPILER INVOKED BY: C:\Keil\C51\BIN\C51.EXE led7ThanhTu00Den99.c BROWSE DEBUG OBJECTEXTEND TABS(2)
+
+line level    source
+
+   1          //POWER BY LE MINH HUU - 11/2/2022 @Copyright
+   2          /*
+   3          l?p trình di?u khi?n LED 7 thanh yêu c?u:
+   4          
+   5          dem ti?n t? 00 d?n 99
+   6          demm lùi t? 99 v? 00
+   7          demm các s? ch?n
+   8          dem các s? l?
+   9          dem s? nguyên tô
+  10          dem các s? chia h?t cho 3
+  11          dem các s? chia h?t cho 3 ho?c 5
+  12          */
+  13          #include <REGX52.H>
+  14          
+  15          #define sang 0
+  16          #define tat 1
+  17          
+  18          #define led1 P3_0
+  19          #define led2 P3_1
+  20          
+  21          int i, j, chuc, donVi;
+  22          char so[] = {0x40, 0x79, 0x24, 0x30, 0x19, 0x12, 0x02, 0x78, 0x00, 0x10};
+  23          
+  24          void delay(int time){
+  25   1        while(time--);
+  26   1      }
+  27          
+  28          //thuc hien dem lan luot tu 00 den 99
+  29          void dem00Toi99(){
+  30   1        for(i = 0; i <= 99; i++){
+  31   2          //xac dinh so hang chuc va hang don vi
+  32   2              chuc = i /10;
+  33   2              donVi = i % 10;
+  34   2              //thuc hien lap lai 1 so 10 lan
+  35   2              for(j = 0; j < 10; j++){
+  36   3                //bat led 1
+  37   3                led2 = sang;
+  38   3                P2 = so[donVi];
+  39   3                delay(10000);
+  40   3                led2 = tat;
+  41   3                
+  42   3                //bat led 2       
+  43   3                led1 = sang;
+  44   3                P2 = so[ chuc];
+  45   3                delay(10000);
+  46   3                led1 = tat;
+  47   3              }
+  48   2            }
+  49   1      }
+  50          
+  51          //dem lan luot tu 99 ve 00
+  52          void dem99Ve00(){
+  53   1        for(i = 99; i >=0; i--){
+  54   2          //xac dinh so hang chuc va hang don vi
+  55   2              chuc = i /10;
+C51 COMPILER V9.52.0.0   LED7THANHTU00DEN99                                                02/12/2022 10:17:00 PAGE 2   
+
+  56   2              donVi = i % 10;
+  57   2              //thuc hien lap lai 1 so 10 lan
+  58   2              for(j = 0; j < 10; j++){
+  59   3                //bat led 1
+  60   3                led2 = sang;
+  61   3                P2 = so[donVi];
+  62   3                delay(10000);
+  63   3                led2 = tat;
+  64   3                
+  65   3                //bat led 2       
+  66   3                led1 = sang;
+  67   3                P2 = so[ chuc];
+  68   3                delay(10000);
+  69   3                led1 = tat;
+  70   3              }
+  71   2            }
+  72   1      }
+  73          
+  74          //dem cac gia tri le tu 0 den 99
+  75          void demLe(){
+  76   1        for(i = 0; i <= 99; i++){
+  77   2          //xac dinh so hang chuc va hang don vi
+  78   2            chuc = i /10;
+  79   2            donVi = i % 10;
+  80   2            if(i % 2 == 1){ //neu la so le thi thuc hien con khong thi khong lam gi
+  81   3            //thuc hien lap lai 1 so 10 lan
+  82   3              for(j = 0; j < 10; j++){
+  83   4                //bat led 1
+  84   4                led2 = sang;
+  85   4                P2 = so[donVi];
+  86   4                delay(10000);
+  87   4                led2 = tat;
+  88   4                
+  89   4                //bat led 2       
+  90   4                led1 = sang;
+  91   4                P2 = so[ chuc];
+  92   4                delay(10000);
+  93   4                led1 = tat;
+  94   4              }
+  95   3            } 
+  96   2          }
+  97   1      }
+  98          
+  99          //thuc hien hien thi cac so nguyen to tu 0 den 99
+ 100          void demNguyenTo(){
+ 101   1        //so nguyen to la so chi chia het cho 1 va chinh no
+ 102   1        int a, i, dem;
+ 103   1        for(i = 2; i <= 99; i++){
+ 104   2          //kiem tra xem i co phai la so nguyen to hay khong neu phai thi thuc hien in ra 
+ 105   2          dem = 0;
+ 106   2          for(a = 1; a <= i; a++){
+ 107   3            if( i % a == 0){
+ 108   4              dem++;
+ 109   4            }
+ 110   3          }
+ 111   2          if(dem == 2){ //neu dem == 2 thi day la so nguyen to. vi a =1 va a <= i.
+ 112   3            //xac dinh so hang chuc va hang don vi
+ 113   3                chuc = i /10;
+ 114   3                donVi = i % 10;
+ 115   3                //thuc hien lap lai 1 so 10 lan
+ 116   3              //  for(j = 0; j < 10; j++){
+ 117   3                  //bat led 1
+C51 COMPILER V9.52.0.0   LED7THANHTU00DEN99                                                02/12/2022 10:17:00 PAGE 3   
+
+ 118   3                  led2 = sang;
+ 119   3                  P2 = so[donVi];
+ 120   3                  delay(10000);
+ 121   3                  led2 = tat;
+ 122   3                  
+ 123   3                  //bat led 2       
+ 124   3                  led1 = sang;
+ 125   3                  P2 = so[ chuc];
+ 126   3                  delay(10000);
+ 127   3                  led1 = tat;
+ 128   3              //  }
+ 129   3            }
+ 130   2        }
+ 131   1      }
+ 132          
+ 133          //dem so chia het cho 3 tu 0 den 99
+ 134          void demChiaHet3(){
+ 135   1      for(i = 0; i <= 99; i++){
+ 136   2          //xac dinh so hang chuc va hang don vi
+ 137   2            chuc = i /10;
+ 138   2            donVi = i % 10;
+ 139   2            if(i % 3 == 0){ //neu la so chia het cho 3 thi thuc hien con khong thi khong lam gi
+ 140   3            //thuc hien lap lai 1 so 10 lan
+ 141   3              for(j = 0; j < 10; j++){
+ 142   4                //bat led 1
+ 143   4                led2 = sang;
+ 144   4                P2 = so[donVi];
+ 145   4                delay(10000);
+ 146   4                led2 = tat;
+ 147   4                
+ 148   4                //bat led 2       
+ 149   4                led1 = sang;
+ 150   4                P2 = so[ chuc];
+ 151   4                delay(10000);
+ 152   4                led1 = tat;
+ 153   4              }
+ 154   3            } 
+ 155   2          }
+ 156   1      }
+ 157          
+ 158          //dem so chia het cho ca 3 va 5 tu 0 den 99
+ 159          void demChiaHet3Va5(){
+ 160   1      for(i = 0; i <= 99; i++){
+ 161   2          //xac dinh so hang chuc va hang don vi
+ 162   2            chuc = i /10;
+ 163   2            donVi = i % 10;
+ 164   2            if(i % 3 == 0 && i % 5 == 0){ //neu la so chia het cho 3 thi thuc hien con khong thi khong lam gi
+ 165   3            //thuc hien lap lai 1 so 10 lan
+ 166   3              for(j = 0; j < 10; j++){
+ 167   4                //bat led 1
+ 168   4                led2 = sang;
+ 169   4                P2 = so[donVi];
+ 170   4                delay(10000);
+ 171   4                led2 = tat;
+ 172   4                
+ 173   4                //bat led 2       
+ 174   4                led1 = sang;
+ 175   4                P2 = so[ chuc];
+ 176   4                delay(10000);
+ 177   4                led1 = tat;
+ 178   4              }
+ 179   3            } 
+C51 COMPILER V9.52.0.0   LED7THANHTU00DEN99                                                02/12/2022 10:17:00 PAGE 4   
+
+ 180   2          }
+ 181   1      }
+ 182          
+ 183          //POWER BY LE MINH HUU - 11/2/2022 @Copyright
+ 184          void main(){
+ 185   1        led1 = led2 = tat;  //thuc hien tat ca 2 led
+ 186   1        //thuc hien quet tung led mot, trong cung mot thoi gian chi dieu khien duy nhat mot led 7 thanh, KHONG DI
+             -EU KHIEN DONG THOI CA 2 LED 7 THANH
+ 187   1        while(1){
+ 188   2          //thuc hien dem lan luot tu 00 den 99
+ 189   2          //dem00Toi99(); delay(10000);
+ 190   2          //dem lan luot tu 99 ve 00
+ 191   2           //dem99Ve00(); delay(10000);
+ 192   2          //dem cac gia tri le tu 0 den 99
+ 193   2          //demLe(); delay(10000);
+ 194   2          //dem so chia het cho 3 tu 0 den 99
+ 195   2          //demChiaHet3(); delay(10000);
+ 196   2          //dem so chia het cho ca 3 va 5 tu 0 den 99
+ 197   2          //demChiaHet3Va5(); delay(10000);
+ 198   2          //thuc hien hien thi cac so nguyen to tu 0 den 99
+ 199   2            demNguyenTo(); delay(10000);
+ 200   2        }
+ 201   1      }
+ 202          //POWER BY LE MINH HUU - 11/2/2022 @Copyright
+
+
+MODULE INFORMATION:   STATIC OVERLAYABLE
+   CODE SIZE        =    640    ----
+   CONSTANT SIZE    =   ----    ----
+   XDATA SIZE       =   ----    ----
+   PDATA SIZE       =   ----    ----
+   DATA SIZE        =     18       2
+   IDATA SIZE       =   ----    ----
+   BIT SIZE         =   ----    ----
+END OF MODULE INFORMATION.
+
+
+C51 COMPILATION COMPLETE.  0 WARNING(S),  0 ERROR(S)

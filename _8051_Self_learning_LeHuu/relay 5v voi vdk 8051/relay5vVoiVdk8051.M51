@@ -1,0 +1,86 @@
+BL51 BANKED LINKER/LOCATER V6.22                                                        01/10/2022  14:06:02  PAGE 1
+
+
+BL51 BANKED LINKER/LOCATER V6.22, INVOKED BY:
+C:\KEIL\C51\BIN\BL51.EXE relay5vVoiVdk8051.obj TO relay5vVoiVdk8051 RAMSIZE (256)
+
+
+MEMORY MODEL: SMALL
+
+
+INPUT MODULES INCLUDED:
+  relay5vVoiVdk8051.obj (RELAY5VVOIVDK8051)
+  C:\KEIL\C51\LIB\C51S.LIB (?C_STARTUP)
+
+
+LINK MAP OF MODULE:  relay5vVoiVdk8051 (RELAY5VVOIVDK8051)
+
+
+            TYPE    BASE      LENGTH    RELOCATION   SEGMENT NAME
+            -----------------------------------------------------
+
+            * * * * * * *   D A T A   M E M O R Y   * * * * * * *
+            REG     0000H     0008H     ABSOLUTE     "REG BANK 0"
+            IDATA   0008H     0001H     UNIT         ?STACK
+
+            * * * * * * *   C O D E   M E M O R Y   * * * * * * *
+            CODE    0000H     0003H     ABSOLUTE     
+                    0003H     07FDH                  *** GAP ***
+            CODE    0800H     000EH     UNIT         ?PR?MAIN?RELAY5VVOIVDK8051
+            CODE    080EH     000CH     UNIT         ?C_C51STARTUP
+            CODE    081AH     000BH     UNIT         ?PR?_DELAY?RELAY5VVOIVDK8051
+
+
+
+OVERLAY MAP OF MODULE:   relay5vVoiVdk8051 (RELAY5VVOIVDK8051)
+
+
+SEGMENT
+  +--> CALLED SEGMENT
+---------------------
+?C_C51STARTUP
+  +--> ?PR?MAIN?RELAY5VVOIVDK8051
+
+?PR?MAIN?RELAY5VVOIVDK8051
+  +--> ?PR?_DELAY?RELAY5VVOIVDK8051
+
+
+
+SYMBOL TABLE OF MODULE:  relay5vVoiVdk8051 (RELAY5VVOIVDK8051)
+
+  VALUE           TYPE          NAME
+  ----------------------------------
+
+  -------         MODULE        RELAY5VVOIVDK8051
+  C:0000H         SYMBOL        _ICE_DUMMY_
+  C:081AH         PUBLIC        _delay
+  B:00A0H.0       PUBLIC        P2_0
+  B:0090H.4       PUBLIC        P1_4
+  C:0800H         PUBLIC        main
+  -------         PROC          _DELAY
+  D:0006H         SYMBOL        time
+BL51 BANKED LINKER/LOCATER V6.22                                                      01/10/2022  14:06:02  PAGE 2
+
+
+  C:081AH         LINE#         13
+  C:081AH         LINE#         14
+  C:0824H         LINE#         15
+  -------         ENDPROC       _DELAY
+  -------         PROC          MAIN
+  C:0800H         LINE#         17
+  C:0800H         LINE#         18
+  C:0800H         LINE#         19
+  C:0803H         LINE#         20
+  C:080AH         LINE#         21
+  C:080AH         LINE#         22
+  C:080CH         LINE#         23
+  C:080CH         LINE#         24
+  -------         ENDPROC       MAIN
+  -------         ENDMOD        RELAY5VVOIVDK8051
+
+******************************************************************************
+* RESTRICTED VERSION WITH 0800H BYTE CODE SIZE LIMIT; USED: 0019H BYTE ( 1%) *
+******************************************************************************
+
+Program Size: data=9.0 xdata=0 code=40
+LINK/LOCATE RUN COMPLETE.  0 WARNING(S),  0 ERROR(S)

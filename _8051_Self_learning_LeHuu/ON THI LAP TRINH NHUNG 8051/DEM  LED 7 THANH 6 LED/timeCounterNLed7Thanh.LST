@@ -1,0 +1,97 @@
+C51 COMPILER V9.52.0.0   TIMECOUNTERNLED7THANH                                             05/19/2022 05:32:49 PAGE 1   
+
+
+C51 COMPILER V9.52.0.0, COMPILATION OF MODULE TIMECOUNTERNLED7THANH
+OBJECT MODULE PLACED IN timeCounterNLed7Thanh.OBJ
+COMPILER INVOKED BY: C:\Keil\C51\BIN\C51.EXE timeCounterNLed7Thanh.c BROWSE DEBUG OBJECTEXTEND TABS(2)
+
+line level    source
+
+   1          /*
+   2          power by Le Minh Huu 2k2 @copyright 19/5/2022
+   3          1. dem xung tu T0 P3_4 hien thi len led 7 thanh
+   4          2. dem xung chan/le
+   5          3. dem xung tu 50 den 80 hien thi len
+   6          */
+   7          #include <REGX52.H>
+   8          #define on 0
+   9          #define off 1
+  10          #define ledDv P2_5
+  11          #define ledC  P2_4
+  12          #define ledT  P2_3
+  13          #define ledN  P2_2
+  14          #define ledCNghin P2_1
+  15          #define ledTNghin P2_0
+  16          
+  17          char so[] = {0x40, 0x79, 0x24, 0x30, 0x19, 0x12, 0x02, 0x78, 0x00, 0x10};
+  18          unsigned int count  =  0;
+  19          void delay(int time){
+  20   1      while(time--){}
+  21   1      }
+  22          //da dung counter ma dung them timer thi se gay ra xung dot neu khong chu y
+  23          //void delay_ms(unsigned int time){
+  24          //  while(time--){
+  25          //    TMOD = 0x20;  // 0010 0000 timer 1 che do 1
+  26          //    TH1 = 0xfa;
+  27          //    TL1 = 0x18;
+  28          //    TR1 = 1;
+  29          //    while(!TF1){}
+  30          //    TR1 = 0;
+  31          //    TF1 = 0;
+  32          //  }
+  33          //}
+  34          void hienThi(unsigned int i){
+  35   1      int j;
+  36   1        unsigned int dv, chuc, tram, nghin, cnghin, tnghin;
+  37   1        dv = i % 10;
+  38   1        chuc = (i / 10) % 10;
+  39   1        tram = (i / 100) % 10;
+  40   1        nghin = (i / 1000) % 10;
+  41   1        cnghin = (i / 10000) % 10;
+  42   1        tnghin = (i / 100000) % 10;
+  43   1        for(j = 0; j < 10; j++){
+  44   2          ledDv = on; P0 = so[dv];  delay(100); ledDv = off;
+  45   2          ledC = on; P0 = so[chuc]; delay(100); ledC = off;
+  46   2          ledT = on; P0 = so[tram]; delay(100); ledT = off;
+  47   2          ledN = on; P0 = so[nghin]; delay(100); ledN = off;
+  48   2          ledCNghin = on; P0 = so[cnghin]; delay(100); ledCNghin = off;
+  49   2          ledTNghin = on; P0 = so[tnghin]; delay(100); ledTNghin = off; 
+  50   2        } 
+  51   1      }
+  52          void demXungTien(unsigned int i){
+  53   1          hienThi(i);
+  54   1      }
+  55          void demChanLe(unsigned int i){
+C51 COMPILER V9.52.0.0   TIMECOUNTERNLED7THANH                                             05/19/2022 05:32:49 PAGE 2   
+
+  56   1          if (i %2 == 0) hienThi(i);
+  57   1      }
+  58          void demXung50(unsigned int i){
+  59   1      if(i >= 50 && i <= 70) hienThi(i);
+  60   1      }
+  61          void main(){
+  62   1        TMOD = TMOD & 0x0f;
+  63   1        TMOD = TMOD | 0x05;  // 0000 0101 counter 0 che do 1
+  64   1        TR0 = 1;
+  65   1        TL0 = 0x00;
+  66   1        TH0 = 0x00;
+  67   1        while(1){
+  68   2          count = TL0 | TH0 <<8;
+  69   2          demXungTien(count);
+  70   2          demChanLe(count);
+  71   2        }
+  72   1      }
+
+
+MODULE INFORMATION:   STATIC OVERLAYABLE
+   CODE SIZE        =    297    ----
+   CONSTANT SIZE    =   ----    ----
+   XDATA SIZE       =   ----    ----
+   PDATA SIZE       =   ----    ----
+   DATA SIZE        =     12      10
+   IDATA SIZE       =   ----    ----
+   BIT SIZE         =   ----    ----
+END OF MODULE INFORMATION.
+
+
+C51 COMPILATION COMPLETE.  0 WARNING(S),  0 ERROR(S)

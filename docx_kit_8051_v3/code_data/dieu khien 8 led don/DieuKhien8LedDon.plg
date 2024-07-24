@@ -1,0 +1,318 @@
+<html>
+<body>
+<pre>
+<h1>µVision Build Log</h1>
+<h2>Project:</h2>
+D:\HOC TAP-  NAM 2  ( 2021 - 2022)\Lap_trinh_nhung_co_ban_8051\Bai tap code and project\DieuKhien8LedDon.uvproj
+Project File Date:  01/17/2022
+
+<h2>Output:</h2>
+Rebuild target 'Target 1'
+compiling DieuKhien8LedDon.c...
+DieuKhien8LedDon.c(37): warning C206: 'delay1': missing function-prototype
+DieuKhien8LedDon.c(37): error C267: 'delay1': requires ANSI-style prototype
+Target not created
+Rebuild target 'Target 1'
+compiling DieuKhien8LedDon.c...
+linking...
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?_SANGTRAIPHAI?DIEUKHIEN8LEDDON
+Program Size: data=9.0 xdata=0 code=175
+creating hex file from "DieuKhien8LedDon"...
+"DieuKhien8LedDon" - 0 Error(s), 1 Warning(s).
+Rebuild target 'Target 1'
+compiling DieuKhien8LedDon.c...
+linking...
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?_SANGTRAIPHAI?DIEUKHIEN8LEDDON
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?_PHAISANGTRAI?DIEUKHIEN8LEDDON
+Program Size: data=9.0 xdata=0 code=282
+creating hex file from "DieuKhien8LedDon"...
+"DieuKhien8LedDon" - 0 Error(s), 2 Warning(s).
+Rebuild target 'Target 1'
+compiling DieuKhien8LedDon.c...
+linking...
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?_SANGTRAIPHAI?DIEUKHIEN8LEDDON
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?_PHAISANGTRAI?DIEUKHIEN8LEDDON
+Program Size: data=9.0 xdata=0 code=282
+creating hex file from "DieuKhien8LedDon"...
+"DieuKhien8LedDon" - 0 Error(s), 2 Warning(s).
+Build target 'Target 1'
+compiling DieuKhien8LedDon.c...
+linking...
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?_SANGTRAIPHAI?DIEUKHIEN8LEDDON
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?_PHAISANGTRAI?DIEUKHIEN8LEDDON
+Program Size: data=9.0 xdata=0 code=331
+creating hex file from "DieuKhien8LedDon"...
+"DieuKhien8LedDon" - 0 Error(s), 2 Warning(s).
+Rebuild target 'Target 1'
+compiling DieuKhien8LedDon.c...
+linking...
+Program Size: data=9.0 xdata=0 code=351
+creating hex file from "DieuKhien8LedDon"...
+"DieuKhien8LedDon" - 0 Error(s), 0 Warning(s).
+Rebuild target 'Target 1'
+compiling DieuKhien8LedDon.c...
+linking...
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?_GIUARAHAIBEN?DIEUKHIEN8LEDDON
+Program Size: data=9.0 xdata=0 code=425
+creating hex file from "DieuKhien8LedDon"...
+"DieuKhien8LedDon" - 0 Error(s), 1 Warning(s).
+Rebuild target 'Target 1'
+compiling DieuKhien8LedDon.c...
+linking...
+Program Size: data=9.0 xdata=0 code=435
+creating hex file from "DieuKhien8LedDon"...
+"DieuKhien8LedDon" - 0 Error(s), 0 Warning(s).
+Build target 'Target 1'
+compiling DieuKhien8LedDon.c...
+DieuKhien8LedDon.c(14): error C247: non-address/-constant initializer
+DieuKhien8LedDon.c(14): error C247: non-address/-constant initializer
+DieuKhien8LedDon.c(14): error C247: non-address/-constant initializer
+DieuKhien8LedDon.c(14): error C247: non-address/-constant initializer
+DieuKhien8LedDon.c(14): error C247: non-address/-constant initializer
+DieuKhien8LedDon.c(14): error C247: non-address/-constant initializer
+DieuKhien8LedDon.c(14): error C247: non-address/-constant initializer
+DieuKhien8LedDon.c(14): error C247: non-address/-constant initializer
+DieuKhien8LedDon.c(16): error C141: syntax error near 'void'
+DieuKhien8LedDon.c(16): error C141: syntax error near '{'
+DieuKhien8LedDon.c(18): error C141: syntax error near 'for'
+DieuKhien8LedDon.c(18): error C141: syntax error near '=', expected ')'
+DieuKhien8LedDon.c(18): error C129: missing ';' before '<'
+Target not created
+Rebuild target 'Target 1'
+compiling DieuKhien8LedDon.c...
+DieuKhien8LedDon.c(14): error C247: non-address/-constant initializer
+DieuKhien8LedDon.c(14): error C247: non-address/-constant initializer
+DieuKhien8LedDon.c(14): error C247: non-address/-constant initializer
+DieuKhien8LedDon.c(14): error C247: non-address/-constant initializer
+DieuKhien8LedDon.c(14): error C247: non-address/-constant initializer
+DieuKhien8LedDon.c(14): error C247: non-address/-constant initializer
+DieuKhien8LedDon.c(14): error C247: non-address/-constant initializer
+DieuKhien8LedDon.c(14): error C247: non-address/-constant initializer
+DieuKhien8LedDon.c(16): error C141: syntax error near 'void'
+DieuKhien8LedDon.c(16): error C141: syntax error near '{'
+DieuKhien8LedDon.c(19): error C141: syntax error near 'for'
+DieuKhien8LedDon.c(19): error C141: syntax error near '=', expected ')'
+DieuKhien8LedDon.c(19): error C129: missing ';' before '<'
+Target not created
+Rebuild target 'Target 1'
+compiling DieuKhien8LedDon.c...
+DieuKhien8LedDon.c(14): error C247: non-address/-constant initializer
+DieuKhien8LedDon.c(14): error C247: non-address/-constant initializer
+DieuKhien8LedDon.c(14): error C247: non-address/-constant initializer
+DieuKhien8LedDon.c(14): error C247: non-address/-constant initializer
+DieuKhien8LedDon.c(14): error C247: non-address/-constant initializer
+DieuKhien8LedDon.c(14): error C247: non-address/-constant initializer
+DieuKhien8LedDon.c(14): error C247: non-address/-constant initializer
+DieuKhien8LedDon.c(14): error C247: non-address/-constant initializer
+DieuKhien8LedDon.c(16): error C141: syntax error near 'void'
+DieuKhien8LedDon.c(16): error C141: syntax error near '{'
+DieuKhien8LedDon.c(19): error C141: syntax error near 'for'
+DieuKhien8LedDon.c(19): error C141: syntax error near '=', expected ')'
+DieuKhien8LedDon.c(19): error C129: missing ';' before '<'
+Target not created
+Rebuild target 'Target 1'
+compiling DieuKhien8LedDon.c...
+DieuKhien8LedDon.c(14): error C247: non-address/-constant initializer
+DieuKhien8LedDon.c(14): error C247: non-address/-constant initializer
+DieuKhien8LedDon.c(14): error C247: non-address/-constant initializer
+DieuKhien8LedDon.c(14): error C247: non-address/-constant initializer
+DieuKhien8LedDon.c(14): error C247: non-address/-constant initializer
+DieuKhien8LedDon.c(14): error C247: non-address/-constant initializer
+DieuKhien8LedDon.c(14): error C247: non-address/-constant initializer
+DieuKhien8LedDon.c(14): error C247: non-address/-constant initializer
+DieuKhien8LedDon.c(16): error C141: syntax error near 'void'
+DieuKhien8LedDon.c(16): error C141: syntax error near '{'
+DieuKhien8LedDon.c(19): error C141: syntax error near 'for'
+DieuKhien8LedDon.c(19): error C141: syntax error near '=', expected ')'
+DieuKhien8LedDon.c(19): error C129: missing ';' before '<'
+Target not created
+Rebuild target 'Target 1'
+compiling DieuKhien8LedDon.c...
+DieuKhien8LedDon.c(14): error C247: non-address/-constant initializer
+DieuKhien8LedDon.c(14): error C247: non-address/-constant initializer
+DieuKhien8LedDon.c(14): error C247: non-address/-constant initializer
+DieuKhien8LedDon.c(14): error C247: non-address/-constant initializer
+DieuKhien8LedDon.c(14): error C247: non-address/-constant initializer
+DieuKhien8LedDon.c(14): error C247: non-address/-constant initializer
+DieuKhien8LedDon.c(14): error C247: non-address/-constant initializer
+DieuKhien8LedDon.c(14): error C247: non-address/-constant initializer
+DieuKhien8LedDon.c(16): error C141: syntax error near 'void'
+DieuKhien8LedDon.c(16): error C141: syntax error near '{'
+DieuKhien8LedDon.c(19): error C141: syntax error near 'for'
+DieuKhien8LedDon.c(19): error C141: syntax error near '=', expected ')'
+DieuKhien8LedDon.c(19): error C129: missing ';' before '<'
+Target not created
+Rebuild target 'Target 1'
+compiling DieuKhien8LedDon.c...
+DieuKhien8LedDon.c(14): error C247: non-address/-constant initializer
+DieuKhien8LedDon.c(14): error C247: non-address/-constant initializer
+DieuKhien8LedDon.c(14): error C247: non-address/-constant initializer
+DieuKhien8LedDon.c(14): error C247: non-address/-constant initializer
+DieuKhien8LedDon.c(14): error C247: non-address/-constant initializer
+DieuKhien8LedDon.c(14): error C247: non-address/-constant initializer
+DieuKhien8LedDon.c(14): error C247: non-address/-constant initializer
+DieuKhien8LedDon.c(14): error C247: non-address/-constant initializer
+Target not created
+Build target 'Target 1'
+compiling DieuKhien8LedDon.c...
+DieuKhien8LedDon.c(14): error C247: non-address/-constant initializer
+DieuKhien8LedDon.c(14): error C247: non-address/-constant initializer
+DieuKhien8LedDon.c(14): error C247: non-address/-constant initializer
+DieuKhien8LedDon.c(14): error C247: non-address/-constant initializer
+DieuKhien8LedDon.c(14): error C247: non-address/-constant initializer
+DieuKhien8LedDon.c(14): error C247: non-address/-constant initializer
+DieuKhien8LedDon.c(14): error C247: non-address/-constant initializer
+DieuKhien8LedDon.c(14): error C247: non-address/-constant initializer
+Target not created
+Rebuild target 'Target 1'
+compiling DieuKhien8LedDon.c...
+DieuKhien8LedDon.c(14): error C247: non-address/-constant initializer
+DieuKhien8LedDon.c(14): error C247: non-address/-constant initializer
+DieuKhien8LedDon.c(14): error C247: non-address/-constant initializer
+DieuKhien8LedDon.c(14): error C247: non-address/-constant initializer
+DieuKhien8LedDon.c(14): error C247: non-address/-constant initializer
+DieuKhien8LedDon.c(14): error C247: non-address/-constant initializer
+DieuKhien8LedDon.c(14): error C247: non-address/-constant initializer
+DieuKhien8LedDon.c(14): error C247: non-address/-constant initializer
+Target not created
+Rebuild target 'Target 1'
+compiling DieuKhien8LedDon.c...
+DieuKhien8LedDon.c(14): error C168: 'led': array of bit
+DieuKhien8LedDon.c(14): error C247: non-address/-constant initializer
+DieuKhien8LedDon.c(14): error C247: non-address/-constant initializer
+DieuKhien8LedDon.c(14): error C247: non-address/-constant initializer
+DieuKhien8LedDon.c(14): error C247: non-address/-constant initializer
+DieuKhien8LedDon.c(14): error C247: non-address/-constant initializer
+DieuKhien8LedDon.c(14): error C247: non-address/-constant initializer
+DieuKhien8LedDon.c(14): error C247: non-address/-constant initializer
+DieuKhien8LedDon.c(14): error C247: non-address/-constant initializer
+Target not created
+Build target 'Target 1'
+compiling DieuKhien8LedDon.c...
+DieuKhien8LedDon.c(14): error C168: 'led': array of bit
+DieuKhien8LedDon.c(14): error C247: non-address/-constant initializer
+DieuKhien8LedDon.c(14): error C247: non-address/-constant initializer
+DieuKhien8LedDon.c(14): error C247: non-address/-constant initializer
+DieuKhien8LedDon.c(14): error C247: non-address/-constant initializer
+DieuKhien8LedDon.c(14): error C247: non-address/-constant initializer
+DieuKhien8LedDon.c(14): error C247: non-address/-constant initializer
+DieuKhien8LedDon.c(14): error C247: non-address/-constant initializer
+DieuKhien8LedDon.c(14): error C247: non-address/-constant initializer
+Target not created
+Rebuild target 'Target 1'
+compiling DieuKhien8LedDon.c...
+DieuKhien8LedDon.c(14): error C141: syntax error near '[', expected '='
+DieuKhien8LedDon.c(14): error C141: syntax error near '}', expected ';'
+DieuKhien8LedDon.c(22): error C202: 'led': undefined identifier
+Target not created
+Rebuild target 'Target 1'
+compiling DieuKhien8LedDon.c...
+DieuKhien8LedDon.c(14): error C141: syntax error near '[', expected '='
+DieuKhien8LedDon.c(14): error C141: syntax error near ']', expected ';'
+DieuKhien8LedDon.c(14): error C231: 'Led1': redefinition
+DieuKhien8LedDon.c(14): error C231: 'Led2': redefinition
+DieuKhien8LedDon.c(14): error C231: 'Led3': redefinition
+DieuKhien8LedDon.c(14): error C231: 'Led4': redefinition
+DieuKhien8LedDon.c(14): error C231: 'Led5': redefinition
+DieuKhien8LedDon.c(14): error C231: 'Led6': redefinition
+DieuKhien8LedDon.c(14): error C231: 'Led7': redefinition
+DieuKhien8LedDon.c(14): error C231: 'Led8': redefinition
+DieuKhien8LedDon.c(14): error C141: syntax error near '}'
+DieuKhien8LedDon.c(16): error C141: syntax error near '{'
+DieuKhien8LedDon.c(19): error C141: syntax error near 'for'
+DieuKhien8LedDon.c(19): error C141: syntax error near '=', expected ')'
+DieuKhien8LedDon.c(19): error C129: missing ';' before '<'
+Target not created
+Rebuild target 'Target 1'
+compiling DieuKhien8LedDon.c...
+DieuKhien8LedDon.c(14): error C141: syntax error near '[', expected '='
+DieuKhien8LedDon.c(14): error C141: syntax error near '}', expected ';'
+DieuKhien8LedDon.c(22): error C202: 'led': undefined identifier
+Target not created
+Rebuild target 'Target 1'
+compiling DieuKhien8LedDon.c...
+linking...
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?_VONGFOR1?DIEUKHIEN8LEDDON
+Program Size: data=12.0 xdata=0 code=802
+creating hex file from "DieuKhien8LedDon"...
+"DieuKhien8LedDon" - 0 Error(s), 1 Warning(s).
+Rebuild target 'Target 1'
+compiling DieuKhien8LedDon.c...
+DieuKhien8LedDon.c(15): error C247: non-address/-constant initializer
+Target not created
+Build target 'Target 1'
+compiling DieuKhien8LedDon.c...
+linking...
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?_VONGFOR1?DIEUKHIEN8LEDDON
+Program Size: data=12.0 xdata=0 code=802
+creating hex file from "DieuKhien8LedDon"...
+"DieuKhien8LedDon" - 0 Error(s), 1 Warning(s).
+Rebuild target 'Target 1'
+compiling DieuKhien8LedDon.c...
+DieuKhien8LedDon.c(15): error C141: syntax error near ';'
+Target not created
+Rebuild target 'Target 1'
+compiling DieuKhien8LedDon.c...
+linking...
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?_VONGFOR1?DIEUKHIEN8LEDDON
+Program Size: data=19.0 xdata=0 code=809
+creating hex file from "DieuKhien8LedDon"...
+"DieuKhien8LedDon" - 0 Error(s), 1 Warning(s).
+Build target 'Target 1'
+linking...
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?_VONGFOR1?DIEUKHIEN8LEDDON
+Program Size: data=19.0 xdata=0 code=809
+creating hex file from "DieuKhien8LedDon"...
+"DieuKhien8LedDon" - 0 Error(s), 1 Warning(s).
+Build target 'Target 1'
+compiling DieuKhien8LedDon.c...
+DieuKhien8LedDon.c(25): warning C206: 'delay': missing function-prototype
+DieuKhien8LedDon.c(25): error C267: 'delay': requires ANSI-style prototype
+DieuKhien8LedDon.c(38): error C231: 'delay': redefinition
+DieuKhien8LedDon.c(40): error C231: 'delay': redefinition
+Target not created
+Build target 'Target 1'
+compiling DieuKhien8LedDon.c...
+linking...
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?_VONGFOR1?DIEUKHIEN8LEDDON
+Program Size: data=19.0 xdata=0 code=812
+creating hex file from "DieuKhien8LedDon"...
+"DieuKhien8LedDon" - 0 Error(s), 1 Warning(s).
+Build target 'Target 1'
+compiling DieuKhien8LedDon.c...
+DieuKhien8LedDon.c(29): warning C275: expression with possibly no effect
+linking...
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?_VONGFOR1?DIEUKHIEN8LEDDON
+Program Size: data=19.0 xdata=0 code=804
+creating hex file from "DieuKhien8LedDon"...
+"DieuKhien8LedDon" - 0 Error(s), 2 Warning(s).
+Build target 'Target 1'
+compiling DieuKhien8LedDon.c...
+linking...
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?_VONGFOR1?DIEUKHIEN8LEDDON
+Program Size: data=19.0 xdata=0 code=813
+creating hex file from "DieuKhien8LedDon"...
+"DieuKhien8LedDon" - 0 Error(s), 1 Warning(s).
+Build target 'Target 1'
+compiling DieuKhien8LedDon.c...
+linking...
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?_VONGFOR1?DIEUKHIEN8LEDDON
+Program Size: data=19.0 xdata=0 code=856
+creating hex file from "DieuKhien8LedDon"...
+"DieuKhien8LedDon" - 0 Error(s), 1 Warning(s).

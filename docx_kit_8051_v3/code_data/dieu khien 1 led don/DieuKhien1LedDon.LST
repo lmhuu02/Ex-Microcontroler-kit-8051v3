@@ -1,0 +1,49 @@
+C51 COMPILER V9.52.0.0   DIEUKHIEN1LEDDON                                                  01/17/2022 14:13:56 PAGE 1   
+
+
+C51 COMPILER V9.52.0.0, COMPILATION OF MODULE DIEUKHIEN1LEDDON
+OBJECT MODULE PLACED IN DieuKhien1LedDon.OBJ
+COMPILER INVOKED BY: C:\Keil\C51\BIN\C51.EXE DieuKhien1LedDon.c BROWSE DEBUG OBJECTEXTEND TABS(2)
+
+line level    source
+
+   1          //POWER BY  LE MINH HUU - 17/1/2022
+   2          //DIEU KHIEN LED DON 
+   3          #include <REGX52.H>
+   4          
+   5          sbit Led = P1^6;
+   6          
+   7          void delay(int time){
+   8   1        while(time--);
+   9   1      }
+  10          void delay1 (int time){
+  11   1        int i;
+  12   1        for(i = 0; i < time; i++){
+  13   2          
+  14   2        }
+  15   1      }
+  16          
+  17          void main(){
+  18   1        Led = 1;
+  19   1        while(1){
+  20   2          Led = 0;
+  21   2          delay1(10000);
+  22   2          Led = 1;
+  23   2          delay1(10000);
+  24   2        }
+  25   1      }
+  26            
+
+
+MODULE INFORMATION:   STATIC OVERLAYABLE
+   CODE SIZE        =     53    ----
+   CONSTANT SIZE    =   ----    ----
+   XDATA SIZE       =   ----    ----
+   PDATA SIZE       =   ----    ----
+   DATA SIZE        =   ----    ----
+   IDATA SIZE       =   ----    ----
+   BIT SIZE         =   ----    ----
+END OF MODULE INFORMATION.
+
+
+C51 COMPILATION COMPLETE.  0 WARNING(S),  0 ERROR(S)

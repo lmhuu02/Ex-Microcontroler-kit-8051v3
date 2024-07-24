@@ -1,0 +1,85 @@
+C51 COMPILER V9.52.0.0   NGATTRUYENTHONGNOITIEPUART_TRUYENDATA                             03/08/2022 11:22:45 PAGE 1   
+
+
+C51 COMPILER V9.52.0.0, COMPILATION OF MODULE NGATTRUYENTHONGNOITIEPUART_TRUYENDATA
+OBJECT MODULE PLACED IN ngatTruyenThongNoiTiepUART_truyenData.OBJ
+COMPILER INVOKED BY: C:\Keil\C51\BIN\C51.EXE ngatTruyenThongNoiTiepUART_truyenData.c BROWSE DEBUG OBJECTEXTEND TABS(2)
+
+line level    source
+
+   1          //power by le minh huu 7/3/2022
+   2          //truyen thong noi tiep truyen du lieu tu vi dieu khien vao may tinh
+   3          
+   4          //thanh ghi SCON che do 1 --> SM0 = 0, SM1 = 1. (che do 1 trong uart: 8 bit tu nap lai timer 1)
+   5          //  REN = 1 (cho phep truyen nhan du lieu)
+   6          //  thanh ghi PCON.7 ---- SMOD = 0 toc do binh thuong
+   7          //  tinh gia tri cho thanh ghi TH1, toc do baud = 9600
+   8          //  TH1 = 256 - ((11 059 200 / (12*32)) / 9600) = 253 
+   9          //  TH1 = 0xfd;
+  10          //RxD: chan nhan du lieu
+  11          //TxD: chan truyen du lieu
+  12          
+  13          
+  14          //gui mot ky tu duy nhat
+  15          /*
+  16          #include <REGX52.H>
+  17          
+  18          void main(){
+  19            TMOD = 0x20;  //timer 1 che do 2.
+  20            TH1 = 0xfd;   //toc do baud = 9600
+  21            SCON = 0x50;  // 0 1 0 1   0 0 0 0: SM0 = 0; SM1 = 1; REN = 1 che do 1 uart 8 bit timer 1
+  22            TR1 = 1;  //khoi dong bo dinh thoi timer 1
+  23            while(1){
+  24              SBUF = 'H';   //truyen ky tu H
+  25              while(TI == 0){}  //ktra truyen du lieu, TI = 1 truyen thanh cong
+  26                TI = 0;   //gan lai bit TI ve 0
+  27            }
+  28          }
+  29          */
+  30          
+  31          //gui mot chuoi ky tu ra may tinh
+  32          #include <REGX52.H>
+  33          #include <string.h> //thu vien cac ham cua chuoi ky tu
+  34          
+  35          //gui mot ky tu ra may tinh
+  36          void send(unsigned char a){
+  37   1          SBUF = a;   //truyen ky tu H
+  38   1          while(TI == 0){}  //ktra truyen du lieu, TI = 1 truyen thanh cong
+  39   1            TI = 0;   //gan lai bit TI ve 0
+  40   1      }
+  41          
+  42          void sendChar(char *a){
+  43   1        int i,n;
+  44   1        n = strlen(a);  //ham kiem tra do dai cua chuoi
+  45   1        for(i = 0; i <= n; i++){
+  46   2          send(a[i]);
+  47   2        }
+  48   1      }
+  49          
+  50          void main(){
+  51   1        TMOD = 0x20;  //timer 1 che do 2.
+  52   1        TH1 = 0xfd;   //toc do baud = 9600
+  53   1        SCON = 0x50;  // 0 1 0 1   0 0 0 0: SM0 = 0; SM1 = 1; REN = 1 che do 1 uart 8 bit timer 1
+  54   1        TR1 = 1;  //khoi dong bo dinh thoi timer 1
+  55   1        while(1){
+C51 COMPILER V9.52.0.0   NGATTRUYENTHONGNOITIEPUART_TRUYENDATA                             03/08/2022 11:22:45 PAGE 2   
+
+  56   2            sendChar("          HELLO WORLD!         ");
+  57   2          //send('xin chao');
+  58   2        }
+  59   1      }
+  60          
+
+
+MODULE INFORMATION:   STATIC OVERLAYABLE
+   CODE SIZE        =     86    ----
+   CONSTANT SIZE    =     32    ----
+   XDATA SIZE       =   ----    ----
+   PDATA SIZE       =   ----    ----
+   DATA SIZE        =   ----       5
+   IDATA SIZE       =   ----    ----
+   BIT SIZE         =   ----    ----
+END OF MODULE INFORMATION.
+
+
+C51 COMPILATION COMPLETE.  0 WARNING(S),  0 ERROR(S)

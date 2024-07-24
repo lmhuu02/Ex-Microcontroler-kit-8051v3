@@ -1,0 +1,29 @@
+<html>
+<body>
+<pre>
+<h1>µVision Build Log</h1>
+<h2>Project:</h2>
+D:\HOC TAP-  NAM 2  ( 2021 - 2022)\Ky_Thuat_vxl_Ung_Dung\Bai tap code and project\DE TAI TIEU LUAN MACH CANH BAO AN NINH\backupMachCanhBaoAnNinh8051.uvproj
+Project File Date:  03/05/2022
+
+<h2>Output:</h2>
+Rebuild target 'Target 1'
+compiling backupMachCanhBaoAnNinh8051.c...
+linking...
+*** WARNING L15: MULTIPLE CALL TO SEGMENT
+    SEGMENT: ?PR?_LCD_PUTS?BACKUPMACHCANHBAOANNINH8051
+    CALLER1: ?PR?NGATPIR?BACKUPMACHCANHBAOANNINH8051
+    CALLER2: ?C_C51STARTUP
+Program Size: data=15.0 xdata=0 code=653
+creating hex file from "backupMachCanhBaoAnNinh8051"...
+"backupMachCanhBaoAnNinh8051" - 0 Error(s), 1 Warning(s).
+Rebuild target 'Target 1'
+compiling backupMachCanhBaoAnNinh8051.c...
+linking...
+*** WARNING L15: MULTIPLE CALL TO SEGMENT
+    SEGMENT: ?PR?_LCD_PUTS?BACKUPMACHCANHBAOANNINH8051
+    CALLER1: ?PR?NGATPIR?BACKUPMACHCANHBAOANNINH8051
+    CALLER2: ?C_C51STARTUP
+Program Size: data=15.0 xdata=0 code=653
+creating hex file from "backupMachCanhBaoAnNinh8051"...
+"backupMachCanhBaoAnNinh8051" - 0 Error(s), 1 Warning(s).

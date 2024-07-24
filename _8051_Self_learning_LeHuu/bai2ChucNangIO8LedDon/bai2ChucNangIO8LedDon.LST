@@ -1,0 +1,138 @@
+C51 COMPILER V9.52.0.0   BAI2CHUCNANGIO8LEDDON                                             10/30/2021 01:48:13 PAGE 1   
+
+
+C51 COMPILER V9.52.0.0, COMPILATION OF MODULE BAI2CHUCNANGIO8LEDDON
+OBJECT MODULE PLACED IN bai2ChucNangIO8LedDon.OBJ
+COMPILER INVOKED BY: C:\Keil\C51\BIN\C51.EXE bai2ChucNangIO8LedDon.c BROWSE DEBUG OBJECTEXTEND TABS(2)
+
+line level    source
+
+   1          #include <REGX51.h>
+   2          
+   3          void delay(int time){ //nhap thoi gian 
+   4   1        while(time--);  //giam dan thoi gian
+   5   1      }
+   6          //CHUONG TRINH THU 2, COI NHU DAU TIEN CUA LE MINH HUU. NGAY 30/10/2021. LUC 12H30 SINH NHAT.
+   7          //============================================
+   8          //chay tu trai sang phai
+   9          void traiSangPhai(int soLan){
+  10   1        int i;
+  11   1        for(i = 0; i < soLan; i++){
+  12   2          P2_0 = 0; delay(10000); P2_0 = 1;
+  13   2          P2_1 = 0; delay(10000); P2_1 = 1;
+  14   2          P2_2 = 0; delay(10000); P2_2 = 1;
+  15   2          P2_3 = 0; delay(10000); P2_3 = 1;
+  16   2          P2_4 = 0; delay(10000); P2_4 = 1;
+  17   2          P2_5 = 0; delay(10000); P2_5 = 1;
+  18   2          P2_6 = 0; delay(10000); P2_6 = 1;
+  19   2          P2_7 = 0; delay(10000); P2_7 = 1;
+  20   2        }
+  21   1      }
+  22          //============================================
+  23          //chay tu phai sang trai
+  24          void phaiSangTrai(int soLan){
+  25   1        int i;
+  26   1        for(i = 0; i < soLan; i++){
+  27   2          P2_7 = 0; delay(10000); P2_7 = 1;
+  28   2          P2_6 = 0; delay(10000); P2_6 = 1;
+  29   2          P2_5 = 0; delay(10000); P2_5 = 1;
+  30   2          P2_4 = 0; delay(10000); P2_4 = 1;
+  31   2          P2_3 = 0; delay(10000); P2_3 = 1;
+  32   2          P2_2 = 0; delay(10000); P2_2 = 1;
+  33   2          P2_1 = 0; delay(10000); P2_1 = 1;
+  34   2          P2_0 = 0; delay(10000); P2_0 = 1;
+  35   2        }
+  36   1      }
+  37          //============================================
+  38          void nhayToanBo(int soLan){
+  39   1        int i;
+  40   1        for(i = 0; i < soLan; i++){
+  41   2          P2_0 = P2_1 = P2_2 = P2_3 = P2_4 = P2_5 = P2_6 = P2_7 = 0;
+  42   2          delay(5500);
+  43   2          P2_0 = P2_1 = P2_2 = P2_3 = P2_4 = P2_5 = P2_6 = P2_7 = 0;
+  44   2        }
+  45   1      }
+  46          //============================================
+  47          void nhayTangDanTocDo(int soLan){
+  48   1          int i, j;
+  49   1          for(i = 0; i < soLan; i++){
+  50   2            j = 15000;
+  51   2            while(j > 0){
+  52   3              delay(j);
+  53   3              P2_0 = P2_1 = P2_2 = P2_3 = P2_4 = P2_5 = P2_6 = P2_7 = 0;
+  54   3              delay(j);
+  55   3              P2_0 = P2_1 = P2_2 = P2_3 = P2_4 = P2_5 = P2_6 = P2_7 = 1;
+C51 COMPILER V9.52.0.0   BAI2CHUCNANGIO8LEDDON                                             10/30/2021 01:48:13 PAGE 2   
+
+  56   3              j = j - 1000;
+  57   3            }
+  58   2          }
+  59   1      }
+  60          //============================================
+  61          void sangTrongRaNgoai(int soLan){
+  62   1        int i;
+  63   1        for(i = 0; i < soLan; i++){
+  64   2          P2_3 = P2_4 = 0;
+  65   2          delay(10000);
+  66   2          P2_3 = P2_4 = 1;
+  67   2          P2_2 = P2_5 = 0;
+  68   2          delay(10000);
+  69   2          P2_2 = P2_5 = 1;
+  70   2          P2_1 = P2_6 = 0;
+  71   2          delay(10000);
+  72   2          P2_1 = P2_6 = 1;
+  73   2          P2_0 = P2_7 = 0;
+  74   2          delay(10000);
+  75   2          P2_0 = P2_7 = 1;
+  76   2          delay(10000);
+  77   2        }
+  78   1      }
+  79          //============================================
+  80          void sangNgoaiVaoTrong(int soLan){
+  81   1      int i;
+  82   1        for(i = 0; i < soLan; i++){
+  83   2          P2_0 = P2_7 = 0;
+  84   2          delay(10000);
+  85   2          P2_0 = P2_7 = 1;
+  86   2          delay(10000);
+  87   2          P2_1 = P2_6 = 0;
+  88   2          delay(10000);
+  89   2          P2_1 = P2_6 = 1;
+  90   2          P2_2 = P2_5 = 0;
+  91   2          delay(10000);
+  92   2          P2_2 = P2_5 = 1;
+  93   2          P2_3 = P2_4 = 0;
+  94   2          delay(10000);
+  95   2          P2_3 = P2_4 = 1;
+  96   2          delay(10000);
+  97   2      
+  98   2        }
+  99   1      }
+ 100          //============================================
+ 101          void main(){
+ 102   1        while(1){   //tao 1 vong lap luon dung de vi dieu khien co the thuc hien lap lai lien tuc
+ 103   2          nhayTangDanTocDo(3);
+ 104   2          sangTrongRaNgoai(10);
+ 105   2          sangNgoaiVaoTrong(10);
+ 106   2          nhayToanBo(3);
+ 107   2          traiSangPhai(3);
+ 108   2          phaiSangTrai(4);
+ 109   2        }
+ 110   1        
+ 111   1      }
+
+
+MODULE INFORMATION:   STATIC OVERLAYABLE
+   CODE SIZE        =    536    ----
+   CONSTANT SIZE    =   ----    ----
+   XDATA SIZE       =   ----    ----
+C51 COMPILER V9.52.0.0   BAI2CHUCNANGIO8LEDDON                                             10/30/2021 01:48:13 PAGE 3   
+
+   PDATA SIZE       =   ----    ----
+   DATA SIZE        =   ----       2
+   IDATA SIZE       =   ----    ----
+   BIT SIZE         =   ----    ----
+END OF MODULE INFORMATION.
+
+
+C51 COMPILATION COMPLETE.  0 WARNING(S),  0 ERROR(S)

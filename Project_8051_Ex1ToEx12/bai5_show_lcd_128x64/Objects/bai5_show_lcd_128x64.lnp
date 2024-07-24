@@ -1,0 +1,3 @@
+".\Objects\bai5_show_lcd_128x64.obj" 
+TO ".\Objects\bai5_show_lcd_128x64" 
+PRINT(".\Listings\bai5_show_lcd_128x64.m51") RAMSIZE(256) 

@@ -1,0 +1,58 @@
+C51 COMPILER V9.52.0.0   DELAYTHANHGHICD2                                                  02/16/2022 18:35:25 PAGE 1   
+
+
+C51 COMPILER V9.52.0.0, COMPILATION OF MODULE DELAYTHANHGHICD2
+OBJECT MODULE PLACED IN deLayThanhGhiCD2.OBJ
+COMPILER INVOKED BY: C:\Keil\C51\BIN\C51.EXE deLayThanhGhiCD2.c BROWSE DEBUG OBJECTEXTEND TABS(2)
+
+line level    source
+
+   1          //power by le minh huu 16/2/2022
+   2          /*
+   3          CHE DO 1: thoi gian lon hon - o che do 1 thi co the lap trinh den mini giay - lap trinh 16 bit 2^16 = 65 5
+             -36
+   4          CHE DO 2: thoi gian nho - con o che do 2 thi chi lap trinh duoc muc micro giay - lap trinh 8 bit 2^8 = 256
+   5          */
+   6          
+   7          //tre 200us dung thach anh 11.0592mHz tan so = 1.085Ms
+   8          /*
+   9          200us / 1.085 = 184.
+  10          256 - 184  = 72 --> 0x48
+  11          */
+  12          #include <REGX52.H>
+  13          
+  14          void delay_5ms(){
+  15   1        TMOD = 0x02;  // timer 0 che do 1
+  16   1      //  TL0 = 0x00; //phai de thanh ghi tl0 truoc th0
+  17   1      //  TH0 = 0x48;
+  18   1        TL0 = 0x48;
+  19   1        TH0 =0x48;
+  20   1        TR0 = 1;
+  21   1        while(!TF0);
+  22   1        TF0 = 0;
+  23   1        TR0 = 0;
+  24   1      }
+  25          
+  26          void main(){
+  27   1        P3_0 = 0;
+  28   1        while(1){
+  29   2          P3_0 = ~ P3_0;
+  30   2          delay_5ms();
+  31   2        }
+  32   1      }
+  33          
+  34          
+
+
+MODULE INFORMATION:   STATIC OVERLAYABLE
+   CODE SIZE        =     28    ----
+   CONSTANT SIZE    =   ----    ----
+   XDATA SIZE       =   ----    ----
+   PDATA SIZE       =   ----    ----
+   DATA SIZE        =   ----    ----
+   IDATA SIZE       =   ----    ----
+   BIT SIZE         =   ----    ----
+END OF MODULE INFORMATION.
+
+
+C51 COMPILATION COMPLETE.  0 WARNING(S),  0 ERROR(S)

@@ -1,0 +1,99 @@
+C51 COMPILER V9.52.0.0   LED7THANHTU0DEN9                                                  02/18/2022 21:07:30 PAGE 1   
+
+
+C51 COMPILER V9.52.0.0, COMPILATION OF MODULE LED7THANHTU0DEN9
+OBJECT MODULE PLACED IN led7ThanhTu0Den9.OBJ
+COMPILER INVOKED BY: C:\Keil\C51\BIN\C51.EXE led7ThanhTu0Den9.c BROWSE DEBUG OBJECTEXTEND TABS(2)
+
+line level    source
+
+   1          //POWER BY LE MINH HUU 15/1/2022
+   2          //LED 7 THANH
+   3          
+   4          #include <REGX52.H>
+   5          //char so[] = {0x3f, 0x03,0x5b, 0x1f, 0x56,0x6d, 0x7d,0x7f,0x6f}; //khoi tao cac so tu 0 den 9 theo ma hex
+             - hoat dong o muc cao
+   6          char so[] = {0x40, 0x79,0x24,0xb0,0xB0,0x99,0x12,0x02,0x80,0x10}; //khoi tao cac so tu 0 den 9 theo ma hex
+             - hoat dong o muc thap
+   7          char chu[] = {0x09,0x06,0x47,0x47,0x40};
+   8                //        H   E   L     L   O
+   9          char i,j,x; //khai bao bien i cho vong for
+  10          void delay(int time){
+  11   1        while(time--);
+  12   1      }
+  13          
+  14          void main(){
+  15   1        while(1){
+  16   2          P0 = 1;
+  17   2          for(i = 9; i >= 0; i--){  //cho vong for chay tu 0 den 9 tuong ung i tu 0 den 9
+  18   3            for(x = 0; x < 20; x++){  //su dung them mot vong for nua de TANG SO LAN HIEN THI CUA MOT SO
+  19   4              P0 = so[i]; //dem so - gan cong p0 = lan luot cac phan tu trong mang so
+  20   4              delay(5000);
+  21   4            }
+  22   3          }
+  23   2          delay(50000);
+  24   2          
+  25   2          
+  26   2          /*for(j = 0; j <= 4; j++){
+  27   2            P0 = chu[j];
+  28   2            delay(50000);
+  29   2            //P0 = 1;
+  30   2            //delay(50000);
+  31   2          }
+  32   2          */
+  33   2          
+  34   2          //nhu nay thi code se rat dai nen chuyen sang dung mang char
+  35   2          /*
+  36   2          delay(30000);
+  37   2           P0_6 = 1;
+  38   2          P0_0 = P0_1 = P0_2 = P0_3 = P0_4 = P0_5 = 0;  //so 0
+  39   2          delay(30000);
+  40   2          P0_1 = P0_2 = 0;  //bat so 1
+  41   2          P0_0 = P0_3 = P0_4 = P0_5 = P0_6 = 1; 
+  42   2          delay(10000);
+  43   2          */
+  44   2          
+  45   2          //su dung parallel port chuyen sang ma hex, chon port, cho nao co tich la bit 1, bo tich la bit 0
+  46   2          //viet nhu nay van lau chuyen sang mang char
+  47   2          /*
+  48   2          
+  49   2          P0 = 0xC0;  // so 0. g = 1
+  50   2          delay(30000);
+  51   2          P0 = 0x79; // so 1  a,d,e,f,g = 1
+  52   2          delay(30000);
+  53   2          P0 = 0x24; // so 2  b,d,e = 1
+C51 COMPILER V9.52.0.0   LED7THANHTU0DEN9                                                  02/18/2022 21:07:30 PAGE 2   
+
+  54   2          delay(30000); 
+  55   2          P0 = 0xB0; // so 3  d,e,f = 1
+  56   2          delay(30000);
+  57   2          P0 = 0x99;  // so 4 a, d,e = 1
+  58   2          delay(30000);
+  59   2          P0 = 0x12;  //so 5  b,e = 1
+  60   2          delay(30000);
+  61   2          P0 = 0x02;  //so 6  b = 1
+  62   2          delay(30000); 
+  63   2          P0 = 0x78;  //so 7  d,e,f,g = 1
+  64   2          delay(30000);
+  65   2          P0 = 0x00;  //so 8   all = 0
+  66   2          delay(30000);
+  67   2          P0 = 0x10;  //so 9  e = 1 
+  68   2          delay(30000);
+  69   2          */
+  70   2          
+  71   2        }
+  72   1      }
+
+
+MODULE INFORMATION:   STATIC OVERLAYABLE
+   CODE SIZE        =     66    ----
+   CONSTANT SIZE    =   ----    ----
+   XDATA SIZE       =   ----    ----
+   PDATA SIZE       =   ----    ----
+   DATA SIZE        =     18    ----
+   IDATA SIZE       =   ----    ----
+   BIT SIZE         =   ----    ----
+END OF MODULE INFORMATION.
+
+
+C51 COMPILATION COMPLETE.  0 WARNING(S),  0 ERROR(S)

@@ -1,0 +1,93 @@
+C51 COMPILER V9.01   LED7                                                                  10/18/2012 06:56:25 PAGE 1   
+
+
+C51 COMPILER V9.01, COMPILATION OF MODULE LED7
+OBJECT MODULE PLACED IN led7.obj
+COMPILER INVOKED BY: C:\Keil\C51\BIN\C51.EXE led7\led7.c BROWSE DEBUG OBJECTEXTEND PRINT(.\led7.lst) TABS(2) OBJECT(led7
+                    -.obj)
+
+line level    source
+
+   1          /**
+   2            ******************************************************************************
+   3            * Ten Tep   :     Led7.c
+   4            * Tac Gia   :     Nguyen Quy Nhat
+   5            * Cong Ty   :     MinhHaGroup
+   6            * Website   :     BanLinhKien.Vn
+   7            * Phien Ban :     V1.0.0
+   8            * Ngay      :     31-07-2012
+   9            * Tom Tat   :     Dinh nghia cac ham dieu khien man hinh led 7.
+  10            *           
+  11            *
+  12            ******************************************************************************
+  13            * Chu Y   :
+  14            *              
+  15            ******************************************************************************
+  16            */    
+  17            
+  18          #include "led7.h"
+  19          
+  20          static unsigned char chu_so[10]= {0xc0,0xf9,0xa4,0xb0,0x99,0x92,0x82,0xf8,0x80,0x90}; 
+  21          //Ma Hien Thi                     0   1     2   3     4   5     6     7   8   9
+  22          static unsigned char buffer_led[8];   
+  23          
+  24          //---------------------------------------------------
+  25          // Ham chuyen doi gia tri so dua vao
+  26          // Tach cac chu so hang tram nghin, hang chuc nghin... dua vao mang buffer_led[8]
+  27          //---------------------------------------------------
+  28          void LED7_ChuyenDoi(unsigned long int number)
+  29          {
+  30   1          unsigned char i,j;
+  31   1          unsigned long int temp;
+  32   1          for(i=7;i>0;i--)
+  33   1          {
+  34   2            temp=1;
+  35   2            for(j=i;j>0;j--)
+  36   2            {
+  37   3                temp*=10;
+  38   3            }
+  39   2            buffer_led[i]=chu_so[number/temp];  
+  40   2            number=number%temp;
+  41   2          }
+  42   1          buffer_led[0]=chu_so[number];
+  43   1      }
+  44          
+  45          //---------------------------------------------------
+  46          // Ham cho phep hien thi tung LED 
+  47          //---------------------------------------------------
+  48          void LED7_OnLed(unsigned char addr)
+  49          {
+  50   1        PORT_DATA=0xff;
+  51   1        PORT_ADDR=~(0x01<<addr);
+  52   1        PORT_DATA=buffer_led[addr];
+  53   1      }
+  54          
+C51 COMPILER V9.01   LED7                                                                  10/18/2012 06:56:25 PAGE 2   
+
+  55          //---------------------------------------------------
+  56          // Ham hien thi Number ra LED 7 thanh 4 so
+  57          //---------------------------------------------------
+  58          void LED7_Display(unsigned long int number)
+  59          {
+  60   1          unsigned char i=8;
+  61   1          LED7_ChuyenDoi(number);
+  62   1          while(i!=0)
+  63   1          {
+  64   2            LED7_OnLed(--i);
+  65   2            delay_us(50);
+  66   2          }
+  67   1      }
+
+
+MODULE INFORMATION:   STATIC OVERLAYABLE
+   CODE SIZE        =    194    ----
+   CONSTANT SIZE    =   ----    ----
+   XDATA SIZE       =   ----    ----
+   PDATA SIZE       =   ----    ----
+   DATA SIZE        =     18      11
+   IDATA SIZE       =   ----    ----
+   BIT SIZE         =   ----    ----
+END OF MODULE INFORMATION.
+
+
+C51 COMPILATION COMPLETE.  0 WARNING(S),  0 ERROR(S)

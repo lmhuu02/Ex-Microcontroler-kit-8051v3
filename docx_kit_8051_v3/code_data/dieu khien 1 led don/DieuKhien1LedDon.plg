@@ -1,0 +1,52 @@
+<html>
+<body>
+<pre>
+<h1>µVision Build Log</h1>
+<h2>Project:</h2>
+D:\HOC TAP-  NAM 2  ( 2021 - 2022)\Lap_trinh_nhung_co_ban_8051\Bai tap code and project\DieuKhien1LedDon.uvproj
+Project File Date:  01/17/2022
+
+<h2>Output:</h2>
+Rebuild target 'Target 1'
+compiling DieuKhien1LedDon.c...
+DieuKhien1LedDon.c(7): warning C290: missing return value
+linking...
+Program Size: data=9.0 xdata=0 code=48
+creating hex file from "DieuKhien1LedDon"...
+"DieuKhien1LedDon" - 0 Error(s), 1 Warning(s).
+Rebuild target 'Target 1'
+compiling DieuKhien1LedDon.c...
+DieuKhien1LedDon.c(7): warning C290: missing return value
+DieuKhien1LedDon.c(13): warning C290: missing return value
+linking...
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?_DELAY1?DIEUKHIEN1LEDDON
+Program Size: data=9.0 xdata=0 code=72
+creating hex file from "DieuKhien1LedDon"...
+"DieuKhien1LedDon" - 0 Error(s), 3 Warning(s).
+Rebuild target 'Target 1'
+compiling DieuKhien1LedDon.c...
+DieuKhien1LedDon.c(7): warning C290: missing return value
+DieuKhien1LedDon.c(13): warning C290: missing return value
+linking...
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?_DELAY?DIEUKHIEN1LEDDON
+Program Size: data=9.0 xdata=0 code=68
+creating hex file from "DieuKhien1LedDon"...
+"DieuKhien1LedDon" - 0 Error(s), 3 Warning(s).
+Rebuild target 'Target 1'
+compiling DieuKhien1LedDon.c...
+linking...
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?_DELAY?DIEUKHIEN1LEDDON
+Program Size: data=9.0 xdata=0 code=68
+creating hex file from "DieuKhien1LedDon"...
+"DieuKhien1LedDon" - 0 Error(s), 1 Warning(s).
+Rebuild target 'Target 1'
+compiling DieuKhien1LedDon.c...
+linking...
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?_DELAY?DIEUKHIEN1LEDDON
+Program Size: data=9.0 xdata=0 code=68
+creating hex file from "DieuKhien1LedDon"...
+"DieuKhien1LedDon" - 0 Error(s), 1 Warning(s).

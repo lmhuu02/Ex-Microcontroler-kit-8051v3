@@ -1,0 +1,92 @@
+C51 COMPILER V9.52.0.0   TRUYENTHONGNOITIEPUARTGUI1KYTU                                    03/25/2022 07:57:23 PAGE 1   
+
+
+C51 COMPILER V9.52.0.0, COMPILATION OF MODULE TRUYENTHONGNOITIEPUARTGUI1KYTU
+OBJECT MODULE PLACED IN truyenThongNoiTiepUartGui1KyTu.OBJ
+COMPILER INVOKED BY: C:\Keil\C51\BIN\C51.EXE truyenThongNoiTiepUartGui1KyTu.c BROWSE DEBUG OBJECTEXTEND TABS(2)
+
+line level    source
+
+   1          //power by le minh huu 24/3/2022
+   2          //gui mot ky tu len may tinh
+   3          /*
+   4          #include <REGX52.H>
+   5          
+   6          //TH1 = 256 - (11 059 200 /(12*32))/9600 = 256 - 3 =253 == 0xFD
+   7          
+   8          void main(){
+   9            TMOD = 0x20;  //vi timer 1 che do 2
+  10            TH1 = 0xFD; //toc do baud 9600
+  11            TH1 = 0xFD; //toc do baud 9600
+  12            TR1 = 1;  //bat bo dinh thoi
+  13            SCON = 0x50;  //cd 1  8 bit timer 1. 0 1 0 1 0000
+  14            while(1){
+  15              SBUF = 'H';
+  16              while(TI == 0){}
+  17              TI = 0;
+  18            }
+  19          }
+  20          */
+  21          
+  22          
+  23          //=========================================================
+  24          //gui mot chuoi ky tu
+  25          #include <REGX52.H>
+  26          #include <string.h>
+  27          //baud 9600 pcon.7 = 0 .TH1 = 256 - (11 059 200 /(12*32))/9600 = 256 - 3 =253 == 0xFD
+  28          //baud 4800 pcon.7 = 0 .TH1 = 256 - (11 059 200 /(12*32))/4800 = 256 - 6 =250 == 0xFA
+  29          //baud 1200 pcon.7 = 0 .TH1 = 256 - (11 059 200 /(12*32))/1200 = 256 - 24 =232 == 0xE8
+  30          //baud 2400 pcon.7 = 0 .TH1 = 256 - (11 059 200 /(12*32))/2400 = 256 - 12 =244 == 0xF4
+  31          //baud 19 200 pcon.7 = 1 .TH1 = 256 - (2 * 11 059 200 /(12*32))/19 200 = 256 - 3 =253 == 0xFD  - neu de pc
+             -on.7 = 0 thi kq se ra le 1,5 --> sai
+  32            //NOTE: KHI CHINH TOC DO BAUD THI PHAI CHINH TREN TERMINAL TREEN MO PHONG
+  33          void send_a(unsigned char a){
+  34   1        SBUF = a;
+  35   1        while(TI == 0){}
+  36   1        TI = 0; 
+  37   1      }
+  38          
+  39          void send_char(char *a){
+  40   1        int i, n;
+  41   1        n = strlen(a);
+  42   1        for(i = 0; i <= n; i++){
+  43   2          send_a(a[i]);
+  44   2        }
+  45   1      }
+  46          //co the dung ham nay de noi chuooi
+  47          void send_char1(unsigned char *a){
+  48   1        while(*a){
+  49   2        send_a(*a);
+  50   2          a++;
+  51   2        }
+  52   1      }
+  53          
+  54          void main(){
+C51 COMPILER V9.52.0.0   TRUYENTHONGNOITIEPUARTGUI1KYTU                                    03/25/2022 07:57:23 PAGE 2   
+
+  55   1        TMOD = 0x20;  //vi timer 1 che do 2
+  56   1      //  TL1 = 0xFD; //toc do baud 9600
+  57   1      //  TH1 = 0xFD; //toc do baud 9600
+  58   1        TL1 = 0xFA; //toc do baud 4800
+  59   1        TH1 = 0xFA; //toc do baud 4800
+  60   1        TR1 = 1;  //bat bo dinh thoi
+  61   1        SCON = 0x50;  //cd 1  8 bit timer 1. 0 1 0 1 0000
+  62   1        while(1){
+  63   2          send_char(" HELLO WORLD  \r\n ");
+  64   2        /// sen_char();
+  65   2        }
+  66   1      }
+
+
+MODULE INFORMATION:   STATIC OVERLAYABLE
+   CODE SIZE        =    108    ----
+   CONSTANT SIZE    =     18    ----
+   XDATA SIZE       =   ----    ----
+   PDATA SIZE       =   ----    ----
+   DATA SIZE        =   ----       5
+   IDATA SIZE       =   ----    ----
+   BIT SIZE         =   ----    ----
+END OF MODULE INFORMATION.
+
+
+C51 COMPILATION COMPLETE.  0 WARNING(S),  0 ERROR(S)

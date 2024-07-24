@@ -1,0 +1,15 @@
+<html>
+<body>
+<pre>
+<h1>µVision Build Log</h1>
+<h2>Project:</h2>
+D:\HOC TAP-  NAM 2  ( 2021 - 2022)\Lap_trinh_nhung_co_ban_8051\Bai tap code and project\dk led 7 thanh tang giam thong qua cb hoac cong tac\demSinhVienQuaCamBien.uvproj
+Project File Date:  02/18/2022
+
+<h2>Output:</h2>
+Rebuild target 'Target 1'
+compiling demSinhVienQuaCamBien.c...
+linking...
+Program Size: data=41.0 xdata=0 code=490
+creating hex file from "demSinhVienQuaCamBien"...
+"demSinhVienQuaCamBien" - 0 Error(s), 0 Warning(s).

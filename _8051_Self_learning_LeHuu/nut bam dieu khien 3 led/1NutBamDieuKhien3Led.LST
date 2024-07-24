@@ -1,0 +1,109 @@
+C51 COMPILER V9.52.0.0   1NUTBAMDIEUKHIEN3LED                                              01/06/2022 20:20:52 PAGE 1   
+
+
+C51 COMPILER V9.52.0.0, COMPILATION OF MODULE 1NUTBAMDIEUKHIEN3LED
+OBJECT MODULE PLACED IN 1NutBamDieuKhien3Led.OBJ
+COMPILER INVOKED BY: C:\Keil\C51\BIN\C51.EXE 1NutBamDieuKhien3Led.c BROWSE DEBUG OBJECTEXTEND TABS(2)
+
+line level    source
+
+   1          /*
+   2          POWER BY LE MINH HUU
+   3          3/1/2022
+   4          vdk 8051 hoat dong ich cuc o muc thap (muc 0)
+   5          de bai: 1 nut bam dieu khien 3 led, 
+   6              bam lan 1 led 1 sang
+   7              bam lan 2 led 2 sang
+   8              bam lan 3 led 3 sang
+   9              bam lan 4 ca 3 led tat
+  10              bam lan 5 ca 3 led sang
+  11              bam lan 6 nhap nhay bam lan 7 quay lai lan 1
+  12          */
+  13          #include <REGX52.H>
+  14          
+  15          void delay(int time){
+  16   1          while(time--);
+  17   1      }
+  18          
+  19          void nhayHieuUng(){
+  20   1                  P2_3 = 0; delay(9000);
+  21   1                  P2_3 = 1; delay(9000);
+  22   1      
+  23   1                  P2_4 = 0; delay(9000);
+  24   1                  P2_4 = 1; delay(9000);
+  25   1      
+  26   1                  P2_5 = 0; delay(9000);
+  27   1                  P2_5 = 1; delay(9000);
+  28   1      
+  29   1                  P2_4 = 0; delay(9000);
+  30   1                  P2_4 = 1; delay(9000);
+  31   1      
+  32   1                  P2_3 = P2_5 = 0; delay(9000);
+  33   1                  P2_3 = P2_5 = 1; delay(9000);
+  34   1      
+  35   1                  P2_4 = P2_3 = 0; delay(9000);
+  36   1                  P2_4 = P2_3 = 1; delay(9000);
+  37   1      
+  38   1                  P2_4 = P2_5 = 0; delay(9000);
+  39   1                  P2_4 = P2_5 = 1; delay(9000);
+  40   1      }
+  41          
+  42          void main(){
+  43   1          int dem = 0;
+  44   1          P2_3 = P2_4 = P2_5 = 1;
+  45   1          while(1){
+  46   2             if(P1_5 == 0){
+  47   3              delay(120);   //tao do tre khi bam nut, tranh nhieu
+  48   3               if(P1_5 == 0){ //neu sau khoang tg delay(120) ma van nhan nut P1_5 thi se tang bien dem len
+  49   4                 dem++;
+  50   4                }
+  51   3             }
+  52   2             //Power by Le Minh Huu
+  53   2             // moi lan bam phai delay de cho he thong chay on dinh hon, vi se du ra mot khoang thoi gian
+  54   2             //neu khong de delay thi khi nhan button se bi nhay cac led, led sang khong theo nut bam 
+  55   2             if(dem == 1){  //bam 1 lan
+C51 COMPILER V9.52.0.0   1NUTBAMDIEUKHIEN3LED                                              01/06/2022 20:20:52 PAGE 2   
+
+  56   3                P2_3 = 0;    //led cong p2.3 sang 
+  57   3                P2_4 = P2_5 = 1;     //led cong 2.4 2.5 tat
+  58   3             }
+  59   2             delay(5000);     //delay de co thoi gian phan hoi
+  60   2             if(dem == 2){  //bam 2 lan
+  61   3                 P2_4 = 0;    //led 2.4 sang
+  62   3                 P2_3 = P2_5 = 1; //led 2.3 2.5 tat
+  63   3             } 
+  64   2             delay(5000);
+  65   2             if(dem == 3){  //bam 3 lan
+  66   3                 P2_5 = 0;    //led 2.5 bat
+  67   3                 P2_3 = P2_4 = 1; //led 2.3 2.4 tat
+  68   3             }
+  69   2             delay(5000);
+  70   2             if(dem == 4){  //bam 4 lan
+  71   3                 P2_4 = P2_3 = P2_5 = 1;  //ca 3 led tat
+  72   3             }
+  73   2             delay(5000);
+  74   2             if(dem == 5){  //bam 5 lan
+  75   3                   //P2_4 = P2_3 = P2_5 = 1;  //ca 3 led tat
+  76   3                nhayHieuUng();  //goi ham nhay hieu ung
+  77   3             }
+  78   2             delay(5000);
+  79   2             if(dem == 6){  //bam 6 lan
+  80   3                 dem = 1; //cho dem tro lai ban dau = 0
+  81   3             }
+  82   2             delay(5000);
+  83   2          }
+  84   1      }
+
+
+MODULE INFORMATION:   STATIC OVERLAYABLE
+   CODE SIZE        =    234    ----
+   CONSTANT SIZE    =   ----    ----
+   XDATA SIZE       =   ----    ----
+   PDATA SIZE       =   ----    ----
+   DATA SIZE        =   ----    ----
+   IDATA SIZE       =   ----    ----
+   BIT SIZE         =   ----    ----
+END OF MODULE INFORMATION.
+
+
+C51 COMPILATION COMPLETE.  0 WARNING(S),  0 ERROR(S)

@@ -1,0 +1,82 @@
+C51 COMPILER V9.52.0.0   UART                                                              02/20/2023 06:22:22 PAGE 1   
+
+
+C51 COMPILER V9.52.0.0, COMPILATION OF MODULE UART
+OBJECT MODULE PLACED IN uart.obj
+COMPILER INVOKED BY: C:\Keil_v5\C51\BIN\C51.EXE UART\uart.c OPTIMIZE(8,SPEED) BROWSE DEBUG OBJECTEXTEND PRINT(.\uart.lst
+                    -) TABS(2) OBJECT(uart.obj)
+
+line level    source
+
+   1          #include "uart.h"
+   2          static unsigned char tran_busy;
+   3          void UART_Init(void)
+   4          {
+   5   1        #ifdef UART_USE_TIMER1
+                TMOD&=0x0f;
+                TMOD |= 0x20;  //Timer 1 mode 2.
+                TL1 = 0xFD;       
+                TH1 = 0xFD;   // baud rate =9600          
+                TR1 = 1;
+                #endif
+  12   1        #ifdef UART_USE_TIMER2
+  13   1        RCLK=1;
+  14   1        TCLK=1; //Timer 2: Baud Rate Generator
+  15   1        RCAP2L  = 0xDC;  //Baud Rate 9600
+  16   1        RCAP2H  = 0xFF; //Baud Rate 9600
+  17   1        TR2=1;
+  18   1        #endif
+  19   1        ES = 1;       // Kich hoat ngat UART.
+  20   1        IP = 0x10;    // Thiet lap muc uu tien cho ngat UART. 
+  21   1        SCON = 0x50;  // Chon che do UART mode 1.
+  22   1        PCON=PCON&(~(0x80));//khong nhan doi toc do baud. 
+  23   1      }
+  24          void UART_PutChar(unsigned char c)
+  25          {
+  26   1        tran_busy = 1; 
+  27   1        SBUF = c; 
+  28   1        while(tran_busy); 
+  29   1      }
+  30          unsigned char UART_GetChar(void)
+  31          { 
+  32   1        unsigned char temp=0;
+  33   1        if(RI==1)
+  34   1        {
+  35   2          RI=0;
+  36   2          temp=SBUF;
+  37   2        }
+  38   1        return temp;
+  39   1      }
+  40          
+  41          void Ngat_Uart(void) interrupt 4
+  42          {
+  43   1        if(TI==1)
+  44   1          {
+  45   2            TI=0;
+  46   2            tran_busy=0;
+  47   2          }
+  48   1      }
+  49          void UART_Puts(unsigned char *s)
+  50          {
+  51   1        while (*s)
+  52   1         {
+  53   2            UART_PutChar(*s);
+  54   2            s++;
+C51 COMPILER V9.52.0.0   UART                                                              02/20/2023 06:22:22 PAGE 2   
+
+  55   2         }
+  56   1      }
+
+
+MODULE INFORMATION:   STATIC OVERLAYABLE
+   CODE SIZE        =     72    ----
+   CONSTANT SIZE    =   ----    ----
+   XDATA SIZE       =   ----    ----
+   PDATA SIZE       =   ----    ----
+   DATA SIZE        =      1    ----
+   IDATA SIZE       =   ----    ----
+   BIT SIZE         =   ----    ----
+END OF MODULE INFORMATION.
+
+
+C51 COMPILATION COMPLETE.  0 WARNING(S),  0 ERROR(S)

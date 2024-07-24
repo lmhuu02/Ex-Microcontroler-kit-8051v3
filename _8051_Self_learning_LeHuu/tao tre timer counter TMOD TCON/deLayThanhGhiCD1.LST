@@ -1,0 +1,89 @@
+C51 COMPILER V9.52.0.0   DELAYTHANHGHICD1                                                  02/17/2022 09:20:18 PAGE 1   
+
+
+C51 COMPILER V9.52.0.0, COMPILATION OF MODULE DELAYTHANHGHICD1
+OBJECT MODULE PLACED IN deLayThanhGhiCD1.OBJ
+COMPILER INVOKED BY: C:\Keil\C51\BIN\C51.EXE deLayThanhGhiCD1.c BROWSE DEBUG OBJECTEXTEND TABS(2)
+
+line level    source
+
+   1          //power by le minh huu 16/2/2022
+   2          /*
+   3          CHE DO 1: thoi gian lon hon - o che do 1 thi co the lap trinh den mini giay - lap trinh 16 bit 2^16 = 65 5
+             -36
+   4          CHE DO 2: thoi gian nho - con o che do 2 thi chi lap trinh duoc muc micro giay - lap trinh 8 bit 2^8 = 256
+   5          
+   6          */
+   7          // TIMER 0 CHE DO 1 - tre 1ms dung thach anh 12mHz
+   8          /*
+   9          1ms = 1000 us / 1T = 1000  (chu ky cua thach anh 12mHZ).
+  10          65 536 - 1000 us = 64 536
+  11          doi 64 536 = 0xfc18
+  12          TH = 0xFC
+  13          TL = 0x18
+  14          */
+  15          
+  16          /*
+  17          #include <REGX52.H>
+  18          
+  19          void delay_1ms(){
+  20            TMOD = 0x01;  // timer 0 che do 1
+  21            TH0 = 0xfc;
+  22            TL0 = 0x18;
+  23            TR0 = 1;
+  24            while(!TF0);
+  25            TF0 = 0;
+  26            TR0 = 0;
+  27          }
+  28          
+  29          void main(){
+  30            P3_0 = 0;
+  31            while(1){
+  32              P3_0 = ~ P3_0;
+  33              delay_1ms();
+  34            }
+  35          }
+  36          */
+  37          
+  38          
+  39          //tre 5ms dung thach anh 11.0592mHz, chu ky thach anh = 1.085Ms
+  40          /*
+  41          5ms = 5000 us / 1.085 = 4 608 .
+  42          65 536 - 4 608 = 60 928 --> 0xee00
+  43          */
+  44          #include <REGX52.H>
+  45          
+  46          void delay_5ms(){
+  47   1        TMOD = 0x01;  // timer 0 che do 1
+  48   1        TH0 = 0xee;
+  49   1        TL0 = 0x00;
+  50   1        TR0 = 1;
+  51   1        while(!TF0);
+  52   1        TF0 = 0;
+  53   1        TR0 = 0;
+  54   1      }
+C51 COMPILER V9.52.0.0   DELAYTHANHGHICD1                                                  02/17/2022 09:20:18 PAGE 2   
+
+  55          
+  56          void main(){
+  57   1        P3_0 = 0;
+  58   1        while(1){
+  59   2          P3_0 = ~ P3_0;
+  60   2          delay_5ms();
+  61   2        }
+  62   1      }
+  63          
+
+
+MODULE INFORMATION:   STATIC OVERLAYABLE
+   CODE SIZE        =     28    ----
+   CONSTANT SIZE    =   ----    ----
+   XDATA SIZE       =   ----    ----
+   PDATA SIZE       =   ----    ----
+   DATA SIZE        =   ----    ----
+   IDATA SIZE       =   ----    ----
+   BIT SIZE         =   ----    ----
+END OF MODULE INFORMATION.
+
+
+C51 COMPILATION COMPLETE.  0 WARNING(S),  0 ERROR(S)

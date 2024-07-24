@@ -1,0 +1,82 @@
+C51 COMPILER V9.52.0.0   LED7THANHTU0DENN                                                  02/10/2022 16:04:41 PAGE 1   
+
+
+C51 COMPILER V9.52.0.0, COMPILATION OF MODULE LED7THANHTU0DENN
+OBJECT MODULE PLACED IN led7ThanhTu0DenN.OBJ
+COMPILER INVOKED BY: C:\Keil\C51\BIN\C51.EXE led7ThanhTu0DenN.c BROWSE DEBUG OBJECTEXTEND TABS(2)
+
+line level    source
+
+   1          #include <REGX52.H>
+   2          
+   3          #define sang 0
+   4          #define tat 1
+   5          
+   6          int demSo;
+   7          char soHienThi[] = {0x40, 0x79, 0x24, 0x30, 0x19, 0x12, 0x02, 0x78, 0x00, 0x10};  //led 7 thanh hien thi so
+             - tu 0 den 9
+   8          unsigned char quetSoThu[] = {0xbf, 0xdf, 0xef, 0xf7, 0xfb, 0xfd, 0xfe}; //cho biet so led sang, dieu khien
+             - chan annot cua moi chu so 
+   9          unsigned char chuSoThu[7];  //do trong protues led 7 thanh chi co toi da la 7seg mpx 
+  10            
+  11          void delay(int time){
+  12   1        while(time--);
+  13   1      }
+  14          
+  15          //temp la chu so ta can hien thi ra vd 87, soLed la so chu so led can hien thi vd soLed = 3 thi gia tri ch
+             -ay tu 0 den 999
+  16          //khi goi den ham tach chu so thi gia tri temp duoc truyen vao la thu tu duoc dem tu 0 trong ham main. 
+  17          //moi lan bien demSo tang len mot thi lai thuc hien lai ham tachChuSo va ghi de len cac gia tri truoc co t
+             -rong  mang chuSoThu
+  18          // bien soLed truyen vao bang cach gan gia tri trong ham main: khi muon led chay tu 0 den 999 thi soLed = 
+             -3
+  19          void tachChuSo(unsigned long temp, int soLed){
+  20   1        int i;
+  21   1        for(i = 0; i < soLed; i++){ //bien i duoc chay tu o den soLed duoc truyen vao 
+  22   2          chuSoThu[i] = temp % 10;  //chuSoThu[i] la mot mang luu cac gia tri tach (chia lay du) lan luot tu hang d
+             -on vi, chuc, tram, nghin,... tuy thuoc vao gia tri soLed 
+  23   2          temp = temp/10; 
+  24   2        }
+  25   1      }
+  26          
+  27          //soLed duoc nhap vao tu ham main.
+  28          void quetLed(int soLed ){
+  29   1        int i, j;
+  30   1        for(i = 0; i < 10; i++){  //lap lai i lan tren cung mot so hien thi
+  31   2            for(j = 0; j < soLed; j++){
+  32   3              P0 = soHienThi[chuSoThu[j]];  //cong P0 de hien thi so tu 0 den 9 cho moi led 7 doan co gia tri la chuS
+             -oThu[], mang chuSoThu[] duoc luu  
+  33   3              P2 = quetSoThu[j];  //cong P2 de kieu khien led 7 thanh nao dang hoat dong. mang quetSoThu tu 0 den 6, 
+             -tuc la dieu kien led 7 thanh tu phai sang trai
+  34   3              delay(1000);  // delay 1000 de hien thi chu so lau hon
+  35   3              P2 = 0xff;  //tat tat ca cac led vua hien thi
+  36   3            }
+  37   2        }
+  38   1      }
+  39          
+  40          void main(){
+  41   1        while(1){
+  42   2          //demSo tu 0 den 1 gia tri toi da (max) ma ta nhap vao
+  43   2          for(demSo = 0; demSo < 999999; demSo++){
+  44   3            tachChuSo(demSo, 6);  //moi lan tang bien demSo va truyen gia tri vao ham tachChuSo thi mang chuSoThu la
+             -i thay doi 
+  45   3            quetLed(6); //goi ham hien thi, quyet led 7 thanh
+  46   3          }
+C51 COMPILER V9.52.0.0   LED7THANHTU0DENN                                                  02/10/2022 16:04:41 PAGE 2   
+
+  47   2        }
+  48   1      }
+
+
+MODULE INFORMATION:   STATIC OVERLAYABLE
+   CODE SIZE        =    242    ----
+   CONSTANT SIZE    =   ----    ----
+   XDATA SIZE       =   ----    ----
+   PDATA SIZE       =   ----    ----
+   DATA SIZE        =     26      10
+   IDATA SIZE       =   ----    ----
+   BIT SIZE         =   ----    ----
+END OF MODULE INFORMATION.
+
+
+C51 COMPILATION COMPLETE.  0 WARNING(S),  0 ERROR(S)

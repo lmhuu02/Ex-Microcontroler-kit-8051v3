@@ -1,0 +1,135 @@
+BL51 BANKED LINKER/LOCATER V6.22                                                        03/08/2022  11:22:45  PAGE 1
+
+
+BL51 BANKED LINKER/LOCATER V6.22, INVOKED BY:
+C:\KEIL\C51\BIN\BL51.EXE ngatTruyenThongNoiTiepUART_truyenData.obj TO ngatTruyenThongNoiTiepUART_truyenData RAMSIZE (256
+>> )
+
+
+MEMORY MODEL: SMALL
+
+
+INPUT MODULES INCLUDED:
+  ngatTruyenThongNoiTiepUART_truyenData.obj (NGATTRUYENTHONGNOITIEPUART_TRUYENDATA)
+  C:\KEIL\C51\LIB\C51S.LIB (?C_STARTUP)
+  C:\KEIL\C51\LIB\C51S.LIB (?C?CLDOPTR)
+  C:\KEIL\C51\LIB\C51S.LIB (STRLEN)
+  C:\KEIL\C51\LIB\C51S.LIB (?C?CLDPTR)
+
+
+LINK MAP OF MODULE:  ngatTruyenThongNoiTiepUART_truyenData (NGATTRUYENTHONGNOITIEPUART_TRUYENDATA)
+
+
+            TYPE    BASE      LENGTH    RELOCATION   SEGMENT NAME
+            -----------------------------------------------------
+
+            * * * * * * *   D A T A   M E M O R Y   * * * * * * *
+            REG     0000H     0008H     ABSOLUTE     "REG BANK 0"
+            DATA    0008H     0005H     UNIT         _DATA_GROUP_
+            IDATA   000DH     0001H     UNIT         ?STACK
+
+            * * * * * * *   C O D E   M E M O R Y   * * * * * * *
+            CODE    0000H     0003H     ABSOLUTE     
+                    0003H     07FDH                  *** GAP ***
+            CODE    0800H     0046H     UNIT         ?C?LIB_CODE
+            CODE    0846H     0038H     UNIT         ?PR?_SENDCHAR?NGATTRUYENTHONGNOITIEPUART_TRUYENDATA
+            CODE    087EH     0020H     UNIT         ?CO?NGATTRUYENTHONGNOITIEPUART_TRUYENDATA
+            CODE    089EH     0016H     UNIT         ?PR?MAIN?NGATTRUYENTHONGNOITIEPUART_TRUYENDATA
+            CODE    08B4H     0015H     UNIT         ?PR?_STRLEN?STRLEN
+            CODE    08C9H     000CH     UNIT         ?C_C51STARTUP
+            CODE    08D5H     0008H     UNIT         ?PR?_SEND?NGATTRUYENTHONGNOITIEPUART_TRUYENDATA
+
+
+
+OVERLAY MAP OF MODULE:   ngatTruyenThongNoiTiepUART_truyenData (NGATTRUYENTHONGNOITIEPUART_TRUYENDATA)
+
+
+SEGMENT                                            DATA_GROUP 
+  +--> CALLED SEGMENT                            START    LENGTH
+----------------------------------------------------------------
+?C_C51STARTUP                                    -----    -----
+  +--> ?PR?MAIN?NGATTRUYENTHONGNOITIEPUART_T...
+
+?PR?MAIN?NGATTRUYENTHONGNOITIEPUART_T...         -----    -----
+  +--> ?CO?NGATTRUYENTHONGNOITIEPUART_TRUYEN...
+  +--> ?PR?_SENDCHAR?NGATTRUYENTHONGNOITIEPU...
+
+?PR?_SENDCHAR?NGATTRUYENTHONGNOITIEPU...         0008H    0005H
+  +--> ?PR?_STRLEN?STRLEN
+  +--> ?PR?_SEND?NGATTRUYENTHONGNOITIEPUART_...
+
+
+BL51 BANKED LINKER/LOCATER V6.22                                                      03/08/2022  11:22:45  PAGE 2
+
+
+
+SYMBOL TABLE OF MODULE:  ngatTruyenThongNoiTiepUART_truyenData (NGATTRUYENTHONGNOITIEPUART_TRUYENDATA)
+
+  VALUE           TYPE          NAME
+  ----------------------------------
+
+  -------         MODULE        NGATTRUYENTHONGNOITIEPUART_TRUYENDATA
+  C:0000H         SYMBOL        _ICE_DUMMY_
+  B:0098H.1       PUBLIC        TI
+  C:089EH         PUBLIC        main
+  C:08D5H         PUBLIC        _send
+  C:0846H         PUBLIC        _sendChar
+  D:0099H         PUBLIC        SBUF
+  D:0098H         PUBLIC        SCON
+  D:0089H         PUBLIC        TMOD
+  D:008DH         PUBLIC        TH1
+  B:0088H.6       PUBLIC        TR1
+  -------         PROC          _SEND
+  D:0007H         SYMBOL        a
+  C:08D5H         LINE#         36
+  C:08D5H         LINE#         37
+  C:08D7H         LINE#         38
+  C:08DAH         LINE#         39
+  C:08DCH         LINE#         40
+  -------         ENDPROC       _SEND
+  -------         PROC          _SENDCHAR
+  D:0008H         SYMBOL        a
+  -------         DO            
+  D:0004H         SYMBOL        i
+  D:000BH         SYMBOL        n
+  -------         ENDDO         
+  C:0846H         LINE#         42
+  C:084CH         LINE#         44
+  C:0853H         LINE#         45
+  C:0865H         LINE#         46
+  C:0876H         LINE#         47
+  C:087DH         LINE#         48
+  -------         ENDPROC       _SENDCHAR
+  -------         PROC          MAIN
+  C:089EH         LINE#         50
+  C:089EH         LINE#         51
+  C:08A1H         LINE#         52
+  C:08A4H         LINE#         53
+  C:08A7H         LINE#         54
+  C:08A9H         LINE#         55
+  C:08A9H         LINE#         56
+  C:08B2H         LINE#         58
+  -------         ENDPROC       MAIN
+  -------         ENDMOD        NGATTRUYENTHONGNOITIEPUART_TRUYENDATA
+
+  -------         MODULE        ?C?CLDOPTR
+  C:0800H         PUBLIC        ?C?CLDOPTR
+  -------         ENDMOD        ?C?CLDOPTR
+
+  -------         MODULE        STRLEN
+  C:08B4H         PUBLIC        _STRLEN
+  -------         ENDMOD        STRLEN
+BL51 BANKED LINKER/LOCATER V6.22                                                      03/08/2022  11:22:45  PAGE 3
+
+
+
+  -------         MODULE        ?C?CLDPTR
+  C:082DH         PUBLIC        ?C?CLDPTR
+  -------         ENDMOD        ?C?CLDPTR
+
+******************************************************************************
+* RESTRICTED VERSION WITH 0800H BYTE CODE SIZE LIMIT; USED: 0076H BYTE ( 5%) *
+******************************************************************************
+
+Program Size: data=14.0 xdata=0 code=224
+LINK/LOCATE RUN COMPLETE.  0 WARNING(S),  0 ERROR(S)

@@ -1,0 +1,207 @@
+C51 COMPILER V9.52.0.0   CODE_DS18B20                                                      02/24/2023 16:09:44 PAGE 1   
+
+
+C51 COMPILER V9.52.0.0, COMPILATION OF MODULE CODE_DS18B20
+OBJECT MODULE PLACED IN code_ds18b20.OBJ
+COMPILER INVOKED BY: C:\Keil_v5\C51\BIN\C51.EXE code_ds18b20.c OPTIMIZE(8,SPEED) BROWSE DEBUG OBJECTEXTEND TABS(2)
+
+line level    source
+
+   1          //#include <REGX51.H>
+   2          #include <REGX51.H>
+*** WARNING C318 IN LINE 2 OF code_ds18b20.c: can't open file 'REGX51.H'
+   3          
+   4          //Khai bao chan giao tiep LCD16x2 4bit
+   5          #define LCD_RS  P2_0
+   6          #define LCD_RW  P2_1
+   7          #define LCD_EN  P2_2
+   8          #define LCD_D4  P2_4
+   9          #define LCD_D5  P2_5
+  10          #define LCD_D6  P2_6
+  11          #define LCD_D7  P2_7
+  12          //Khai bao chan giao tiep DS18B20
+  13          #define DQ    P0_0
+  14          unsigned char temp; //Bien luu gia tri nhiet do
+  15          /*****************Ham delay*********************/
+  16           void delay_us(unsigned int t){
+  17   1              unsigned int i;
+  18   1              for(i=0;i<t;i++);
+  19   1      }
+  20          void delay_ms(unsigned int t){
+  21   1              unsigned int i,j;
+  22   1              for(i=0;i<t;i++)
+  23   1              for(j=0;j<125;j++);
+  24   1      }
+  25          /****************Ctr giao tiep IC DS18B20***************************/
+  26          void delay_18B20(unsigned int ti){
+  27   1          while(ti--);
+  28   1      }
+  29          void Init_18B20(void){
+  30   1          DQ = 1;   
+*** ERROR C202 IN LINE 30 OF code_ds18b20.c: 'P0_0': undefined identifier
+  31   1          delay_18B20(8);
+  32   1          DQ = 0;   
+*** ERROR C202 IN LINE 32 OF code_ds18b20.c: 'P0_0': undefined identifier
+  33   1          delay_18B20(65);
+  34   1          DQ = 1;   
+*** ERROR C202 IN LINE 34 OF code_ds18b20.c: 'P0_0': undefined identifier
+  35   1          delay_18B20(20);    
+  36   1      }
+  37          unsigned char ReadOneChar(void){
+  38   1          unsigned char i=0;
+  39   1          unsigned char dat = 0;
+  40   1          for (i=8;i>0;i--){
+  41   2                DQ = 0;
+*** ERROR C202 IN LINE 41 OF code_ds18b20.c: 'P0_0': undefined identifier
+  42   2                dat>>=1;
+  43   2                DQ = 1;
+*** ERROR C202 IN LINE 43 OF code_ds18b20.c: 'P0_0': undefined identifier
+  44   2                if(DQ)
+*** ERROR C202 IN LINE 44 OF code_ds18b20.c: 'P0_0': undefined identifier
+  45   2                dat |= 0x80;
+  46   2                delay_18B20(4);
+  47   2          }
+  48   1          return(dat);
+C51 COMPILER V9.52.0.0   CODE_DS18B20                                                      02/24/2023 16:09:44 PAGE 2   
+
+  49   1      }
+  50          void WriteOneChar(unsigned char dat){
+  51   1          unsigned char i=0;
+  52   1          for (i=8; i>0; i--){
+  53   2              DQ = 0;
+*** ERROR C202 IN LINE 53 OF code_ds18b20.c: 'P0_0': undefined identifier
+  54   2              DQ = dat&0x01;
+*** ERROR C202 IN LINE 54 OF code_ds18b20.c: 'P0_0': undefined identifier
+  55   2              delay_18B20(5);
+  56   2              DQ = 1;
+*** ERROR C202 IN LINE 56 OF code_ds18b20.c: 'P0_0': undefined identifier
+  57   2              dat>>=1;
+  58   2          }
+  59   1      }
+  60          void ReadTemperature(void){ 
+  61   1          unsigned char a=0;
+  62   1          unsigned char b=0;
+  63   1        //EA=0;//Cam ngat tranh viec anh huong qua trinh doc nhiet do
+  64   1          Init_18B20();
+  65   1          WriteOneChar(0xCC);        // Bo qua ROM
+  66   1          WriteOneChar(0x44);
+  67   1          delay_18B20(10); 
+  68   1          Init_18B20();
+  69   1          WriteOneChar(0xCC);
+  70   1          WriteOneChar(0xBE);    //Doc nhiet do
+  71   1          delay_18B20(10);
+  72   1          a=ReadOneChar();        //Read temp low value
+  73   1          b=ReadOneChar();          //Read temp high value
+  74   1          temp=((b*256+a)>>4);    //gia tri nhiet do luu vao bien temp
+  75   1        //EA=1; //Doc xong thi cho phep ngat
+  76   1      }//End code DS18B20
+  77          /**************Ctr giao tiep LCD 16x2 4bit**********************/
+  78          void LCD_Enable(void){
+  79   1              LCD_EN =1;
+*** ERROR C202 IN LINE 79 OF code_ds18b20.c: 'P2_2': undefined identifier
+  80   1              delay_us(3);
+  81   1              LCD_EN=0;
+*** ERROR C202 IN LINE 81 OF code_ds18b20.c: 'P2_2': undefined identifier
+  82   1              delay_us(50); 
+  83   1      }
+  84          //Ham Gui 4 Bit Du Lieu Ra LCD
+  85          void LCD_Send4Bit(unsigned char Data){
+  86   1              LCD_D4=Data & 0x01;
+*** ERROR C202 IN LINE 86 OF code_ds18b20.c: 'P2_4': undefined identifier
+  87   1              LCD_D5=(Data>>1)&1;
+*** ERROR C202 IN LINE 87 OF code_ds18b20.c: 'P2_5': undefined identifier
+  88   1              LCD_D6=(Data>>2)&1;
+*** ERROR C202 IN LINE 88 OF code_ds18b20.c: 'P2_6': undefined identifier
+  89   1              LCD_D7=(Data>>3)&1;
+*** ERROR C202 IN LINE 89 OF code_ds18b20.c: 'P2_7': undefined identifier
+  90   1      }
+  91          // Ham Gui 1 Lenh Cho LCD
+  92          void LCD_SendCommand(unsigned char command){
+  93   1              LCD_Send4Bit(command >>4);/* Gui 4 bit cao */
+  94   1              LCD_Enable();
+  95   1              LCD_Send4Bit(command); /* Gui 4 bit thap*/
+  96   1              LCD_Enable();
+  97   1      }
+  98          void LCD_Clear(){// Ham Xoa Man Hinh LCD
+  99   1              LCD_SendCommand(0x01); 
+ 100   1              delay_us(10);
+ 101   1      }
+C51 COMPILER V9.52.0.0   CODE_DS18B20                                                      02/24/2023 16:09:44 PAGE 3   
+
+ 102          // Ham Khoi Tao LCD
+ 103          void LCD_Init(){
+ 104   1              LCD_Send4Bit(0x00);
+ 105   1              delay_ms(20);
+ 106   1              LCD_RS=0;
+*** ERROR C202 IN LINE 106 OF code_ds18b20.c: 'P2_0': undefined identifier
+ 107   1              LCD_RW=0;
+*** ERROR C202 IN LINE 107 OF code_ds18b20.c: 'P2_1': undefined identifier
+ 108   1              LCD_Send4Bit(0x03);
+ 109   1              LCD_Enable();
+ 110   1              delay_ms(5);
+ 111   1              LCD_Enable();
+ 112   1              delay_us(100);
+ 113   1              LCD_Enable();
+ 114   1              LCD_Send4Bit(0x02);
+ 115   1              LCD_Enable();
+ 116   1              LCD_SendCommand( 0x28 );
+ 117   1              LCD_SendCommand( 0x0c); 
+ 118   1              LCD_SendCommand( 0x06 );
+ 119   1              LCD_SendCommand(0x01);
+ 120   1      }
+ 121          void LCD_Gotoxy(unsigned char x, unsigned char y){
+ 122   1              unsigned char address;
+ 123   1              if(!y)address=(0x80+x);
+ 124   1              else address=(0xc0+x);
+ 125   1              delay_us(1000);
+ 126   1              LCD_SendCommand(address);
+ 127   1              delay_us(50);
+ 128   1      }
+ 129          void LCD_PutChar(unsigned char Data){//Ham Gui 1 Ki Tu
+ 130   1              LCD_RS=1;
+*** ERROR C202 IN LINE 130 OF code_ds18b20.c: 'P2_0': undefined identifier
+ 131   1              LCD_SendCommand(Data);
+ 132   1              LCD_RS=0 ;
+*** ERROR C202 IN LINE 132 OF code_ds18b20.c: 'P2_0': undefined identifier
+ 133   1      }
+ 134          void LCD_Puts(char *s){//Ham gui 1 chuoi ky tu
+ 135   1              while (*s){
+ 136   2                      LCD_PutChar(*s);
+ 137   2                      s++;
+ 138   2              }
+ 139   1      }
+ 140          void TempShow(unsigned char z){ //Chuyen doi hien thi
+ 141   1           LCD_Puts("Nhiet do: ");
+ 142   1           LCD_PutChar((z/100)+48);//Tram
+ 143   1           LCD_PutChar((z%100/10)+48);//Chuc
+ 144   1           LCD_PutChar((z%10)+48);//Don vi 
+ 145   1           LCD_Puts("'C");
+ 146   1      }
+ 147          /******************Ctr chinh**************************/
+ 148          unsigned char temp;
+ 149          void main(){
+ 150   1        //init  
+ 151   1        LCD_Init();//Khoi tao LCD
+ 152   1          delay_ms(200);
+ 153   1        LCD_Puts("Do nhiet do...");//Gui chuoi len LCD
+ 154   1          delay_ms(500);
+ 155   1          LCD_Clear();//Xoa man hinh
+ 156   1        LCD_Gotoxy(0,1);
+ 157   1        LCD_Puts("SangTaoClub.Net");
+ 158   1        while(1){
+ 159   2            LCD_Gotoxy(0,0);
+C51 COMPILER V9.52.0.0   CODE_DS18B20                                                      02/24/2023 16:09:44 PAGE 4   
+
+ 160   2            ReadTemperature(); //Doc nhiet do luu vao bien temp
+ 161   2            TempShow(temp); //Hien thi nhiet do
+ 162   2            delay_ms(500);//0.5s doc mot lan
+ 163   2        }
+ 164   1      }//THE END
+ 165          
+ 166          
+ 167          
+ 168          
+ 169          
+ 170          
+
+C51 COMPILATION COMPLETE.  1 WARNING(S),  19 ERROR(S)

@@ -1,0 +1,82 @@
+BL51 BANKED LINKER/LOCATER V6.22                                                        11/07/2021  20:09:14  PAGE 1
+
+
+BL51 BANKED LINKER/LOCATER V6.22, INVOKED BY:
+C:\KEIL\C51\BIN\BL51.EXE bai1MoPhongLedBangVdk8051.obj TO bai1MoPhongLedBangVdk8051 RAMSIZE (256)
+
+
+MEMORY MODEL: SMALL
+
+
+INPUT MODULES INCLUDED:
+  bai1MoPhongLedBangVdk8051.obj (BAI1MOPHONGLEDBANGVDK8051)
+  C:\KEIL\C51\LIB\C51S.LIB (?C_STARTUP)
+
+
+LINK MAP OF MODULE:  bai1MoPhongLedBangVdk8051 (BAI1MOPHONGLEDBANGVDK8051)
+
+
+            TYPE    BASE      LENGTH    RELOCATION   SEGMENT NAME
+            -----------------------------------------------------
+
+            * * * * * * *   D A T A   M E M O R Y   * * * * * * *
+            REG     0000H     0008H     ABSOLUTE     "REG BANK 0"
+            IDATA   0008H     0001H     UNIT         ?STACK
+
+            * * * * * * *   C O D E   M E M O R Y   * * * * * * *
+            CODE    0000H     0003H     ABSOLUTE     
+                    0003H     07FDH                  *** GAP ***
+            CODE    0800H     0012H     UNIT         ?PR?MAIN?BAI1MOPHONGLEDBANGVDK8051
+            CODE    0812H     000CH     UNIT         ?C_C51STARTUP
+            CODE    081EH     000BH     UNIT         ?PR?_DELAY?BAI1MOPHONGLEDBANGVDK8051
+
+
+
+OVERLAY MAP OF MODULE:   bai1MoPhongLedBangVdk8051 (BAI1MOPHONGLEDBANGVDK8051)
+
+
+SEGMENT
+  +--> CALLED SEGMENT
+---------------------
+?C_C51STARTUP
+  +--> ?PR?MAIN?BAI1MOPHONGLEDBANGVDK8051
+
+?PR?MAIN?BAI1MOPHONGLEDBANGVDK8051
+  +--> ?PR?_DELAY?BAI1MOPHONGLEDBANGVDK8051
+
+
+
+SYMBOL TABLE OF MODULE:  bai1MoPhongLedBangVdk8051 (BAI1MOPHONGLEDBANGVDK8051)
+
+  VALUE           TYPE          NAME
+  ----------------------------------
+
+  -------         MODULE        BAI1MOPHONGLEDBANGVDK8051
+  C:0000H         SYMBOL        _ICE_DUMMY_
+  C:081EH         PUBLIC        _delay
+  B:00A0H.0       PUBLIC        P2_0
+  C:0800H         PUBLIC        main
+  -------         PROC          _DELAY
+  D:0006H         SYMBOL        time
+  C:081EH         LINE#         3
+BL51 BANKED LINKER/LOCATER V6.22                                                      11/07/2021  20:09:14  PAGE 2
+
+
+  C:081EH         LINE#         4
+  C:0828H         LINE#         5
+  -------         ENDPROC       _DELAY
+  -------         PROC          MAIN
+  C:0800H         LINE#         7
+  C:0800H         LINE#         8
+  C:0802H         LINE#         9
+  C:0809H         LINE#         10
+  C:080BH         LINE#         11
+  -------         ENDPROC       MAIN
+  -------         ENDMOD        BAI1MOPHONGLEDBANGVDK8051
+
+******************************************************************************
+* RESTRICTED VERSION WITH 0800H BYTE CODE SIZE LIMIT; USED: 001DH BYTE ( 1%) *
+******************************************************************************
+
+Program Size: data=9.0 xdata=0 code=44
+LINK/LOCATE RUN COMPLETE.  0 WARNING(S),  0 ERROR(S)

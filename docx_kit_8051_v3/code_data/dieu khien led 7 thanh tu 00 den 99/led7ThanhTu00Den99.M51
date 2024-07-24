@@ -1,0 +1,276 @@
+BL51 BANKED LINKER/LOCATER V6.22                                                        02/12/2022  10:17:00  PAGE 1
+
+
+BL51 BANKED LINKER/LOCATER V6.22, INVOKED BY:
+C:\KEIL\C51\BIN\BL51.EXE led7ThanhTu00Den99.obj TO led7ThanhTu00Den99 RAMSIZE (256)
+
+
+MEMORY MODEL: SMALL
+
+
+INPUT MODULES INCLUDED:
+  led7ThanhTu00Den99.obj (LED7THANHTU00DEN99)
+  C:\KEIL\C51\LIB\C51S.LIB (?C_STARTUP)
+  C:\KEIL\C51\LIB\C51S.LIB (?C?SIDIV)
+  C:\KEIL\C51\LIB\C51S.LIB (?C_INIT)
+  C:\KEIL\C51\LIB\C51S.LIB (?C?UIDIV)
+
+
+LINK MAP OF MODULE:  led7ThanhTu00Den99 (LED7THANHTU00DEN99)
+
+
+            TYPE    BASE      LENGTH    RELOCATION   SEGMENT NAME
+            -----------------------------------------------------
+
+            * * * * * * *   D A T A   M E M O R Y   * * * * * * *
+            REG     0000H     0008H     ABSOLUTE     "REG BANK 0"
+            DATA    0008H     0012H     UNIT         ?DT?LED7THANHTU00DEN99
+            DATA    001AH     0002H     UNIT         _DATA_GROUP_
+            IDATA   001CH     0001H     UNIT         ?STACK
+
+            * * * * * * *   C O D E   M E M O R Y   * * * * * * *
+            CODE    0000H     0003H     ABSOLUTE     
+                    0003H     07FDH                  *** GAP ***
+            CODE    0800H     008CH     UNIT         ?C_C51STARTUP
+            CODE    088CH     008BH     UNIT         ?C?LIB_CODE
+            CODE    0917H     0070H     UNIT         ?PR?DEMCHIAHET3VA5?LED7THANHTU00DEN99
+            CODE    0987H     006BH     UNIT         ?PR?DEMNGUYENTO?LED7THANHTU00DEN99
+            CODE    09F2H     0064H     UNIT         ?PR?DEMLE?LED7THANHTU00DEN99
+            CODE    0A56H     0062H     UNIT         ?PR?DEMCHIAHET3?LED7THANHTU00DEN99
+            CODE    0AB8H     0054H     UNIT         ?PR?DEM00TOI99?LED7THANHTU00DEN99
+            CODE    0B0CH     0053H     UNIT         ?PR?DEM99VE00?LED7THANHTU00DEN99
+            CODE    0B5FH     002CH     UNIT         ?PR?_DELAY?LED7THANHTU00DEN99
+            CODE    0B8BH     000DH     UNIT         ?C_INITSEG
+            CODE    0B98H     000CH     UNIT         ?PR?MAIN?LED7THANHTU00DEN99
+
+
+
+OVERLAY MAP OF MODULE:   led7ThanhTu00Den99 (LED7THANHTU00DEN99)
+
+
+SEGMENT                                         DATA_GROUP 
+  +--> CALLED SEGMENT                         START    LENGTH
+-------------------------------------------------------------
+?C_C51STARTUP                                 -----    -----
+  +--> ?PR?MAIN?LED7THANHTU00DEN99
+  +--> ?C_INITSEG
+
+?PR?MAIN?LED7THANHTU00DEN99                   -----    -----
+  +--> ?PR?DEMNGUYENTO?LED7THANHTU00DEN99
+  +--> ?PR?_DELAY?LED7THANHTU00DEN99
+
+BL51 BANKED LINKER/LOCATER V6.22                                                      02/12/2022  10:17:00  PAGE 2
+
+
+?PR?DEMNGUYENTO?LED7THANHTU00DEN99            001AH    0002H
+  +--> ?PR?_DELAY?LED7THANHTU00DEN99
+
+
+
+SYMBOL TABLE OF MODULE:  led7ThanhTu00Den99 (LED7THANHTU00DEN99)
+
+  VALUE           TYPE          NAME
+  ----------------------------------
+
+  -------         MODULE        LED7THANHTU00DEN99
+  C:0000H         SYMBOL        _ICE_DUMMY_
+  D:00A0H         PUBLIC        P2
+  D:0008H         PUBLIC        donVi
+  C:0A56H         PUBLIC        demChiaHet3
+  C:0B80H         PUBLIC        _delay
+  B:00B0H.0       PUBLIC        P3_0
+  B:00B0H.1       PUBLIC        P3_1
+  D:000AH         PUBLIC        chuc
+  C:0B98H         PUBLIC        main
+  C:0AB8H         PUBLIC        dem00Toi99
+  C:0B0CH         PUBLIC        dem99Ve00
+  D:000CH         PUBLIC        so
+  D:0016H         PUBLIC        i
+  C:09F2H         PUBLIC        demLe
+  D:0018H         PUBLIC        j
+  C:0917H         PUBLIC        demChiaHet3Va5
+  C:0987H         PUBLIC        demNguyenTo
+  C:0B5FH         SYMBOL        L?0068
+  C:0B7CH         SYMBOL        L?0069
+  -------         PROC          L?0067
+  -------         ENDPROC       L?0067
+  C:0B5FH         SYMBOL        L?0068
+  C:0B7CH         SYMBOL        L?0069
+  -------         PROC          _DELAY
+  D:0006H         SYMBOL        time
+  C:0B80H         LINE#         24
+  C:0B80H         LINE#         25
+  C:0B8AH         LINE#         26
+  -------         ENDPROC       _DELAY
+  -------         PROC          DEM00TOI99
+  C:0AB8H         LINE#         29
+  C:0AB8H         LINE#         30
+  C:0ABDH         LINE#         32
+  C:0ACCH         LINE#         33
+  C:0ADBH         LINE#         35
+  C:0AE0H         LINE#         37
+  C:0AE0H         LINE#         38
+  C:0AE0H         LINE#         39
+  C:0AE0H         LINE#         40
+  C:0AE0H         LINE#         43
+  C:0AE0H         LINE#         44
+  C:0AE0H         LINE#         45
+  C:0AE3H         LINE#         46
+  C:0AE5H         LINE#         47
+  C:0AF8H         LINE#         48
+  C:0B0BH         LINE#         49
+BL51 BANKED LINKER/LOCATER V6.22                                                      02/12/2022  10:17:00  PAGE 3
+
+
+  -------         ENDPROC       DEM00TOI99
+  -------         PROC          DEM99VE00
+  C:0B0CH         LINE#         52
+  C:0B0CH         LINE#         53
+  C:0B12H         LINE#         55
+  C:0B21H         LINE#         56
+  C:0B30H         LINE#         58
+  C:0B35H         LINE#         60
+  C:0B35H         LINE#         61
+  C:0B35H         LINE#         62
+  C:0B35H         LINE#         63
+  C:0B35H         LINE#         66
+  C:0B35H         LINE#         67
+  C:0B35H         LINE#         68
+  C:0B38H         LINE#         69
+  C:0B3AH         LINE#         70
+  C:0B4DH         LINE#         71
+  C:0B5EH         LINE#         72
+  -------         ENDPROC       DEM99VE00
+  -------         PROC          DEMLE
+  C:09F2H         LINE#         75
+  C:09F2H         LINE#         76
+  C:09F7H         LINE#         78
+  C:0A06H         LINE#         79
+  C:0A15H         LINE#         80
+  C:0A26H         LINE#         82
+  C:0A2AH         LINE#         84
+  C:0A2AH         LINE#         85
+  C:0A2AH         LINE#         86
+  C:0A2AH         LINE#         87
+  C:0A2AH         LINE#         90
+  C:0A2AH         LINE#         91
+  C:0A2AH         LINE#         92
+  C:0A2DH         LINE#         93
+  C:0A2FH         LINE#         94
+  C:0A42H         LINE#         95
+  C:0A42H         LINE#         96
+  C:0A55H         LINE#         97
+  -------         ENDPROC       DEMLE
+  -------         PROC          DEMNGUYENTO
+  -------         DO            
+  D:0082H         SYMBOL        a
+  D:0002H         SYMBOL        i
+  D:001AH         SYMBOL        dem
+  -------         ENDDO         
+  C:0987H         LINE#         100
+  C:0987H         LINE#         103
+  C:098BH         LINE#         105
+  C:0990H         LINE#         106
+  C:09A2H         LINE#         107
+  C:09B1H         LINE#         108
+  C:09B9H         LINE#         109
+  C:09B9H         LINE#         110
+  C:09BCH         LINE#         111
+  C:09C4H         LINE#         113
+  C:09D2H         LINE#         114
+  C:09E1H         LINE#         118
+BL51 BANKED LINKER/LOCATER V6.22                                                      02/12/2022  10:17:00  PAGE 4
+
+
+  C:09E1H         LINE#         119
+  C:09E1H         LINE#         120
+  C:09E1H         LINE#         121
+  C:09E1H         LINE#         124
+  C:09E1H         LINE#         125
+  C:09E1H         LINE#         126
+  C:09E4H         LINE#         127
+  C:09E6H         LINE#         129
+  C:09E6H         LINE#         130
+  C:09F1H         LINE#         131
+  -------         ENDPROC       DEMNGUYENTO
+  -------         PROC          DEMCHIAHET3
+  C:0A56H         LINE#         134
+  C:0A56H         LINE#         135
+  C:0A5BH         LINE#         137
+  C:0A6AH         LINE#         138
+  C:0A79H         LINE#         139
+  C:0A88H         LINE#         141
+  C:0A8CH         LINE#         143
+  C:0A8CH         LINE#         144
+  C:0A8CH         LINE#         145
+  C:0A8CH         LINE#         146
+  C:0A8CH         LINE#         149
+  C:0A8CH         LINE#         150
+  C:0A8CH         LINE#         151
+  C:0A8FH         LINE#         152
+  C:0A91H         LINE#         153
+  C:0AA4H         LINE#         154
+  C:0AA4H         LINE#         155
+  C:0AB7H         LINE#         156
+  -------         ENDPROC       DEMCHIAHET3
+  -------         PROC          DEMCHIAHET3VA5
+  C:0917H         LINE#         159
+  C:0917H         LINE#         160
+  C:091CH         LINE#         162
+  C:092BH         LINE#         163
+  C:093AH         LINE#         164
+  C:0957H         LINE#         166
+  C:095BH         LINE#         168
+  C:095BH         LINE#         169
+  C:095BH         LINE#         170
+  C:095BH         LINE#         171
+  C:095BH         LINE#         174
+  C:095BH         LINE#         175
+  C:095BH         LINE#         176
+  C:095EH         LINE#         177
+  C:0960H         LINE#         178
+  C:0973H         LINE#         179
+  C:0973H         LINE#         180
+  C:0986H         LINE#         181
+  -------         ENDPROC       DEMCHIAHET3VA5
+  -------         PROC          MAIN
+  C:0B98H         LINE#         184
+  C:0B98H         LINE#         185
+  C:0B9CH         LINE#         187
+  C:0B9CH         LINE#         199
+  C:0BA2H         LINE#         200
+BL51 BANKED LINKER/LOCATER V6.22                                                      02/12/2022  10:17:00  PAGE 5
+
+
+  -------         ENDPROC       MAIN
+  -------         ENDMOD        LED7THANHTU00DEN99
+
+  -------         MODULE        ?C?SIDIV
+  C:088CH         PUBLIC        ?C?SIDIV
+  -------         ENDMOD        ?C?SIDIV
+
+  -------         MODULE        ?C?UIDIV
+  C:08C2H         PUBLIC        ?C?UIDIV
+  -------         ENDMOD        ?C?UIDIV
+
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?DEM00TOI99?LED7THANHTU00DEN99
+
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?DEM99VE00?LED7THANHTU00DEN99
+
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?DEMLE?LED7THANHTU00DEN99
+
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?DEMCHIAHET3?LED7THANHTU00DEN99
+
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?DEMCHIAHET3VA5?LED7THANHTU00DEN99
+
+******************************************************************************
+* RESTRICTED VERSION WITH 0800H BYTE CODE SIZE LIMIT; USED: 028CH BYTE (31%) *
+******************************************************************************
+
+Program Size: data=29.0 xdata=0 code=935
+LINK/LOCATE RUN COMPLETE.  5 WARNING(S),  0 ERROR(S)

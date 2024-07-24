@@ -1,0 +1,101 @@
+BL51 BANKED LINKER/LOCATER V6.22                                                        01/17/2022  14:13:56  PAGE 1
+
+
+BL51 BANKED LINKER/LOCATER V6.22, INVOKED BY:
+C:\KEIL\C51\BIN\BL51.EXE DieuKhien1LedDon.obj TO DieuKhien1LedDon RAMSIZE (256)
+
+
+MEMORY MODEL: SMALL
+
+
+INPUT MODULES INCLUDED:
+  DieuKhien1LedDon.obj (DIEUKHIEN1LEDDON)
+  C:\KEIL\C51\LIB\C51S.LIB (?C_STARTUP)
+
+
+LINK MAP OF MODULE:  DieuKhien1LedDon (DIEUKHIEN1LEDDON)
+
+
+            TYPE    BASE      LENGTH    RELOCATION   SEGMENT NAME
+            -----------------------------------------------------
+
+            * * * * * * *   D A T A   M E M O R Y   * * * * * * *
+            REG     0000H     0008H     ABSOLUTE     "REG BANK 0"
+            IDATA   0008H     0001H     UNIT         ?STACK
+
+            * * * * * * *   C O D E   M E M O R Y   * * * * * * *
+            CODE    0000H     0003H     ABSOLUTE     
+                    0003H     07FDH                  *** GAP ***
+            CODE    0800H     0018H     UNIT         ?PR?_DELAY1?DIEUKHIEN1LEDDON
+            CODE    0818H     0012H     UNIT         ?PR?MAIN?DIEUKHIEN1LEDDON
+            CODE    082AH     000CH     UNIT         ?C_C51STARTUP
+            CODE    0836H     000BH     UNIT         ?PR?_DELAY?DIEUKHIEN1LEDDON
+
+
+
+OVERLAY MAP OF MODULE:   DieuKhien1LedDon (DIEUKHIEN1LEDDON)
+
+
+SEGMENT
+  +--> CALLED SEGMENT
+---------------------
+?C_C51STARTUP
+  +--> ?PR?MAIN?DIEUKHIEN1LEDDON
+
+?PR?MAIN?DIEUKHIEN1LEDDON
+  +--> ?PR?_DELAY1?DIEUKHIEN1LEDDON
+
+
+
+SYMBOL TABLE OF MODULE:  DieuKhien1LedDon (DIEUKHIEN1LEDDON)
+
+  VALUE           TYPE          NAME
+  ----------------------------------
+
+  -------         MODULE        DIEUKHIEN1LEDDON
+  C:0000H         SYMBOL        _ICE_DUMMY_
+  D:0090H         PUBLIC        P1
+  C:0836H         PUBLIC        _delay
+  B:0090H.6       PUBLIC        Led
+  C:0818H         PUBLIC        main
+  C:0800H         PUBLIC        _delay1
+BL51 BANKED LINKER/LOCATER V6.22                                                      01/17/2022  14:13:56  PAGE 2
+
+
+  -------         PROC          _DELAY
+  D:0006H         SYMBOL        time
+  C:0836H         LINE#         7
+  C:0836H         LINE#         8
+  C:0840H         LINE#         9
+  -------         ENDPROC       _DELAY
+  -------         PROC          _DELAY1
+  D:0006H         SYMBOL        time
+  -------         DO            
+  D:0004H         SYMBOL        i
+  -------         ENDDO         
+  C:0800H         LINE#         10
+  C:0800H         LINE#         12
+  C:0810H         LINE#         14
+  C:0817H         LINE#         15
+  -------         ENDPROC       _DELAY1
+  -------         PROC          MAIN
+  C:0818H         LINE#         17
+  C:0818H         LINE#         18
+  C:081AH         LINE#         19
+  C:081AH         LINE#         20
+  C:081CH         LINE#         21
+  C:0823H         LINE#         22
+  C:0825H         LINE#         23
+  C:0828H         LINE#         24
+  -------         ENDPROC       MAIN
+  -------         ENDMOD        DIEUKHIEN1LEDDON
+
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?_DELAY?DIEUKHIEN1LEDDON
+
+******************************************************************************
+* RESTRICTED VERSION WITH 0800H BYTE CODE SIZE LIMIT; USED: 0035H BYTE ( 2%) *
+******************************************************************************
+
+Program Size: data=9.0 xdata=0 code=68
+LINK/LOCATE RUN COMPLETE.  1 WARNING(S),  0 ERROR(S)

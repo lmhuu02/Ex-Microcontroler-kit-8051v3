@@ -1,0 +1,162 @@
+C51 COMPILER V9.52.0.0   24C08                                                             02/20/2023 06:22:22 PAGE 1   
+
+
+C51 COMPILER V9.52.0.0, COMPILATION OF MODULE 24C08
+OBJECT MODULE PLACED IN 24c08.obj
+COMPILER INVOKED BY: C:\Keil_v5\C51\BIN\C51.EXE EPP_24C08\24c08.c OPTIMIZE(8,SPEED) BROWSE DEBUG OBJECTEXTEND PRINT(.\24
+                    -c08.lst) TABS(2) OBJECT(24c08.obj)
+
+line level    source
+
+   1          #include "24c08.h"
+   2          
+   3          /////////////////////////////////////////////////
+   4          //ham su dung cho i2c
+   5          void AT24CXX_I2C_Delay(unsigned int time)
+   6          {
+   7   1         while(time)
+   8   1         time--;
+   9   1      }
+  10          void AT24CXX_i2c_init()
+  11          {
+  12   1         AT24CXX_SCL=1;
+  13   1         I2C_Delay(AT24CXX_I2C_DELAY);
+  14   1         AT24CXX_SDA=1;
+  15   1         I2C_Delay(AT24CXX_I2C_DELAY);
+  16   1      }
+  17          void AT24CXX_I2C_Start()
+  18          {
+  19   1           AT24CXX_SDA=1; 
+  20   1           AT24CXX_SCL=1; 
+  21   1           AT24CXX_I2C_Delay(AT24CXX_I2C_DELAY);
+  22   1           AT24CXX_SDA=0; 
+  23   1           AT24CXX_I2C_Delay(AT24CXX_I2C_DELAY);
+  24   1           AT24CXX_SCL=0;
+  25   1           AT24CXX_I2C_Delay(AT24CXX_I2C_DELAY);
+  26   1      }
+  27          void AT24CXX_I2C_Stop()
+  28          {   
+  29   1           AT24CXX_SDA=0;
+  30   1           AT24CXX_SCL=1;
+  31   1           AT24CXX_I2C_Delay(AT24CXX_I2C_DELAY);
+  32   1           AT24CXX_SDA=1;
+  33   1           AT24CXX_I2C_Delay(AT24CXX_I2C_DELAY);
+  34   1           AT24CXX_SCL=0;
+  35   1           AT24CXX_I2C_Delay(AT24CXX_I2C_DELAY);
+  36   1      }
+  37          unsigned char AT24CXX_i2c_checkack(void)
+  38          {
+  39   1         unsigned char ack=0;
+  40   1           AT24CXX_SDA=1;
+  41   1           AT24CXX_SCL=1;
+  42   1           I2C_Delay(AT24CXX_I2C_DELAY/2);
+  43   1           ack=AT24CXX_SDA;
+  44   1           I2C_Delay(AT24CXX_I2C_DELAY/2);
+  45   1           AT24CXX_SCL=0;
+  46   1           AT24CXX_I2C_Delay(AT24CXX_I2C_DELAY);
+  47   1           if(ack==1) return 0; 
+  48   1           return 1;
+  49   1      }
+  50          void AT24CXX_i2c_write(unsigned char Data)
+  51          {
+  52   1      unsigned char i;
+  53   1           for(i=0;i<8;i++)
+  54   1          {
+C51 COMPILER V9.52.0.0   24C08                                                             02/20/2023 06:22:22 PAGE 2   
+
+  55   2            AT24CXX_SDA=((Data<<i)&0x80);
+  56   2            AT24CXX_SCL=1;
+  57   2            AT24CXX_I2C_Delay(AT24CXX_I2C_DELAY);
+  58   2            AT24CXX_SCL=0;
+  59   2            AT24CXX_I2C_Delay(AT24CXX_I2C_DELAY);
+  60   2         }
+  61   1      }
+  62          unsigned char AT24CXX_i2c_read(void)
+  63          {
+  64   1           unsigned char I2C_data=0,i,temp;
+  65   1           for(i=0;i<8;i++)
+  66   1          {
+  67   2               AT24CXX_SDA=1;    
+  68   2               AT24CXX_SCL=1;    
+  69   2               AT24CXX_I2C_Delay(120);
+  70   2               temp=AT24CXX_SDA;
+  71   2               AT24CXX_I2C_Delay(120);
+  72   2               AT24CXX_SCL=0;
+  73   2               if(temp==1)
+  74   2                {
+  75   3                  I2C_data=I2C_data<<1;
+  76   3                  I2C_data=I2C_data|0x01;
+  77   3                }
+  78   2               else
+  79   2                 I2C_data=I2C_data<<1;
+  80   2          }
+  81   1          return I2C_data;
+  82   1      }
+  83          /////////////////////////////////////////////////
+  84          void EEP_24CXX_Init()
+  85          {
+  86   1        AT24CXX_i2c_init();
+  87   1      }
+  88          unsigned char EEP_24CXX_Read(unsigned char address)
+  89          {
+  90   1          bit AckTemp=1;
+  91   1          unsigned char Data;
+  92   1          AT24CXX_I2C_Start();
+  93   1          AT24CXX_i2c_write(0xa0);
+  94   1          AckTemp=AT24CXX_i2c_checkack();
+  95   1          AT24CXX_i2c_write(address);
+  96   1          AckTemp=AT24CXX_i2c_checkack();
+  97   1          AT24CXX_I2C_Start();
+  98   1          AT24CXX_i2c_write(0xa1);
+  99   1          AckTemp=AT24CXX_i2c_checkack();
+ 100   1          Data=AT24CXX_i2c_read();
+ 101   1          AckTemp=AT24CXX_i2c_checkack();
+ 102   1          AT24CXX_I2C_Stop();
+ 103   1          return Data;
+ 104   1      }
+ 105          void EEP_24CXX_Write(unsigned char address,unsigned char Data)
+ 106          {
+ 107   1          bit AckTemp=1;
+ 108   1          AT24CXX_I2C_Start();
+ 109   1          AT24CXX_i2c_write(0xa0);
+ 110   1          AckTemp=AT24CXX_i2c_checkack();
+ 111   1          AT24CXX_i2c_write(address);                   
+ 112   1          AckTemp=AT24CXX_i2c_checkack();
+ 113   1          AT24CXX_i2c_write(Data);                 
+ 114   1          AckTemp=AT24CXX_i2c_checkack();
+ 115   1          AT24CXX_I2C_Stop();
+ 116   1      }
+C51 COMPILER V9.52.0.0   24C08                                                             02/20/2023 06:22:22 PAGE 3   
+
+ 117          void EEP_24CXX_WriteS(unsigned char address,unsigned char*s)
+ 118          {
+ 119   1        while(*s)
+ 120   1        {
+ 121   2          EEP_24CXX_Write(address++,*s);
+ 122   2          s++;
+ 123   2        }
+ 124   1      }
+ 125          void EEPROM_24CXX_ReadS(unsigned char address, unsigned char lenght, unsigned char *s)
+ 126          {
+ 127   1        unsigned char i=0;
+ 128   1        while(lenght)
+ 129   1        {
+ 130   2          s[i++]=EEP_24CXX_Read(address++);
+ 131   2          lenght--;
+ 132   2        }
+ 133   1        s[++i]=0;
+ 134   1      }
+
+
+MODULE INFORMATION:   STATIC OVERLAYABLE
+   CODE SIZE        =    416    ----
+   CONSTANT SIZE    =   ----    ----
+   XDATA SIZE       =   ----    ----
+   PDATA SIZE       =   ----    ----
+   DATA SIZE        =   ----      15
+   IDATA SIZE       =   ----    ----
+   BIT SIZE         =   ----       2
+END OF MODULE INFORMATION.
+
+
+C51 COMPILATION COMPLETE.  0 WARNING(S),  0 ERROR(S)

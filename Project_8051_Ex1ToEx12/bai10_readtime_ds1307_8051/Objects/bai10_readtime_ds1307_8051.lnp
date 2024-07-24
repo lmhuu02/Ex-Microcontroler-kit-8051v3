@@ -1,0 +1,3 @@
+".\Objects\bai10_readtime_ds1307_8051.obj" 
+TO ".\Objects\bai10_readtime_ds1307_8051" 
+PRINT(".\Listings\bai10_readtime_ds1307_8051.m51") RAMSIZE(256) 

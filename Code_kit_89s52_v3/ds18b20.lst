@@ -1,0 +1,122 @@
+C51 COMPILER V9.52.0.0   DS18B20                                                           02/20/2023 06:22:22 PAGE 1   
+
+
+C51 COMPILER V9.52.0.0, COMPILATION OF MODULE DS18B20
+OBJECT MODULE PLACED IN ds18b20.obj
+COMPILER INVOKED BY: C:\Keil_v5\C51\BIN\C51.EXE DS1820\ds18b20.c OPTIMIZE(8,SPEED) BROWSE DEBUG OBJECTEXTEND PRINT(.\ds1
+                    -8b20.lst) TABS(2) OBJECT(ds18b20.obj)
+
+line level    source
+
+   1          /**
+   2            ******************************************************************************
+   3            * Ten Tep   :     ds18b20.c
+   4            * Tac Gia   :     LE ANH QUANG
+   5            * Cong Ty   :     MinhHaGroup
+   6            * Website   :     MinhHaGroup.com
+   7            * Phien Ban :     V1.0.0
+   8            * Ngay      :     20-09-2012
+   9            * Tom Tat   :     Dinh nghia cac ham xu ly DS18b20
+  10            *           
+  11            *
+  12            ******************************************************************************
+  13            * Chu Y   :
+  14            *              
+  15            ******************************************************************************
+  16            */
+  17            
+  18          #include <main.h>
+  19          
+  20          static bit presence;
+  21          //-------------------------------------------------
+  22          // Ham khoi tao DS18b20
+  23          //-------------------------------------------------
+  24          bit DS18B20_Init()
+  25          {
+  26   1           DQ = 1 ;      
+  27   1           delay_us(8);   
+  28   1           DQ = 0 ;     
+  29   1           delay_us(90) ;   
+  30   1           DQ = 1 ;       
+  31   1           delay_us(8) ;
+  32   1           presence = DQ ;    
+  33   1           delay_us(100) ;
+  34   1           DQ = 1 ;
+  35   1           return(presence) ; 
+  36   1      }
+  37          
+  38          //-------------------------------------------------
+  39          // Ham doc 1 byte tu DS18b20 ra ngoai
+  40          //-------------------------------------------------
+  41          unsigned char ds18b20_readbyte(void)
+  42          {
+  43   1      unsigned char i = 0 ;
+  44   1      unsigned char Data = 0 ;
+  45   1      for (i = 8 ; i > 0 ; i--)
+  46   1        {
+  47   2          DQ = 0 ;
+  48   2          Data >>= 1 ;
+  49   2          DQ = 1 ; 
+  50   2          if(DQ)
+  51   2           Data |= 0x80 ;
+  52   2          delay_us(4) ;
+  53   2        }
+  54   1        return (Data) ;
+C51 COMPILER V9.52.0.0   DS18B20                                                           02/20/2023 06:22:22 PAGE 2   
+
+  55   1      }
+  56          
+  57          //-------------------------------------------------
+  58          // Ham viet 1 byte vao DS18b20
+  59          //-------------------------------------------------
+  60          void ds18b20_writebyte(unsigned char Data)
+  61          {
+  62   1        unsigned char i = 0 ;
+  63   1        for (i = 8 ; i > 0 ; i--)
+  64   1        {
+  65   2          DQ = 0 ;
+  66   2          DQ = Data&0x01 ;
+  67   2          delay_us(5) ;
+  68   2          DQ = 1 ;
+  69   2          Data>>=1 ;
+  70   2        }
+  71   1      }
+  72          
+  73          //-------------------------------------------------
+  74          // Ham chuyen doi va tra ve gia tri nhiet do do duoc
+  75          //-------------------------------------------------
+  76          float ds18b20_readtemp(void)
+  77          {
+  78   1            float temp;
+  79   1            unsigned char a,b;
+  80   1            DS18B20_Init();                   // Khoi tao DS18b20
+  81   1            ds18b20_writebyte(0xCC) ;         // Cho phep VDK truy cap thang den cac lenh bo nho cua DS18b20
+  82   1            ds18b20_writebyte(0x44) ;         // Khoi dong qua trinh do va chuyen doi nhiet do ra so nhi phan
+  83   1            DS18B20_Init() ;
+  84   1            ds18b20_writebyte(0xCC) ;  
+  85   1            ds18b20_writebyte(0xBE) ;         // Cho phep doc du lieu tu bo nho DS18b20 ra ngoai
+  86   1        
+  87   1            a = ds18b20_readbyte(); 
+  88   1            temp=((float)(a&0x0f))/16;        // Lay phan thuc cua gia tri nhiet do
+  89   1            b = ds18b20_readbyte();         
+  90   1            a =((a&0xf0)>>4)|((b&0x0f)<<4) ;  // Lay phan nguyen cua gia tri nhiet do
+  91   1            temp=temp+a;
+  92   1            return temp;                      // Tra ve gia tri nhiet do
+  93   1      }
+  94          
+  95          // ------------------END OF FILE--------------------
+  96          // -------------------------------------------------
+
+
+MODULE INFORMATION:   STATIC OVERLAYABLE
+   CODE SIZE        =    246    ----
+   CONSTANT SIZE    =   ----    ----
+   XDATA SIZE       =   ----    ----
+   PDATA SIZE       =   ----    ----
+   DATA SIZE        =   ----       9
+   IDATA SIZE       =   ----    ----
+   BIT SIZE         =      1    ----
+END OF MODULE INFORMATION.
+
+
+C51 COMPILATION COMPLETE.  0 WARNING(S),  0 ERROR(S)

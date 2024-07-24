@@ -1,0 +1,36 @@
+#include "ds1307.h"
+
+unsigned char DS1307_get(unsigned char addr) 
+{
+	unsigned int temp,ret;	
+	I2C_start(); /* Start i2c bus */
+	I2C_write(DS1307_ID); /* Connect to DS1307 */
+	I2C_write(addr);	 /* Request RAM address on DS1307 */	
+	I2C_start();	 /* Start i2c bus */
+	I2C_write(DS1307_ID+1);	/* Connect to DS1307 for Read */
+	ret = I2C_read();	 /* Receive data */
+	I2C_stop();
+//*********************************************
+	temp = ret;	 /*BCD to HEX*/
+	ret = (((ret/16)*10)+ (temp & 0x0f));	 /*for Led 7seg*/
+//*********************************************	
+	return ret;	
+}
+
+
+void DS1307_Write(unsigned char addr,unsigned char dat)
+{
+	unsigned int temp;
+//**********************************************	 /*HEX to BCD*/
+	temp = dat ;	 /*for Led 7seg*/
+	dat = (((dat/10)*16)|(temp %10));
+//**********************************************	
+	I2C_start(); /* Start i2c bus */
+	I2C_write(DS1307_ID); /* Connect to DS1307 */
+	I2C_write(addr);	 /* Request RAM address on DS1307 */	
+	I2C_write(dat);	/* Connect to DS1307 for Read */
+	I2C_stop();
+}
+/************************************************** *********************/
+
+
